@@ -1,0 +1,771 @@
+[
+  {
+    "id": "a1",
+    "title": "Assignment 1 · Number Systems & Logic Gates",
+    "source": "assets/sources/EEE104_Assignment_1.pdf",
+    "note": "以下为依据原题独立推导的学习解答，非教师官方答案。图形题以原题 PDF 页面为准。",
+    "questions": [
+      {
+        "id": "a1-q1",
+        "title": "Q1 · 二进制位权",
+        "prompt": "Chapter 2, 6(e). Convert 10101₂ to decimal.",
+        "page": 3,
+        "solution": "<p>从右至左的整数位权为 1、2、4、8、16。只加上值为 1 的位。</p>\\[(10101)_2=1(2^4)+0(2^3)+1(2^2)+0(2^1)+1(2^0)=21_{10}\\]",
+        "hints": [
+          "涉及知识点：位权展开。",
+          "从右至左给整数位标2⁰、2¹、2²……。",
+          "本题为1的位在第4、2、0位。",
+          "点击“完整解答”核对逐步推导、最终结果和原题页码。"
+        ],
+        "image": "assets/assignments/a1-p3.png",
+        "pages": [
+          3
+        ]
+      },
+      {
+        "id": "a1-q2",
+        "title": "Q2 · 小数、位宽与计数",
+        "prompt": "7(a) Convert 110011.11₂ to decimal. 8(i) Highest decimal number represented by ten bits. 10(b) Binary sequence from 8 through 15.",
+        "page": 3,
+        "solution": "<h4>7(a)</h4>\\[110011.11_2=32+16+2+1+2^{-1}+2^{-2}=51.75\\]<h4>8(i)</h4><p>无符号十位全部为 1 时最大。</p>\\[2^{10}-1=1023\\]<h4>10(b)</h4><table><thead><tr><th>十进制</th><th>二进制</th></tr></thead><tbody><tr><td>8</td><td>1000</td></tr><tr><td>9</td><td>1001</td></tr><tr><td>10</td><td>1010</td></tr><tr><td>11</td><td>1011</td></tr><tr><td>12</td><td>1100</td></tr><tr><td>13</td><td>1101</td></tr><tr><td>14</td><td>1110</td></tr><tr><td>15</td><td>1111</td></tr></tbody></table>",
+        "hints": [
+          "涉及知识点：整数与小数位权。",
+          "小数第一位权为1/2；无符号n位最大值为2ⁿ−1。",
+          "先将110011的整数部分与.11的小数部分分开计算。",
+          "点击“完整解答”核对逐步推导、最终结果和原题页码。"
+        ],
+        "image": "assets/assignments/a1-p3.png",
+        "pages": [
+          3
+        ]
+      },
+      {
+        "id": "a1-q3",
+        "title": "Q3 · 十进制转二进制",
+        "prompt": "11(e) Convert 61 using sum of weights. 12(b) Convert 0.246 using sum of weights. 13(b) Convert 21 by repeated division by 2. 14(b) Convert 0.347 by repeated multiplication by 2.",
+        "page": 3,
+        "solution": "<h4>11(e)</h4>\\[61=32+16+8+4+1=(111101)_2\\]<h4>12(b)</h4><p>依次比较 2⁻¹、2⁻²……并减去不超过余数的位权。0.246 的最简分母 500 含因子 5，因此二进制不终止。</p>\\[0.246_{10}=0.0011111011111001\\ldots_2\\]<p>前 16 位所保留的位权为 2⁻³+2⁻⁴+2⁻⁵+2⁻⁶+2⁻⁷+2⁻⁹+2⁻¹⁰+2⁻¹¹+2⁻¹²+2⁻¹³+2⁻¹⁶。截断误差小于 2⁻¹⁶。</p><h4>13(b)</h4><table><thead><tr><th>被除数</th><th>商</th><th>余数</th></tr></thead><tbody><tr><td>21</td><td>10</td><td>1</td></tr><tr><td>10</td><td>5</td><td>0</td></tr><tr><td>5</td><td>2</td><td>1</td></tr><tr><td>2</td><td>1</td><td>0</td></tr><tr><td>1</td><td>0</td><td>1</td></tr></tbody></table><p>余数自下向上读得 10101₂。</p><h4>14(b)</h4><table><thead><tr><th>步骤</th><th>乘 2 的结果</th><th>取整数位</th><th>保留小数</th></tr></thead><tbody><tr><td>1</td><td>0.694</td><td>0</td><td>0.694</td></tr><tr><td>2</td><td>1.388</td><td>1</td><td>0.388</td></tr><tr><td>3</td><td>0.776</td><td>0</td><td>0.776</td></tr><tr><td>4</td><td>1.552</td><td>1</td><td>0.552</td></tr><tr><td>5</td><td>1.104</td><td>1</td><td>0.104</td></tr><tr><td>6</td><td>0.208</td><td>0</td><td>0.208</td></tr><tr><td>7</td><td>0.416</td><td>0</td><td>0.416</td></tr><tr><td>8</td><td>0.832</td><td>0</td><td>0.832</td></tr><tr><td>9</td><td>1.664</td><td>1</td><td>0.664</td></tr><tr><td>10</td><td>1.328</td><td>1</td><td>0.328</td></tr><tr><td>11</td><td>0.656</td><td>0</td><td>0.656</td></tr><tr><td>12</td><td>1.312</td><td>1</td><td>0.312</td></tr><tr><td>13</td><td>0.624</td><td>0</td><td>0.624</td></tr><tr><td>14</td><td>1.248</td><td>1</td><td>0.248</td></tr><tr><td>15</td><td>0.496</td><td>0</td><td>0.496</td></tr><tr><td>16</td><td>0.992</td><td>0</td><td>0.992</td></tr></tbody></table>\\[0.347_{10}=0.0101100011010100\\ldots_2\\]<p>这是非终止展开，不能把有限前缀写成精确等号。</p><p><a href=\"assets/assignments/a1-p4.png\" target=\"_blank\" rel=\"noopener\">查看原题 PDF 第 4 页</a></p>",
+        "hints": [
+          "涉及知识点：二进制转换。",
+          "整数可反复除2；小数可反复乘2。",
+          "余数倒序读，乘2得到的整数位正序读；非终止小数保留省略号。",
+          "点击“完整解答”核对逐步推导、最终结果和原题页码。"
+        ],
+        "image": "assets/assignments/a1-p3.png",
+        "pages": [
+          3,
+          4
+        ]
+      },
+      {
+        "id": "a1-q4",
+        "title": "Q4 · 二进制四则运算",
+        "prompt": "15(d) 111+110. 16(d) 1110−11. 17(c) 111×101. 18(c) 1100÷100. All operands are binary.",
+        "page": 4,
+        "solution": "<h4>15(d)</h4><p>个位 1+0=1；第二位 1+1=10，写 0 进 1；第三位 1+1+1=11，写 1 进 1。</p>\\[111_2+110_2=1101_2\\quad(7+6=13)\\]<h4>16(d)</h4><p>补齐为 1110−0011，个位借位。</p>\\[1110_2-0011_2=1011_2\\quad(14-3=11)\\]<h4>17(c)</h4>\\[111_2\\times101_2=111_2+11100_2=100011_2\\quad(7\\times5=35)\\]<h4>18(c)</h4>\\[1100_2\\div100_2=11_2\\quad(12/4=3)\\]<p>余数 0。</p><h4>计算规则与逐位过程</h4><p>本题四项均为无符号二进制整数，未限定寄存器宽度，因此保留最高位进位。所有数值均为无量纲。加法从最低位开始，减法借一位相当于本位加 2。乘法的每一行由乘数的一位决定，移一位相当于乘 2。</p>\\[\\begin{array}{r}000111\\\\+011100\\\\\\hline100011\\end{array}\\]<p>17(c) 的乘数 101₂，从右至左为 1、0、1，所以三个部分积依次为 000111、000000、011100。相加得到 100011。</p><p>18(c) 从被除数 1100 的左端取 110，与除数 100 比较，可以减一次，得到 010；落下最后的 0 后为 100，再减一次，余数 000。两次商位均为 1，所以商为 11。</p>\\[1100_2=100_2\\times11_2+0\\]<p>16(d) 补位后做 1110−0011。最低位 0−1 向第二位借 1，得到 2−1=1；第二位由 1 变为 0，还需减 1，于是向第三位借 1，得到 2−1=1；第三位减去借出的 1 后为 0；最高位保持 1，故结果 1011。</p>",
+        "hints": [
+          "涉及知识点：二进制运算。",
+          "加法逢2进1，减法向高位借1等于本位加2。",
+          "乘数101只在第0和第2位为1，因此只需要两个非零部分积。",
+          "点击“完整解答”核对逐步推导、最终结果和原题页码。"
+        ],
+        "image": "assets/assignments/a1-p4.png",
+        "pages": [
+          4
+        ]
+      },
+      {
+        "id": "a1-q5",
+        "title": "Q5 · 8 位补码编码",
+        "prompt": "25(a) +12 and 25(d) −125, as 8-bit two’s complement.",
+        "page": 4,
+        "solution": "<h4>25(a)</h4>\\[+12=00001100_2\\]<h4>25(d)</h4><p>先写 +125=01111101，逐位反转得 10000010，再加 1。</p>\\[-125\\longleftrightarrow10000011_2\\]<p>检验 −128+2+1=−125。</p><h4>补码的位宽约定</h4><p>这里按题目使用 8 位 two’s complement，范围 −128…127。正数最高位为 0，其余位直接写绝对值；负数在 8 位范围内对绝对值逐位取反再加一。</p>\\[12=8+4=2^3+2^2\\Rightarrow00001100\\]\\[125=64+32+16+8+4+1\\Rightarrow01111101\\]\\[01111101\\xrightarrow{\\text{invert}}10000010\\xrightarrow{+1}10000011\\]<p>用带符号位权检验 −125。最高位权为 −128，后七位权分别为 64、32、16、8、4、2、1，因此 10000011 表示 −128+2+1=−125。</p>",
+        "hints": [
+          "涉及知识点：8位补码。",
+          "正数补前导0；负数先写正的绝对值，再逐位取反加1。",
+          "125的正数编码为01111101，取反后为10000010。",
+          "点击“完整解答”核对逐步推导、最终结果和原题页码。"
+        ],
+        "image": "assets/assignments/a1-p4.png",
+        "pages": [
+          4
+        ]
+      },
+      {
+        "id": "a1-q6",
+        "title": "Q6 · 补码解码",
+        "prompt": "28(a) 10011001 and 28(b) 01110100, interpreted as 8-bit two’s complement.",
+        "page": 4,
+        "solution": "<h4>28(a)</h4>\\[-128+16+8+1=-103\\]<p>也可把 10011001 取反加 1 得 01100111=103，因此原值 −103。</p><h4>28(b)</h4>\\[64+32+16+4=116\\]<h4>两种独立的解码检验</h4><p>8 位补码位权公式为 b₇(−128)+b₆64+b₅32+b₄16+b₃8+b₂4+b₁2+b₀。最高位 1 表示负数，不能当成普通 +128。</p>\\[10011001\\Rightarrow-128+0(64)+0(32)+1(16)+1(8)+0(4)+0(2)+1=-103\\]\\[01110100\\Rightarrow0(-128)+64+32+16+0(8)+4+0(2)+0(1)=116\\]<p>对于 10011001，可用另一条路径验证，按无符号数读为 153，再减 2⁸=256，得 −103；对于首位 0 的 01110100，不需要减 256。</p>",
+        "hints": [
+          "涉及知识点：补码解码。",
+          "最高位的权为−128，后七位为普通正位权。",
+          "10011001的非零位权是−128、16、8和1。",
+          "点击“完整解答”核对逐步推导、最终结果和原题页码。"
+        ],
+        "image": "assets/assignments/a1-p4.png",
+        "pages": [
+          4
+        ]
+      },
+      {
+        "id": "a1-q7",
+        "title": "Q7 · 补码加法",
+        "prompt": "31(a) 33+15. 31(b) 56+(−27). Convert operands and add using two’s complement.",
+        "page": 5,
+        "solution": "<h4>31(a)</h4>\\[00100001+00001111=00110000=48\\]<h4>31(b)</h4><p>+27=00011011，取反加一得 −27=11100101。</p>\\[00111000+11100101=1\\,00011101\\longrightarrow00011101=29\\]<p>丢弃第九位进位。异号相加无有符号溢出。</p><h4>编码、运算和溢出检查</h4><p>采用 8 位补码。33=32+1，编码为00100001；15=8+4+2+1，编码为00001111。最低位1+1产生进位，进位依次经过第1、2、3位，在第4位写入1，得到00110000。</p>\\[33+15=48\\in[-128,127]\\]<p>第二项先编码56=32+16+8=00111000，27=16+8+2+1=00011011。负27通过11100100+1变成11100101。相加后的九位原始结果是100011101。对于固定8位寄存器舍弃最左进位1，保留00011101，按位权16+8+4+1=29。</p><p>最高进位与有符号溢出不同。此题两操作数异号，所以不会发生有符号加法溢出，九位原始结果中的进位不表示错误。</p>",
+        "hints": [
+          "涉及知识点：补码加法。",
+          "先将所有操作数编码为相同位宽再相加。",
+          "−27来自00011011取反加1；最后丢弃第9位进位。",
+          "点击“完整解答”核对逐步推导、最终结果和原题页码。"
+        ],
+        "image": "assets/assignments/a1-p5.png",
+        "pages": [
+          5
+        ]
+      },
+      {
+        "id": "a1-q8",
+        "title": "Q8 · 补码与溢出",
+        "prompt": "32(b) 01110000+10101111. 33(b) 11011001+11100111.",
+        "page": 5,
+        "solution": "<h4>32(b)</h4>\\[112+(-81)=31,\\quad01110000+10101111=1\\,00011111\\]<p>8 位结果 00011111，无有符号溢出。</p><h4>33(b)</h4>\\[(-39)+(-25)=-64,\\quad11011001+11100111=1\\,11000000\\]<p>8 位结果 11000000，对应 −64。两个负数相加仍为负且在 −128…127 内，无溢出。</p><h4>先判断数值，再检查结果符号</h4><p>32(b) 中01110000=64+32+16=112。10101111最高位为1，取反得到01010000，加1为01010001=81，所以它表示−81。112−81=31，编码00011111。逐位相加产生的第九位进位应丢弃。</p><p>33(b) 中11011001取反加1为00100111=39，因此表示−39；11100111取反加1为00011001=25，因此表示−25。−39−25=−64，绝对值64的编码01000000取反加1为11000000。</p>\\[11011001+11100111=1\\,11000000\\]<p>两个负数相加仍然得到负数且数学值−64可表示，故无有符号溢出。验证结果11000000=−128+64=−64。</p>",
+        "hints": [
+          "涉及知识点：有符号溢出。",
+          "先解码操作数的符号与绝对值，再核对相加后符号。",
+          "同号操作数相加后符号改变才表示有符号加法溢出。",
+          "点击“完整解答”核对逐步推导、最终结果和原题页码。"
+        ],
+        "image": "assets/assignments/a1-p5.png",
+        "pages": [
+          5
+        ]
+      },
+      {
+        "id": "a1-q9",
+        "title": "Q9 · 补码减法",
+        "prompt": "34(a) 00110011−00010000. 34(b) 01101001−11101000.",
+        "page": 5,
+        "solution": "<h4>34(a)</h4><p>减去 16 等价于加 −16=11110000。</p>\\[00110011+11110000=1\\,00100011\\longrightarrow35\\]<h4>34(b)</h4><p>11101000=−24，因此原式为 105−(−24)=129。将被减数补码取反加一得到 +24。</p>\\[01101001+00011000=10000001\\]<p>数学答案 129 超出 8 位有符号范围，发生溢出。截断结果 10000001 会被解释为 −127；正确扩展至至少 9 位后为 010000001。</p><h4>将减法改成加法</h4><p>规则为 A−B=A+two’s-complement(B)，所有取反均限定在8位。34(a)的B=00010000，取反11101111，加1为11110000。A=00110011=51。相加得到1 00100011，丢弃最高进位后为00100011=32+2+1=35。</p>\\[51-16=35\\]<p>34(b) 的B=11101000，其补码取反加1为00010111+1=00011000，表示+24。因此操作实际是+105加+24，两正数却产生首位为1的10000001，这是有符号溢出的直接判据。</p>\\[0\\,01101001+0\\,00011000=0\\,10000001=129\\]<p>上式用9位运算，最高符号位为0，准确表示+129。直接读取8位的10000001只得到−127，不能作为原题的数学差值。</p>",
+        "hints": [
+          "涉及知识点：补码减法。",
+          "把A−B改成A加B的补码。",
+          "34(b)被减数是105，减数11101000代表负数。",
+          "点击“完整解答”核对逐步推导、最终结果和原题页码。"
+        ],
+        "image": "assets/assignments/a1-p5.png",
+        "pages": [
+          5
+        ]
+      },
+      {
+        "id": "a1-q10",
+        "title": "Q10 · 补码乘除",
+        "prompt": "35. Multiply 01101010 by 11110001 in two’s complement. 36. Divide 01000100 by 00011001 in two’s complement.",
+        "page": 5,
+        "solution": "<h4>35</h4><p>01101010=+106；11110001 取反加一为 00001111=15，故乘数为 −15。乘积需要扩展位宽。</p>\\[106\\times(-15)=-1590\\]<p>正的 1590 为 0000011000110110₂；取反加一得 16 位乘积 1111100111001010₂。</p><h4>36</h4>\\[01000100_2=68,\\quad00011001_2=25\\]\\[68=25\\times2+18\\]<p>整数商 00000010，余数 00010010，均为正。若要求非整数商，十进制精确值为 2.72。</p><h4>乘法的部分积与除法的余数</h4><p>35题选16位结果，是因为8位有符号数相乘可能需要16位，避免把乘积截断。先求绝对值106×15。15=8+4+2+1，四个部分积为106×8=848，106×4=424，106×2=212，106×1=106。</p>\\[848+424+212+106=1590\\]\\[\\begin{array}{r}0000000001101010\\\\0000000011010100\\\\0000000110101000\\\\+0000001101010000\\\\\\hline0000011000110110\\end{array}\\]<p>原操作数符号相异，乘积应为负。对16位正1590逐位取反得到1111100111001001，再加1得1111100111001010。检验该无符号编码63946减65536等于−1590。</p><p>36题中两操作数均为正，直接求68÷25。68−25=43，还可再减一次25得到18；18<25，不能继续减。因此商为2，余数为18。用二进制回乘，00011001×00000010=00110010(50)，再加00010010(18)=01000100(68)，恢复被除数。</p>",
+        "hints": [
+          "涉及知识点：补码乘除。",
+          "先用绝对值计算，再确定符号；乘积扩展为16位。",
+          "乘数11110001取反加1得到00001111；除法用被除数=除数×商+余数检验。",
+          "点击“完整解答”核对逐步推导、最终结果和原题页码。"
+        ],
+        "image": "assets/assignments/a1-p5.png",
+        "pages": [
+          5
+        ]
+      },
+      {
+        "id": "a1-q11",
+        "title": "Q11 · 十六进制转换",
+        "prompt": "37(d) 5C8₁₆→binary. 38(f) 100110000010₂→hex. 39(d) 8D₁₆→decimal. 40(e) 284₁₀→hex.",
+        "page": 5,
+        "solution": "<h4>37(d)</h4>\\[5C8_{16}=0101\\ 1100\\ 1000_2\\]<h4>38(f)</h4>\\[1001\\ 1000\\ 0010_2=982_{16}\\]<h4>39(d)</h4>\\[8D_{16}=8\\times16+13=141\\]<h4>40(e)</h4><p>284÷16=17 余 12(C)，17÷16=1 余 1，1÷16=0 余 1，自下向上读取。</p>\\[284_{10}=11C_{16}\\]<h4>按位权或四位分组操作</h4><p>37(d) 每个十六进制数字恰对应4位二进制。5=0101，C=12=1100，8=1000，连接为010111001000。前导0可省略，但保留便于看到分组。</p><p>38(f) 从右侧向左每4位分组，1001=9，1000=8，0010=2，故为982₁₆；检验9×256+8×16+2=2434，与原二进制相同。</p><p>39(d) 高位8的权为16，低位D的权为1且D=13，故8×16+13=141。40(e)连续除16并倒序读余数得到11C；再检验1×256+1×16+12=284。</p>",
+        "hints": [
+          "涉及知识点：十六进制位权。",
+          "每个十六进制数字对应四个二进制位。",
+          "将100110000010从右向左分成1001、1000、0010。",
+          "点击“完整解答”核对逐步推导、最终结果和原题页码。"
+        ],
+        "image": "assets/assignments/a1-p5.png",
+        "pages": [
+          5
+        ]
+      },
+      {
+        "id": "a1-q12",
+        "title": "Q12 · 十六进制运算",
+        "prompt": "41(b) A0+6B. 41(c) FF+BB. 42(a) 51−40. 42(b) C8−3A. All operands are hexadecimal.",
+        "page": 5,
+        "solution": "<h4>41(b)</h4><p>个位 0+B=B；高位 A+6=10₁₆，进位。</p>\\[A0+6B=10B_{16}\\]<h4>41(c)</h4><p>F+B=1A₁₆，写 A 进 1；F+B+1=1B₁₆。</p>\\[FF+BB=1BA_{16}\\]<h4>42(a)</h4>\\[51-40=11_{16}\\]<h4>42(b)</h4><p>个位借 16 后 18₁₆−A=E；高位 B−3=8。</p>\\[C8-3A=8E_{16}\\]<h4>进位和借位的基数是16</h4><p>41(b) A=10，B=11。低位0+11=11，写B；高位10+6=16，写0进1，得到10B。十进制检验160+107=267=1×256+0×16+11。</p><p>41(c) 低位15+11=26=1×16+10，写A进1；高位15+11+1=27=1×16+11，写B进1，结果1BA。检验255+187=442。</p><p>42(a) 低位1−0=1，高位5−4=1，结果11₁₆，等于17。42(b) 低位8不足以减A(10)，向高位C借1后高位成为B，低位成为8+16=24；24−10=14(E)，高位11−3=8，结果8E。检验200−58=142=8×16+14。</p>",
+        "hints": [
+          "涉及知识点：十六进制算术。",
+          "低位和达到16就进位；低位不足则借16。",
+          "C8−3A个位先借位，24−10写E，高位C变B。",
+          "点击“完整解答”核对逐步推导、最终结果和原题页码。"
+        ],
+        "image": "assets/assignments/a1-p5.png",
+        "pages": [
+          5
+        ]
+      },
+      {
+        "id": "a1-q13",
+        "title": "Q13 · BCD 编码与校正",
+        "prompt": "49(c) 132→BCD. 50(i) 100001110000 BCD→decimal. 53(e) 00100101+00100111 BCD. 53(g) 10011000+10010111 BCD.",
+        "page": 6,
+        "solution": "<h4>49(c)</h4>\\[132\\longleftrightarrow0001\\ 0011\\ 0010_{\\mathrm{BCD}}\\]<h4>50(i)</h4>\\[1000\\ 0111\\ 0000_{\\mathrm{BCD}}\\longleftrightarrow870\\]<h4>53(e)</h4><p>25+27。个位 0101+0111=1100(12)>9，加 0110 得 1 0010，向十位进 1；十位 2+2+1=5。</p>\\[0010\\,0101+0010\\,0111\\xrightarrow{\\mathrm{BCD\\ correction}}0101\\,0010\\quad(52)\\]<h4>53(g)</h4><p>98+97。个位 8+7=15，加 6 后为 1 0101；十位 9+9+1=19，二进制为 1 0011，有进位，校正低四位加 6 得 1001，保留百位进位 1。</p>\\[98+97=195\\longleftrightarrow0001\\ 1001\\ 0101_{\\mathrm{BCD}}\\]",
+        "hints": [
+          "涉及知识点：BCD校正。",
+          "每个十进制数字单独编码为4位，不能按普通二进制直接读整串。",
+          "每一位和大于9或产生进位时加0110，再向高十进制位进位。",
+          "点击“完整解答”核对逐步推导、最终结果和原题页码。"
+        ],
+        "image": "assets/assignments/a1-p6.png",
+        "pages": [
+          6
+        ]
+      },
+      {
+        "id": "a1-q14",
+        "title": "Q14 · 三输入 AND 时序",
+        "prompt": "Chapter 3, Problem 7. Apply Figure 3–78 input waveforms to a three-input AND gate and show output waveform.",
+        "page": 8,
+        "solution": "<p>按原图从左向右，将 C 的三个窄正脉冲依次标成 C₁、C₂、C₃。AND 要求 A、B、C 同时为 HIGH。</p><table><thead><tr><th>区间</th><th>A</th><th>B</th><th>C</th><th>X=ABC</th></tr></thead><tbody><tr><td>其余时刻</td><td>任意</td><td>任意</td><td>0</td><td>0</td></tr><tr><td>C₁ 脉冲</td><td>1</td><td>1</td><td>1</td><td>1</td></tr><tr><td>C₂ 脉冲</td><td>1</td><td>0</td><td>1</td><td>0</td></tr><tr><td>C₃ 脉冲</td><td>1</td><td>1</td><td>1</td><td>1</td></tr></tbody></table><p>因此 X 只复制 C₁ 和 C₃ 的窄脉冲，C₂ 被 B=0 屏蔽。理想门模型忽略传播延迟。</p><div class=\"formula\" style=\"overflow-x:auto\"><svg role=\"img\" aria-label=\"Figure 3–78 · AND output\" viewBox=\"0 0 780 245\" xmlns=\"http://www.w3.org/2000/svg\" style=\"width:100%;min-width:560px;background:#fff;color:#111\"><title>Figure 3–78 · AND output</title><text x=\"12\" y=\"20\" font-size=\"13\" fill=\"#111\">Figure 3–78 · AND output</text><text x=\"12\" y=\"55\" fill=\"#111\" font-size=\"15\">A</text><path d=\"M95.0,60 L187.5,60 L187.5,38 L284.2,38 L284.2,60 L376.7,60 L376.7,38 L473.3,38 L473.3,60 L561.6,60 L561.6,38 L662.5,38 L662.5,60 L755.0,60\" fill=\"none\" stroke=\"#111\" stroke-width=\"2.5\"/><text x=\"12\" y=\"105\" fill=\"#111\" font-size=\"15\">B</text><path d=\"M95.0,110 L137.0,110 L137.0,88 L330.4,88 L330.4,110 L519.6,110 L519.6,88 L704.6,88 L704.6,110 L755.0,110\" fill=\"none\" stroke=\"#111\" stroke-width=\"2.5\"/><text x=\"12\" y=\"155\" fill=\"#111\" font-size=\"15\">C</text><path d=\"M95.0,160 L216.9,160 L216.9,138 L258.9,138 L258.9,160 L401.9,160 L401.9,138 L443.9,138 L443.9,160 L595.3,160 L595.3,138 L633.1,138 L633.1,160 L755.0,160\" fill=\"none\" stroke=\"#111\" stroke-width=\"2.5\"/><text x=\"12\" y=\"205\" fill=\"#111\" font-size=\"15\">X</text><path d=\"M95.0,210 L216.9,210 L216.9,188 L258.9,188 L258.9,210 L595.3,210 L595.3,188 L633.1,188 L633.1,210 L755.0,210\" fill=\"none\" stroke=\"#111\" stroke-width=\"2.5\"/></svg></div><p>横轴按原图相对边沿绘制，无给定时间单位；理想传播延迟为零。</p>",
+        "hints": [
+          "涉及知识点：三输入AND。",
+          "仅在三个输入同时为1的交集区间输出1。",
+          "检查C的三个脉冲各自对应B是高还是低。",
+          "点击“完整解答”核对逐步推导、最终结果和原题页码。"
+        ],
+        "image": "assets/assignments/a1-p8.png",
+        "pages": [
+          8
+        ]
+      },
+      {
+        "id": "a1-q15",
+        "title": "Q15 · 三输入 OR 时序",
+        "prompt": "Chapter 3, Problem 10. Repeat Problem 7 for a three-input OR gate, Figure 3–78.",
+        "page": 8,
+        "solution": "<p>输出 X=A+B+C。从原图可见，每一个 C 高脉冲均落在 A 高脉冲内，所以本题 X=A+B。</p><table><thead><tr><th>从左到右的输出高区间</th><th>开始</th><th>结束</th></tr></thead><tbody><tr><td>第一段</td><td>B 第一次上升沿</td><td>B 第一次下降沿</td></tr><tr><td>第二段</td><td>A 第二次上升沿</td><td>A 第二次下降沿</td></tr><tr><td>第三段</td><td>B 第二次上升沿</td><td>B 第二次下降沿</td></tr></tbody></table><p>以上三段间隙和首尾均为 LOW。第二个 C 脉冲不会额外产生边沿，因为它发生在 A 已为 HIGH 的区间。</p><div class=\"formula\" style=\"overflow-x:auto\"><svg role=\"img\" aria-label=\"Figure 3–78 · OR output\" viewBox=\"0 0 780 245\" xmlns=\"http://www.w3.org/2000/svg\" style=\"width:100%;min-width:560px;background:#fff;color:#111\"><title>Figure 3–78 · OR output</title><text x=\"12\" y=\"20\" font-size=\"13\" fill=\"#111\">Figure 3–78 · OR output</text><text x=\"12\" y=\"55\" fill=\"#111\" font-size=\"15\">A</text><path d=\"M95.0,60 L187.5,60 L187.5,38 L284.2,38 L284.2,60 L376.7,60 L376.7,38 L473.3,38 L473.3,60 L561.6,60 L561.6,38 L662.5,38 L662.5,60 L755.0,60\" fill=\"none\" stroke=\"#111\" stroke-width=\"2.5\"/><text x=\"12\" y=\"105\" fill=\"#111\" font-size=\"15\">B</text><path d=\"M95.0,110 L137.0,110 L137.0,88 L330.4,88 L330.4,110 L519.6,110 L519.6,88 L704.6,88 L704.6,110 L755.0,110\" fill=\"none\" stroke=\"#111\" stroke-width=\"2.5\"/><text x=\"12\" y=\"155\" fill=\"#111\" font-size=\"15\">C</text><path d=\"M95.0,160 L216.9,160 L216.9,138 L258.9,138 L258.9,160 L401.9,160 L401.9,138 L443.9,138 L443.9,160 L595.3,160 L595.3,138 L633.1,138 L633.1,160 L755.0,160\" fill=\"none\" stroke=\"#111\" stroke-width=\"2.5\"/><text x=\"12\" y=\"205\" fill=\"#111\" font-size=\"15\">X</text><path d=\"M95.0,210 L137.0,210 L137.0,188 L330.4,188 L330.4,210 L376.7,210 L376.7,188 L473.3,188 L473.3,210 L519.6,210 L519.6,188 L704.6,188 L704.6,210 L755.0,210\" fill=\"none\" stroke=\"#111\" stroke-width=\"2.5\"/></svg></div><p>横轴按原图相对边沿绘制，无给定时间单位；理想传播延迟为零。</p>",
+        "hints": [
+          "涉及知识点：三输入OR。",
+          "任一输入为1即输出1，取三个高区间的并集。",
+          "图中C每个高脉冲都在A高区间内，因此只需合并A和B。",
+          "点击“完整解答”核对逐步推导、最终结果和原题页码。"
+        ],
+        "image": "assets/assignments/a1-p8.png",
+        "pages": [
+          8
+        ]
+      },
+      {
+        "id": "a1-q16",
+        "title": "Q16 · NAND 与负逻辑 OR 等价",
+        "prompt": "Chapter 3, Problem 18. Using Figure 3–84 waveforms, show that NAND and negative-OR symbols produce the same output.",
+        "page": 9,
+        "solution": "\\[X=\\overline{AB}=\\bar A+\\bar B\\]<table><thead><tr><th>A</th><th>B</th><th>NAND</th><th>负逻辑 OR</th></tr></thead><tbody><tr><td>0</td><td>0</td><td>1</td><td>1</td></tr><tr><td>0</td><td>1</td><td>1</td><td>1</td></tr><tr><td>1</td><td>0</td><td>1</td><td>1</td></tr><tr><td>1</td><td>1</td><td>0</td><td>0</td></tr></tbody></table><p>按图中每个重复周期，输入依次经历 10→11→01→00，因此输出依次 1→0→1→1。X 的三个低脉冲分别从 B 的各次上升沿开始，到对应 A 的下降沿结束。两个符号均给出相同波形。</p><div class=\"formula\" style=\"overflow-x:auto\"><svg role=\"img\" aria-label=\"Figure 3–84 · equivalent NAND / negative OR\" viewBox=\"0 0 780 195\" xmlns=\"http://www.w3.org/2000/svg\" style=\"width:100%;min-width:560px;background:#fff;color:#111\"><title>Figure 3–84 · equivalent NAND / negative OR</title><text x=\"12\" y=\"20\" font-size=\"13\" fill=\"#111\">Figure 3–84 · equivalent NAND / negative OR</text><text x=\"12\" y=\"55\" fill=\"#111\" font-size=\"15\">A</text><path d=\"M95.0,60 L119.9,60 L119.9,38 L232.0,38 L232.0,60 L344.1,60 L344.1,38 L452.0,38 L452.0,60 L564.1,60 L564.1,38 L676.1,38 L676.1,60 L755.0,60\" fill=\"none\" stroke=\"#111\" stroke-width=\"2.5\"/><text x=\"12\" y=\"105\" fill=\"#111\" font-size=\"15\">B</text><path d=\"M95.0,110 L178.0,110 L178.0,88 L285.9,88 L285.9,110 L398.0,110 L398.0,88 L505.9,88 L505.9,110 L618.0,110 L618.0,88 L730.1,88 L730.1,110 L755.0,110\" fill=\"none\" stroke=\"#111\" stroke-width=\"2.5\"/><text x=\"12\" y=\"155\" fill=\"#111\" font-size=\"15\">X</text><path d=\"M95.0,160 L95.0,160 L95.0,138 L178.0,138 L178.0,160 L232.0,160 L232.0,138 L398.0,138 L398.0,160 L452.0,160 L452.0,138 L618.0,138 L618.0,160 L676.1,160 L676.1,138 L755.0,138 L755.0,160 L755.0,160\" fill=\"none\" stroke=\"#111\" stroke-width=\"2.5\"/></svg></div><p>横轴按原图相对边沿绘制，无给定时间单位；理想传播延迟为零。</p>",
+        "hints": [
+          "涉及知识点：德摩根定理。",
+          "NAND为AB的整体补，负逻辑OR为两个输入各取反后OR。",
+          "只有A与B的高电平重叠区间输出低。",
+          "点击“完整解答”核对逐步推导、最终结果和原题页码。"
+        ],
+        "image": "assets/assignments/a1-p9.png",
+        "pages": [
+          9
+        ]
+      },
+      {
+        "id": "a1-q17",
+        "title": "Q17 · XOR 时序",
+        "prompt": "Chapter 3, Problem 26. Determine exclusive-OR output for Figure 3–77 and draw timing diagram.",
+        "page": 7,
+        "solution": "\\[X=A\\oplus B=\\bar A B+A\\bar B\\]<table><thead><tr><th>每个重复脉冲组的事件</th><th>A</th><th>B</th><th>X</th></tr></thead><tbody><tr><td>A 上升前</td><td>0</td><td>0</td><td>0</td></tr><tr><td>A 上升后、B 上升前</td><td>1</td><td>0</td><td>1</td></tr><tr><td>B 上升后、A 下降前</td><td>1</td><td>1</td><td>0</td></tr><tr><td>A 下降后、B 下降前</td><td>0</td><td>1</td><td>1</td></tr><tr><td>B 下降后</td><td>0</td><td>0</td><td>0</td></tr></tbody></table><p>原图有四组重叠脉冲，每组给两个分离的 HIGH 脉冲，共八个 HIGH 脉冲；两输入同时为 HIGH 的重叠部分输出为 LOW。</p><div class=\"formula\" style=\"overflow-x:auto\"><svg role=\"img\" aria-label=\"Figure 3–77 · XOR output\" viewBox=\"0 0 780 195\" xmlns=\"http://www.w3.org/2000/svg\" style=\"width:100%;min-width:560px;background:#fff;color:#111\"><title>Figure 3–77 · XOR output</title><text x=\"12\" y=\"20\" font-size=\"13\" fill=\"#111\">Figure 3–77 · XOR output</text><text x=\"12\" y=\"55\" fill=\"#111\" font-size=\"15\">A</text><path d=\"M95.0,60 L142.9,60 L142.9,38 L218.1,38 L218.1,60 L296.8,60 L296.8,38 L372.0,38 L372.0,60 L450.6,60 L450.6,38 L525.9,38 L525.9,60 L604.5,60 L604.5,38 L679.8,38 L679.8,60 L755.0,60\" fill=\"none\" stroke=\"#111\" stroke-width=\"2.5\"/><text x=\"12\" y=\"105\" fill=\"#111\" font-size=\"15\">B</text><path d=\"M95.0,110 L180.5,110 L180.5,88 L255.7,88 L255.7,110 L334.4,110 L334.4,88 L409.6,88 L409.6,110 L488.3,110 L488.3,88 L563.5,88 L563.5,110 L642.2,110 L642.2,88 L717.4,88 L717.4,110 L755.0,110\" fill=\"none\" stroke=\"#111\" stroke-width=\"2.5\"/><text x=\"12\" y=\"155\" fill=\"#111\" font-size=\"15\">X</text><path d=\"M95.0,160 L142.9,160 L142.9,138 L180.5,138 L180.5,160 L218.1,160 L218.1,138 L255.7,138 L255.7,160 L296.8,160 L296.8,138 L334.4,138 L334.4,160 L372.0,160 L372.0,138 L409.6,138 L409.6,160 L450.6,160 L450.6,138 L488.3,138 L488.3,160 L525.9,160 L525.9,138 L563.5,138 L563.5,160 L604.5,160 L604.5,138 L642.2,138 L642.2,160 L679.8,160 L679.8,138 L717.4,138 L717.4,160 L755.0,160\" fill=\"none\" stroke=\"#111\" stroke-width=\"2.5\"/></svg></div><p>横轴按原图相对边沿绘制，无给定时间单位；理想传播延迟为零。</p><p><a href=\"assets/assignments/a1-p9.png\" target=\"_blank\" rel=\"noopener\">查看原题 PDF 第 9 页</a></p>",
+        "hints": [
+          "涉及知识点：XOR。",
+          "输入不同为1，相同为0。",
+          "每组依次经历00、10、11、01、00，逐格应用XOR真值表。",
+          "点击“完整解答”核对逐步推导、最终结果和原题页码。"
+        ],
+        "image": "assets/assignments/a1-p7.png",
+        "pages": [
+          7,
+          9
+        ]
+      }
+    ]
+  },
+  {
+    "id": "a2",
+    "title": "Assignment 2 · Boolean Algebra, K-maps & Flip-flops",
+    "source": "assets/sources/EEE104_Assignment_2.pdf",
+    "note": "以下为依据原题独立推导的学习解答，非教师官方答案。波形按理想门延迟模型分析。",
+    "questions": [
+      {
+        "id": "a2-q1",
+        "title": "Q1 · 布尔运算与真值表",
+        "prompt": "Ch4 2. Expression that equals 1 only if A,B,C,D,E are all 1. 4(b) Evaluate 1+1+1. 5(b) Make A B̅ C equal 1. 5(d) Make Ā+B+C̅ equal 0. 6(c) Find all values of X=A B̅ C+AB.",
+        "page": 3,
+        "solution": "<h4>2</h4>\\[X=ABCDE\\]<h4>4(b)</h4>\\[1+1+1=1\\]<p>布尔加号表示 OR。</p><h4>5(b)</h4><p>乘积为 1 要求所有因子均为 1，因此 A=1、B=0、C=1。</p><h4>5(d)</h4><p>和为 0 要求所有因子为 0，因此 A=1、B=0、C=1。</p><h4>6(c)</h4>\\[X=A(\\bar BC+B)=A(B+C)\\]<table><thead><tr><th>A</th><th>B</th><th>C</th><th>X</th></tr></thead><tbody><tr><td>0</td><td>0</td><td>0</td><td>0</td></tr><tr><td>0</td><td>0</td><td>1</td><td>0</td></tr><tr><td>0</td><td>1</td><td>0</td><td>0</td></tr><tr><td>0</td><td>1</td><td>1</td><td>0</td></tr><tr><td>1</td><td>0</td><td>0</td><td>0</td></tr><tr><td>1</td><td>0</td><td>1</td><td>1</td></tr><tr><td>1</td><td>1</td><td>0</td><td>1</td></tr><tr><td>1</td><td>1</td><td>1</td><td>1</td></tr></tbody></table>",
+        "hints": [
+          "涉及知识点：布尔真值表。",
+          "AND要求全部1，OR只要有一个1。",
+          "6(c)可提取A，再用B+B̅C=B+C。",
+          "点击“完整解答”核对逐步推导、最终结果和原题页码。"
+        ],
+        "image": "assets/assignments/a2-p3.png",
+        "pages": [
+          3
+        ]
+      },
+      {
+        "id": "a2-q2",
+        "title": "Q2 · 布尔代数规则",
+        "prompt": "Ch4 8(b),8(d),8(e). Identify the Boolean rules supporting the equalities shown on source page.",
+        "page": 4,
+        "solution": "<h4>8(b)</h4>\\[A\\bar AB+AB\\bar C+AB\\bar B=0+AB\\bar C+0=AB\\bar C\\]<p>互补律 AĀ=0、B B̅=0；零元乘积为 0；恒等律 X+0=X。</p><h4>8(d)</h4>\\[AB(C+\\bar C)+AC=AB\\cdot1+AC=AB+AC\\]<p>互补律 C+C̅=1 与恒等律 X·1=X。</p><h4>8(e)</h4>\\[A\\bar B+A\\bar BC=A\\bar B(1+C)=A\\bar B\\]<p>分配律、支配律 1+C=1，也可直接用吸收律 X+XY=X。</p><h4>为什么这些律可以逐项使用</h4><p>布尔表达式中的加号是OR，乘积是AND。8(b)第一项含A与Ā，互补信号不可能同时为1，所以整个第一项为0；第三项含B与B̅，同理为0。中间项AB C̅保留，OR两个0不会改变它。8(d)中括号C+C̅无论C取0或1都等于1，所以先把括号替换为1，再用AND的单位元规则消去1。8(e)把X=A B̅代入X+XC=X(1+C)=X，从而说明C如何变化都不影响当X=1时已经置高的输出。</p>",
+        "hints": [
+          "涉及知识点：布尔代数定律。",
+          "优先寻找互补乘积、互补和、重复项与可吸收项。",
+          "8(b)的第一项含AĀ，第三项含BB̅，因此都为0。",
+          "点击“完整解答”核对逐步推导、最终结果和原题页码。"
+        ],
+        "image": "assets/assignments/a2-p4.png",
+        "pages": [
+          4
+        ]
+      },
+      {
+        "id": "a2-q3",
+        "title": "Q3 · 德摩根定理",
+        "prompt": "Ch4 9(b),9(e),10(b),10(e). Apply DeMorgan’s theorems to each expression. Exact complement bars are preserved in the displayed derivations.",
+        "page": 4,
+        "solution": "<h4>9(b)</h4>\\[\\overline{\\bar AB}=\\overline{\\bar A}+\\bar B=A+\\bar B\\]<h4>9(e)</h4>\\[\\overline{A(B+C)}=\\bar A+\\overline{B+C}=\\bar A+\\bar B\\bar C\\]<h4>10(b)</h4>\\[\\overline{AB(CD+E\\bar F)}=\\bar A+\\bar B+\\overline{CD+E\\bar F}=\\bar A+\\bar B+(\\bar C+\\bar D)(\\bar E+F)\\]<h4>10(e)</h4>\\[\\overline{\\overline{AB}(CD+\\bar EF)(\\overline{AB}+\\overline{CD})}=AB+(\\bar C+\\bar D)(E+\\bar F)+ABCD\\]\\[=AB+(\\bar C+\\bar D)(E+\\bar F)\\]<p>从最外层开始，整体乘积取反变成各项补集之和；最后 ABCD 被 AB 吸收。</p><h4>逐层取反，避免遗漏括号范围</h4><p>德摩根的两个模板为 product complement → sum of complements，以及 sum complement → product of complements。9(b)先把最外层乘积取反拆成两项，Ā再次取反还原A；9(e)先得到Ā+overline(B+C)，再把第二项改为B̅C̅。</p><p>10(b)最外面是三个因子A、B和(CD+EF̅)，所以先得到A̅+B̅+overline(CD+EF̅)。最后一项的OR取反变成overline(CD)·overline(EF̅)，再分别得到(C̅+D̅)(Ē+F)。</p><p>10(e)令P=overline(AB)，R=CD+ĒF，T=overline(AB)+overline(CD)。外层补集为P̅+R̅+T̅。逐项可得P̅=AB，R̅=(C̅+D̅)(E+F̅)，T̅=AB·CD。合并时用吸收律AB+ABCD=AB。每一层必须保留括号，不能只把字母上的横线逐个删除。</p>",
+        "hints": [
+          "涉及知识点：德摩根定理。",
+          "从最外层括号开始，把AND与OR互换，同时对每个因子取反。",
+          "10(b)先拆成A̅+B̅+overline(CD+EF̅)。",
+          "点击“完整解答”核对逐步推导、最终结果和原题页码。"
+        ],
+        "image": "assets/assignments/a2-p4.png",
+        "pages": [
+          4
+        ]
+      },
+      {
+        "id": "a2-q4",
+        "title": "Q4 · 电路和表达式互换",
+        "prompt": "Ch4 13(c),13(d) write expressions for circuits in Fig4–54. 14(c) draw circuit AB+C. 15(c) draw circuit ĀB(C+D̅).",
+        "page": 4,
+        "solution": "<h4>13(c)</h4><p>A 先经过 NOT，与 B 经过 AND，再由 NOT 输出。</p>\\[X=\\overline{\\bar A B}=A+\\bar B\\]<h4>13(d)</h4><p>A、B 先 OR，输出与 C 相 AND。</p>\\[X=(A+B)C\\]<h4>14(c)</h4><p>连接图（箭头表示导线）</p><pre>A ─┐\n   AND ─┐\nB ─┘    OR ─ X\nC ──────┘</pre>\\[X=AB+C\\]<h4>15(c)</h4><p>A 和 D 分别取反，C 与 D̅ 经过 OR，最后将 Ā、B、OR 输出送入三输入 AND。</p><pre>A → NOT ─────────┐\nB ───────────────AND → X\nC ───────┐      │\n         OR ────┘\nD → NOT ─┘</pre>\\[X=\\bar AB(C+\\bar D)\\]<h4>从连线顺序读取中间节点</h4><p>13(c)定义n₁=Ā，n₂=n₁B，最后n₃=overline(n₂)，因此X=overline(ĀB)。图中最后的反相器作用于整个乘积，所以结果A+B̅；它不是ĀB的简单交换。13(d)定义n₁=A+B，再将其与C相与，得到X=(A+B)C。</p><p>14(c)表达式AB+C先完成AB，所以A、B接同一个AND的输入。AND输出与独立输入C接OR，不应把C也接进AND。15(c)先产生两个反相信号Ā、D̅，再产生n=C+D̅；最后三输入AND实现Ā·B·n。若只有两输入AND，可以先求ĀB，再将结果与n相与，功能保持相同。</p>",
+        "hints": [
+          "涉及知识点：逻辑电路。",
+          "为每一个中间门输出命名，再逐级代入。",
+          "13(c)先得Ā，再与B相AND，最后整体取反。",
+          "点击“完整解答”核对逐步推导、最终结果和原题页码。"
+        ],
+        "image": "assets/assignments/a2-p4.png",
+        "pages": [
+          4
+        ]
+      },
+      {
+        "id": "a2-q5",
+        "title": "Q5 · 代数化简",
+        "prompt": "Ch4 19(a),19(e),20(c),20(e). Simplify expressions as much as possible.",
+        "page": 5,
+        "solution": "<h4>19(a)</h4>\\[A(A+B)=AA+AB=A+AB=A\\]<h4>19(e)</h4>\\[A\\bar BC+\\bar ABC+\\bar A\\bar BC=C[A\\bar B+\\bar AB+\\bar A\\bar B]\\]\\[=C[A\\bar B+\\bar A(B+\\bar B)]=C(A\\bar B+\\bar A)=C(\\bar A+\\bar B)\\]<h4>20(c)</h4>\\[AB+\\bar ABC+A=A+\\bar ABC=A+BC\\]<h4>20(e)</h4>\\[AB+\\overline{(A+B)}C+AB=AB+\\bar A\\bar BC\\]<p>先去掉重复项 AB，再对 (A+B) 的补应用德摩根。</p><h4>逐步指出所用代数律</h4><p>19(a)展开A(A+B)得到AA+AB，幂等律AA=A给出A+AB，再由吸收律X+XY=X得到A。19(e)先提取公共因子C，然后将含Ā的两项写成Ā(B+B̅)=Ā；余式Ā+AB̅利用X+X̅Y=X+Y得到Ā+B̅。</p>\\[\\bar A+A\\bar B=(\\bar A+A)(\\bar A+\\bar B)=1(\\bar A+\\bar B)\\]<p>20(c)先使用A+AB=A，原式变成A+ĀBC；令Y=BC，应用A+ĀY=A+Y，所以结果A+BC。20(e)重复项AB通过X+X=X消去一份，再按德摩根overline(A+B)=ĀB̅得到AB+ĀB̅C。该式两个乘积覆盖互不相邻的输入条件，无法用吸收律直接合并。</p>",
+        "hints": [
+          "涉及知识点：布尔化简。",
+          "先提公因式和去重复项，再用吸收律。",
+          "19(e)三项均含C；括号内含Ā的两项可合并。",
+          "点击“完整解答”核对逐步推导、最终结果和原题页码。"
+        ],
+        "image": "assets/assignments/a2-p5.png",
+        "pages": [
+          5
+        ]
+      },
+      {
+        "id": "a2-q6",
+        "title": "Q6 · 标准 SOP 与最小项",
+        "prompt": "Ch4 23(c) Convert (A+C)(AB+AC) to SOP. 25(c) Give domain and standard SOP. 27(c) Give binary value of each term.",
+        "page": 5,
+        "solution": "<h4>23(c)</h4>\\[(A+C)(AB+AC)=AAB+AAC+ABC+ACC=AB+AC\\]<h4>25(c)</h4><p>变量域为 A、B、C。每个标准乘积必须包含全部三个变量。</p>\\[AB(C+\\bar C)+AC(B+\\bar B)=ABC+AB\\bar C+A\\bar BC\\]<h4>27(c)</h4>\\[AB\\bar C\\leftrightarrow110,quad A\\bar BC\\leftrightarrow101,quad ABC\\leftrightarrow111\\]\\[X=\\Sigma m(5,6,7)=\\Pi M(0,1,2,3,4)\\]<p><a href=\"assets/assignments/a2-p6.png\" target=\"_blank\" rel=\"noopener\">查看原题 PDF 第 6 页</a></p><h4>从普通 SOP 到标准 SOP</h4><p>23(c)用分配律将两个括号逐项相乘得到四项AAB、AAC、ABC、ACC。幂等律AA=A和CC=C把它们化成AB、AC、ABC、AC。去掉重复AC后，ABC被AB或AC吸收，留下AB+AC。</p><p>25(c)标准SOP要求每项出现A、B、C，且每个变量恰出现一次，可以是原变量或补变量。AB缺C，所以乘(C+C̅)=1；AC缺B，所以乘(B+B̅)=1。展开得ABC+ABC̅+ABC+AB̅C，再去掉重复ABC。</p><p>27(c)按A为最高位、C为最低位，原变量对应1，反变量对应0。AB̅C→101₂=5，ABC̅→110₂=6，ABC→111₂=7，所以是Σm(5,6,7)。其他输入行输出0。</p>",
+        "hints": [
+          "涉及知识点：标准SOP。",
+          "每个乘积补齐所有变量，缺少X就乘以X+X̅。",
+          "AB缺C，AC缺B；展开后去掉重复的ABC。",
+          "点击“完整解答”核对逐步推导、最终结果和原题页码。"
+        ],
+        "image": "assets/assignments/a2-p5.png",
+        "pages": [
+          5,
+          6
+        ]
+      },
+      {
+        "id": "a2-q7",
+        "title": "Q7 · 真值表与标准形式",
+        "prompt": "Ch4 31(a) truth table for A B̅ C+ĀB C̅+ABC. 35(a) truth table for (A+B)(A+C)(A+B+C). 36(a),(b) standard SOP and POS from Table4–10.",
+        "page": 6,
+        "solution": "<h4>31(a)</h4><table><thead><tr><th>A</th><th>B</th><th>C</th><th>X</th></tr></thead><tbody><tr><td>0</td><td>0</td><td>0</td><td>0</td></tr><tr><td>0</td><td>0</td><td>1</td><td>0</td></tr><tr><td>0</td><td>1</td><td>0</td><td>1</td></tr><tr><td>0</td><td>1</td><td>1</td><td>0</td></tr><tr><td>1</td><td>0</td><td>0</td><td>0</td></tr><tr><td>1</td><td>0</td><td>1</td><td>1</td></tr><tr><td>1</td><td>1</td><td>0</td><td>0</td></tr><tr><td>1</td><td>1</td><td>1</td><td>1</td></tr></tbody></table>\\[X=\\Sigma m(2,5,7)=\\Pi M(0,1,3,4,6)\\]<h4>35(a)</h4>\\[(A+B)(A+C)(A+B+C)=A+BC\\]<table><thead><tr><th>A</th><th>B</th><th>C</th><th>X</th></tr></thead><tbody><tr><td>0</td><td>0</td><td>0</td><td>0</td></tr><tr><td>0</td><td>0</td><td>1</td><td>0</td></tr><tr><td>0</td><td>1</td><td>0</td><td>0</td></tr><tr><td>0</td><td>1</td><td>1</td><td>1</td></tr><tr><td>1</td><td>0</td><td>0</td><td>1</td></tr><tr><td>1</td><td>0</td><td>1</td><td>1</td></tr><tr><td>1</td><td>1</td><td>0</td><td>1</td></tr><tr><td>1</td><td>1</td><td>1</td><td>1</td></tr></tbody></table>\\[X=\\Sigma m(3,4,5,6,7)=\\Pi M(0,1,2)\\]<h4>36(a)</h4>\\[X=\\Sigma m(1,4,5,7)=\\Pi M(0,2,3,6)\\]\\[X=\\bar A\\bar BC+A\\bar B\\bar C+A\\bar BC+ABC\\]\\[X=(A+B+C)(A+\\bar B+C)(A+\\bar B+\\bar C)(\\bar A+\\bar B+C)\\]<h4>36(b)</h4>\\[X=\\Sigma m(5,6,7)=\\Pi M(0,1,2,3,4)\\]\\[X=A\\bar BC+AB\\bar C+ABC\\]\\[X=(A+B+C)(A+B+\\bar C)(A+\\bar B+C)(A+\\bar B+\\bar C)(\\bar A+B+C)\\]",
+        "hints": [
+          "涉及知识点：标准真值表。",
+          "按000至111列输入，SOP取为1的行，POS取为0的行。",
+          "最大项中对应0的变量不取反，对应1的变量取反。",
+          "点击“完整解答”核对逐步推导、最终结果和原题页码。"
+        ],
+        "image": "assets/assignments/a2-p6.png",
+        "pages": [
+          6
+        ]
+      },
+      {
+        "id": "a2-q8",
+        "title": "Q8 · K-map 化简 SOP",
+        "prompt": "Ch4 40(d),44(a),44(b). Minimize SOP using Karnaugh maps.",
+        "page": 7,
+        "solution": "<h4>40(d)</h4><p>四个乘积对应 m₀、m₂、m₄、m₆，即全部 C=0 的格。</p><table><thead><tr><th>A / BC</th><th>00</th><th>01</th><th>11</th><th>10</th></tr></thead><tbody><tr><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr><tr><td>1</td><td>1</td><td>0</td><td>0</td><td>1</td></tr></tbody></table>\\[X=\\bar C\\]<h4>44(a)</h4>\\[X=A+B\\bar C+CD\\]<table><thead><tr><th>AB / CD</th><th>00</th><th>01</th><th>11</th><th>10</th></tr></thead><tbody><tr><td>00</td><td>0</td><td>0</td><td>1</td><td>0</td></tr><tr><td>01</td><td>1</td><td>1</td><td>1</td><td>0</td></tr><tr><td>11</td><td>1</td><td>1</td><td>1</td><td>1</td></tr><tr><td>10</td><td>1</td><td>1</td><td>1</td><td>1</td></tr></tbody></table><p>A=1 的 8 格形成一组；B=1,C=0 的 4 格形成一组；C=1,D=1 的 4 格形成一组。三组均需要保留，因此原式已为一个最小 SOP。</p><h4>44(b)</h4><p>原式四项对应 m₀、m₁、m₁₄、m₁₅。</p><table><thead><tr><th>AB / CD</th><th>00</th><th>01</th><th>11</th><th>10</th></tr></thead><tbody><tr><td>00</td><td>1</td><td>1</td><td>0</td><td>0</td></tr><tr><td>01</td><td>0</td><td>0</td><td>0</td><td>0</td></tr><tr><td>11</td><td>0</td><td>0</td><td>1</td><td>1</td></tr><tr><td>10</td><td>0</td><td>0</td><td>0</td><td>0</td></tr></tbody></table>\\[X=\\bar A\\bar B\\bar C+ABC\\]<p>两对沿 D 方向相邻，D 消去。</p>",
+        "hints": [
+          "涉及知识点：卡诺图。",
+          "按Gray顺序00、01、11、10排列，只圈2的整数次幂个相邻1。",
+          "40(d)所有乘积均含C̅，四格可以组成一组。",
+          "点击“完整解答”核对逐步推导、最终结果和原题页码。"
+        ],
+        "image": "assets/assignments/a2-p7.png",
+        "pages": [
+          7
+        ]
+      },
+      {
+        "id": "a2-q9",
+        "title": "Q9 · 由真值表设计最小 SOP",
+        "prompt": "Ch4 45 Table4–11. 46 Table4–12. 47 Repeat 46 with last six binary combinations not allowed.",
+        "page": 7,
+        "solution": "<h4>45</h4><p>输出为 1 的行是 0、1、3、4、5、7。</p><table><thead><tr><th>A / BC</th><th>00</th><th>01</th><th>11</th><th>10</th></tr></thead><tbody><tr><td>0</td><td>1</td><td>1</td><td>1</td><td>0</td></tr><tr><td>1</td><td>1</td><td>1</td><td>1</td><td>0</td></tr></tbody></table>\\[X=\\bar B+C\\]<p>B=0 四格和 C=1 四格覆盖所有 1。</p><h4>46</h4>\\[X=\\Sigma m(1,2,6,7,8,10,12,13,15)=\\Pi M(0,3,4,5,9,11,14)\\]<table><thead><tr><th>AB / CD</th><th>00</th><th>01</th><th>11</th><th>10</th></tr></thead><tbody><tr><td>00</td><td>0</td><td>1</td><td>0</td><td>1</td></tr><tr><td>01</td><td>0</td><td>0</td><td>1</td><td>1</td></tr><tr><td>11</td><td>1</td><td>1</td><td>1</td><td>0</td></tr><tr><td>10</td><td>1</td><td>0</td><td>0</td><td>1</td></tr></tbody></table>\\[X=\\left(A \\wedge B \\wedge \\neg C\\right) \\vee \\left(A \\wedge \\neg B \\wedge \\neg D\\right) \\vee \\left(B \\wedge C \\wedge D\\right) \\vee \\left(C \\wedge \\neg A \\wedge \\neg D\\right) \\vee \\left(D \\wedge \\neg A \\wedge \\neg B \\wedge \\neg C\\right)\\]<p>最小项 1 无相邻的 1，必须独立成项；其余组可重叠。电路为每个乘积一个 AND，最后 OR 汇总，并给反变量提供 NOT。</p><h4>47</h4><p>1010…1111 六种输入作为 don’t care，只有确能扩大分组时才使用。</p><table><thead><tr><th>AB / CD</th><th>00</th><th>01</th><th>11</th><th>10</th></tr></thead><tbody><tr><td>00</td><td>0</td><td>1</td><td>0</td><td>1</td></tr><tr><td>01</td><td>0</td><td>0</td><td>1</td><td>1</td></tr><tr><td>11</td><td>d</td><td>d</td><td>d</td><td>d</td></tr><tr><td>10</td><td>1</td><td>0</td><td>d</td><td>d</td></tr></tbody></table>\\[X=\\left(A \\wedge \\neg D\\right) \\vee \\left(B \\wedge C\\right) \\vee \\left(C \\wedge \\neg D\\right) \\vee \\left(D \\wedge \\neg A \\wedge \\neg B \\wedge \\neg C\\right)\\]<p>只要求 0…9 的有效输入匹配原表。对 10…15 的输出不作功能承诺。</p><h4>第46和47题的具体分组</h4><p>46题可用组{7,15}、{12,13}、{8,10}、{2,6}以及独立格{1}，分别对应BCD、ABC̅、AB̅D̅、ĀCD̅和ĀB̅C̅D。47题允许10…15为无关项后，可以用{6,7,14,15}、{8,10,12,14}、{2,6,10,14}以及{1}，分别得到BC、AD̅、CD̅和ĀB̅C̅D。每组相邻格仅消去发生变化的变量。</p>",
+        "hints": [
+          "涉及知识点：无关项。",
+          "先从真值表读取1格；仅在题目允许时把无关项用于扩大组。",
+          "第47题10至15是无关项，0至9仍必须完全匹配。",
+          "点击“完整解答”核对逐步推导、最终结果和原题页码。"
+        ],
+        "image": "assets/assignments/a2-p7.png",
+        "pages": [
+          7
+        ]
+      },
+      {
+        "id": "a2-q10",
+        "title": "Q10 · 三变量 POS 化简",
+        "prompt": "Minimize (A+B+C)(Ā+B̅+C̅)(A+B̅+C) using a Karnaugh map.",
+        "page": 2,
+        "solution": "<p>POS 应对 0 分组。三个最大项为 M₀、M₇、M₂，故零格是 000、111、010。</p><table><thead><tr><th>A / BC</th><th>00</th><th>01</th><th>11</th><th>10</th></tr></thead><tbody><tr><td>0</td><td>0</td><td>1</td><td>1</td><td>0</td></tr><tr><td>1</td><td>1</td><td>1</td><td>0</td><td>1</td></tr></tbody></table><p>000 与 010 相邻，A=0、C=0 不变，因此得到 (A+C)。111 无相邻零，保留 (Ā+B̅+C̅)。</p>\\[X=(A+C)(\\bar A+\\bar B+\\bar C)\\]",
+        "hints": [
+          "涉及知识点：POS卡诺图。",
+          "化简POS要圈0；固定为0的变量在和项中保持原相。",
+          "零格000与010相邻，变量B可以消去。",
+          "点击“完整解答”核对逐步推导、最终结果和原题页码。"
+        ],
+        "image": "assets/assignments/a2-p2.png",
+        "pages": [
+          2
+        ]
+      },
+      {
+        "id": "a2-q11",
+        "title": "Q11 · 四变量 POS 化简",
+        "prompt": "Minimize (X+Y̅)(W+Z̅)(X̅+Y̅+Z̅)(W+X+Y+Z) using a Karnaugh map.",
+        "page": 2,
+        "solution": "<p>变量顺序采用 W、X、Y、Z。零格为 0,1,2,3,5,7,10,11,15。下表按WX分行、YZ分列。</p><table><thead><tr><th>WX / YZ</th><th>00</th><th>01</th><th>11</th><th>10</th></tr></thead><tbody><tr><td>00</td><td>0</td><td>0</td><td>0</td><td>0</td></tr><tr><td>01</td><td>1</td><td>0</td><td>0</td><td>1</td></tr><tr><td>11</td><td>1</td><td>1</td><td>0</td><td>1</td></tr><tr><td>10</td><td>1</td><td>1</td><td>0</td><td>0</td></tr></tbody></table>\\[F=\\left(W \\vee X\\right) \\wedge \\left(W \\vee \\neg Z\\right) \\wedge \\left(X \\vee \\neg Y\\right) \\wedge \\left(\\neg Y \\vee \\neg Z\\right)\\]<p>每组零生成一个和项，不变的 0 变量直接写，不变的 1 变量取反。把各和项相乘；真值表枚举已验证与原式在全部 16 种输入下相同。</p><p>四个零组可选{0,1,2,3}、{1,3,5,7}、{2,3,10,11}、{3,7,11,15}。它们分别固定WX=00、WZ=01、XY=01、YZ=11，因此对应和项(W+X)、(W+Z̅)、(X+Y̅)、(Y̅+Z̅)。四个和项相乘即为给出的最简POS。</p>",
+        "hints": [
+          "涉及知识点：四变量POS。",
+          "按WXYZ确定最大项编号，再圈相邻0。",
+          "观察W=X=0的四格，它们可组成一个零组。",
+          "点击“完整解答”核对逐步推导、最终结果和原题页码。"
+        ],
+        "image": "assets/assignments/a2-p2.png",
+        "pages": [
+          2
+        ]
+      },
+      {
+        "id": "a2-q12",
+        "title": "Q12 · SR 锁存器波形",
+        "prompt": "Chapter 7, Problems 1 and 2. Figures7–72 and7–73. Determine Q, initially LOW, for active-LOW and active-HIGH SR latches respectively.",
+        "page": 9,
+        "solution": "<h4>1 · Active-LOW</h4><p>S̅=0 置位，R̅=0 复位，两者为 1 保持。图中四个 S̅ 低脉冲与四个 R̅ 低脉冲交替出现。</p><table><thead><tr><th>事件</th><th>初始</th><th>S̅₁↓</th><th>R̅₁↓</th><th>S̅₂↓</th><th>R̅₂↓</th><th>S̅₃↓</th><th>R̅₃↓</th><th>S̅₄↓</th><th>R̅₄↓</th></tr></thead><tbody><tr><td>Q</td><td>0</td><td>1</td><td>0</td><td>1</td><td>0</td><td>1</td><td>0</td><td>1</td><td>0</td></tr></tbody></table><p>Q 在每个 S̅ 下降沿变为 1，在紧随的 R̅ 下降沿变为 0，脉冲结束后保持。</p><h4>2 · Active-HIGH</h4><p>S=1 置位，R=1 复位。第一次 R 脉冲时 Q 仍为 0。第一组四个 S 脉冲中，第一次把 Q 置 1，后面三个维持 1。之后三次 R 脉冲中，第一次把 Q 复位为 0，后两次保持。末段 S、R、S 交替让 Q=1、0、1。</p><table><thead><tr><th>事件组</th><th>初始 R</th><th>前四次 S</th><th>随后三次 R</th><th>末段 S</th><th>末段 R</th><th>最后 S</th></tr></thead><tbody><tr><td>Q</td><td>0</td><td>1,1,1,1</td><td>0,0,0</td><td>1</td><td>0</td><td>1</td></tr></tbody></table><div class=\"formula\" style=\"overflow-x:auto\"><svg role=\"img\" aria-label=\"Figure 7–72 · input assertion events (0 = initial)\" viewBox=\"0 0 780 95\" xmlns=\"http://www.w3.org/2000/svg\" style=\"width:100%;min-width:560px;background:#fff;color:#111\"><title>Figure 7–72 · input assertion events (0 = initial)</title><text x=\"12\" y=\"20\" font-size=\"13\" fill=\"#111\">Figure 7–72 · input assertion events (0 = initial)</text><text x=\"12\" y=\"55\" fill=\"#111\" font-size=\"15\">Q</text><path d=\"M95.0,60 L168.3,60 L168.3,38 L241.7,38 L241.7,60 L315.0,60 L315.0,38 L388.3,38 L388.3,60 L461.7,60 L461.7,38 L535.0,38 L535.0,60 L608.3,60 L608.3,38 L681.7,38 L681.7,60 L755.0,60\" fill=\"none\" stroke=\"#111\" stroke-width=\"2.5\"/></svg></div><p>横轴为依次发生的事件或采样后的区间，等间距仅用于展示顺序。具体边沿间距请对照原题图。</p>",
+        "hints": [
+          "涉及知识点：SR锁存器。",
+          "先确定输入是高有效还是低有效，再按置位、复位、保持分析。",
+          "第1题S̅下降使Q置位，R̅下降使Q复位；回高后保持。",
+          "点击“完整解答”核对逐步推导、最终结果和原题页码。"
+        ],
+        "image": "assets/assignments/a2-p9.png",
+        "pages": [
+          9
+        ]
+      },
+      {
+        "id": "a2-q13",
+        "title": "Q13 · 门控 SR 与 D latch",
+        "prompt": "Chapter7 Problems4 and7, Figures7–75 and7–78. Determine outputs with Q initially LOW.",
+        "page": 9,
+        "solution": "<h4>4 · Gated SR</h4><p>只有 EN=1 时 SR 输入有效。第一次 EN 脉冲时 S=0,R=1，Q=0；第二次时 S=1,R=0，Q=1；第三次保持置位；第四次 S=R=0，Q 保持 1。</p><table><thead><tr><th>EN 脉冲</th><th>1</th><th>2</th><th>3</th><th>4</th></tr></thead><tbody><tr><td>Q</td><td>0</td><td>1</td><td>1</td><td>1</td></tr><tr><td>Q̅</td><td>1</td><td>0</td><td>0</td><td>0</td></tr></tbody></table><p>Q 从第二次 EN 上升沿开始一直为 HIGH，Q̅ 为其反相。</p><h4>7 · Gated D (PDF page10)</h4><p>EN=1 时 Q 透明地跟随 D，EN=0 时保存最后值。第一次 EN 脉冲把 Q 置 1，EN 关闭后保持，即使 D 随后变 0 也不立刻改变 Q。第二次 EN 上升时 D=0，Q 变 0。随后 EN 低期间 D 上升，Q 保持 0；EN 第三次上升且保持高后，Q 变 1，并跟随 D 的后续下降、上升、下降。</p><p>Q 的变化序列为 0→1→0→1→0→1→0；变化位置依次为 EN 第一次上升、EN 第二次上升、EN 第三次上升、其后的 D 下降、D 上升、D 下降。</p><p><a href=\"assets/assignments/a2-p10.png\" target=\"_blank\" rel=\"noopener\">查看原题 PDF 第 10 页</a></p><div class=\"formula\" style=\"overflow-x:auto\"><svg role=\"img\" aria-label=\"Figure 7–75 · EN pulse intervals (0 = initial)\" viewBox=\"0 0 780 145\" xmlns=\"http://www.w3.org/2000/svg\" style=\"width:100%;min-width:560px;background:#fff;color:#111\"><title>Figure 7–75 · EN pulse intervals (0 = initial)</title><text x=\"12\" y=\"20\" font-size=\"13\" fill=\"#111\">Figure 7–75 · EN pulse intervals (0 = initial)</text><text x=\"12\" y=\"55\" fill=\"#111\" font-size=\"15\">Q</text><path d=\"M95.0,60 L359.0,60 L359.0,38 L755.0,38 L755.0,60 L755.0,60\" fill=\"none\" stroke=\"#111\" stroke-width=\"2.5\"/><text x=\"12\" y=\"105\" fill=\"#111\" font-size=\"15\">Q-bar</text><path d=\"M95.0,110 L95.0,110 L95.0,88 L359.0,88 L359.0,110 L755.0,110\" fill=\"none\" stroke=\"#111\" stroke-width=\"2.5\"/></svg></div><p>横轴为依次发生的事件或采样后的区间，等间距仅用于展示顺序。具体边沿间距请对照原题图。</p>",
+        "hints": [
+          "涉及知识点：门控锁存器。",
+          "EN=0保持；EN=1时输入才影响Q。",
+          "D锁存器在EN=1的整个区间都透明，不能只检查一个边沿。",
+          "点击“完整解答”核对逐步推导、最终结果和原题页码。"
+        ],
+        "image": "assets/assignments/a2-p9.png",
+        "pages": [
+          9,
+          10
+        ]
+      },
+      {
+        "id": "a2-q14",
+        "title": "Q14 · 边沿触发 SR 与 D",
+        "prompt": "Chapter7 Problems8 and10, Figures7–79 and7–81. Q initially LOW; compare positive/negative-edge SR flip-flops, then positive-edge D flip-flop.",
+        "page": 10,
+        "solution": "<h4>8 · SR</h4><p>只在有效边沿读取 S,R。图(a)时钟输入带反相泡，为下降沿；图(b)为上升沿。按图中五个时钟周期，两个有效边沿分别读到相同序列 (S,R)=(1,0),(0,1),(1,0),(0,0),(0,0)。</p><table><thead><tr><th>时钟周期</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th></tr></thead><tbody><tr><td>Q（各自有效沿之后）</td><td>1</td><td>0</td><td>1</td><td>1</td><td>1</td></tr></tbody></table><p>正确输出值依次为 1、0、1、1、1。两者变化时间相差一个时钟高电平宽度，下降沿器件较晚响应。</p><h4>10 · D</h4><p>每个上升沿采样 D，与下降沿附近的 D 变化无关。</p><table><thead><tr><th>上升沿编号</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th></tr></thead><tbody><tr><td>D 采样</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td><td>1</td><td>0</td></tr><tr><td>Q（沿后）</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td><td>1</td><td>0</td></tr></tbody></table><p>Q 在第二个上升沿置 1，第三个复位， 第五个置 1，第七个复位。</p><div class=\"formula\" style=\"overflow-x:auto\"><svg role=\"img\" aria-label=\"Figure 7–81 · state after each rising edge (0 = initial)\" viewBox=\"0 0 780 145\" xmlns=\"http://www.w3.org/2000/svg\" style=\"width:100%;min-width:560px;background:#fff;color:#111\"><title>Figure 7–81 · state after each rising edge (0 = initial)</title><text x=\"12\" y=\"20\" font-size=\"13\" fill=\"#111\">Figure 7–81 · state after each rising edge (0 = initial)</text><text x=\"12\" y=\"55\" fill=\"#111\" font-size=\"15\">D sampled</text><path d=\"M95.0,60 L260.0,60 L260.0,38 L342.5,38 L342.5,60 L507.5,60 L507.5,38 L672.5,38 L672.5,60 L755.0,60\" fill=\"none\" stroke=\"#111\" stroke-width=\"2.5\"/><text x=\"12\" y=\"105\" fill=\"#111\" font-size=\"15\">Q</text><path d=\"M95.0,110 L260.0,110 L260.0,88 L342.5,88 L342.5,110 L507.5,110 L507.5,88 L672.5,88 L672.5,110 L755.0,110\" fill=\"none\" stroke=\"#111\" stroke-width=\"2.5\"/></svg></div><p>横轴为依次发生的事件或采样后的区间，等间距仅用于展示顺序。具体边沿间距请对照原题图。</p>",
+        "hints": [
+          "涉及知识点：边沿触发。",
+          "先确定输入时钟端有没有反相小圆圈，再在有效沿采样。",
+          "D触发器每个上升沿的Q等于该沿之前的D。",
+          "点击“完整解答”核对逐步推导、最终结果和原题页码。"
+        ],
+        "image": "assets/assignments/a2-p10.png",
+        "pages": [
+          10
+        ]
+      },
+      {
+        "id": "a2-q15",
+        "title": "Q15 · JK 触发器与异步控制",
+        "prompt": "Chapter7 Problems12 and14, Figures7–83 and7–85. Positive-edge-triggered JK flip-flop, Q initially LOW.",
+        "page": 11,
+        "solution": "<h4>12 · JK</h4><p>JK=00 保持，10 置位，01 复位，11 翻转。</p><table><thead><tr><th>上升沿</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th></tr></thead><tbody><tr><td>J</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td><td>1</td></tr><tr><td>K</td><td>0</td><td>0</td><td>0</td><td>1</td><td>1</td><td>0</td></tr><tr><td>Q</td><td>0</td><td>1</td><td>1</td><td>0</td><td>1</td><td>1</td></tr></tbody></table><p>第五个沿的 JK=11 从 0 翻到 1。</p><h4>14 · Asynchronous PRE/CLR</h4><p>原图 J 与 K 同时为高的区间由三组脉冲构成。PRE̅ 与 CLR̅ 均为异步低有效，其作用优先于时钟。</p><table><thead><tr><th>事件</th><th>第1沿</th><th>第2沿</th><th>PRE̅↓</th><th>第3沿</th><th>第4沿</th><th>CLR̅↓</th><th>第5沿</th><th>第6沿</th></tr></thead><tbody><tr><td>Q</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>0</td><td>0</td><td>0</td></tr></tbody></table><p>第1沿 J=K=1，Q 从0翻为1；第2沿 JK=00 保持。第3沿位于 PRE̅=0 内，Q 被强制为1，不能翻转。第4沿保持。CLR̅ 拉低立刻把Q复位；第5沿即使JK=11也维持0；第6沿JK=00继续保持0。</p><div class=\"formula\" style=\"overflow-x:auto\"><svg role=\"img\" aria-label=\"Figure 7–83 · state after each rising edge (0 = initial)\" viewBox=\"0 0 780 195\" xmlns=\"http://www.w3.org/2000/svg\" style=\"width:100%;min-width:560px;background:#fff;color:#111\"><title>Figure 7–83 · state after each rising edge (0 = initial)</title><text x=\"12\" y=\"20\" font-size=\"13\" fill=\"#111\">Figure 7–83 · state after each rising edge (0 = initial)</text><text x=\"12\" y=\"55\" fill=\"#111\" font-size=\"15\">J sampled</text><path d=\"M95.0,60 L283.6,60 L283.6,38 L377.9,38 L377.9,60 L566.4,60 L566.4,38 L755.0,38 L755.0,60 L755.0,60\" fill=\"none\" stroke=\"#111\" stroke-width=\"2.5\"/><text x=\"12\" y=\"105\" fill=\"#111\" font-size=\"15\">K sampled</text><path d=\"M95.0,110 L472.1,110 L472.1,88 L660.7,88 L660.7,110 L755.0,110\" fill=\"none\" stroke=\"#111\" stroke-width=\"2.5\"/><text x=\"12\" y=\"155\" fill=\"#111\" font-size=\"15\">Q</text><path d=\"M95.0,160 L283.6,160 L283.6,138 L472.1,138 L472.1,160 L566.4,160 L566.4,138 L755.0,138 L755.0,160 L755.0,160\" fill=\"none\" stroke=\"#111\" stroke-width=\"2.5\"/></svg></div><p>横轴为依次发生的事件或采样后的区间，等间距仅用于展示顺序。具体边沿间距请对照原题图。</p>",
+        "hints": [
+          "涉及知识点：JK与异步控制。",
+          "先检查PRE̅/CLR̅，再应用JK状态表。",
+          "PRE̅=0强制Q=1，CLR̅=0强制Q=0，均优先于时钟。",
+          "点击“完整解答”核对逐步推导、最终结果和原题页码。"
+        ],
+        "image": "assets/assignments/a2-p11.png",
+        "pages": [
+          11
+        ]
+      }
+    ]
+  },
+  {
+    "id": "a3",
+    "title": "Assignment 3 · Counters & Shift Registers",
+    "source": "assets/sources/EEE104_Assignment_3.pdf",
+    "status": "derived-solutions",
+    "questions": [
+      {
+        "id": "a3-q1",
+        "title": "Q1 · Ch8 #2 · 三级异步计数器",
+        "prompt": "For the ripple counter in Figure 8–70, show the complete timing diagram for sixteen clock pulses. Show CLK, Q0, Q1 and Q2 waveforms.",
+        "page": 5,
+        "image": "assets/assignments/a3-p5.png",
+        "solution": "<p><strong>独立推导解答</strong>，依据题图与逻辑器件状态方程。页码均为本 PDF 页码。</p><p>题图三级 JK 均有 J=K=1，均为上升沿触发；后一级时钟接前一级的反相输出，因此前级从 1→0 时触发后级。题面未明确初态，以下采用通常的已清零初态 000；若初态不同，将计数序列循环平移。</p>\\[Q_i^+=\\overline{Q_i},\\qquad N(n)=n\\bmod8.\\]<p>Q0 每个输入上升沿翻转，Q1 在 Q0 下降后翻转，Q2 在 Q1 下降后翻转。稳态序列如下，图中 n 表示第 n 个输入上升沿后的区间。下降沿保持状态。</p><div class=\"table-scroll\"><table><thead><tr><th>边沿 n</th><th>Q2…Q0</th><th>十进制</th></tr></thead><tbody><tr><td>0</td><td>000</td><td>0</td></tr><tr><td>1</td><td>001</td><td>1</td></tr><tr><td>2</td><td>010</td><td>2</td></tr><tr><td>3</td><td>011</td><td>3</td></tr><tr><td>4</td><td>100</td><td>4</td></tr><tr><td>5</td><td>101</td><td>5</td></tr><tr><td>6</td><td>110</td><td>6</td></tr><tr><td>7</td><td>111</td><td>7</td></tr><tr><td>8</td><td>000</td><td>0</td></tr><tr><td>9</td><td>001</td><td>1</td></tr><tr><td>10</td><td>010</td><td>2</td></tr><tr><td>11</td><td>011</td><td>3</td></tr><tr><td>12</td><td>100</td><td>4</td></tr><tr><td>13</td><td>101</td><td>5</td></tr><tr><td>14</td><td>110</td><td>6</td></tr><tr><td>15</td><td>111</td><td>7</td></tr><tr><td>16</td><td>000</td><td>0</td></tr></tbody></table></div><div style=\"overflow-x:auto\"><svg viewBox=\"0 0 635 170\" role=\"img\" aria-label=\"按时钟区间绘制的输出时序图\" style=\"min-width:635px;max-width:100%\" xmlns=\"http://www.w3.org/2000/svg\"><rect width=\"100%\" height=\"100%\" fill=\"white\"/><text x=\"100\" y=\"15\" font-size=\"11\" fill=\"black\">0</text><text x=\"130\" y=\"15\" font-size=\"11\" fill=\"black\">1</text><text x=\"160\" y=\"15\" font-size=\"11\" fill=\"black\">2</text><text x=\"190\" y=\"15\" font-size=\"11\" fill=\"black\">3</text><text x=\"220\" y=\"15\" font-size=\"11\" fill=\"black\">4</text><text x=\"250\" y=\"15\" font-size=\"11\" fill=\"black\">5</text><text x=\"280\" y=\"15\" font-size=\"11\" fill=\"black\">6</text><text x=\"310\" y=\"15\" font-size=\"11\" fill=\"black\">7</text><text x=\"340\" y=\"15\" font-size=\"11\" fill=\"black\">8</text><text x=\"370\" y=\"15\" font-size=\"11\" fill=\"black\">9</text><text x=\"400\" y=\"15\" font-size=\"11\" fill=\"black\">10</text><text x=\"430\" y=\"15\" font-size=\"11\" fill=\"black\">11</text><text x=\"460\" y=\"15\" font-size=\"11\" fill=\"black\">12</text><text x=\"490\" y=\"15\" font-size=\"11\" fill=\"black\">13</text><text x=\"520\" y=\"15\" font-size=\"11\" fill=\"black\">14</text><text x=\"550\" y=\"15\" font-size=\"11\" fill=\"black\">15</text><text x=\"580\" y=\"15\" font-size=\"11\" fill=\"black\">16</text><text x=\"5\" y=\"50\" font-size=\"13\" fill=\"black\">Q2</text><polyline points=\"100,60 130,60 130,60 160,60 160,60 190,60 190,60 220,60 220,40 250,40 250,40 280,40 280,40 310,40 310,40 340,40 340,60 370,60 370,60 400,60 400,60 430,60 430,60 460,60 460,40 490,40 490,40 520,40 520,40 550,40 550,40 580,40 580,60 610,60\" fill=\"none\" stroke=\"#202020\" stroke-width=\"2\"/><text x=\"5\" y=\"95\" font-size=\"13\" fill=\"black\">Q1</text><polyline points=\"100,105 130,105 130,105 160,105 160,85 190,85 190,85 220,85 220,105 250,105 250,105 280,105 280,85 310,85 310,85 340,85 340,105 370,105 370,105 400,105 400,85 430,85 430,85 460,85 460,105 490,105 490,105 520,105 520,85 550,85 550,85 580,85 580,105 610,105\" fill=\"none\" stroke=\"#202020\" stroke-width=\"2\"/><text x=\"5\" y=\"140\" font-size=\"13\" fill=\"black\">Q0</text><polyline points=\"100,150 130,150 130,130 160,130 160,150 190,150 190,130 220,130 220,150 250,150 250,130 280,130 280,150 310,150 310,130 340,130 340,150 370,150 370,130 400,130 400,150 430,150 430,130 460,130 460,150 490,150 490,130 520,130 520,150 550,150 550,130 580,130 580,150 610,150\" fill=\"none\" stroke=\"#202020\" stroke-width=\"2\"/></svg></div><p>频率依次为 \\(f_{CLK}/2,f_{CLK}/4,f_{CLK}/8\\)。真实 ripple 电路各级有逐级传播延迟，不能把同时变化的稳态位理解为无延迟同时切换；题目未给延迟数值，图中省略其宽度。</p>",
+        "hints": [
+          "先识别时钟有效边沿、初始状态及控制信号的优先级。",
+          "写出每个触发器的下一状态，用边沿前的旧状态同时计算。",
+          "逐个有效边沿列状态表；异步输入变化还应单独列事件。",
+          "展开完整解析，比较状态表和各输出波形。"
+        ]
+      },
+      {
+        "id": "a3-q2",
+        "title": "Q2 · Ch8 #6 · 五位同步计数",
+        "prompt": "Show the complete timing diagram for the 5-stage synchronous binary counter in Figure 8–71. Verify that the Q outputs represent the proper binary number after each clock pulse.",
+        "page": 5,
+        "image": "assets/assignments/a3-p5.png",
+        "solution": "<p><strong>独立推导解答</strong>，依据题图与逻辑器件状态方程。页码均为本 PDF 页码。</p><p>采用清零初态 00000。所有触发器共用时钟，最低位恒翻转，高位只有在全部较低位为 1 时翻转。</p>\\[T_0=1,\\ T_1=Q_0,\\ T_2=Q_0Q_1,\\ T_3=Q_0Q_1Q_2,\\ T_4=Q_0Q_1Q_2Q_3;\\quad Q_i^+=Q_i\\oplus T_i.\\]<p>这与二进制加一的进位条件相同，因此每一拍输出等于 n mod 32。完整一周期含回零如下。</p><div class=\"table-scroll\"><table><thead><tr><th>边沿 n</th><th>Q4…Q0</th><th>十进制</th></tr></thead><tbody><tr><td>0</td><td>00000</td><td>0</td></tr><tr><td>1</td><td>00001</td><td>1</td></tr><tr><td>2</td><td>00010</td><td>2</td></tr><tr><td>3</td><td>00011</td><td>3</td></tr><tr><td>4</td><td>00100</td><td>4</td></tr><tr><td>5</td><td>00101</td><td>5</td></tr><tr><td>6</td><td>00110</td><td>6</td></tr><tr><td>7</td><td>00111</td><td>7</td></tr><tr><td>8</td><td>01000</td><td>8</td></tr><tr><td>9</td><td>01001</td><td>9</td></tr><tr><td>10</td><td>01010</td><td>10</td></tr><tr><td>11</td><td>01011</td><td>11</td></tr><tr><td>12</td><td>01100</td><td>12</td></tr><tr><td>13</td><td>01101</td><td>13</td></tr><tr><td>14</td><td>01110</td><td>14</td></tr><tr><td>15</td><td>01111</td><td>15</td></tr><tr><td>16</td><td>10000</td><td>16</td></tr><tr><td>17</td><td>10001</td><td>17</td></tr><tr><td>18</td><td>10010</td><td>18</td></tr><tr><td>19</td><td>10011</td><td>19</td></tr><tr><td>20</td><td>10100</td><td>20</td></tr><tr><td>21</td><td>10101</td><td>21</td></tr><tr><td>22</td><td>10110</td><td>22</td></tr><tr><td>23</td><td>10111</td><td>23</td></tr><tr><td>24</td><td>11000</td><td>24</td></tr><tr><td>25</td><td>11001</td><td>25</td></tr><tr><td>26</td><td>11010</td><td>26</td></tr><tr><td>27</td><td>11011</td><td>27</td></tr><tr><td>28</td><td>11100</td><td>28</td></tr><tr><td>29</td><td>11101</td><td>29</td></tr><tr><td>30</td><td>11110</td><td>30</td></tr><tr><td>31</td><td>11111</td><td>31</td></tr><tr><td>32</td><td>00000</td><td>0</td></tr></tbody></table></div><div style=\"overflow-x:auto\"><svg viewBox=\"0 0 1115 260\" role=\"img\" aria-label=\"按时钟区间绘制的输出时序图\" style=\"min-width:1115px;max-width:100%\" xmlns=\"http://www.w3.org/2000/svg\"><rect width=\"100%\" height=\"100%\" fill=\"white\"/><text x=\"100\" y=\"15\" font-size=\"11\" fill=\"black\">0</text><text x=\"130\" y=\"15\" font-size=\"11\" fill=\"black\">1</text><text x=\"160\" y=\"15\" font-size=\"11\" fill=\"black\">2</text><text x=\"190\" y=\"15\" font-size=\"11\" fill=\"black\">3</text><text x=\"220\" y=\"15\" font-size=\"11\" fill=\"black\">4</text><text x=\"250\" y=\"15\" font-size=\"11\" fill=\"black\">5</text><text x=\"280\" y=\"15\" font-size=\"11\" fill=\"black\">6</text><text x=\"310\" y=\"15\" font-size=\"11\" fill=\"black\">7</text><text x=\"340\" y=\"15\" font-size=\"11\" fill=\"black\">8</text><text x=\"370\" y=\"15\" font-size=\"11\" fill=\"black\">9</text><text x=\"400\" y=\"15\" font-size=\"11\" fill=\"black\">10</text><text x=\"430\" y=\"15\" font-size=\"11\" fill=\"black\">11</text><text x=\"460\" y=\"15\" font-size=\"11\" fill=\"black\">12</text><text x=\"490\" y=\"15\" font-size=\"11\" fill=\"black\">13</text><text x=\"520\" y=\"15\" font-size=\"11\" fill=\"black\">14</text><text x=\"550\" y=\"15\" font-size=\"11\" fill=\"black\">15</text><text x=\"580\" y=\"15\" font-size=\"11\" fill=\"black\">16</text><text x=\"610\" y=\"15\" font-size=\"11\" fill=\"black\">17</text><text x=\"640\" y=\"15\" font-size=\"11\" fill=\"black\">18</text><text x=\"670\" y=\"15\" font-size=\"11\" fill=\"black\">19</text><text x=\"700\" y=\"15\" font-size=\"11\" fill=\"black\">20</text><text x=\"730\" y=\"15\" font-size=\"11\" fill=\"black\">21</text><text x=\"760\" y=\"15\" font-size=\"11\" fill=\"black\">22</text><text x=\"790\" y=\"15\" font-size=\"11\" fill=\"black\">23</text><text x=\"820\" y=\"15\" font-size=\"11\" fill=\"black\">24</text><text x=\"850\" y=\"15\" font-size=\"11\" fill=\"black\">25</text><text x=\"880\" y=\"15\" font-size=\"11\" fill=\"black\">26</text><text x=\"910\" y=\"15\" font-size=\"11\" fill=\"black\">27</text><text x=\"940\" y=\"15\" font-size=\"11\" fill=\"black\">28</text><text x=\"970\" y=\"15\" font-size=\"11\" fill=\"black\">29</text><text x=\"1000\" y=\"15\" font-size=\"11\" fill=\"black\">30</text><text x=\"1030\" y=\"15\" font-size=\"11\" fill=\"black\">31</text><text x=\"1060\" y=\"15\" font-size=\"11\" fill=\"black\">32</text><text x=\"5\" y=\"50\" font-size=\"13\" fill=\"black\">Q4</text><polyline points=\"100,60 130,60 130,60 160,60 160,60 190,60 190,60 220,60 220,60 250,60 250,60 280,60 280,60 310,60 310,60 340,60 340,60 370,60 370,60 400,60 400,60 430,60 430,60 460,60 460,60 490,60 490,60 520,60 520,60 550,60 550,60 580,60 580,40 610,40 610,40 640,40 640,40 670,40 670,40 700,40 700,40 730,40 730,40 760,40 760,40 790,40 790,40 820,40 820,40 850,40 850,40 880,40 880,40 910,40 910,40 940,40 940,40 970,40 970,40 1000,40 1000,40 1030,40 1030,40 1060,40 1060,60 1090,60\" fill=\"none\" stroke=\"#202020\" stroke-width=\"2\"/><text x=\"5\" y=\"95\" font-size=\"13\" fill=\"black\">Q3</text><polyline points=\"100,105 130,105 130,105 160,105 160,105 190,105 190,105 220,105 220,105 250,105 250,105 280,105 280,105 310,105 310,105 340,105 340,85 370,85 370,85 400,85 400,85 430,85 430,85 460,85 460,85 490,85 490,85 520,85 520,85 550,85 550,85 580,85 580,105 610,105 610,105 640,105 640,105 670,105 670,105 700,105 700,105 730,105 730,105 760,105 760,105 790,105 790,105 820,105 820,85 850,85 850,85 880,85 880,85 910,85 910,85 940,85 940,85 970,85 970,85 1000,85 1000,85 1030,85 1030,85 1060,85 1060,105 1090,105\" fill=\"none\" stroke=\"#202020\" stroke-width=\"2\"/><text x=\"5\" y=\"140\" font-size=\"13\" fill=\"black\">Q2</text><polyline points=\"100,150 130,150 130,150 160,150 160,150 190,150 190,150 220,150 220,130 250,130 250,130 280,130 280,130 310,130 310,130 340,130 340,150 370,150 370,150 400,150 400,150 430,150 430,150 460,150 460,130 490,130 490,130 520,130 520,130 550,130 550,130 580,130 580,150 610,150 610,150 640,150 640,150 670,150 670,150 700,150 700,130 730,130 730,130 760,130 760,130 790,130 790,130 820,130 820,150 850,150 850,150 880,150 880,150 910,150 910,150 940,150 940,130 970,130 970,130 1000,130 1000,130 1030,130 1030,130 1060,130 1060,150 1090,150\" fill=\"none\" stroke=\"#202020\" stroke-width=\"2\"/><text x=\"5\" y=\"185\" font-size=\"13\" fill=\"black\">Q1</text><polyline points=\"100,195 130,195 130,195 160,195 160,175 190,175 190,175 220,175 220,195 250,195 250,195 280,195 280,175 310,175 310,175 340,175 340,195 370,195 370,195 400,195 400,175 430,175 430,175 460,175 460,195 490,195 490,195 520,195 520,175 550,175 550,175 580,175 580,195 610,195 610,195 640,195 640,175 670,175 670,175 700,175 700,195 730,195 730,195 760,195 760,175 790,175 790,175 820,175 820,195 850,195 850,195 880,195 880,175 910,175 910,175 940,175 940,195 970,195 970,195 1000,195 1000,175 1030,175 1030,175 1060,175 1060,195 1090,195\" fill=\"none\" stroke=\"#202020\" stroke-width=\"2\"/><text x=\"5\" y=\"230\" font-size=\"13\" fill=\"black\">Q0</text><polyline points=\"100,240 130,240 130,220 160,220 160,240 190,240 190,220 220,220 220,240 250,240 250,220 280,220 280,240 310,240 310,220 340,220 340,240 370,240 370,220 400,220 400,240 430,240 430,220 460,220 460,240 490,240 490,220 520,220 520,240 550,240 550,220 580,220 580,240 610,240 610,220 640,220 640,240 670,240 670,220 700,220 700,240 730,240 730,220 760,220 760,240 790,240 790,220 820,220 820,240 850,240 850,220 880,220 880,240 910,240 910,220 940,220 940,240 970,240 970,220 1000,220 1000,240 1030,240 1030,220 1060,220 1060,240 1090,240\" fill=\"none\" stroke=\"#202020\" stroke-width=\"2\"/></svg></div>",
+        "hints": [
+          "先识别时钟有效边沿、初始状态及控制信号的优先级。",
+          "写出每个触发器的下一状态，用边沿前的旧状态同时计算。",
+          "逐个有效边沿列状态表；异步输入变化还应单独列事件。",
+          "展开完整解析，比较状态表和各输出波形。"
+        ]
+      },
+      {
+        "id": "a3-q3",
+        "title": "Q3 · Ch8 #8、#10 · 使能、清零与装载",
+        "prompt": "8. Show the counter output waveforms for Figure 8–73; clear is asynchronous. 10. For the 74HC163 in Figure 8–75, determine Q outputs and RCO, with D0=1, D1=1, D2=0, D3=1.",
+        "page": 6,
+        "image": "assets/assignments/a3-p6.png",
+        "solution": "<p><strong>独立推导解答</strong>，依据题图与逻辑器件状态方程。页码均为本 PDF 页码。</p><h4>Ch8 #8 · Figure 8–73</h4><p>从左向右编号 10 个可见上升沿。CLR 为低时立即清零，优先于使能；CLR=1 且 CTEN=1 才加一。第 5 与第 6 边沿之间 CLR 拉低，输出立即从 2 清为 0。</p><div class=\"table-scroll\"><table><thead><tr><th>n</th><th>CTEN</th><th>CLR</th><th>Q3…Q0</th></tr></thead><tbody><tr><td>1</td><td>0</td><td>0</td><td>0000</td></tr><tr><td>2</td><td>0</td><td>1</td><td>0000</td></tr><tr><td>3</td><td>1</td><td>1</td><td>0001</td></tr><tr><td>4</td><td>1</td><td>1</td><td>0010</td></tr><tr><td>5</td><td>0</td><td>1</td><td>0010</td></tr><tr><td>6</td><td>0</td><td>0</td><td>0000</td></tr><tr><td>7</td><td>0</td><td>1</td><td>0000</td></tr><tr><td>8</td><td>1</td><td>1</td><td>0001</td></tr><tr><td>9</td><td>1</td><td>1</td><td>0010</td></tr><tr><td>10</td><td>0</td><td>1</td><td>0010</td></tr></tbody></table></div><p>上述表在 n=6 写出的 0 实际已在上一拍后的 CLR 下降时出现。Q2、Q3 始终为 0。</p><h4>Ch8 #10 · Figure 8–75</h4><p>74HC163 同步清零的优先级为 CLR=0 清零，然后 LOAD=0 装载，然后 ENP·ENT=1 计数，否则保持。最左端的时钟起始上升沿在 CLR=0 时建立 0000，把这个边沿记为 n=0，随后 15 个完整可见上升沿记 n=1…15。</p>\\[D_3D_2D_1D_0=1011_2=11,\\qquad RCO=ENT\\,Q_3Q_2Q_1Q_0.\\]<div class=\"table-scroll\"><table><thead><tr><th>边沿 n</th><th>Q3…Q0</th><th>十进制</th></tr></thead><tbody><tr><td>0</td><td>0000</td><td>0</td></tr><tr><td>1</td><td>0001</td><td>1</td></tr><tr><td>2</td><td>0010</td><td>2</td></tr><tr><td>3</td><td>0011</td><td>3</td></tr><tr><td>4</td><td>0100</td><td>4</td></tr><tr><td>5</td><td>1011</td><td>11</td></tr><tr><td>6</td><td>1100</td><td>12</td></tr><tr><td>7</td><td>1100</td><td>12</td></tr><tr><td>8</td><td>1101</td><td>13</td></tr><tr><td>9</td><td>1110</td><td>14</td></tr><tr><td>10</td><td>1111</td><td>15</td></tr><tr><td>11</td><td>1111</td><td>15</td></tr><tr><td>12</td><td>0000</td><td>0</td></tr><tr><td>13</td><td>0001</td><td>1</td></tr><tr><td>14</td><td>0010</td><td>2</td></tr><tr><td>15</td><td>0011</td><td>3</td></tr></tbody></table></div><div style=\"overflow-x:auto\"><svg viewBox=\"0 0 605 215\" role=\"img\" aria-label=\"按时钟区间绘制的输出时序图\" style=\"min-width:605px;max-width:100%\" xmlns=\"http://www.w3.org/2000/svg\"><rect width=\"100%\" height=\"100%\" fill=\"white\"/><text x=\"100\" y=\"15\" font-size=\"11\" fill=\"black\">0</text><text x=\"130\" y=\"15\" font-size=\"11\" fill=\"black\">1</text><text x=\"160\" y=\"15\" font-size=\"11\" fill=\"black\">2</text><text x=\"190\" y=\"15\" font-size=\"11\" fill=\"black\">3</text><text x=\"220\" y=\"15\" font-size=\"11\" fill=\"black\">4</text><text x=\"250\" y=\"15\" font-size=\"11\" fill=\"black\">5</text><text x=\"280\" y=\"15\" font-size=\"11\" fill=\"black\">6</text><text x=\"310\" y=\"15\" font-size=\"11\" fill=\"black\">7</text><text x=\"340\" y=\"15\" font-size=\"11\" fill=\"black\">8</text><text x=\"370\" y=\"15\" font-size=\"11\" fill=\"black\">9</text><text x=\"400\" y=\"15\" font-size=\"11\" fill=\"black\">10</text><text x=\"430\" y=\"15\" font-size=\"11\" fill=\"black\">11</text><text x=\"460\" y=\"15\" font-size=\"11\" fill=\"black\">12</text><text x=\"490\" y=\"15\" font-size=\"11\" fill=\"black\">13</text><text x=\"520\" y=\"15\" font-size=\"11\" fill=\"black\">14</text><text x=\"550\" y=\"15\" font-size=\"11\" fill=\"black\">15</text><text x=\"5\" y=\"50\" font-size=\"13\" fill=\"black\">Q3</text><polyline points=\"100,60 130,60 130,60 160,60 160,60 190,60 190,60 220,60 220,60 250,60 250,40 280,40 280,40 310,40 310,40 340,40 340,40 370,40 370,40 400,40 400,40 430,40 430,40 460,40 460,60 490,60 490,60 520,60 520,60 550,60 550,60 580,60\" fill=\"none\" stroke=\"#202020\" stroke-width=\"2\"/><text x=\"5\" y=\"95\" font-size=\"13\" fill=\"black\">Q2</text><polyline points=\"100,105 130,105 130,105 160,105 160,105 190,105 190,105 220,105 220,85 250,85 250,105 280,105 280,85 310,85 310,85 340,85 340,85 370,85 370,85 400,85 400,85 430,85 430,85 460,85 460,105 490,105 490,105 520,105 520,105 550,105 550,105 580,105\" fill=\"none\" stroke=\"#202020\" stroke-width=\"2\"/><text x=\"5\" y=\"140\" font-size=\"13\" fill=\"black\">Q1</text><polyline points=\"100,150 130,150 130,150 160,150 160,130 190,130 190,130 220,130 220,150 250,150 250,130 280,130 280,150 310,150 310,150 340,150 340,150 370,150 370,130 400,130 400,130 430,130 430,130 460,130 460,150 490,150 490,150 520,150 520,130 550,130 550,130 580,130\" fill=\"none\" stroke=\"#202020\" stroke-width=\"2\"/><text x=\"5\" y=\"185\" font-size=\"13\" fill=\"black\">Q0</text><polyline points=\"100,195 130,195 130,175 160,175 160,195 190,195 190,175 220,175 220,195 250,195 250,175 280,175 280,195 310,195 310,195 340,195 340,175 370,175 370,195 400,195 400,175 430,175 430,175 460,175 460,195 490,195 490,175 520,175 520,195 550,195 550,175 580,175\" fill=\"none\" stroke=\"#202020\" stroke-width=\"2\"/></svg></div><p>n=5 装载 1011；n=7 因 ENP=0 保持 1100；n=11 因 ENT=0 保持 1111。RCO 在 n=10 后为 1，在 n=10 与 n=11 之间 ENT 拉低时立即为 0，ENT 恢复后再为 1，n=12 回零后为 0。即 RCO 的变化也可能发生在时钟边沿之间。若把最左侧已处于高电平的线段视为未画出的历史，则初态须明确采用已清零状态；n=5 装载后序列不依赖该历史。</p>",
+        "hints": [
+          "先识别时钟有效边沿、初始状态及控制信号的优先级。",
+          "写出每个触发器的下一状态，用边沿前的旧状态同时计算。",
+          "逐个有效边沿列状态表；异步输入变化还应单独列事件。",
+          "展开完整解析，比较状态表和各输出波形。"
+        ]
+      },
+      {
+        "id": "a3-q4",
+        "title": "Q4 · Ch8 #16、#17 · 从反馈电路求序列",
+        "prompt": "16. Determine the sequence of the counter in Figure 8–77. 17. Determine the sequence of the counter in Figure 8–78. Begin with the counter cleared.",
+        "page": 7,
+        "image": "assets/assignments/a3-p7.png",
+        "solution": "<p><strong>独立推导解答</strong>，依据题图与逻辑器件状态方程。页码均为本 PDF 页码。</p><h4>#16</h4><p>按图从右向左返回 D0 的是 NAND(Q1,Q2)。D 触发器下一状态等于 D 输入。</p>\\[Q_0^+=\\overline{Q_1Q_2},\\quad Q_1^+=Q_0,\\quad Q_2^+=Q_1.\\]<p>从 000 展开，进入 001→011→111→110→100→001 的五态循环。010→101→011，101→011，因此其余状态最终也进入该循环。</p><div class=\"table-scroll\"><table><thead><tr><th>边沿 n</th><th>Q2…Q0</th><th>十进制</th></tr></thead><tbody><tr><td>0</td><td>000</td><td>0</td></tr><tr><td>1</td><td>001</td><td>1</td></tr><tr><td>2</td><td>011</td><td>3</td></tr><tr><td>3</td><td>111</td><td>7</td></tr><tr><td>4</td><td>110</td><td>6</td></tr><tr><td>5</td><td>100</td><td>4</td></tr><tr><td>6</td><td>001</td><td>1</td></tr><tr><td>7</td><td>011</td><td>3</td></tr><tr><td>8</td><td>111</td><td>7</td></tr></tbody></table></div><div style=\"overflow-x:auto\"><svg viewBox=\"0 0 395 170\" role=\"img\" aria-label=\"按时钟区间绘制的输出时序图\" style=\"min-width:395px;max-width:100%\" xmlns=\"http://www.w3.org/2000/svg\"><rect width=\"100%\" height=\"100%\" fill=\"white\"/><text x=\"100\" y=\"15\" font-size=\"11\" fill=\"black\">0</text><text x=\"130\" y=\"15\" font-size=\"11\" fill=\"black\">1</text><text x=\"160\" y=\"15\" font-size=\"11\" fill=\"black\">2</text><text x=\"190\" y=\"15\" font-size=\"11\" fill=\"black\">3</text><text x=\"220\" y=\"15\" font-size=\"11\" fill=\"black\">4</text><text x=\"250\" y=\"15\" font-size=\"11\" fill=\"black\">5</text><text x=\"280\" y=\"15\" font-size=\"11\" fill=\"black\">6</text><text x=\"310\" y=\"15\" font-size=\"11\" fill=\"black\">7</text><text x=\"340\" y=\"15\" font-size=\"11\" fill=\"black\">8</text><text x=\"5\" y=\"50\" font-size=\"13\" fill=\"black\">Q2</text><polyline points=\"100,60 130,60 130,60 160,60 160,60 190,60 190,40 220,40 220,40 250,40 250,40 280,40 280,60 310,60 310,60 340,60 340,40 370,40\" fill=\"none\" stroke=\"#202020\" stroke-width=\"2\"/><text x=\"5\" y=\"95\" font-size=\"13\" fill=\"black\">Q1</text><polyline points=\"100,105 130,105 130,105 160,105 160,85 190,85 190,85 220,85 220,85 250,85 250,105 280,105 280,105 310,105 310,85 340,85 340,85 370,85\" fill=\"none\" stroke=\"#202020\" stroke-width=\"2\"/><text x=\"5\" y=\"140\" font-size=\"13\" fill=\"black\">Q0</text><polyline points=\"100,150 130,150 130,130 160,130 160,130 190,130 190,130 220,130 220,150 250,150 250,150 280,150 280,130 310,130 310,130 340,130 340,130 370,130\" fill=\"none\" stroke=\"#202020\" stroke-width=\"2\"/></svg></div><h4>#17</h4><p>按扫描题图逐线追踪，三个 NAND 门的输入分别为 Q0,Q1,Q2,Q3；Q1,Q2,Q3；Q2,Q3。由于各级 J=K，可将它们视为 T 触发器。</p>\\[T_0=1,\\ T_1=\\overline{Q_0Q_1Q_2Q_3},\\ T_2=\\overline{Q_1Q_2Q_3},\\ T_3=\\overline{Q_2Q_3},\\quad Q_i^+=Q_i\\oplus T_i.\\]<p>因此从清零态产生以下序列，最后在 1010 与 0101 之间循环。该结果直接依照题图 NAND 输出小圆圈与反馈连线，不把电路假定为标准加一计数器。</p><div class=\"table-scroll\"><table><thead><tr><th>边沿 n</th><th>Q3…Q0</th><th>十进制</th></tr></thead><tbody><tr><td>0</td><td>0000</td><td>0</td></tr><tr><td>1</td><td>1111</td><td>15</td></tr><tr><td>2</td><td>1110</td><td>14</td></tr><tr><td>3</td><td>1101</td><td>13</td></tr><tr><td>4</td><td>1010</td><td>10</td></tr><tr><td>5</td><td>0101</td><td>5</td></tr><tr><td>6</td><td>1010</td><td>10</td></tr><tr><td>7</td><td>0101</td><td>5</td></tr><tr><td>8</td><td>1010</td><td>10</td></tr></tbody></table></div><div style=\"overflow-x:auto\"><svg viewBox=\"0 0 395 215\" role=\"img\" aria-label=\"按时钟区间绘制的输出时序图\" style=\"min-width:395px;max-width:100%\" xmlns=\"http://www.w3.org/2000/svg\"><rect width=\"100%\" height=\"100%\" fill=\"white\"/><text x=\"100\" y=\"15\" font-size=\"11\" fill=\"black\">0</text><text x=\"130\" y=\"15\" font-size=\"11\" fill=\"black\">1</text><text x=\"160\" y=\"15\" font-size=\"11\" fill=\"black\">2</text><text x=\"190\" y=\"15\" font-size=\"11\" fill=\"black\">3</text><text x=\"220\" y=\"15\" font-size=\"11\" fill=\"black\">4</text><text x=\"250\" y=\"15\" font-size=\"11\" fill=\"black\">5</text><text x=\"280\" y=\"15\" font-size=\"11\" fill=\"black\">6</text><text x=\"310\" y=\"15\" font-size=\"11\" fill=\"black\">7</text><text x=\"340\" y=\"15\" font-size=\"11\" fill=\"black\">8</text><text x=\"5\" y=\"50\" font-size=\"13\" fill=\"black\">Q3</text><polyline points=\"100,60 130,60 130,40 160,40 160,40 190,40 190,40 220,40 220,40 250,40 250,60 280,60 280,40 310,40 310,60 340,60 340,40 370,40\" fill=\"none\" stroke=\"#202020\" stroke-width=\"2\"/><text x=\"5\" y=\"95\" font-size=\"13\" fill=\"black\">Q2</text><polyline points=\"100,105 130,105 130,85 160,85 160,85 190,85 190,85 220,85 220,105 250,105 250,85 280,85 280,105 310,105 310,85 340,85 340,105 370,105\" fill=\"none\" stroke=\"#202020\" stroke-width=\"2\"/><text x=\"5\" y=\"140\" font-size=\"13\" fill=\"black\">Q1</text><polyline points=\"100,150 130,150 130,130 160,130 160,130 190,130 190,150 220,150 220,130 250,130 250,150 280,150 280,130 310,130 310,150 340,150 340,130 370,130\" fill=\"none\" stroke=\"#202020\" stroke-width=\"2\"/><text x=\"5\" y=\"185\" font-size=\"13\" fill=\"black\">Q0</text><polyline points=\"100,195 130,195 130,175 160,175 160,195 190,195 190,175 220,175 220,195 250,195 250,175 280,175 280,195 310,195 310,175 340,175 340,195 370,195\" fill=\"none\" stroke=\"#202020\" stroke-width=\"2\"/></svg></div>",
+        "hints": [
+          "先识别时钟有效边沿、初始状态及控制信号的优先级。",
+          "写出每个触发器的下一状态，用边沿前的旧状态同时计算。",
+          "逐个有效边沿列状态表；异步输入变化还应单独列事件。",
+          "展开完整解析，比较状态表和各输出波形。"
+        ]
+      },
+      {
+        "id": "a3-q5",
+        "title": "Q5 · Ch8 #26 · 4–16 译码输出",
+        "prompt": "For the 4-bit binary counter connected to the decoder in Figure 8–81, determine each decoder output waveform in relation to the clock pulses.",
+        "page": 8,
+        "image": "assets/assignments/a3-p8.png",
+        "solution": "<p><strong>独立推导解答</strong>，依据题图与逻辑器件状态方程。页码均为本 PDF 页码。</p><p>假设计数器已清零。译码器使能端接低且有效，16 个输出带反相小圆圈，因此是低有效。每个状态恰好有一路输出为 0。</p>\\[N(n)=n\\bmod16,\\quad Y_k(n)=\\begin{cases}0,&N(n)=k\\\\1,&N(n)\\ne k.\\end{cases}\\]<p>初始 Y0=0；第 1…15 拍依次 Y1…Y15 为 0；第 16 拍重新 Y0=0。其余各输出在对应时间均为 1。</p><div style=\"overflow-x:auto\"><svg viewBox=\"0 0 635 755\" role=\"img\" aria-label=\"按时钟区间绘制的输出时序图\" style=\"min-width:635px;max-width:100%\" xmlns=\"http://www.w3.org/2000/svg\"><rect width=\"100%\" height=\"100%\" fill=\"white\"/><text x=\"100\" y=\"15\" font-size=\"11\" fill=\"black\">0</text><text x=\"130\" y=\"15\" font-size=\"11\" fill=\"black\">1</text><text x=\"160\" y=\"15\" font-size=\"11\" fill=\"black\">2</text><text x=\"190\" y=\"15\" font-size=\"11\" fill=\"black\">3</text><text x=\"220\" y=\"15\" font-size=\"11\" fill=\"black\">4</text><text x=\"250\" y=\"15\" font-size=\"11\" fill=\"black\">5</text><text x=\"280\" y=\"15\" font-size=\"11\" fill=\"black\">6</text><text x=\"310\" y=\"15\" font-size=\"11\" fill=\"black\">7</text><text x=\"340\" y=\"15\" font-size=\"11\" fill=\"black\">8</text><text x=\"370\" y=\"15\" font-size=\"11\" fill=\"black\">9</text><text x=\"400\" y=\"15\" font-size=\"11\" fill=\"black\">10</text><text x=\"430\" y=\"15\" font-size=\"11\" fill=\"black\">11</text><text x=\"460\" y=\"15\" font-size=\"11\" fill=\"black\">12</text><text x=\"490\" y=\"15\" font-size=\"11\" fill=\"black\">13</text><text x=\"520\" y=\"15\" font-size=\"11\" fill=\"black\">14</text><text x=\"550\" y=\"15\" font-size=\"11\" fill=\"black\">15</text><text x=\"580\" y=\"15\" font-size=\"11\" fill=\"black\">16</text><text x=\"5\" y=\"50\" font-size=\"13\" fill=\"black\">Y0</text><polyline points=\"100,60 130,60 130,40 160,40 160,40 190,40 190,40 220,40 220,40 250,40 250,40 280,40 280,40 310,40 310,40 340,40 340,40 370,40 370,40 400,40 400,40 430,40 430,40 460,40 460,40 490,40 490,40 520,40 520,40 550,40 550,40 580,40 580,60 610,60\" fill=\"none\" stroke=\"#202020\" stroke-width=\"2\"/><text x=\"5\" y=\"95\" font-size=\"13\" fill=\"black\">Y1</text><polyline points=\"100,85 130,85 130,105 160,105 160,85 190,85 190,85 220,85 220,85 250,85 250,85 280,85 280,85 310,85 310,85 340,85 340,85 370,85 370,85 400,85 400,85 430,85 430,85 460,85 460,85 490,85 490,85 520,85 520,85 550,85 550,85 580,85 580,85 610,85\" fill=\"none\" stroke=\"#202020\" stroke-width=\"2\"/><text x=\"5\" y=\"140\" font-size=\"13\" fill=\"black\">Y2</text><polyline points=\"100,130 130,130 130,130 160,130 160,150 190,150 190,130 220,130 220,130 250,130 250,130 280,130 280,130 310,130 310,130 340,130 340,130 370,130 370,130 400,130 400,130 430,130 430,130 460,130 460,130 490,130 490,130 520,130 520,130 550,130 550,130 580,130 580,130 610,130\" fill=\"none\" stroke=\"#202020\" stroke-width=\"2\"/><text x=\"5\" y=\"185\" font-size=\"13\" fill=\"black\">Y3</text><polyline points=\"100,175 130,175 130,175 160,175 160,175 190,175 190,195 220,195 220,175 250,175 250,175 280,175 280,175 310,175 310,175 340,175 340,175 370,175 370,175 400,175 400,175 430,175 430,175 460,175 460,175 490,175 490,175 520,175 520,175 550,175 550,175 580,175 580,175 610,175\" fill=\"none\" stroke=\"#202020\" stroke-width=\"2\"/><text x=\"5\" y=\"230\" font-size=\"13\" fill=\"black\">Y4</text><polyline points=\"100,220 130,220 130,220 160,220 160,220 190,220 190,220 220,220 220,240 250,240 250,220 280,220 280,220 310,220 310,220 340,220 340,220 370,220 370,220 400,220 400,220 430,220 430,220 460,220 460,220 490,220 490,220 520,220 520,220 550,220 550,220 580,220 580,220 610,220\" fill=\"none\" stroke=\"#202020\" stroke-width=\"2\"/><text x=\"5\" y=\"275\" font-size=\"13\" fill=\"black\">Y5</text><polyline points=\"100,265 130,265 130,265 160,265 160,265 190,265 190,265 220,265 220,265 250,265 250,285 280,285 280,265 310,265 310,265 340,265 340,265 370,265 370,265 400,265 400,265 430,265 430,265 460,265 460,265 490,265 490,265 520,265 520,265 550,265 550,265 580,265 580,265 610,265\" fill=\"none\" stroke=\"#202020\" stroke-width=\"2\"/><text x=\"5\" y=\"320\" font-size=\"13\" fill=\"black\">Y6</text><polyline points=\"100,310 130,310 130,310 160,310 160,310 190,310 190,310 220,310 220,310 250,310 250,310 280,310 280,330 310,330 310,310 340,310 340,310 370,310 370,310 400,310 400,310 430,310 430,310 460,310 460,310 490,310 490,310 520,310 520,310 550,310 550,310 580,310 580,310 610,310\" fill=\"none\" stroke=\"#202020\" stroke-width=\"2\"/><text x=\"5\" y=\"365\" font-size=\"13\" fill=\"black\">Y7</text><polyline points=\"100,355 130,355 130,355 160,355 160,355 190,355 190,355 220,355 220,355 250,355 250,355 280,355 280,355 310,355 310,375 340,375 340,355 370,355 370,355 400,355 400,355 430,355 430,355 460,355 460,355 490,355 490,355 520,355 520,355 550,355 550,355 580,355 580,355 610,355\" fill=\"none\" stroke=\"#202020\" stroke-width=\"2\"/><text x=\"5\" y=\"410\" font-size=\"13\" fill=\"black\">Y8</text><polyline points=\"100,400 130,400 130,400 160,400 160,400 190,400 190,400 220,400 220,400 250,400 250,400 280,400 280,400 310,400 310,400 340,400 340,420 370,420 370,400 400,400 400,400 430,400 430,400 460,400 460,400 490,400 490,400 520,400 520,400 550,400 550,400 580,400 580,400 610,400\" fill=\"none\" stroke=\"#202020\" stroke-width=\"2\"/><text x=\"5\" y=\"455\" font-size=\"13\" fill=\"black\">Y9</text><polyline points=\"100,445 130,445 130,445 160,445 160,445 190,445 190,445 220,445 220,445 250,445 250,445 280,445 280,445 310,445 310,445 340,445 340,445 370,445 370,465 400,465 400,445 430,445 430,445 460,445 460,445 490,445 490,445 520,445 520,445 550,445 550,445 580,445 580,445 610,445\" fill=\"none\" stroke=\"#202020\" stroke-width=\"2\"/><text x=\"5\" y=\"500\" font-size=\"13\" fill=\"black\">Y10</text><polyline points=\"100,490 130,490 130,490 160,490 160,490 190,490 190,490 220,490 220,490 250,490 250,490 280,490 280,490 310,490 310,490 340,490 340,490 370,490 370,490 400,490 400,510 430,510 430,490 460,490 460,490 490,490 490,490 520,490 520,490 550,490 550,490 580,490 580,490 610,490\" fill=\"none\" stroke=\"#202020\" stroke-width=\"2\"/><text x=\"5\" y=\"545\" font-size=\"13\" fill=\"black\">Y11</text><polyline points=\"100,535 130,535 130,535 160,535 160,535 190,535 190,535 220,535 220,535 250,535 250,535 280,535 280,535 310,535 310,535 340,535 340,535 370,535 370,535 400,535 400,535 430,535 430,555 460,555 460,535 490,535 490,535 520,535 520,535 550,535 550,535 580,535 580,535 610,535\" fill=\"none\" stroke=\"#202020\" stroke-width=\"2\"/><text x=\"5\" y=\"590\" font-size=\"13\" fill=\"black\">Y12</text><polyline points=\"100,580 130,580 130,580 160,580 160,580 190,580 190,580 220,580 220,580 250,580 250,580 280,580 280,580 310,580 310,580 340,580 340,580 370,580 370,580 400,580 400,580 430,580 430,580 460,580 460,600 490,600 490,580 520,580 520,580 550,580 550,580 580,580 580,580 610,580\" fill=\"none\" stroke=\"#202020\" stroke-width=\"2\"/><text x=\"5\" y=\"635\" font-size=\"13\" fill=\"black\">Y13</text><polyline points=\"100,625 130,625 130,625 160,625 160,625 190,625 190,625 220,625 220,625 250,625 250,625 280,625 280,625 310,625 310,625 340,625 340,625 370,625 370,625 400,625 400,625 430,625 430,625 460,625 460,625 490,625 490,645 520,645 520,625 550,625 550,625 580,625 580,625 610,625\" fill=\"none\" stroke=\"#202020\" stroke-width=\"2\"/><text x=\"5\" y=\"680\" font-size=\"13\" fill=\"black\">Y14</text><polyline points=\"100,670 130,670 130,670 160,670 160,670 190,670 190,670 220,670 220,670 250,670 250,670 280,670 280,670 310,670 310,670 340,670 340,670 370,670 370,670 400,670 400,670 430,670 430,670 460,670 460,670 490,670 490,670 520,670 520,690 550,690 550,670 580,670 580,670 610,670\" fill=\"none\" stroke=\"#202020\" stroke-width=\"2\"/><text x=\"5\" y=\"725\" font-size=\"13\" fill=\"black\">Y15</text><polyline points=\"100,715 130,715 130,715 160,715 160,715 190,715 190,715 220,715 220,715 250,715 250,715 280,715 280,715 310,715 310,715 340,715 340,715 370,715 370,715 400,715 400,715 430,715 430,715 460,715 460,715 490,715 490,715 520,715 520,715 550,715 550,735 580,735 580,715 610,715\" fill=\"none\" stroke=\"#202020\" stroke-width=\"2\"/></svg></div><p>每个低脉冲持续一个输入时钟周期，每 16 个周期重复；低脉冲占空比为 1/16。图中忽略计数器与译码器传播延迟。</p>",
+        "hints": [
+          "先识别时钟有效边沿、初始状态及控制信号的优先级。",
+          "写出每个触发器的下一状态，用边沿前的旧状态同时计算。",
+          "逐个有效边沿列状态表；异步输入变化还应单独列事件。",
+          "展开完整解析，比较状态表和各输出波形。"
+        ]
+      },
+      {
+        "id": "a3-q6",
+        "title": "Q6 · Ch9 #6 · 四级串入串出",
+        "prompt": "Solve Problem 5 for Figure 9–49. Determine each flip-flop state and Q waveform for the four-stage register of Figure 9–3, initially all 1s.",
+        "page": 11,
+        "image": "assets/assignments/a3-p11.png",
+        "solution": "<p><strong>独立推导解答</strong>，依据题图与逻辑器件状态方程。页码均为本 PDF 页码。</p><p>Figure 9–3 的串行数据进入 Q0，旧 Q0→Q1→Q2→Q3，均在上升沿采样。图 9–49 的 9 个输入样本依次为 0,1,1,0,1,0,1,0,0。</p>\\[Q_0^+=D,\\quad Q_1^+=Q_0,\\quad Q_2^+=Q_1,\\quad Q_3^+=Q_2.\\]<p>务必同时使用旧值更新，不能在同一拍把新位直接传到末级。</p><div class=\"table-scroll\"><table><thead><tr><th>边沿 n</th><th>Q3…Q0</th><th>十进制</th></tr></thead><tbody><tr><td>0</td><td>1111</td><td>15</td></tr><tr><td>1</td><td>1110</td><td>14</td></tr><tr><td>2</td><td>1101</td><td>13</td></tr><tr><td>3</td><td>1011</td><td>11</td></tr><tr><td>4</td><td>0110</td><td>6</td></tr><tr><td>5</td><td>1101</td><td>13</td></tr><tr><td>6</td><td>1010</td><td>10</td></tr><tr><td>7</td><td>0101</td><td>5</td></tr><tr><td>8</td><td>1010</td><td>10</td></tr><tr><td>9</td><td>0100</td><td>4</td></tr></tbody></table></div><div style=\"overflow-x:auto\"><svg viewBox=\"0 0 425 215\" role=\"img\" aria-label=\"按时钟区间绘制的输出时序图\" style=\"min-width:425px;max-width:100%\" xmlns=\"http://www.w3.org/2000/svg\"><rect width=\"100%\" height=\"100%\" fill=\"white\"/><text x=\"100\" y=\"15\" font-size=\"11\" fill=\"black\">0</text><text x=\"130\" y=\"15\" font-size=\"11\" fill=\"black\">1</text><text x=\"160\" y=\"15\" font-size=\"11\" fill=\"black\">2</text><text x=\"190\" y=\"15\" font-size=\"11\" fill=\"black\">3</text><text x=\"220\" y=\"15\" font-size=\"11\" fill=\"black\">4</text><text x=\"250\" y=\"15\" font-size=\"11\" fill=\"black\">5</text><text x=\"280\" y=\"15\" font-size=\"11\" fill=\"black\">6</text><text x=\"310\" y=\"15\" font-size=\"11\" fill=\"black\">7</text><text x=\"340\" y=\"15\" font-size=\"11\" fill=\"black\">8</text><text x=\"370\" y=\"15\" font-size=\"11\" fill=\"black\">9</text><text x=\"5\" y=\"50\" font-size=\"13\" fill=\"black\">Q3</text><polyline points=\"100,40 130,40 130,40 160,40 160,40 190,40 190,40 220,40 220,60 250,60 250,40 280,40 280,40 310,40 310,60 340,60 340,40 370,40 370,60 400,60\" fill=\"none\" stroke=\"#202020\" stroke-width=\"2\"/><text x=\"5\" y=\"95\" font-size=\"13\" fill=\"black\">Q2</text><polyline points=\"100,85 130,85 130,85 160,85 160,85 190,85 190,105 220,105 220,85 250,85 250,85 280,85 280,105 310,105 310,85 340,85 340,105 370,105 370,85 400,85\" fill=\"none\" stroke=\"#202020\" stroke-width=\"2\"/><text x=\"5\" y=\"140\" font-size=\"13\" fill=\"black\">Q1</text><polyline points=\"100,130 130,130 130,130 160,130 160,150 190,150 190,130 220,130 220,130 250,130 250,150 280,150 280,130 310,130 310,150 340,150 340,130 370,130 370,150 400,150\" fill=\"none\" stroke=\"#202020\" stroke-width=\"2\"/><text x=\"5\" y=\"185\" font-size=\"13\" fill=\"black\">Q0</text><polyline points=\"100,175 130,175 130,195 160,195 160,175 190,175 190,175 220,175 220,195 250,195 250,175 280,175 280,195 310,195 310,175 340,175 340,195 370,195 370,195 400,195\" fill=\"none\" stroke=\"#202020\" stroke-width=\"2\"/></svg></div>",
+        "hints": [
+          "先识别时钟有效边沿、初始状态及控制信号的优先级。",
+          "写出每个触发器的下一状态，用边沿前的旧状态同时计算。",
+          "逐个有效边沿列状态表；异步输入变化还应单独列事件。",
+          "展开完整解析，比较状态表和各输出波形。"
+        ]
+      },
+      {
+        "id": "a3-q7",
+        "title": "Q7 · Ch9 #8 · 十级串行延迟",
+        "prompt": "For the serial-in/serial-out shift register in Figure 9–51, determine the data-output waveform. Assume that the ten-stage register is initially cleared.",
+        "page": 11,
+        "image": "assets/assignments/a3-p11.png",
+        "solution": "<p><strong>独立推导解答</strong>，依据题图与逻辑器件状态方程。页码均为本 PDF 页码。</p><p>按图中 20 个上升沿读取串行输入。第 1 个采样位在第 10 个边沿后到达末级。因此以边沿后状态定义索引，有下式。</p>\\[y[n]=0\\ (n&lt;10),\\qquad y[n]=d[n-9]\\ (n\\ge10).\\]<p>从采样边沿到输出边沿间隔为 9 个周期，但将十级寄存器全部移入需要 10 次时钟。输入序列为 01010011100100110110。</p><div class=\"table-scroll\"><table><thead><tr><th>n</th><th>输入 d[n]</th><th>输出 y[n]</th></tr></thead><tbody><tr><td>1</td><td>0</td><td>0</td></tr><tr><td>2</td><td>1</td><td>0</td></tr><tr><td>3</td><td>0</td><td>0</td></tr><tr><td>4</td><td>1</td><td>0</td></tr><tr><td>5</td><td>0</td><td>0</td></tr><tr><td>6</td><td>0</td><td>0</td></tr><tr><td>7</td><td>1</td><td>0</td></tr><tr><td>8</td><td>1</td><td>0</td></tr><tr><td>9</td><td>1</td><td>0</td></tr><tr><td>10</td><td>0</td><td>0</td></tr><tr><td>11</td><td>0</td><td>1</td></tr><tr><td>12</td><td>1</td><td>0</td></tr><tr><td>13</td><td>0</td><td>1</td></tr><tr><td>14</td><td>0</td><td>0</td></tr><tr><td>15</td><td>1</td><td>0</td></tr><tr><td>16</td><td>1</td><td>1</td></tr><tr><td>17</td><td>0</td><td>1</td></tr><tr><td>18</td><td>1</td><td>1</td></tr><tr><td>19</td><td>1</td><td>0</td></tr><tr><td>20</td><td>0</td><td>0</td></tr></tbody></table></div><div style=\"overflow-x:auto\"><svg viewBox=\"0 0 755 80\" role=\"img\" aria-label=\"按时钟区间绘制的输出时序图\" style=\"min-width:755px;max-width:100%\" xmlns=\"http://www.w3.org/2000/svg\"><rect width=\"100%\" height=\"100%\" fill=\"white\"/><text x=\"100\" y=\"15\" font-size=\"11\" fill=\"black\">0</text><text x=\"130\" y=\"15\" font-size=\"11\" fill=\"black\">1</text><text x=\"160\" y=\"15\" font-size=\"11\" fill=\"black\">2</text><text x=\"190\" y=\"15\" font-size=\"11\" fill=\"black\">3</text><text x=\"220\" y=\"15\" font-size=\"11\" fill=\"black\">4</text><text x=\"250\" y=\"15\" font-size=\"11\" fill=\"black\">5</text><text x=\"280\" y=\"15\" font-size=\"11\" fill=\"black\">6</text><text x=\"310\" y=\"15\" font-size=\"11\" fill=\"black\">7</text><text x=\"340\" y=\"15\" font-size=\"11\" fill=\"black\">8</text><text x=\"370\" y=\"15\" font-size=\"11\" fill=\"black\">9</text><text x=\"400\" y=\"15\" font-size=\"11\" fill=\"black\">10</text><text x=\"430\" y=\"15\" font-size=\"11\" fill=\"black\">11</text><text x=\"460\" y=\"15\" font-size=\"11\" fill=\"black\">12</text><text x=\"490\" y=\"15\" font-size=\"11\" fill=\"black\">13</text><text x=\"520\" y=\"15\" font-size=\"11\" fill=\"black\">14</text><text x=\"550\" y=\"15\" font-size=\"11\" fill=\"black\">15</text><text x=\"580\" y=\"15\" font-size=\"11\" fill=\"black\">16</text><text x=\"610\" y=\"15\" font-size=\"11\" fill=\"black\">17</text><text x=\"640\" y=\"15\" font-size=\"11\" fill=\"black\">18</text><text x=\"670\" y=\"15\" font-size=\"11\" fill=\"black\">19</text><text x=\"700\" y=\"15\" font-size=\"11\" fill=\"black\">20</text><text x=\"5\" y=\"50\" font-size=\"13\" fill=\"black\">OUT</text><polyline points=\"100,60 130,60 130,60 160,60 160,60 190,60 190,60 220,60 220,60 250,60 250,60 280,60 280,60 310,60 310,60 340,60 340,60 370,60 370,60 400,60 400,60 430,60 430,40 460,40 460,60 490,60 490,40 520,40 520,60 550,60 550,60 580,60 580,40 610,40 610,40 640,40 640,40 670,40 670,60 700,60 700,60 730,60\" fill=\"none\" stroke=\"#202020\" stroke-width=\"2\"/></svg></div><p>第 20 拍之后如果继续给时钟，剩余输入位继续以相同次序输出。初始的 0 不能误当成来自后面输入的有效数据。</p>",
+        "hints": [
+          "先识别时钟有效边沿、初始状态及控制信号的优先级。",
+          "写出每个触发器的下一状态，用边沿前的旧状态同时计算。",
+          "逐个有效边沿列状态表；异步输入变化还应单独列事件。",
+          "展开完整解析，比较状态表和各输出波形。"
+        ]
+      },
+      {
+        "id": "a3-q8",
+        "title": "Q8 · Ch9 #14 · 四级并入串出",
+        "prompt": "For Figure 9–55, develop the output waveform. SER=0, D0=1, D1=0, D2=1, D3=0; SHIFT/LOAD and CLK are as shown.",
+        "page": 12,
+        "image": "assets/assignments/a3-p12.png",
+        "solution": "<p><strong>独立推导解答</strong>，依据题图与逻辑器件状态方程。页码均为本 PDF 页码。</p><p>低电平 LOAD 使并行输入装入寄存器。用 Q3Q2Q1Q0 顺序写状态，装载值为 0101。SHIFT=1 时每个上升沿将旧 Q0 向 Q3 方向移一位，并在 Q0 填入 0。</p>\\[Q^+=((Q\\ll1)\\bmod16),\\qquad OUT=Q_3.\\]<div class=\"table-scroll\"><table><thead><tr><th>边沿</th><th>动作</th><th>Q3Q2Q1Q0</th><th>OUT</th></tr></thead><tbody><tr><td>1</td><td>装载</td><td>0101</td><td>0</td></tr><tr><td>2</td><td>移位</td><td>1010</td><td>1</td></tr><tr><td>3</td><td>移位</td><td>0100</td><td>0</td></tr><tr><td>4</td><td>装载</td><td>0101</td><td>0</td></tr><tr><td>5</td><td>移位</td><td>1010</td><td>1</td></tr><tr><td>6</td><td>移位</td><td>0100</td><td>0</td></tr></tbody></table></div><div style=\"overflow-x:auto\"><svg viewBox=\"0 0 335 80\" role=\"img\" aria-label=\"按时钟区间绘制的输出时序图\" style=\"min-width:335px;max-width:100%\" xmlns=\"http://www.w3.org/2000/svg\"><rect width=\"100%\" height=\"100%\" fill=\"white\"/><text x=\"100\" y=\"15\" font-size=\"11\" fill=\"black\">0</text><text x=\"130\" y=\"15\" font-size=\"11\" fill=\"black\">1</text><text x=\"160\" y=\"15\" font-size=\"11\" fill=\"black\">2</text><text x=\"190\" y=\"15\" font-size=\"11\" fill=\"black\">3</text><text x=\"220\" y=\"15\" font-size=\"11\" fill=\"black\">4</text><text x=\"250\" y=\"15\" font-size=\"11\" fill=\"black\">5</text><text x=\"280\" y=\"15\" font-size=\"11\" fill=\"black\">6</text><text x=\"5\" y=\"50\" font-size=\"13\" fill=\"black\">OUT</text><polyline points=\"100,60 130,60 130,60 160,60 160,40 190,40 190,60 220,60 220,60 250,60 250,40 280,40 280,60 310,60\" fill=\"none\" stroke=\"#202020\" stroke-width=\"2\"/></svg></div><p>两段 LOAD 低电平期间输出为 D3=0。n=2、n=5 后输出各保持高一个时钟周期，其余图示时间为低。</p>",
+        "hints": [
+          "先识别时钟有效边沿、初始状态及控制信号的优先级。",
+          "写出每个触发器的下一状态，用边沿前的旧状态同时计算。",
+          "逐个有效边沿列状态表；异步输入变化还应单独列事件。",
+          "展开完整解析，比较状态表和各输出波形。"
+        ]
+      },
+      {
+        "id": "a3-q9",
+        "title": "Q9 · Ch9 #16 · 74HC165 并行全 1",
+        "prompt": "Solve Problem 15 for Figure 9–56 if the parallel inputs are all 1. Determine the Q7 waveform.",
+        "page": 13,
+        "image": "assets/assignments/a3-p12.png",
+        "solution": "<p><strong>独立推导解答</strong>，依据题图与逻辑器件状态方程。页码均为本 PDF 页码。</p><p>题图在 PDF 第 12 页，变体说明在第 13 页。初始 LOAD 低，故寄存器为 11111111，Q7=1。将图中 14 个 CLK 上升沿从左向右编号，1、2 位于 LOAD 低期间，8、9 位于 CLK INH 高期间。</p><h4>课堂理想使能模型</h4><p>若将 CLK INH 仅作为“禁止 CLK 边沿”的理想使能，则状态如下。串行输入在移位边沿按图采样。</p><div class=\"table-scroll\"><table><thead><tr><th>n</th><th>动作</th><th>Q7…Q0</th><th>Q7</th></tr></thead><tbody><tr><td>1</td><td>并行装载</td><td>11111111</td><td>1</td></tr><tr><td>2</td><td>并行装载</td><td>11111111</td><td>1</td></tr><tr><td>3</td><td>移位</td><td>11111110</td><td>1</td></tr><tr><td>4</td><td>移位</td><td>11111101</td><td>1</td></tr><tr><td>5</td><td>移位</td><td>11111011</td><td>1</td></tr><tr><td>6</td><td>移位</td><td>11110110</td><td>1</td></tr><tr><td>7</td><td>移位</td><td>11101101</td><td>1</td></tr><tr><td>8</td><td>INH=1，保持</td><td>11101101</td><td>1</td></tr><tr><td>9</td><td>INH=1，保持</td><td>11101101</td><td>1</td></tr><tr><td>10</td><td>移位</td><td>11011010</td><td>1</td></tr><tr><td>11</td><td>移位</td><td>10110100</td><td>1</td></tr><tr><td>12</td><td>移位</td><td>01101001</td><td>0</td></tr><tr><td>13</td><td>移位</td><td>11010011</td><td>1</td></tr><tr><td>14</td><td>移位</td><td>10100110</td><td>1</td></tr></tbody></table></div><div style=\"overflow-x:auto\"><svg viewBox=\"0 0 575 80\" role=\"img\" aria-label=\"按时钟区间绘制的输出时序图\" style=\"min-width:575px;max-width:100%\" xmlns=\"http://www.w3.org/2000/svg\"><rect width=\"100%\" height=\"100%\" fill=\"white\"/><text x=\"100\" y=\"15\" font-size=\"11\" fill=\"black\">0</text><text x=\"130\" y=\"15\" font-size=\"11\" fill=\"black\">1</text><text x=\"160\" y=\"15\" font-size=\"11\" fill=\"black\">2</text><text x=\"190\" y=\"15\" font-size=\"11\" fill=\"black\">3</text><text x=\"220\" y=\"15\" font-size=\"11\" fill=\"black\">4</text><text x=\"250\" y=\"15\" font-size=\"11\" fill=\"black\">5</text><text x=\"280\" y=\"15\" font-size=\"11\" fill=\"black\">6</text><text x=\"310\" y=\"15\" font-size=\"11\" fill=\"black\">7</text><text x=\"340\" y=\"15\" font-size=\"11\" fill=\"black\">8</text><text x=\"370\" y=\"15\" font-size=\"11\" fill=\"black\">9</text><text x=\"400\" y=\"15\" font-size=\"11\" fill=\"black\">10</text><text x=\"430\" y=\"15\" font-size=\"11\" fill=\"black\">11</text><text x=\"460\" y=\"15\" font-size=\"11\" fill=\"black\">12</text><text x=\"490\" y=\"15\" font-size=\"11\" fill=\"black\">13</text><text x=\"520\" y=\"15\" font-size=\"11\" fill=\"black\">14</text><text x=\"5\" y=\"50\" font-size=\"13\" fill=\"black\">Q7</text><polyline points=\"100,40 130,40 130,40 160,40 160,40 190,40 190,40 220,40 220,40 250,40 250,40 280,40 280,40 310,40 310,40 340,40 340,40 370,40 370,40 400,40 400,40 430,40 430,40 460,40 460,60 490,60 490,40 520,40 520,40 550,40\" fill=\"none\" stroke=\"#202020\" stroke-width=\"2\"/></svg></div><h4>实际 74HC165 的门控时钟细节</h4><p>题图中 INH 上升位于第 7 与第 8 个 CLK 上升沿之间，且 CLK 此时为低。TI 的 SN74HC165 数据手册说明 CLK 和 CLK INH 可互换，因此这个 INH 上升也会额外移入一位（当时 SER=1）。严格按该器件行为，后续状态应采用下表。它使 Q7 第一次变低提前到第 11 个外部 CLK 上升沿后；理想使能模型则是第 12 个后。需要和授课所采用的模型一致。</p><div class=\"table-scroll\"><table><thead><tr><th>事件</th><th>Q7…Q0</th><th>Q7</th></tr></thead><tbody><tr><td>1</td><td>11111111</td><td>1</td></tr><tr><td>2</td><td>11111111</td><td>1</td></tr><tr><td>3</td><td>11111110</td><td>1</td></tr><tr><td>4</td><td>11111101</td><td>1</td></tr><tr><td>5</td><td>11111011</td><td>1</td></tr><tr><td>6</td><td>11110110</td><td>1</td></tr><tr><td>7</td><td>11101101</td><td>1</td></tr><tr><td>7 与 8 之间 INH↑</td><td>11011011</td><td>1</td></tr><tr><td>8</td><td>11011011</td><td>1</td></tr><tr><td>9</td><td>11011011</td><td>1</td></tr><tr><td>10</td><td>10110110</td><td>1</td></tr><tr><td>11</td><td>01101100</td><td>0</td></tr><tr><td>12</td><td>11011001</td><td>1</td></tr><tr><td>13</td><td>10110011</td><td>1</td></tr><tr><td>14</td><td>01100110</td><td>0</td></tr></tbody></table></div><p>器件行为依据 <a href=\"https://www.ti.com/lit/ds/symlink/sn74hc165.pdf\" target=\"_blank\" rel=\"noopener\">TI SN74HC165 datasheet，第 1 页 Description</a>。这是补充器件资料，课程题图来源仍是 Assignment 3。</p>",
+        "hints": [
+          "先识别时钟有效边沿、初始状态及控制信号的优先级。",
+          "写出每个触发器的下一状态，用边沿前的旧状态同时计算。",
+          "逐个有效边沿列状态表；异步输入变化还应单独列事件。",
+          "展开完整解析，比较状态表和各输出波形。"
+        ],
+        "diagramPage": 12
+      },
+      {
+        "id": "a3-q10",
+        "title": "Q10 · Ch9 #22 · 双向移位",
+        "prompt": "Solve Problem 21 for Figure 9–59. Initially store decimal 76 in eight bits, rightmost position is LSB. Serial input is LOW. RIGHT/LEFT HIGH shifts right, LOW shifts left.",
+        "page": 13,
+        "image": "assets/assignments/a3-p13.png",
+        "solution": "<p><strong>独立推导解答</strong>，依据题图与逻辑器件状态方程。页码均为本 PDF 页码。</p><p>初态 \\(76=64+8+4=01001100_2\\)。右移在最高位补 0，左移在最低位补 0，溢出位丢弃。输入方向在每个上升沿采样，依次为 R,R,R,L,L,L,R,L,L,L,R,R。</p>\\[R:\\ Q^+=\\lfloor Q/2\\rfloor,\\qquad L:\\ Q^+=(2Q)\\bmod256.\\]<div class=\"table-scroll\"><table><thead><tr><th>n</th><th>方向</th><th>Q7…Q0</th><th>十进制</th></tr></thead><tbody><tr><td>1</td><td>R</td><td>00100110</td><td>38</td></tr><tr><td>2</td><td>R</td><td>00010011</td><td>19</td></tr><tr><td>3</td><td>R</td><td>00001001</td><td>9</td></tr><tr><td>4</td><td>L</td><td>00010010</td><td>18</td></tr><tr><td>5</td><td>L</td><td>00100100</td><td>36</td></tr><tr><td>6</td><td>L</td><td>01001000</td><td>72</td></tr><tr><td>7</td><td>R</td><td>00100100</td><td>36</td></tr><tr><td>8</td><td>L</td><td>01001000</td><td>72</td></tr><tr><td>9</td><td>L</td><td>10010000</td><td>144</td></tr><tr><td>10</td><td>L</td><td>00100000</td><td>32</td></tr><tr><td>11</td><td>R</td><td>00010000</td><td>16</td></tr><tr><td>12</td><td>R</td><td>00001000</td><td>8</td></tr></tbody></table></div><p>n=10 左移从 10010000 得到 00100000，最高位 1 已移出，之后反向右移也无法把它恢复。最终为 00001000，即 8。</p>",
+        "hints": [
+          "先识别时钟有效边沿、初始状态及控制信号的优先级。",
+          "写出每个触发器的下一状态，用边沿前的旧状态同时计算。",
+          "逐个有效边沿列状态表；异步输入变化还应单独列事件。",
+          "展开完整解析，比较状态表和各输出波形。"
+        ]
+      },
+      {
+        "id": "a3-q11",
+        "title": "Q11 · 三位 JK 反馈序列",
+        "prompt": "For the circuit on Assignment 3 page 2, suppose initial Q2,Q1,Q0=000. Determine the outputs in the next eight consecutive clock cycles.",
+        "page": 2,
+        "image": "assets/assignments/a3-p2.png",
+        "solution": "<p><strong>独立推导解答</strong>，依据题图与逻辑器件状态方程。页码均为本 PDF 页码。</p><p>按题图读取输入。FF0 的上门是 XNOR，下门是 XOR。FF1 的两门分别接 Q0 与反相/原相 Q2；FF2 的两门分别接原相/反相 Q1 与反相 Q0。</p>\\[J_0=\\overline{Q_1\\oplus Q_2},\\ K_0=Q_1\\oplus Q_2;\\quad J_1=Q_0\\overline{Q_2},\\ K_1=Q_0Q_2;\\quad J_2=Q_1\\overline{Q_0},\\ K_2=\\overline{Q_1}\\overline{Q_0}.\\]\\[Q^+=J\\overline Q+\\overline KQ.\\]<p>例如初态 000 给出 J0=1、K0=0，故 Q0 置 1；Q1 保持 0，Q2 清 0，得到 001。所有级在同一上升沿使用旧状态并行更新。</p><div class=\"table-scroll\"><table><thead><tr><th>边沿 n</th><th>Q2…Q0</th><th>十进制</th></tr></thead><tbody><tr><td>0</td><td>000</td><td>0</td></tr><tr><td>1</td><td>001</td><td>1</td></tr><tr><td>2</td><td>011</td><td>3</td></tr><tr><td>3</td><td>010</td><td>2</td></tr><tr><td>4</td><td>110</td><td>6</td></tr><tr><td>5</td><td>111</td><td>7</td></tr><tr><td>6</td><td>101</td><td>5</td></tr><tr><td>7</td><td>100</td><td>4</td></tr><tr><td>8</td><td>000</td><td>0</td></tr></tbody></table></div><div style=\"overflow-x:auto\"><svg viewBox=\"0 0 395 170\" role=\"img\" aria-label=\"按时钟区间绘制的输出时序图\" style=\"min-width:395px;max-width:100%\" xmlns=\"http://www.w3.org/2000/svg\"><rect width=\"100%\" height=\"100%\" fill=\"white\"/><text x=\"100\" y=\"15\" font-size=\"11\" fill=\"black\">0</text><text x=\"130\" y=\"15\" font-size=\"11\" fill=\"black\">1</text><text x=\"160\" y=\"15\" font-size=\"11\" fill=\"black\">2</text><text x=\"190\" y=\"15\" font-size=\"11\" fill=\"black\">3</text><text x=\"220\" y=\"15\" font-size=\"11\" fill=\"black\">4</text><text x=\"250\" y=\"15\" font-size=\"11\" fill=\"black\">5</text><text x=\"280\" y=\"15\" font-size=\"11\" fill=\"black\">6</text><text x=\"310\" y=\"15\" font-size=\"11\" fill=\"black\">7</text><text x=\"340\" y=\"15\" font-size=\"11\" fill=\"black\">8</text><text x=\"5\" y=\"50\" font-size=\"13\" fill=\"black\">Q2</text><polyline points=\"100,60 130,60 130,60 160,60 160,60 190,60 190,60 220,60 220,40 250,40 250,40 280,40 280,40 310,40 310,40 340,40 340,60 370,60\" fill=\"none\" stroke=\"#202020\" stroke-width=\"2\"/><text x=\"5\" y=\"95\" font-size=\"13\" fill=\"black\">Q1</text><polyline points=\"100,105 130,105 130,105 160,105 160,85 190,85 190,85 220,85 220,85 250,85 250,85 280,85 280,105 310,105 310,105 340,105 340,105 370,105\" fill=\"none\" stroke=\"#202020\" stroke-width=\"2\"/><text x=\"5\" y=\"140\" font-size=\"13\" fill=\"black\">Q0</text><polyline points=\"100,150 130,150 130,130 160,130 160,130 190,130 190,150 220,150 220,150 250,150 250,130 280,130 280,130 310,130 310,150 340,150 340,150 370,150\" fill=\"none\" stroke=\"#202020\" stroke-width=\"2\"/></svg></div><p>所求接下来八拍依次为 <strong>001、011、010、110、111、101、100、000</strong>，是一个循环 Gray 码，每拍恰有一位变化。</p>",
+        "hints": [
+          "先识别时钟有效边沿、初始状态及控制信号的优先级。",
+          "写出每个触发器的下一状态，用边沿前的旧状态同时计算。",
+          "逐个有效边沿列状态表；异步输入变化还应单独列事件。",
+          "展开完整解析，比较状态表和各输出波形。"
+        ]
+      },
+      {
+        "id": "a3-q12",
+        "title": "Q12 · 三人多数表决",
+        "prompt": "Three referees A,B,C vote HIGH for Yes. A candidate passes if at least two vote Yes. (a) Show truth table and Boolean equation. (b) Sketch circuit.",
+        "page": 2,
+        "image": "assets/assignments/a3-p2.png",
+        "solution": "<p><strong>独立推导解答</strong>，依据题图与逻辑器件状态方程。页码均为本 PDF 页码。</p><p>输出 Y=1 的条件为三票中至少两票为 1。</p><div class=\"table-scroll\"><table><thead><tr><th>A</th><th>B</th><th>C</th><th>Y</th></tr></thead><tbody><tr><td>0</td><td>0</td><td>0</td><td>0</td></tr><tr><td>0</td><td>0</td><td>1</td><td>0</td></tr><tr><td>0</td><td>1</td><td>0</td><td>0</td></tr><tr><td>0</td><td>1</td><td>1</td><td>1</td></tr><tr><td>1</td><td>0</td><td>0</td><td>0</td></tr><tr><td>1</td><td>0</td><td>1</td><td>1</td></tr><tr><td>1</td><td>1</td><td>0</td><td>1</td></tr><tr><td>1</td><td>1</td><td>1</td><td>1</td></tr></tbody></table></div>\\[Y=\\overline A BC+A\\overline B C+AB\\overline C+ABC=AB+AC+BC.\\]<p>化简可把 ABC 分别与三个两票项配对，利用 X+X̄=1。任意一对同意时对应乘积为 1，三票同意时三个乘积均为 1。</p><pre>A ─┬─[AND]── AB ─┐&#10;B ─┘             │&#10;A ─┬─[AND]── AC ─┼─[OR]── Y&#10;C ─┘             │&#10;B ─┬─[AND]── BC ─┘&#10;C ─┘</pre><p>实现需要三个二输入 AND 门与一个三输入 OR 门。若仅用二输入 OR，可将三个乘积用两个 OR 级联。</p>",
+        "hints": [
+          "统计同意票数与输出的关系。",
+          "列出至少两位为 1 的四个输入组合。",
+          "把四个最小项用吸收或 Karnaugh 图合并。",
+          "完整式为 Y=AB+AC+BC，对应三个 AND 后接 OR。"
+        ]
+      },
+      {
+        "id": "a3-q13",
+        "title": "Q13 · 74LS160 · 异步清零模 7",
+        "prompt": "Design a modulus-7 counter using one 74LS160 decade counter with active-LOW asynchronous clear and enables ENT/ENP. Y is HIGH only at maximum count.",
+        "page": 2,
+        "image": "assets/assignments/a3-p2.png",
+        "solution": "<p><strong>独立推导解答</strong>，依据题图与逻辑器件状态方程。页码均为本 PDF 页码。</p><p>用 Q3Q2Q1Q0 表示四位数。模 7 的有效状态为 0…6，因此最大有效计数是 6=0110，输出译码必须精确选择此状态。</p>\\[Y=\\overline Q_3Q_2Q_1\\overline Q_0.\\]<p>ENP=ENT=1；LOAD 保持高，禁止装载；并行数据输入固定接 0，避免悬空。各逻辑高、低电平分别按器件电源逻辑连接。</p><p>异步清零在检测到 7 时立即执行，故用 0111 的完整译码驱动低有效 CLR。</p>\\[\\overline{CLR}=\\overline{\\overline Q_3Q_2Q_1Q_0}.\\]<pre>Q3 ─[NOT]─┐&#10;Q2 ───────┤&#10;Q1 ───────┼─[4-input NAND]── CLR(active LOW)&#10;Q0 ───────┘&#10;ENP=ENT=1, LOAD=1, D3…D0=0000&#10;Q3 inverted, Q2, Q1, Q0 inverted ─[AND]─ Y</pre><p>稳态序列为 0000→0001→0010→0011→0100→0101→0110→0000。第七拍曾短暂出现 0111，译码使 CLR 立即拉低清零，不能把 7 当作持续一拍的状态。Y 在 0110 的整拍为高。上电须施加低有效初始化清零，不能假定上电自带 0000。</p><p>实际设计需核对反馈清零脉宽满足器件要求；异步译码回零会有传播延迟。本题按理想逻辑给出模数与连接。</p>",
+        "hints": [
+          "先识别时钟有效边沿、初始状态及控制信号的优先级。",
+          "写出每个触发器的下一状态，用边沿前的旧状态同时计算。",
+          "逐个有效边沿列状态表；异步输入变化还应单独列事件。",
+          "展开完整解析，比较状态表和各输出波形。"
+        ]
+      },
+      {
+        "id": "a3-q14",
+        "title": "Q14 · 74LS163 · 同步清零模 7",
+        "prompt": "Design a modulus-7 counter using one 74LS163 4-bit synchronous binary counter with active-LOW synchronous clear. Y is HIGH only at maximum count.",
+        "page": 3,
+        "image": "assets/assignments/a3-p3.png",
+        "solution": "<p><strong>独立推导解答</strong>，依据题图与逻辑器件状态方程。页码均为本 PDF 页码。</p><p>用 Q3Q2Q1Q0 表示四位数。模 7 的有效状态为 0…6，因此最大有效计数是 6=0110，输出译码必须精确选择此状态。</p>\\[Y=\\overline Q_3Q_2Q_1\\overline Q_0.\\]<p>ENP=ENT=1；LOAD 保持高，禁止装载；并行数据输入固定接 0，避免悬空。各逻辑高、低电平分别按器件电源逻辑连接。</p><p>同步清零要等下一个时钟上升沿，因此在状态 6 就提前把 CLR 拉低。下一个边沿直接从 6 清为 0。</p>\\[\\overline{CLR}=\\overline{\\overline Q_3Q_2Q_1\\overline Q_0}=\\overline Y.\\]<pre>Q3 ─[NOT]─┐&#10;Q2 ───────┤&#10;Q1 ───────┼─[4-input NAND]── CLR(active LOW)&#10;Q0 ─[NOT]─┘&#10;ENP=ENT=1, LOAD=1, D3…D0=0000&#10;CLR ─[NOT]── Y</pre><p>状态 6 出现后 Y=1、CLR=0，但输出仍保持 0110 直到下一上升沿。该边沿清零后 Y 回 0、CLR 回 1。序列同样为 0→1→2→3→4→5→6→0。若误检测 7，则 7 会持续一拍，使电路成为模 8。初始化时将 CLR 保持低并提供至少一个有效时钟上升沿。</p>",
+        "hints": [
+          "先识别时钟有效边沿、初始状态及控制信号的优先级。",
+          "写出每个触发器的下一状态，用边沿前的旧状态同时计算。",
+          "逐个有效边沿列状态表；异步输入变化还应单独列事件。",
+          "展开完整解析，比较状态表和各输出波形。"
+        ]
+      }
+    ]
+  }
+]

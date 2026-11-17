@@ -1,0 +1,6774 @@
+[
+  {
+    "id": "L1-M1-Q1",
+    "lecture": 1,
+    "module": "L1-M1",
+    "level": "basic",
+    "prompt": "ADC 的主要作用是什么？",
+    "options": [
+      "数字输出转换为模拟量",
+      "只放大电压",
+      "储存机械能",
+      "模拟输入转换为数字表示"
+    ],
+    "answer": 3,
+    "hints": [
+      "回顾「连续量、离散量与转换链」，参见 Lecture 1 PDF 第 \\(10\\) 页。",
+      "先判断信号属于物理量、模拟电压还是数字编码，再选择转换模块。",
+      "关键关系为 \\(\\mathrm{physical}\\to\\mathrm{sensor}\\to\\mathrm{ADC}\\to\\mathrm{digital}\\)。先确认输入、当前状态或单位，再逐步代入。",
+      "ADC 接收模拟输入，输出数字码，见源文件第 \\(10\\) 页。"
+    ],
+    "explanation": "ADC 接收模拟输入，输出数字码，见源文件第 \\(10\\) 页。",
+    "source": "Lecture01.pdf",
+    "page": 10,
+    "week": 1,
+    "course": "EEE104",
+    "contentType": "derived-practice",
+    "sourcePages": [
+      5,
+      7,
+      10,
+      16
+    ]
+  },
+  {
+    "id": "L1-M1-Q2",
+    "lecture": 1,
+    "module": "L1-M1",
+    "level": "basic",
+    "prompt": "温度传感器输出连续电压，数字处理器前应接什么？",
+    "options": [
+      "执行器",
+      "计数器即可",
+      "ADC",
+      "DAC"
+    ],
+    "answer": 2,
+    "hints": [
+      "回顾「连续量、离散量与转换链」，参见 Lecture 1 PDF 第 \\(10\\) 页。",
+      "先判断信号属于物理量、模拟电压还是数字编码，再选择转换模块。",
+      "关键关系为 \\(\\mathrm{physical}\\to\\mathrm{sensor}\\to\\mathrm{ADC}\\to\\mathrm{digital}\\)。先确认输入、当前状态或单位，再逐步代入。",
+      "传感器先完成物理量到电信号的转换，ADC 再将电压转换成处理器可用的数字码。"
+    ],
+    "explanation": "传感器先完成物理量到电信号的转换，ADC 再将电压转换成处理器可用的数字码。",
+    "source": "Lecture01.pdf",
+    "page": 10,
+    "week": 1,
+    "course": "EEE104",
+    "contentType": "derived-practice",
+    "sourcePages": [
+      5,
+      7,
+      10,
+      16
+    ]
+  },
+  {
+    "id": "L1-M1-Q3",
+    "lecture": 1,
+    "module": "L1-M1",
+    "level": "intermediate",
+    "prompt": "数字音频处理后要送入模拟功放，应增加什么？",
+    "options": [
+      "BCD 修正器",
+      "DAC",
+      "ADC",
+      "仅反相器"
+    ],
+    "answer": 1,
+    "hints": [
+      "回顾「连续量、离散量与转换链」，参见 Lecture 1 PDF 第 \\(10\\) 页。",
+      "先判断信号属于物理量、模拟电压还是数字编码，再选择转换模块。",
+      "关键关系为 \\(\\mathrm{physical}\\to\\mathrm{sensor}\\to\\mathrm{ADC}\\to\\mathrm{digital}\\)。先确认输入、当前状态或单位，再逐步代入。",
+      "数字处理器输出数字样本，DAC 将其转换为模拟信号，再送入模拟功放。"
+    ],
+    "explanation": "数字处理器输出数字样本，DAC 将其转换为模拟信号，再送入模拟功放。",
+    "source": "Lecture01.pdf",
+    "page": 10,
+    "week": 1,
+    "course": "EEE104",
+    "contentType": "derived-practice",
+    "sourcePages": [
+      5,
+      7,
+      10,
+      16
+    ]
+  },
+  {
+    "id": "L1-M1-Q4",
+    "lecture": 1,
+    "module": "L1-M1",
+    "level": "challenge",
+    "prompt": "每毫秒记录一次仍可取连续幅值的电压，明确完成了哪一步？",
+    "options": [
+      "时间采样",
+      "幅度量化",
+      "DAC 转换",
+      "逻辑取反"
+    ],
+    "answer": 0,
+    "hints": [
+      "回顾「连续量、离散量与转换链」，参见 Lecture 1 PDF 第 \\(7\\) 页。",
+      "先判断信号属于物理量、模拟电压还是数字编码，再选择转换模块。",
+      "关键关系为 \\(\\mathrm{physical}\\to\\mathrm{sensor}\\to\\mathrm{ADC}\\to\\mathrm{digital}\\)。先确认输入、当前状态或单位，再逐步代入。",
+      "时间点被离散化，因此已完成采样；题目仍允许连续幅值，无法由此断言已经完成幅度量化。"
+    ],
+    "explanation": "时间点被离散化，因此已完成采样；题目仍允许连续幅值，无法由此断言已经完成幅度量化。",
+    "source": "Lecture01.pdf",
+    "page": 7,
+    "week": 1,
+    "course": "EEE104",
+    "contentType": "derived-practice",
+    "sourcePages": [
+      5,
+      7,
+      10,
+      16
+    ]
+  },
+  {
+    "id": "L1-M2-Q1",
+    "lecture": 1,
+    "module": "L1-M2",
+    "level": "basic",
+    "prompt": "一个 bit 有多少个逻辑状态？",
+    "options": [
+      "4",
+      "10",
+      "2",
+      "1"
+    ],
+    "answer": 2,
+    "hints": [
+      "回顾「二进制与逻辑电平」，参见 Lecture 1 PDF 第 \\(17\\) 页。",
+      "本模块电压区间仅针对讲义给出的 TTL 条件，不能推广到所有 CMOS 器件。",
+      "关键关系为 \\(Y=\\overline A\\)。先确认输入、当前状态或单位，再逐步代入。",
+      "二进制 bit 的两个状态为 \\(0\\) 和 \\(1\\)。"
+    ],
+    "explanation": "二进制 bit 的两个状态为 \\(0\\) 和 \\(1\\)。",
+    "source": "Lecture01.pdf",
+    "page": 17,
+    "week": 1,
+    "course": "EEE104",
+    "contentType": "derived-practice",
+    "sourcePages": [
+      13,
+      17,
+      18
+    ]
+  },
+  {
+    "id": "L1-M2-Q2",
+    "lecture": 1,
+    "module": "L1-M2",
+    "level": "basic",
+    "prompt": "按本讲 TTL 范围，0.5 V 属于什么？",
+    "options": [
+      "只能由频率判断",
+      "LOW",
+      "HIGH",
+      "未定义区"
+    ],
+    "answer": 1,
+    "hints": [
+      "回顾「二进制与逻辑电平」，参见 Lecture 1 PDF 第 \\(18\\) 页。",
+      "本模块电压区间仅针对讲义给出的 TTL 条件，不能推广到所有 CMOS 器件。",
+      "关键关系为 \\(Y=\\overline A\\)。先确认输入、当前状态或单位，再逐步代入。",
+      "\\(0.5 V\\) 位于 \\(0-0.8 V\\) 的 LOW 区间。"
+    ],
+    "explanation": "\\(0.5 V\\) 位于 \\(0-0.8 V\\) 的 LOW 区间。",
+    "source": "Lecture01.pdf",
+    "page": 18,
+    "week": 1,
+    "course": "EEE104",
+    "contentType": "derived-practice",
+    "sourcePages": [
+      13,
+      17,
+      18
+    ]
+  },
+  {
+    "id": "L1-M2-Q3",
+    "lecture": 1,
+    "module": "L1-M2",
+    "level": "intermediate",
+    "prompt": "按本讲 TTL 范围，1.2 V 应怎样判断？",
+    "options": [
+      "逻辑状态不保证",
+      "一定 LOW",
+      "一定 HIGH",
+      "一定振荡"
+    ],
+    "answer": 0,
+    "hints": [
+      "回顾「二进制与逻辑电平」，参见 Lecture 1 PDF 第 \\(18\\) 页。",
+      "本模块电压区间仅针对讲义给出的 TTL 条件，不能推广到所有 CMOS 器件。",
+      "关键关系为 \\(Y=\\overline A\\)。先确认输入、当前状态或单位，再逐步代入。",
+      "\\(0.8 V < 1.2 V < 2 V\\)，属于未定义输入区；不能保证门的逻辑响应。"
+    ],
+    "explanation": "\\(0.8 V < 1.2 V < 2 V\\)，属于未定义输入区；不能保证门的逻辑响应。",
+    "source": "Lecture01.pdf",
+    "page": 18,
+    "week": 1,
+    "course": "EEE104",
+    "contentType": "derived-practice",
+    "sourcePages": [
+      13,
+      17,
+      18
+    ]
+  },
+  {
+    "id": "L1-M2-Q4",
+    "lecture": 1,
+    "module": "L1-M2",
+    "level": "challenge",
+    "prompt": "TTL 反相器输入 3 V，在有效供电并稳定后输出逻辑值是什么？",
+    "options": [
+      "1",
+      "3",
+      "无法定义逻辑取反",
+      "0"
+    ],
+    "answer": 3,
+    "hints": [
+      "回顾「二进制与逻辑电平」，参见 Lecture 1 PDF 第 \\(13\\) 页。",
+      "本模块电压区间仅针对讲义给出的 TTL 条件，不能推广到所有 CMOS 器件。",
+      "关键关系为 \\(Y=\\overline A\\)。先确认输入、当前状态或单位，再逐步代入。",
+      "\\(3 V\\) 属于本讲 TTL HIGH，反相器输出为 LOW，即 \\(Y=\\overline{1}=0\\)。具体输出电压仍由器件特性决定。"
+    ],
+    "explanation": "\\(3 V\\) 属于本讲 TTL HIGH，反相器输出为 LOW，即 \\(Y=\\overline{1}=0\\)。具体输出电压仍由器件特性决定。",
+    "source": "Lecture01.pdf",
+    "page": 13,
+    "week": 1,
+    "course": "EEE104",
+    "contentType": "derived-practice",
+    "sourcePages": [
+      13,
+      17,
+      18
+    ]
+  },
+  {
+    "id": "L1-M3-Q1",
+    "lecture": 1,
+    "module": "L1-M3",
+    "level": "basic",
+    "prompt": "上升时间通常采用哪两个幅度点？",
+    "options": [
+      "两处 50%",
+      "10% 与 90%",
+      "0% 与 100%",
+      "25% 与 75%"
+    ],
+    "answer": 1,
+    "hints": [
+      "回顾「周期、频率与占空比」，参见 Lecture 1 PDF 第 \\(20\\) 页。",
+      "先把时间统一为秒；占空比计算使用同一单位的脉宽与周期。",
+      "关键关系为 \\(f=\\frac1T,\\qquad D=\\frac{t_w}{T}\\times100\\%\\)。先确认输入、当前状态或单位，再逐步代入。",
+      "源文件第 \\(20\\) 页定义上升时间为 \\(10\\%\\to 90\\%\\)。"
+    ],
+    "explanation": "源文件第 \\(20\\) 页定义上升时间为 \\(10\\%\\to 90\\%\\)。",
+    "source": "Lecture01.pdf",
+    "page": 20,
+    "week": 1,
+    "course": "EEE104",
+    "contentType": "derived-practice",
+    "sourcePages": [
+      19,
+      20,
+      21,
+      22,
+      23
+    ]
+  },
+  {
+    "id": "L1-M3-Q2",
+    "lecture": 1,
+    "module": "L1-M3",
+    "level": "basic",
+    "prompt": "周期 2 ms 的频率是多少？",
+    "options": [
+      "500 Hz",
+      "2 Hz",
+      "2000 Hz",
+      "0.5 Hz"
+    ],
+    "answer": 0,
+    "hints": [
+      "回顾「周期、频率与占空比」，参见 Lecture 1 PDF 第 \\(21\\) 页。",
+      "先把时间统一为秒；占空比计算使用同一单位的脉宽与周期。",
+      "关键关系为 \\(f=\\frac1T,\\qquad D=\\frac{t_w}{T}\\times100\\%\\)。先确认输入、当前状态或单位，再逐步代入。",
+      "\\(T=2\\times10^{-3}\\,s\\)，因此 \\(f=1/T=500\\,Hz\\)。"
+    ],
+    "explanation": "\\(T=2\\times10^{-3}\\,s\\)，因此 \\(f=1/T=500\\,Hz\\)。",
+    "source": "Lecture01.pdf",
+    "page": 21,
+    "week": 1,
+    "course": "EEE104",
+    "contentType": "derived-practice",
+    "sourcePages": [
+      19,
+      20,
+      21,
+      22,
+      23
+    ]
+  },
+  {
+    "id": "L1-M3-Q3",
+    "lecture": 1,
+    "module": "L1-M3",
+    "level": "intermediate",
+    "prompt": "周期 10 μs、高电平 3 μs，占空比是多少？",
+    "options": [
+      "70%",
+      "3%",
+      "300%",
+      "30%"
+    ],
+    "answer": 3,
+    "hints": [
+      "回顾「周期、频率与占空比」，参见 Lecture 1 PDF 第 \\(22\\) 页。",
+      "先把时间统一为秒；占空比计算使用同一单位的脉宽与周期。",
+      "关键关系为 \\(f=\\frac1T,\\qquad D=\\frac{t_w}{T}\\times100\\%\\)。先确认输入、当前状态或单位，再逐步代入。",
+      "\\(D=3/10\\times100\\%=30\\%\\)。分子和分母单位一致，微秒相消。"
+    ],
+    "explanation": "\\(D=3/10\\times100\\%=30\\%\\)。分子和分母单位一致，微秒相消。",
+    "source": "Lecture01.pdf",
+    "page": 22,
+    "week": 1,
+    "course": "EEE104",
+    "contentType": "derived-practice",
+    "sourcePages": [
+      19,
+      20,
+      21,
+      22,
+      23
+    ]
+  },
+  {
+    "id": "L1-M3-Q4",
+    "lecture": 1,
+    "module": "L1-M3",
+    "level": "challenge",
+    "prompt": "20 kHz、占空比 40% 的波形，高电平持续多久？",
+    "options": [
+      "50 μs",
+      "80 μs",
+      "20 μs",
+      "8 μs"
+    ],
+    "answer": 2,
+    "hints": [
+      "回顾「周期、频率与占空比」，参见 Lecture 1 PDF 第 \\(21\\) 页。",
+      "先把时间统一为秒；占空比计算使用同一单位的脉宽与周期。",
+      "关键关系为 \\(f=\\frac1T,\\qquad D=\\frac{t_w}{T}\\times100\\%\\)。先确认输入、当前状态或单位，再逐步代入。",
+      "先算 \\(T=1/(20\\times10^3)=50\\,\\mu s\\)，再算 \\(t_w=0.4T=20\\,\\mu s\\)。"
+    ],
+    "explanation": "先算 \\(T=1/(20\\times10^3)=50\\,\\mu s\\)，再算 \\(t_w=0.4T=20\\,\\mu s\\)。",
+    "source": "Lecture01.pdf",
+    "page": 21,
+    "week": 1,
+    "course": "EEE104",
+    "contentType": "derived-practice",
+    "sourcePages": [
+      19,
+      20,
+      21,
+      22,
+      23
+    ]
+  },
+  {
+    "id": "L2-M1-Q1",
+    "lecture": 2,
+    "module": "L2-M1",
+    "level": "basic",
+    "prompt": "4 位无符号整数最大值是多少？",
+    "options": [
+      "8",
+      "7",
+      "15",
+      "16"
+    ],
+    "answer": 2,
+    "hints": [
+      "回顾「位权与数值范围」，参见 Lecture 2 PDF 第 \\(5\\) 页。",
+      "先说明无符号解释和二进制小数点位置。",
+      "关键关系为 \\(N=\\sum_{i=-m}^{n-1}b_i2^i,\\quad 0\\le N_{\\mathrm{integer}}\\le2^n-1\\)。先确认输入、当前状态或单位，再逐步代入。",
+      "\\(2^4-1=15\\)，编码为 \\(1111\\)。"
+    ],
+    "explanation": "\\(2^4-1=15\\)，编码为 \\(1111\\)。",
+    "source": "Lecture02.pdf",
+    "page": 5,
+    "week": 1,
+    "course": "EEE104",
+    "contentType": "derived-practice",
+    "sourcePages": [
+      3,
+      4,
+      5,
+      6,
+      7
+    ]
+  },
+  {
+    "id": "L2-M1-Q2",
+    "lecture": 2,
+    "module": "L2-M1",
+    "level": "basic",
+    "prompt": "二进制 1011 的十进制值是多少？",
+    "options": [
+      "9",
+      "11",
+      "13",
+      "10"
+    ],
+    "answer": 1,
+    "hints": [
+      "回顾「位权与数值范围」，参见 Lecture 2 PDF 第 \\(7\\) 页。",
+      "先说明无符号解释和二进制小数点位置。",
+      "关键关系为 \\(N=\\sum_{i=-m}^{n-1}b_i2^i,\\quad 0\\le N_{\\mathrm{integer}}\\le2^n-1\\)。先确认输入、当前状态或单位，再逐步代入。",
+      "\\(1011_2=1\\cdot8+0\\cdot4+1\\cdot2+1=11\\)。"
+    ],
+    "explanation": "\\(1011_2=1\\cdot8+0\\cdot4+1\\cdot2+1=11\\)。",
+    "source": "Lecture02.pdf",
+    "page": 7,
+    "week": 1,
+    "course": "EEE104",
+    "contentType": "derived-practice",
+    "sourcePages": [
+      3,
+      4,
+      5,
+      6,
+      7
+    ]
+  },
+  {
+    "id": "L2-M1-Q3",
+    "lecture": 2,
+    "module": "L2-M1",
+    "level": "intermediate",
+    "prompt": "二进制 101.101 的十进制值是多少？",
+    "options": [
+      "5.625",
+      "5.5",
+      "5.125",
+      "5.75"
+    ],
+    "answer": 0,
+    "hints": [
+      "回顾「位权与数值范围」，参见 Lecture 2 PDF 第 \\(7\\) 页。",
+      "先说明无符号解释和二进制小数点位置。",
+      "关键关系为 \\(N=\\sum_{i=-m}^{n-1}b_i2^i,\\quad 0\\le N_{\\mathrm{integer}}\\le2^n-1\\)。先确认输入、当前状态或单位，再逐步代入。",
+      "整数部分为 \\(4+1=5\\)，小数部分为 \\(1/2+1/8=0.625\\)，总计 \\(5.625\\)。"
+    ],
+    "explanation": "整数部分为 \\(4+1=5\\)，小数部分为 \\(1/2+1/8=0.625\\)，总计 \\(5.625\\)。",
+    "source": "Lecture02.pdf",
+    "page": 7,
+    "week": 1,
+    "course": "EEE104",
+    "contentType": "derived-practice",
+    "sourcePages": [
+      3,
+      4,
+      5,
+      6,
+      7
+    ]
+  },
+  {
+    "id": "L2-M1-Q4",
+    "lecture": 2,
+    "module": "L2-M1",
+    "level": "challenge",
+    "prompt": "表示 0 到 200 的所有无符号整数至少需要几位？",
+    "options": [
+      "7",
+      "9",
+      "200",
+      "8"
+    ],
+    "answer": 3,
+    "hints": [
+      "回顾「位权与数值范围」，参见 Lecture 2 PDF 第 \\(5\\) 页。",
+      "先说明无符号解释和二进制小数点位置。",
+      "关键关系为 \\(N=\\sum_{i=-m}^{n-1}b_i2^i,\\quad 0\\le N_{\\mathrm{integer}}\\le2^n-1\\)。先确认输入、当前状态或单位，再逐步代入。",
+      "\\(7\\) 位最大为 \\(127\\)，\\(8\\) 位最大为 \\(255\\)，故最少需要 \\(8\\) 位。"
+    ],
+    "explanation": "\\(7\\) 位最大为 \\(127\\)，\\(8\\) 位最大为 \\(255\\)，故最少需要 \\(8\\) 位。",
+    "source": "Lecture02.pdf",
+    "page": 5,
+    "week": 1,
+    "course": "EEE104",
+    "contentType": "derived-practice",
+    "sourcePages": [
+      3,
+      4,
+      5,
+      6,
+      7
+    ]
+  },
+  {
+    "id": "L2-M2-Q1",
+    "lecture": 2,
+    "module": "L2-M2",
+    "level": "basic",
+    "prompt": "整数连续除以 2 得到的第一个余数对应什么？",
+    "options": [
+      "小数第一位",
+      "LSB",
+      "MSB",
+      "符号位"
+    ],
+    "answer": 1,
+    "hints": [
+      "回顾「十进制转二进制」，参见 Lecture 2 PDF 第 \\(9\\) 页。",
+      "整数余数倒序，小数乘积整数部分顺序；最后按位权回代验证。",
+      "关键关系为 \\(N=2q+r,\\quad r\\in\\{0,1\\}\\)。先确认输入、当前状态或单位，再逐步代入。",
+      "第一次除二的余数是个位，也就是最低有效位。"
+    ],
+    "explanation": "第一次除二的余数是个位，也就是最低有效位。",
+    "source": "Lecture02.pdf",
+    "page": 9,
+    "week": 1,
+    "course": "EEE104",
+    "contentType": "derived-practice",
+    "sourcePages": [
+      8,
+      9,
+      10,
+      11,
+      12
+    ]
+  },
+  {
+    "id": "L2-M2-Q2",
+    "lecture": 2,
+    "module": "L2-M2",
+    "level": "basic",
+    "prompt": "十进制 13 的二进制是多少？",
+    "options": [
+      "1101",
+      "1011",
+      "1110",
+      "1001"
+    ],
+    "answer": 0,
+    "hints": [
+      "回顾「十进制转二进制」，参见 Lecture 2 PDF 第 \\(8\\) 页。",
+      "整数余数倒序，小数乘积整数部分顺序；最后按位权回代验证。",
+      "关键关系为 \\(N=2q+r,\\quad r\\in\\{0,1\\}\\)。先确认输入、当前状态或单位，再逐步代入。",
+      "\\(13=8+4+1\\)，因此从 \\(8\\) 到 \\(1\\) 的位为 \\(1101\\)。"
+    ],
+    "explanation": "\\(13=8+4+1\\)，因此从 \\(8\\) 到 \\(1\\) 的位为 \\(1101\\)。",
+    "source": "Lecture02.pdf",
+    "page": 8,
+    "week": 1,
+    "course": "EEE104",
+    "contentType": "derived-practice",
+    "sourcePages": [
+      8,
+      9,
+      10,
+      11,
+      12
+    ]
+  },
+  {
+    "id": "L2-M2-Q3",
+    "lecture": 2,
+    "module": "L2-M2",
+    "level": "intermediate",
+    "prompt": "十进制 0.625 转成二进制是多少？",
+    "options": [
+      "0.110",
+      "0.011",
+      "0.100",
+      "0.101"
+    ],
+    "answer": 3,
+    "hints": [
+      "回顾「十进制转二进制」，参见 Lecture 2 PDF 第 \\(11\\) 页。",
+      "整数余数倒序，小数乘积整数部分顺序；最后按位权回代验证。",
+      "关键关系为 \\(N=2q+r,\\quad r\\in\\{0,1\\}\\)。先确认输入、当前状态或单位，再逐步代入。",
+      "依次乘 \\(2\\) 得到整数部分 \\(1\\)、\\(0\\)、\\(1\\)，所以结果为 \\(0.101_{2}\\)。"
+    ],
+    "explanation": "依次乘 \\(2\\) 得到整数部分 \\(1\\)、\\(0\\)、\\(1\\)，所以结果为 \\(0.101_{2}\\)。",
+    "source": "Lecture02.pdf",
+    "page": 11,
+    "week": 1,
+    "course": "EEE104",
+    "contentType": "derived-practice",
+    "sourcePages": [
+      8,
+      9,
+      10,
+      11,
+      12
+    ]
+  },
+  {
+    "id": "L2-M2-Q4",
+    "lecture": 2,
+    "module": "L2-M2",
+    "level": "challenge",
+    "prompt": "十进制 10.375 的二进制是多少？",
+    "options": [
+      "1001.011",
+      "1011.010",
+      "1010.011",
+      "1010.110"
+    ],
+    "answer": 2,
+    "hints": [
+      "回顾「十进制转二进制」，参见 Lecture 2 PDF 第 \\(11\\) 页。",
+      "整数余数倒序，小数乘积整数部分顺序；最后按位权回代验证。",
+      "关键关系为 \\(N=2q+r,\\quad r\\in\\{0,1\\}\\)。先确认输入、当前状态或单位，再逐步代入。",
+      "\\(10=8+2\\to 1010\\)；\\(0.375=1/4+1/8\\to 0.011\\)，合并为 \\(1010.011_{2}\\)。"
+    ],
+    "explanation": "\\(10=8+2\\to 1010\\)；\\(0.375=1/4+1/8\\to 0.011\\)，合并为 \\(1010.011_{2}\\)。",
+    "source": "Lecture02.pdf",
+    "page": 11,
+    "week": 1,
+    "course": "EEE104",
+    "contentType": "derived-practice",
+    "sourcePages": [
+      8,
+      9,
+      10,
+      11,
+      12
+    ]
+  },
+  {
+    "id": "L2-M3-Q1",
+    "lecture": 2,
+    "module": "L2-M3",
+    "level": "basic",
+    "prompt": "二进制算术中 1+1 等于什么？",
+    "options": [
+      "10",
+      "1",
+      "11",
+      "0"
+    ],
+    "answer": 0,
+    "hints": [
+      "回顾「二进制四则运算」，参见 Lecture 2 PDF 第 \\(13\\) 页。",
+      "先按无符号算术计算；如果限制存储位宽，要单独报告超出位宽的进位。",
+      "关键关系为 \\(1_2+1_2=10_2,\\quad A\\times2^k=A\\ll k\\)。先确认输入、当前状态或单位，再逐步代入。",
+      "二进制两单位写成 \\(10\\)，个位 \\(0\\) 向高位进 \\(1\\)。"
+    ],
+    "explanation": "二进制两单位写成 \\(10\\)，个位 \\(0\\) 向高位进 \\(1\\)。",
+    "source": "Lecture02.pdf",
+    "page": 13,
+    "week": 1,
+    "course": "EEE104",
+    "contentType": "derived-practice",
+    "sourcePages": [
+      13,
+      14,
+      15,
+      16
+    ]
+  },
+  {
+    "id": "L2-M3-Q2",
+    "lecture": 2,
+    "module": "L2-M3",
+    "level": "basic",
+    "prompt": "101₂ + 11₂ 等于什么？",
+    "options": [
+      "111",
+      "110",
+      "1010",
+      "1000"
+    ],
+    "answer": 3,
+    "hints": [
+      "回顾「二进制四则运算」，参见 Lecture 2 PDF 第 \\(13\\) 页。",
+      "先按无符号算术计算；如果限制存储位宽，要单独报告超出位宽的进位。",
+      "关键关系为 \\(1_2+1_2=10_2,\\quad A\\times2^k=A\\ll k\\)。先确认输入、当前状态或单位，再逐步代入。",
+      "\\(5+3=8\\)；二进制逐位相加得到 \\(1000\\)。"
+    ],
+    "explanation": "\\(5+3=8\\)；二进制逐位相加得到 \\(1000\\)。",
+    "source": "Lecture02.pdf",
+    "page": 13,
+    "week": 1,
+    "course": "EEE104",
+    "contentType": "derived-practice",
+    "sourcePages": [
+      13,
+      14,
+      15,
+      16
+    ]
+  },
+  {
+    "id": "L2-M3-Q3",
+    "lecture": 2,
+    "module": "L2-M3",
+    "level": "intermediate",
+    "prompt": "1101₂ − 0110₂ 等于什么？",
+    "options": [
+      "1011",
+      "0101",
+      "0111",
+      "1001"
+    ],
+    "answer": 2,
+    "hints": [
+      "回顾「二进制四则运算」，参见 Lecture 2 PDF 第 \\(14\\) 页。",
+      "先按无符号算术计算；如果限制存储位宽，要单独报告超出位宽的进位。",
+      "关键关系为 \\(1_2+1_2=10_2,\\quad A\\times2^k=A\\ll k\\)。先确认输入、当前状态或单位，再逐步代入。",
+      "\\(13-6=7\\)。借位后结果为 \\(0111₂\\)，四位表示保留前导零。"
+    ],
+    "explanation": "\\(13-6=7\\)。借位后结果为 \\(0111₂\\)，四位表示保留前导零。",
+    "source": "Lecture02.pdf",
+    "page": 14,
+    "week": 1,
+    "course": "EEE104",
+    "contentType": "derived-practice",
+    "sourcePages": [
+      13,
+      14,
+      15,
+      16
+    ]
+  },
+  {
+    "id": "L2-M3-Q4",
+    "lecture": 2,
+    "module": "L2-M3",
+    "level": "challenge",
+    "prompt": "1011₂ × 101₂ 等于什么？",
+    "options": [
+      "100111",
+      "110111",
+      "101111",
+      "111001"
+    ],
+    "answer": 1,
+    "hints": [
+      "回顾「二进制四则运算」，参见 Lecture 2 PDF 第 \\(15\\) 页。",
+      "先按无符号算术计算；如果限制存储位宽，要单独报告超出位宽的进位。",
+      "关键关系为 \\(1_2+1_2=10_2,\\quad A\\times2^k=A\\ll k\\)。先确认输入、当前状态或单位，再逐步代入。",
+      "部分积为 \\(1011\\)、\\(0000\\)、\\(101100\\)，求和得 \\(110111₂\\)；十进制检验 \\(11\\times 5=55\\)。"
+    ],
+    "explanation": "部分积为 \\(1011\\)、\\(0000\\)、\\(101100\\)，求和得 \\(110111₂\\)；十进制检验 \\(11\\times 5=55\\)。",
+    "source": "Lecture02.pdf",
+    "page": 15,
+    "week": 1,
+    "course": "EEE104",
+    "contentType": "derived-practice",
+    "sourcePages": [
+      13,
+      14,
+      15,
+      16
+    ]
+  },
+  {
+    "id": "L3-M1-Q1",
+    "lecture": 3,
+    "module": "L3-M1",
+    "level": "basic",
+    "prompt": "补码通常如何由给定位型得到？",
+    "options": [
+      "删除最高位",
+      "逐位取反再加 1",
+      "仅逐位取反",
+      "左移一位"
+    ],
+    "answer": 1,
+    "hints": [
+      "回顾「反码和补码」，参见 Lecture 3 PDF 第 \\(4\\) 页。",
+      "固定 n 位后取反再加一，保留 n 位。",
+      "关键关系为 \\((-x)\\bmod2^n=(\\overline{x}+1)\\bmod2^n\\)。先确认输入、当前状态或单位，再逐步代入。",
+      "固定字长内取反加一。"
+    ],
+    "explanation": "固定字长内取反加一。",
+    "source": "Lecture03.pdf",
+    "page": 4,
+    "week": 2,
+    "course": "EEE104",
+    "contentType": "derived-practice",
+    "sourcePages": [
+      3,
+      4
+    ]
+  },
+  {
+    "id": "L3-M1-Q2",
+    "lecture": 3,
+    "module": "L3-M1",
+    "level": "basic",
+    "prompt": "8 位 00000101 的补码是多少？",
+    "options": [
+      "11111011",
+      "11111010",
+      "00000110",
+      "10000101"
+    ],
+    "answer": 0,
+    "hints": [
+      "回顾「反码和补码」，参见 Lecture 3 PDF 第 \\(4\\) 页。",
+      "固定 n 位后取反再加一，保留 n 位。",
+      "关键关系为 \\((-x)\\bmod2^n=(\\overline{x}+1)\\bmod2^n\\)。先确认输入、当前状态或单位，再逐步代入。",
+      "取反得 \\(11111010\\)，加 \\(1\\) 得 \\(11111011\\)。"
+    ],
+    "explanation": "取反得 \\(11111010\\)，加 \\(1\\) 得 \\(11111011\\)。",
+    "source": "Lecture03.pdf",
+    "page": 4,
+    "week": 2,
+    "course": "EEE104",
+    "contentType": "derived-practice",
+    "sourcePages": [
+      3,
+      4
+    ]
+  },
+  {
+    "id": "L3-M1-Q3",
+    "lecture": 3,
+    "module": "L3-M1",
+    "level": "intermediate",
+    "prompt": "课件示例 10110010 的 8 位补码是多少？",
+    "options": [
+      "01001101",
+      "10110011",
+      "11010010",
+      "01001110"
+    ],
+    "answer": 3,
+    "hints": [
+      "回顾「反码和补码」，参见 Lecture 3 PDF 第 \\(4\\) 页。",
+      "固定 n 位后取反再加一，保留 n 位。",
+      "关键关系为 \\((-x)\\bmod2^n=(\\overline{x}+1)\\bmod2^n\\)。先确认输入、当前状态或单位，再逐步代入。",
+      "反码为 \\(01001101\\)，再加 \\(1\\) 得 \\(01001110\\)。"
+    ],
+    "explanation": "反码为 \\(01001101\\)，再加 \\(1\\) 得 \\(01001110\\)。",
+    "source": "Lecture03.pdf",
+    "page": 4,
+    "week": 2,
+    "course": "EEE104",
+    "contentType": "derived-practice",
+    "sourcePages": [
+      3,
+      4
+    ]
+  },
+  {
+    "id": "L3-M1-Q4",
+    "lecture": 3,
+    "module": "L3-M1",
+    "level": "challenge",
+    "prompt": "8 位 00000000 取补码并丢弃最高进位后是什么？",
+    "options": [
+      "00000001",
+      "10000000",
+      "00000000",
+      "11111111"
+    ],
+    "answer": 2,
+    "hints": [
+      "回顾「反码和补码」，参见 Lecture 3 PDF 第 \\(4\\) 页。",
+      "固定 n 位后取反再加一，保留 n 位。",
+      "关键关系为 \\((-x)\\bmod2^n=(\\overline{x}+1)\\bmod2^n\\)。先确认输入、当前状态或单位，再逐步代入。",
+      "反码为 \\(11111111\\)，加 \\(1\\) 得 \\(1 00000000\\)。保留低 \\(8\\) 位得到 \\(00000000\\)。"
+    ],
+    "explanation": "反码为 \\(11111111\\)，加 \\(1\\) 得 \\(1 00000000\\)。保留低 \\(8\\) 位得到 \\(00000000\\)。",
+    "source": "Lecture03.pdf",
+    "page": 4,
+    "week": 2,
+    "course": "EEE104",
+    "contentType": "derived-practice",
+    "sourcePages": [
+      3,
+      4
+    ]
+  },
+  {
+    "id": "L3-M2-Q1",
+    "lecture": 3,
+    "module": "L3-M2",
+    "level": "basic",
+    "prompt": "一位十六进制对应几个二进制位？",
+    "options": [
+      "4",
+      "2",
+      "8",
+      "16"
+    ],
+    "answer": 0,
+    "hints": [
+      "回顾「十六进制的紧凑编码」，参见 Lecture 3 PDF 第 \\(6\\) 页。",
+      "四位二进制对应一位十六进制；A–F 对应十进制 \\(10-15\\)。",
+      "关键关系为 \\(N=\\sum_i h_i16^i,\\quad16=2^4\\)。先确认输入、当前状态或单位，再逐步代入。",
+      "\\(16=2^{4}\\)，所以四个二进制位覆盖一位十六进制的全部取值。"
+    ],
+    "explanation": "\\(16=2^{4}\\)，所以四个二进制位覆盖一位十六进制的全部取值。",
+    "source": "Lecture03.pdf",
+    "page": 6,
+    "week": 2,
+    "course": "EEE104",
+    "contentType": "derived-practice",
+    "sourcePages": [
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12
+    ]
+  },
+  {
+    "id": "L3-M2-Q2",
+    "lecture": 3,
+    "module": "L3-M2",
+    "level": "basic",
+    "prompt": "1010 1111₂ 的十六进制是什么？",
+    "options": [
+      "FA",
+      "A1",
+      "1F",
+      "AF"
+    ],
+    "answer": 3,
+    "hints": [
+      "回顾「十六进制的紧凑编码」，参见 Lecture 3 PDF 第 \\(8\\) 页。",
+      "四位二进制对应一位十六进制；A–F 对应十进制 \\(10-15\\)。",
+      "关键关系为 \\(N=\\sum_i h_i16^i,\\quad16=2^4\\)。先确认输入、当前状态或单位，再逐步代入。",
+      "\\(1010\\to A\\)，\\(1111\\to F\\)，因此为 AF₁₆。"
+    ],
+    "explanation": "\\(1010\\to A\\)，\\(1111\\to F\\)，因此为 AF₁₆。",
+    "source": "Lecture03.pdf",
+    "page": 8,
+    "week": 2,
+    "course": "EEE104",
+    "contentType": "derived-practice",
+    "sourcePages": [
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12
+    ]
+  },
+  {
+    "id": "L3-M2-Q3",
+    "lecture": 3,
+    "module": "L3-M2",
+    "level": "intermediate",
+    "prompt": "28A₁₆ 的十进制是多少？",
+    "options": [
+      "680",
+      "258",
+      "650",
+      "642"
+    ],
+    "answer": 2,
+    "hints": [
+      "回顾「十六进制的紧凑编码」，参见 Lecture 3 PDF 第 \\(11\\) 页。",
+      "四位二进制对应一位十六进制；A–F 对应十进制 \\(10-15\\)。",
+      "关键关系为 \\(N=\\sum_i h_i16^i,\\quad16=2^4\\)。先确认输入、当前状态或单位，再逐步代入。",
+      "\\(2\\times 16^{2}+8\\times 16+10=512+128+10=650\\)。"
+    ],
+    "explanation": "\\(2\\times 16^{2}+8\\times 16+10=512+128+10=650\\)。",
+    "source": "Lecture03.pdf",
+    "page": 11,
+    "week": 2,
+    "course": "EEE104",
+    "contentType": "derived-practice",
+    "sourcePages": [
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12
+    ]
+  },
+  {
+    "id": "L3-M2-Q4",
+    "lecture": 3,
+    "module": "L3-M2",
+    "level": "challenge",
+    "prompt": "F₁₆+2₁₆ 等于什么？",
+    "options": [
+      "10₁₆",
+      "11₁₆",
+      "17₁₆",
+      "F2₁₆"
+    ],
+    "answer": 1,
+    "hints": [
+      "回顾「十六进制的紧凑编码」，参见 Lecture 3 PDF 第 \\(12\\) 页。",
+      "四位二进制对应一位十六进制；A–F 对应十进制 \\(10-15\\)。",
+      "关键关系为 \\(N=\\sum_i h_i16^i,\\quad16=2^4\\)。先确认输入、当前状态或单位，再逐步代入。",
+      "\\(15+2=17_{10}\\)，\\(17=1\\times 16+1\\)，所以十六进制结果为 \\(11\\)。"
+    ],
+    "explanation": "\\(15+2=17_{10}\\)，\\(17=1\\times 16+1\\)，所以十六进制结果为 \\(11\\)。",
+    "source": "Lecture03.pdf",
+    "page": 12,
+    "week": 2,
+    "course": "EEE104",
+    "contentType": "derived-practice",
+    "sourcePages": [
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12
+    ]
+  },
+  {
+    "id": "L3-M3-Q1",
+    "lecture": 3,
+    "module": "L3-M3",
+    "level": "basic",
+    "prompt": "8421 BCD 中哪组无效？",
+    "options": [
+      "1001",
+      "0000",
+      "0101",
+      "1010"
+    ],
+    "answer": 3,
+    "hints": [
+      "回顾「\\(8421 \\mathrm{BCD}\\) 与修正加法」，参见 Lecture 3 PDF 第 \\(13\\) 页。",
+      "每四位是一位十进制；检查原始四位和以及进位再决定是否加六。",
+      "关键关系为 \\(\\text{BCD correction}:\\quad s>9\\ \\text{or carry}\\Rightarrow s+0110_2\\)。先确认输入、当前状态或单位，再逐步代入。",
+      "\\(1010\\) 的二进制值为 \\(10\\)，无法作为一位十进制数字。"
+    ],
+    "explanation": "\\(1010\\) 的二进制值为 \\(10\\)，无法作为一位十进制数字。",
+    "source": "Lecture03.pdf",
+    "page": 13,
+    "week": 2,
+    "course": "EEE104",
+    "contentType": "derived-practice",
+    "sourcePages": [
+      13,
+      14,
+      15,
+      16
+    ]
+  },
+  {
+    "id": "L3-M3-Q2",
+    "lecture": 3,
+    "module": "L3-M3",
+    "level": "basic",
+    "prompt": "十进制 59 的 BCD 是什么？",
+    "options": [
+      "0101 1010",
+      "0100 1001",
+      "0101 1001",
+      "0011 1011"
+    ],
+    "answer": 2,
+    "hints": [
+      "回顾「\\(8421 \\mathrm{BCD}\\) 与修正加法」，参见 Lecture 3 PDF 第 \\(14\\) 页。",
+      "每四位是一位十进制；检查原始四位和以及进位再决定是否加六。",
+      "关键关系为 \\(\\text{BCD correction}:\\quad s>9\\ \\text{or carry}\\Rightarrow s+0110_2\\)。先确认输入、当前状态或单位，再逐步代入。",
+      "\\(5\\to 0101\\)，\\(9\\to 1001\\)，每位独立编码。"
+    ],
+    "explanation": "\\(5\\to 0101\\)，\\(9\\to 1001\\)，每位独立编码。",
+    "source": "Lecture03.pdf",
+    "page": 14,
+    "week": 2,
+    "course": "EEE104",
+    "contentType": "derived-practice",
+    "sourcePages": [
+      13,
+      14,
+      15,
+      16
+    ]
+  },
+  {
+    "id": "L3-M3-Q3",
+    "lecture": 3,
+    "module": "L3-M3",
+    "level": "intermediate",
+    "prompt": "BCD 7+5 的正确结果是什么？",
+    "options": [
+      "0010 0001",
+      "0001 0010",
+      "0000 1100",
+      "0001 1000"
+    ],
+    "answer": 1,
+    "hints": [
+      "回顾「\\(8421 \\mathrm{BCD}\\) 与修正加法」，参见 Lecture 3 PDF 第 \\(15\\) 页。",
+      "每四位是一位十进制；检查原始四位和以及进位再决定是否加六。",
+      "关键关系为 \\(\\text{BCD correction}:\\quad s>9\\ \\text{or carry}\\Rightarrow s+0110_2\\)。先确认输入、当前状态或单位，再逐步代入。",
+      "\\(0111+0101=1100\\)，不合法；加 \\(0110\\) 得 \\(1 0010\\)，即十位 \\(1\\)、个位 \\(2\\)。"
+    ],
+    "explanation": "\\(0111+0101=1100\\)，不合法；加 \\(0110\\) 得 \\(1 0010\\)，即十位 \\(1\\)、个位 \\(2\\)。",
+    "source": "Lecture03.pdf",
+    "page": 15,
+    "week": 2,
+    "course": "EEE104",
+    "contentType": "derived-practice",
+    "sourcePages": [
+      13,
+      14,
+      15,
+      16
+    ]
+  },
+  {
+    "id": "L3-M3-Q4",
+    "lecture": 3,
+    "module": "L3-M3",
+    "level": "challenge",
+    "prompt": "BCD 9+9 原始和为 1 0010，应怎样修正？",
+    "options": [
+      "加 0110，得到 BCD 0001 1000",
+      "无需修正，结果为 12",
+      "减 0110，结果为 12",
+      "直接保留 0010，结果为 2"
+    ],
+    "answer": 0,
+    "hints": [
+      "回顾「\\(8421 \\mathrm{BCD}\\) 与修正加法」，参见 Lecture 3 PDF 第 \\(15\\) 页。",
+      "每四位是一位十进制；检查原始四位和以及进位再决定是否加六。",
+      "关键关系为 \\(\\text{BCD correction}:\\quad s>9\\ \\text{or carry}\\Rightarrow s+0110_2\\)。先确认输入、当前状态或单位，再逐步代入。",
+      "原始和已有进位，尽管低四位为 \\(0010\\)，仍须加 \\(0110\\)，得到 \\(1 1000\\)，对应十进制 \\(18\\)。"
+    ],
+    "explanation": "原始和已有进位，尽管低四位为 \\(0010\\)，仍须加 \\(0110\\)，得到 \\(1 1000\\)，对应十进制 \\(18\\)。",
+    "source": "Lecture03.pdf",
+    "page": 15,
+    "week": 2,
+    "course": "EEE104",
+    "contentType": "derived-practice",
+    "sourcePages": [
+      13,
+      14,
+      15,
+      16
+    ]
+  },
+  {
+    "id": "L4-M1-Q1",
+    "lecture": 4,
+    "module": "L4-M1",
+    "level": "basic",
+    "prompt": "8 位补码可表示的范围是什么？",
+    "options": [
+      "−128 到 127",
+      "−127 到 127",
+      "0 到 255",
+      "−128 到 128"
+    ],
+    "answer": 0,
+    "hints": [
+      "回顾「符号权重、范围与扩展」，参见 Lecture 4 PDF 第 \\(9\\) 页。",
+      "先确认补码和字长；扩展复制原符号位。",
+      "关键关系为 \\(x=-b_{n-1}2^{n-1}+\\sum_{i=0}^{n-2}b_i2^i,\\quad-2^{n-1}\\le x\\le2^{n-1}-1\\)。先确认输入、当前状态或单位，再逐步代入。",
+      "最小值为 \\(-2^{7}\\)，最大值为 \\(2^{7}-1\\)。"
+    ],
+    "explanation": "最小值为 \\(-2^{7}\\)，最大值为 \\(2^{7}-1\\)。",
+    "source": "Lecture04.pdf",
+    "page": 9,
+    "week": 2,
+    "course": "EEE104",
+    "contentType": "derived-practice",
+    "sourcePages": [
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ]
+  },
+  {
+    "id": "L4-M1-Q2",
+    "lecture": 4,
+    "module": "L4-M1",
+    "level": "basic",
+    "prompt": "4 位补码 1101 表示什么？",
+    "options": [
+      "13",
+      "−5",
+      "3",
+      "−3"
+    ],
+    "answer": 3,
+    "hints": [
+      "回顾「符号权重、范围与扩展」，参见 Lecture 4 PDF 第 \\(7\\) 页。",
+      "先确认补码和字长；扩展复制原符号位。",
+      "关键关系为 \\(x=-b_{n-1}2^{n-1}+\\sum_{i=0}^{n-2}b_i2^i,\\quad-2^{n-1}\\le x\\le2^{n-1}-1\\)。先确认输入、当前状态或单位，再逐步代入。",
+      "\\(-8+4+1=-3\\)。"
+    ],
+    "explanation": "\\(-8+4+1=-3\\)。",
+    "source": "Lecture04.pdf",
+    "page": 7,
+    "week": 2,
+    "course": "EEE104",
+    "contentType": "derived-practice",
+    "sourcePages": [
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ]
+  },
+  {
+    "id": "L4-M1-Q3",
+    "lecture": 4,
+    "module": "L4-M1",
+    "level": "intermediate",
+    "prompt": "4 位补码 1010 扩展到 8 位应为？",
+    "options": [
+      "10001010",
+      "10100000",
+      "11111010",
+      "00001010"
+    ],
+    "answer": 2,
+    "hints": [
+      "回顾「符号权重、范围与扩展」，参见 Lecture 4 PDF 第 \\(6\\) 页。",
+      "先确认补码和字长；扩展复制原符号位。",
+      "关键关系为 \\(x=-b_{n-1}2^{n-1}+\\sum_{i=0}^{n-2}b_i2^i,\\quad-2^{n-1}\\le x\\le2^{n-1}-1\\)。先确认输入、当前状态或单位，再逐步代入。",
+      "原符号位为 \\(1\\)，左侧补四个 \\(1\\)，得到 \\(11111010\\)，仍表示 \\(-6\\)。"
+    ],
+    "explanation": "原符号位为 \\(1\\)，左侧补四个 \\(1\\)，得到 \\(11111010\\)，仍表示 \\(-6\\)。",
+    "source": "Lecture04.pdf",
+    "page": 6,
+    "week": 2,
+    "course": "EEE104",
+    "contentType": "derived-practice",
+    "sourcePages": [
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ]
+  },
+  {
+    "id": "L4-M1-Q4",
+    "lecture": 4,
+    "module": "L4-M1",
+    "level": "challenge",
+    "prompt": "8 位补码 10000000 的数学相反数能在同样字长中表示吗？",
+    "options": [
+      "可以，编码 01111111",
+      "不能表示 +128",
+      "可以，编码 00000000",
+      "可以，编码 10000000"
+    ],
+    "answer": 1,
+    "hints": [
+      "回顾「符号权重、范围与扩展」，参见 Lecture 4 PDF 第 \\(9\\) 页。",
+      "先确认补码和字长；扩展复制原符号位。",
+      "关键关系为 \\(x=-b_{n-1}2^{n-1}+\\sum_{i=0}^{n-2}b_i2^i,\\quad-2^{n-1}\\le x\\le2^{n-1}-1\\)。先确认输入、当前状态或单位，再逐步代入。",
+      "\\(10000000\\) 为 \\(-128\\)，而 \\(8\\) 位补码最大为 +\\(127\\)。取反加一仍回到原位型，说明数学结果 +\\(128\\) 超出范围。"
+    ],
+    "explanation": "\\(10000000\\) 为 \\(-128\\)，而 \\(8\\) 位补码最大为 +\\(127\\)。取反加一仍回到原位型，说明数学结果 +\\(128\\) 超出范围。",
+    "source": "Lecture04.pdf",
+    "page": 9,
+    "week": 2,
+    "course": "EEE104",
+    "contentType": "derived-practice",
+    "sourcePages": [
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ]
+  },
+  {
+    "id": "L4-M2-Q1",
+    "lecture": 4,
+    "module": "L4-M2",
+    "level": "basic",
+    "prompt": "补码减法 A−B 应如何实现？",
+    "options": [
+      "A 与 B 做 OR",
+      "A 逐位反相",
+      "删掉 B 的符号位",
+      "A 加上 B 的补码"
+    ],
+    "answer": 3,
+    "hints": [
+      "回顾「加减与溢出判断」，参见 Lecture 4 PDF 第 \\(13\\) 页。",
+      "统一位宽；先计算位型，再用操作数与结果符号判断溢出。",
+      "关键关系为 \\(A-B=A+(\\overline B+1)\\pmod{2^n}\\)。先确认输入、当前状态或单位，再逐步代入。",
+      "\\(-B\\) 通过取反加一得到，然后执行加法。"
+    ],
+    "explanation": "\\(-B\\) 通过取反加一得到，然后执行加法。",
+    "source": "Lecture04.pdf",
+    "page": 13,
+    "week": 2,
+    "course": "EEE104",
+    "contentType": "derived-practice",
+    "sourcePages": [
+      10,
+      11,
+      12,
+      13,
+      14
+    ]
+  },
+  {
+    "id": "L4-M2-Q2",
+    "lecture": 4,
+    "module": "L4-M2",
+    "level": "basic",
+    "prompt": "4 位补码 0011+1110 的结果是什么？",
+    "options": [
+      "1111，表示 −1",
+      "0101，表示 5",
+      "0001，表示 1",
+      "10001，表示 17"
+    ],
+    "answer": 2,
+    "hints": [
+      "回顾「加减与溢出判断」，参见 Lecture 4 PDF 第 \\(10\\) 页。",
+      "统一位宽；先计算位型，再用操作数与结果符号判断溢出。",
+      "关键关系为 \\(A-B=A+(\\overline B+1)\\pmod{2^n}\\)。先确认输入、当前状态或单位，再逐步代入。",
+      "\\(0011\\) 表示 \\(3\\)，\\(1110\\) 表示 \\(-2\\)，低四位相加得到 \\(0001\\)，即 \\(1\\)。"
+    ],
+    "explanation": "\\(0011\\) 表示 \\(3\\)，\\(1110\\) 表示 \\(-2\\)，低四位相加得到 \\(0001\\)，即 \\(1\\)。",
+    "source": "Lecture04.pdf",
+    "page": 10,
+    "week": 2,
+    "course": "EEE104",
+    "contentType": "derived-practice",
+    "sourcePages": [
+      10,
+      11,
+      12,
+      13,
+      14
+    ]
+  },
+  {
+    "id": "L4-M2-Q3",
+    "lecture": 4,
+    "module": "L4-M2",
+    "level": "intermediate",
+    "prompt": "4 位补码 0111+0011 是否溢出？",
+    "options": [
+      "不溢出，数值 10",
+      "溢出，位型 1010",
+      "不溢出，数值 −6",
+      "溢出，位型 1111"
+    ],
+    "answer": 1,
+    "hints": [
+      "回顾「加减与溢出判断」，参见 Lecture 4 PDF 第 \\(12\\) 页。",
+      "统一位宽；先计算位型，再用操作数与结果符号判断溢出。",
+      "关键关系为 \\(A-B=A+(\\overline B+1)\\pmod{2^n}\\)。先确认输入、当前状态或单位，再逐步代入。",
+      "\\(7+3=10\\) 超出 \\(-8\\ldots 7\\)。两正数相加的位型为 \\(1010\\)，变成负号，因此发生有符号溢出。"
+    ],
+    "explanation": "\\(7+3=10\\) 超出 \\(-8\\ldots 7\\)。两正数相加的位型为 \\(1010\\)，变成负号，因此发生有符号溢出。",
+    "source": "Lecture04.pdf",
+    "page": 12,
+    "week": 2,
+    "course": "EEE104",
+    "contentType": "derived-practice",
+    "sourcePages": [
+      10,
+      11,
+      12,
+      13,
+      14
+    ]
+  },
+  {
+    "id": "L4-M2-Q4",
+    "lecture": 4,
+    "module": "L4-M2",
+    "level": "challenge",
+    "prompt": "8 位补码 11111011−00000110 的结果是什么？",
+    "options": [
+      "11110101，即 −11",
+      "00000001，即 1",
+      "11111111，即 −1",
+      "11110011，即 −13"
+    ],
+    "answer": 0,
+    "hints": [
+      "回顾「加减与溢出判断」，参见 Lecture 4 PDF 第 \\(13\\) 页。",
+      "统一位宽；先计算位型，再用操作数与结果符号判断溢出。",
+      "关键关系为 \\(A-B=A+(\\overline B+1)\\pmod{2^n}\\)。先确认输入、当前状态或单位，再逐步代入。",
+      "前者为 \\(-5\\)；\\(6\\) 的补码为 \\(11111010\\)。相加保留低八位得 \\(11110101\\)，其值为 \\(-11\\)，位于范围内。"
+    ],
+    "explanation": "前者为 \\(-5\\)；\\(6\\) 的补码为 \\(11111010\\)。相加保留低八位得 \\(11110101\\)，其值为 \\(-11\\)，位于范围内。",
+    "source": "Lecture04.pdf",
+    "page": 13,
+    "week": 2,
+    "course": "EEE104",
+    "contentType": "derived-practice",
+    "sourcePages": [
+      10,
+      11,
+      12,
+      13,
+      14
+    ]
+  },
+  {
+    "id": "L4-M3-Q1",
+    "lecture": 4,
+    "module": "L4-M3",
+    "level": "basic",
+    "prompt": "异号两整数的非零乘积符号是什么？",
+    "options": [
+      "零",
+      "仅由位数决定",
+      "负",
+      "正"
+    ],
+    "answer": 2,
+    "hints": [
+      "回顾「有符号乘除」，参见 Lecture 4 PDF 第 \\(15\\) 页。",
+      "先取绝对值、计算大小、判定符号，最后选择足够的结果位宽。",
+      "关键关系为 \\(\\operatorname{sign}(ab)=\\operatorname{sign}(a)\\operatorname{sign}(b)\\)。先确认输入、当前状态或单位，再逐步代入。",
+      "一正一负相乘，乘积为负。"
+    ],
+    "explanation": "一正一负相乘，乘积为负。",
+    "source": "Lecture04.pdf",
+    "page": 15,
+    "week": 2,
+    "course": "EEE104",
+    "contentType": "derived-practice",
+    "sourcePages": [
+      15,
+      16,
+      17
+    ]
+  },
+  {
+    "id": "L4-M3-Q2",
+    "lecture": 4,
+    "module": "L4-M3",
+    "level": "basic",
+    "prompt": "−3×5 的结果是什么？",
+    "options": [
+      "2",
+      "−15",
+      "15",
+      "−8"
+    ],
+    "answer": 1,
+    "hints": [
+      "回顾「有符号乘除」，参见 Lecture 4 PDF 第 \\(15\\) 页。",
+      "先取绝对值、计算大小、判定符号，最后选择足够的结果位宽。",
+      "关键关系为 \\(\\operatorname{sign}(ab)=\\operatorname{sign}(a)\\operatorname{sign}(b)\\)。先确认输入、当前状态或单位，再逐步代入。",
+      "先算绝对值 \\(3\\times 5=15\\)，再由异号确定 \\(-15\\)。"
+    ],
+    "explanation": "先算绝对值 \\(3\\times 5=15\\)，再由异号确定 \\(-15\\)。",
+    "source": "Lecture04.pdf",
+    "page": 15,
+    "week": 2,
+    "course": "EEE104",
+    "contentType": "derived-practice",
+    "sourcePages": [
+      15,
+      16,
+      17
+    ]
+  },
+  {
+    "id": "L4-M3-Q3",
+    "lecture": 4,
+    "module": "L4-M3",
+    "level": "intermediate",
+    "prompt": "用 8 位补码表示 −15，编码是什么？",
+    "options": [
+      "11110001",
+      "11110000",
+      "10001111",
+      "00001111"
+    ],
+    "answer": 0,
+    "hints": [
+      "回顾「有符号乘除」，参见 Lecture 4 PDF 第 \\(4\\) 页。",
+      "先取绝对值、计算大小、判定符号，最后选择足够的结果位宽。",
+      "关键关系为 \\(\\operatorname{sign}(ab)=\\operatorname{sign}(a)\\operatorname{sign}(b)\\)。先确认输入、当前状态或单位，再逐步代入。",
+      "+\\(15\\) 为 \\(00001111\\)，取反 \\(11110000\\) 加 \\(1\\) 得 \\(11110001\\)。"
+    ],
+    "explanation": "+\\(15\\) 为 \\(00001111\\)，取反 \\(11110000\\) 加 \\(1\\) 得 \\(11110001\\)。",
+    "source": "Lecture04.pdf",
+    "page": 4,
+    "week": 2,
+    "course": "EEE104",
+    "contentType": "derived-practice",
+    "sourcePages": [
+      15,
+      16,
+      17
+    ]
+  },
+  {
+    "id": "L4-M3-Q4",
+    "lecture": 4,
+    "module": "L4-M3",
+    "level": "challenge",
+    "prompt": "课件 +83×(−59) 的数学乘积是多少？",
+    "options": [
+      "4897",
+      "−4797",
+      "−142",
+      "−4897"
+    ],
+    "answer": 3,
+    "hints": [
+      "回顾「有符号乘除」，参见 Lecture 4 PDF 第 \\(16\\) 页。",
+      "先取绝对值、计算大小、判定符号，最后选择足够的结果位宽。",
+      "关键关系为 \\(\\operatorname{sign}(ab)=\\operatorname{sign}(a)\\operatorname{sign}(b)\\)。先确认输入、当前状态或单位，再逐步代入。",
+      "\\(83\\times 59=83\\times (60-1)=4980-83=4897\\)；异号乘积为 \\(-4897\\)，须用足够字长保存。"
+    ],
+    "explanation": "\\(83\\times 59=83\\times (60-1)=4980-83=4897\\)；异号乘积为 \\(-4897\\)，须用足够字长保存。",
+    "source": "Lecture04.pdf",
+    "page": 16,
+    "week": 2,
+    "course": "EEE104",
+    "contentType": "derived-practice",
+    "sourcePages": [
+      15,
+      16,
+      17
+    ]
+  },
+  {
+    "id": "L5-M1-Q1",
+    "lecture": 5,
+    "module": "L5-M1",
+    "level": "basic",
+    "prompt": "3 个独立二值输入的真值表有几行？",
+    "options": [
+      "3",
+      "6",
+      "9",
+      "8"
+    ],
+    "answer": 3,
+    "hints": [
+      "回顾「NOT、AND 与 OR」，参见 Lecture 5 PDF 第 \\(9\\) 页。",
+      "逐行代入逻辑值；时序图需在所有输入保持稳定的区间逐段判断。",
+      "关键关系为 \\(Y_{\\mathrm{NOT}}=\\overline A,\\quad Y_{\\mathrm{AND}}=AB,\\quad Y_{\\mathrm{OR}}=A+B\\)。先确认输入、当前状态或单位，再逐步代入。",
+      "\\(2^{3}=8\\) 行，覆盖 \\(000\\) 到 \\(111\\)。"
+    ],
+    "explanation": "\\(2^{3}=8\\) 行，覆盖 \\(000\\) 到 \\(111\\)。",
+    "source": "Lecture05.pdf",
+    "page": 9,
+    "week": 3,
+    "course": "EEE104",
+    "contentType": "derived-practice",
+    "sourcePages": [
+      4,
+      5,
+      7,
+      8,
+      9,
+      11,
+      12,
+      13,
+      15
+    ]
+  },
+  {
+    "id": "L5-M1-Q2",
+    "lecture": 5,
+    "module": "L5-M1",
+    "level": "basic",
+    "prompt": "A=1、B=0 时 AND 输出是什么？",
+    "options": [
+      "2",
+      "未知",
+      "0",
+      "1"
+    ],
+    "answer": 2,
+    "hints": [
+      "回顾「NOT、AND 与 OR」，参见 Lecture 5 PDF 第 \\(8\\) 页。",
+      "逐行代入逻辑值；时序图需在所有输入保持稳定的区间逐段判断。",
+      "关键关系为 \\(Y_{\\mathrm{NOT}}=\\overline A,\\quad Y_{\\mathrm{AND}}=AB,\\quad Y_{\\mathrm{OR}}=A+B\\)。先确认输入、当前状态或单位，再逐步代入。",
+      "AND 只有所有输入均为 \\(1\\) 才输出 \\(1\\)，因此 \\(1\\cdot 0=0\\)。"
+    ],
+    "explanation": "AND 只有所有输入均为 \\(1\\) 才输出 \\(1\\)，因此 \\(1\\cdot 0=0\\)。",
+    "source": "Lecture05.pdf",
+    "page": 8,
+    "week": 3,
+    "course": "EEE104",
+    "contentType": "derived-practice",
+    "sourcePages": [
+      4,
+      5,
+      7,
+      8,
+      9,
+      11,
+      12,
+      13,
+      15
+    ]
+  },
+  {
+    "id": "L5-M1-Q3",
+    "lecture": 5,
+    "module": "L5-M1",
+    "level": "intermediate",
+    "prompt": "A=1、B=1 时 OR 输出是什么？",
+    "options": [
+      "2",
+      "1",
+      "0",
+      "10"
+    ],
+    "answer": 1,
+    "hints": [
+      "回顾「NOT、AND 与 OR」，参见 Lecture 5 PDF 第 \\(12\\) 页。",
+      "逐行代入逻辑值；时序图需在所有输入保持稳定的区间逐段判断。",
+      "关键关系为 \\(Y_{\\mathrm{NOT}}=\\overline A,\\quad Y_{\\mathrm{AND}}=AB,\\quad Y_{\\mathrm{OR}}=A+B\\)。先确认输入、当前状态或单位，再逐步代入。",
+      "布尔 OR 的 \\(1+1=1\\)，没有数值加法的进位。"
+    ],
+    "explanation": "布尔 OR 的 \\(1+1=1\\)，没有数值加法的进位。",
+    "source": "Lecture05.pdf",
+    "page": 12,
+    "week": 3,
+    "course": "EEE104",
+    "contentType": "derived-practice",
+    "sourcePages": [
+      4,
+      5,
+      7,
+      8,
+      9,
+      11,
+      12,
+      13,
+      15
+    ]
+  },
+  {
+    "id": "L5-M1-Q4",
+    "lecture": 5,
+    "module": "L5-M1",
+    "level": "challenge",
+    "prompt": "安全信号 S 必须为 1，且按钮 A 或 B 至少一个为 1，输出式是什么？",
+    "options": [
+      "S(A+B)",
+      "S+A+B",
+      "SAB",
+      "S+A B"
+    ],
+    "answer": 0,
+    "hints": [
+      "回顾「NOT、AND 与 OR」，参见 Lecture 5 PDF 第 \\(11\\) 页。",
+      "逐行代入逻辑值；时序图需在所有输入保持稳定的区间逐段判断。",
+      "关键关系为 \\(Y_{\\mathrm{NOT}}=\\overline A,\\quad Y_{\\mathrm{AND}}=AB,\\quad Y_{\\mathrm{OR}}=A+B\\)。先确认输入、当前状态或单位，再逐步代入。",
+      "先用 OR 形成按钮条件 \\(A+B\\)，再与安全条件 S 做 AND，得到 \\(S(A+B)\\)。"
+    ],
+    "explanation": "先用 OR 形成按钮条件 \\(A+B\\)，再与安全条件 S 做 AND，得到 \\(S(A+B)\\)。",
+    "source": "Lecture05.pdf",
+    "page": 11,
+    "week": 3,
+    "course": "EEE104",
+    "contentType": "derived-practice",
+    "sourcePages": [
+      4,
+      5,
+      7,
+      8,
+      9,
+      11,
+      12,
+      13,
+      15
+    ]
+  },
+  {
+    "id": "L5-M2-Q1",
+    "lecture": 5,
+    "module": "L5-M2",
+    "level": "basic",
+    "prompt": "NAND 在哪种输入下输出 0？",
+    "options": [
+      "任意输入为 0",
+      "只有一个输入为 1",
+      "所有输入为 1",
+      "所有输入为 0"
+    ],
+    "answer": 2,
+    "hints": [
+      "回顾「NAND 与 NOR 的反相」，参见 Lecture 5 PDF 第 \\(17\\) 页。",
+      "先完成括号内 AND/OR，再对整个结果取反。",
+      "关键关系为 \\(\\overline{AB}=\\overline A+\\overline B,\\quad\\overline{A+B}=\\overline A\\,\\overline B\\)。先确认输入、当前状态或单位，再逐步代入。",
+      "AND 此时为 \\(1\\)，经反相后为 \\(0\\)。"
+    ],
+    "explanation": "AND 此时为 \\(1\\)，经反相后为 \\(0\\)。",
+    "source": "Lecture05.pdf",
+    "page": 17,
+    "week": 3,
+    "course": "EEE104",
+    "contentType": "derived-practice",
+    "sourcePages": [
+      16,
+      17,
+      18,
+      19,
+      20,
+      21
+    ]
+  },
+  {
+    "id": "L5-M2-Q2",
+    "lecture": 5,
+    "module": "L5-M2",
+    "level": "basic",
+    "prompt": "NOR 的输入 0、0，输出是什么？",
+    "options": [
+      "未知",
+      "1",
+      "0",
+      "2"
+    ],
+    "answer": 1,
+    "hints": [
+      "回顾「NAND 与 NOR 的反相」，参见 Lecture 5 PDF 第 \\(20\\) 页。",
+      "先完成括号内 AND/OR，再对整个结果取反。",
+      "关键关系为 \\(\\overline{AB}=\\overline A+\\overline B,\\quad\\overline{A+B}=\\overline A\\,\\overline B\\)。先确认输入、当前状态或单位，再逐步代入。",
+      "\\(0+0=0\\)，再取反得到 \\(1\\)。"
+    ],
+    "explanation": "\\(0+0=0\\)，再取反得到 \\(1\\)。",
+    "source": "Lecture05.pdf",
+    "page": 20,
+    "week": 3,
+    "course": "EEE104",
+    "contentType": "derived-practice",
+    "sourcePages": [
+      16,
+      17,
+      18,
+      19,
+      20,
+      21
+    ]
+  },
+  {
+    "id": "L5-M2-Q3",
+    "lecture": 5,
+    "module": "L5-M2",
+    "level": "intermediate",
+    "prompt": "NAND 的两个输入都接 A，输出是什么？",
+    "options": [
+      "A 的反相",
+      "A",
+      "恒为 1",
+      "恒为 0"
+    ],
+    "answer": 0,
+    "hints": [
+      "回顾「NAND 与 NOR 的反相」，参见 Lecture 5 PDF 第 \\(18\\) 页。",
+      "先完成括号内 AND/OR，再对整个结果取反。",
+      "关键关系为 \\(\\overline{AB}=\\overline A+\\overline B,\\quad\\overline{A+B}=\\overline A\\,\\overline B\\)。先确认输入、当前状态或单位，再逐步代入。",
+      "\\(Y=\\overline{AA}=\\overline A\\)，因此可用 NAND 实现反相。"
+    ],
+    "explanation": "\\(Y=\\overline{AA}=\\overline A\\)，因此可用 NAND 实现反相。",
+    "source": "Lecture05.pdf",
+    "page": 18,
+    "week": 3,
+    "course": "EEE104",
+    "contentType": "derived-practice",
+    "sourcePages": [
+      16,
+      17,
+      18,
+      19,
+      20,
+      21
+    ]
+  },
+  {
+    "id": "L5-M2-Q4",
+    "lecture": 5,
+    "module": "L5-M2",
+    "level": "challenge",
+    "prompt": "NOR 输入 A=1、B=0，在输出再加一级反相，最终输出是什么？",
+    "options": [
+      "0",
+      "无法确定",
+      "与延迟无关地恒为 0",
+      "1"
+    ],
+    "answer": 3,
+    "hints": [
+      "回顾「NAND 与 NOR 的反相」，参见 Lecture 5 PDF 第 \\(21\\) 页。",
+      "先完成括号内 AND/OR，再对整个结果取反。",
+      "关键关系为 \\(\\overline{AB}=\\overline A+\\overline B,\\quad\\overline{A+B}=\\overline A\\,\\overline B\\)。先确认输入、当前状态或单位，再逐步代入。",
+      "NOR 先给出 \\(\\overline{1+0}=0\\)，第二级反相得到 \\(1\\)，等效于 OR。"
+    ],
+    "explanation": "NOR 先给出 \\(\\overline{1+0}=0\\)，第二级反相得到 \\(1\\)，等效于 OR。",
+    "source": "Lecture05.pdf",
+    "page": 21,
+    "week": 3,
+    "course": "EEE104",
+    "contentType": "derived-practice",
+    "sourcePages": [
+      16,
+      17,
+      18,
+      19,
+      20,
+      21
+    ]
+  },
+  {
+    "id": "L5-M3-Q1",
+    "lecture": 5,
+    "module": "L5-M3",
+    "level": "basic",
+    "prompt": "两输入 XOR 在何时为 1？",
+    "options": [
+      "所有情况",
+      "两输入不同",
+      "两输入相同",
+      "两输入都为 1"
+    ],
+    "answer": 1,
+    "hints": [
+      "回顾「XOR 与 XNOR」，参见 Lecture 5 PDF 第 \\(23\\) 页。",
+      "先判断两输入是否相同，也可从为 \\(1\\) 的真值表行构造表达式。",
+      "关键关系为 \\(A\\oplus B=\\overline A B+A\\overline B,\\quad\\overline{A\\oplus B}=AB+\\overline A\\,\\overline B\\)。先确认输入、当前状态或单位，再逐步代入。",
+      "真值表 \\(01\\)、\\(10\\) 的输出为 \\(1\\)。"
+    ],
+    "explanation": "真值表 \\(01\\)、\\(10\\) 的输出为 \\(1\\)。",
+    "source": "Lecture05.pdf",
+    "page": 23,
+    "week": 3,
+    "course": "EEE104",
+    "contentType": "derived-practice",
+    "sourcePages": [
+      22,
+      23,
+      24,
+      25,
+      26,
+      27
+    ]
+  },
+  {
+    "id": "L5-M3-Q2",
+    "lecture": 5,
+    "module": "L5-M3",
+    "level": "basic",
+    "prompt": "1 XOR 1 是多少？",
+    "options": [
+      "0",
+      "1",
+      "10",
+      "2"
+    ],
+    "answer": 0,
+    "hints": [
+      "回顾「XOR 与 XNOR」，参见 Lecture 5 PDF 第 \\(23\\) 页。",
+      "先判断两输入是否相同，也可从为 \\(1\\) 的真值表行构造表达式。",
+      "关键关系为 \\(A\\oplus B=\\overline A B+A\\overline B,\\quad\\overline{A\\oplus B}=AB+\\overline A\\,\\overline B\\)。先确认输入、当前状态或单位，再逐步代入。",
+      "两个输入相同，XOR 输出 \\(0\\)。"
+    ],
+    "explanation": "两个输入相同，XOR 输出 \\(0\\)。",
+    "source": "Lecture05.pdf",
+    "page": 23,
+    "week": 3,
+    "course": "EEE104",
+    "contentType": "derived-practice",
+    "sourcePages": [
+      22,
+      23,
+      24,
+      25,
+      26,
+      27
+    ]
+  },
+  {
+    "id": "L5-M3-Q3",
+    "lecture": 5,
+    "module": "L5-M3",
+    "level": "intermediate",
+    "prompt": "要在 A 与 B 相同时点亮指示灯，应选什么逻辑？",
+    "options": [
+      "XOR",
+      "AND",
+      "NOR",
+      "XNOR"
+    ],
+    "answer": 3,
+    "hints": [
+      "回顾「XOR 与 XNOR」，参见 Lecture 5 PDF 第 \\(26\\) 页。",
+      "先判断两输入是否相同，也可从为 \\(1\\) 的真值表行构造表达式。",
+      "关键关系为 \\(A\\oplus B=\\overline A B+A\\overline B,\\quad\\overline{A\\oplus B}=AB+\\overline A\\,\\overline B\\)。先确认输入、当前状态或单位，再逐步代入。",
+      "XNOR 同时覆盖 \\(00\\) 与 \\(11\\) 两种相等情形。"
+    ],
+    "explanation": "XNOR 同时覆盖 \\(00\\) 与 \\(11\\) 两种相等情形。",
+    "source": "Lecture05.pdf",
+    "page": 26,
+    "week": 3,
+    "course": "EEE104",
+    "contentType": "derived-practice",
+    "sourcePages": [
+      22,
+      23,
+      24,
+      25,
+      26,
+      27
+    ]
+  },
+  {
+    "id": "L5-M3-Q4",
+    "lecture": 5,
+    "module": "L5-M3",
+    "level": "challenge",
+    "prompt": "控制 C=0 时保持 A，C=1 时反相 A，输出式是什么？",
+    "options": [
+      "A OR C",
+      "A XNOR C",
+      "A XOR C",
+      "A AND C"
+    ],
+    "answer": 2,
+    "hints": [
+      "回顾「XOR 与 XNOR」，参见 Lecture 5 PDF 第 \\(24\\) 页。",
+      "先判断两输入是否相同，也可从为 \\(1\\) 的真值表行构造表达式。",
+      "关键关系为 \\(A\\oplus B=\\overline A B+A\\overline B,\\quad\\overline{A\\oplus B}=AB+\\overline A\\,\\overline B\\)。先确认输入、当前状态或单位，再逐步代入。",
+      "\\(A\\oplus 0=A\\)；\\(A\\oplus 1=\\overline A \\)。因此 XOR 可作受控反相器。"
+    ],
+    "explanation": "\\(A\\oplus 0=A\\)；\\(A\\oplus 1=\\overline A \\)。因此 XOR 可作受控反相器。",
+    "source": "Lecture05.pdf",
+    "page": 24,
+    "week": 3,
+    "course": "EEE104",
+    "contentType": "derived-practice",
+    "sourcePages": [
+      22,
+      23,
+      24,
+      25,
+      26,
+      27
+    ]
+  },
+  {
+    "id": "L6-M1-Q1",
+    "lecture": 6,
+    "module": "L6-M1",
+    "level": "basic",
+    "prompt": "讲义的 BJT 数字开关使用哪两个工作状态？",
+    "options": [
+      "击穿与开路",
+      "反向击穿与饱和",
+      "截止与饱和",
+      "仅线性放大"
+    ],
+    "answer": 2,
+    "hints": [
+      "回顾「晶体管开关与封装」，参见 Lecture 6 PDF 第 \\(3\\) 页。",
+      "这些近似对应讲义的 BJT 反相示例，不能当作所有门的精确输出电压。",
+      "关键关系为 \\(V_{\\mathrm{out}}\\approx V_{CC}\\ (\\mathrm{cutoff}),\\quad V_{\\mathrm{out}}\\approx0.2\\,V\\ (\\mathrm{saturation})\\)。先确认输入、当前状态或单位，再逐步代入。",
+      "数字开关在截止和饱和之间切换。"
+    ],
+    "explanation": "数字开关在截止和饱和之间切换。",
+    "source": "Lecture06.pdf",
+    "page": 3,
+    "week": 3,
+    "course": "EEE104",
+    "contentType": "derived-practice",
+    "sourcePages": [
+      3,
+      4,
+      5,
+      6
+    ]
+  },
+  {
+    "id": "L6-M1-Q2",
+    "lecture": 6,
+    "module": "L6-M1",
+    "level": "basic",
+    "prompt": "讲义反相器中 BJT 截止，输出接近什么？",
+    "options": [
+      "恒为 0.2 V",
+      "VCC",
+      "0 V",
+      "负 VCC"
+    ],
+    "answer": 1,
+    "hints": [
+      "回顾「晶体管开关与封装」，参见 Lecture 6 PDF 第 \\(3\\) 页。",
+      "这些近似对应讲义的 BJT 反相示例，不能当作所有门的精确输出电压。",
+      "关键关系为 \\(V_{\\mathrm{out}}\\approx V_{CC}\\ (\\mathrm{cutoff}),\\quad V_{\\mathrm{out}}\\approx0.2\\,V\\ (\\mathrm{saturation})\\)。先确认输入、当前状态或单位，再逐步代入。",
+      "截止时晶体管不把输出拉低，电阻将输出拉向 VCC。"
+    ],
+    "explanation": "截止时晶体管不把输出拉低，电阻将输出拉向 VCC。",
+    "source": "Lecture06.pdf",
+    "page": 3,
+    "week": 3,
+    "course": "EEE104",
+    "contentType": "derived-practice",
+    "sourcePages": [
+      3,
+      4,
+      5,
+      6
+    ]
+  },
+  {
+    "id": "L6-M1-Q3",
+    "lecture": 6,
+    "module": "L6-M1",
+    "level": "intermediate",
+    "prompt": "讲义反相器 VCC=5 V，饱和输出约 0.2 V，逻辑关系是什么？",
+    "options": [
+      "HIGH 输入产生 LOW 输出",
+      "HIGH 输入产生 HIGH 输出",
+      "输入输出无关",
+      "电路存储一位"
+    ],
+    "answer": 0,
+    "hints": [
+      "回顾「晶体管开关与封装」，参见 Lecture 6 PDF 第 \\(3\\) 页。",
+      "这些近似对应讲义的 BJT 反相示例，不能当作所有门的精确输出电压。",
+      "关键关系为 \\(V_{\\mathrm{out}}\\approx V_{CC}\\ (\\mathrm{cutoff}),\\quad V_{\\mathrm{out}}\\approx0.2\\,V\\ (\\mathrm{saturation})\\)。先确认输入、当前状态或单位，再逐步代入。",
+      "输入高使晶体管饱和，输出约 \\(0.2 V\\)，为低电平。"
+    ],
+    "explanation": "输入高使晶体管饱和，输出约 \\(0.2 V\\)，为低电平。",
+    "source": "Lecture06.pdf",
+    "page": 3,
+    "week": 3,
+    "course": "EEE104",
+    "contentType": "derived-practice",
+    "sourcePages": [
+      3,
+      4,
+      5,
+      6
+    ]
+  },
+  {
+    "id": "L6-M1-Q4",
+    "lecture": 6,
+    "module": "L6-M1",
+    "level": "challenge",
+    "prompt": "14 脚 DIP 顶视图缺口朝上，最上方右脚通常编号多少？",
+    "options": [
+      "1",
+      "7",
+      "8",
+      "14"
+    ],
+    "answer": 3,
+    "hints": [
+      "回顾「晶体管开关与封装」，参见 Lecture 6 PDF 第 \\(6\\) 页。",
+      "这些近似对应讲义的 BJT 反相示例，不能当作所有门的精确输出电压。",
+      "关键关系为 \\(V_{\\mathrm{out}}\\approx V_{CC}\\ (\\mathrm{cutoff}),\\quad V_{\\mathrm{out}}\\approx0.2\\,V\\ (\\mathrm{saturation})\\)。先确认输入、当前状态或单位，再逐步代入。",
+      "从左上 \\(1\\) 脚向下到 \\(7\\)，跨到底部右侧 \\(8\\)，再向上到右上 \\(14\\)。"
+    ],
+    "explanation": "从左上 \\(1\\) 脚向下到 \\(7\\)，跨到底部右侧 \\(8\\)，再向上到右上 \\(14\\)。",
+    "source": "Lecture06.pdf",
+    "page": 6,
+    "week": 3,
+    "course": "EEE104",
+    "contentType": "derived-practice",
+    "sourcePages": [
+      3,
+      4,
+      5,
+      6
+    ]
+  },
+  {
+    "id": "L6-M2-Q1",
+    "lecture": 6,
+    "module": "L6-M2",
+    "level": "basic",
+    "prompt": "74LS 的 LS 在讲义中代表什么？",
+    "options": [
+      "Logic shift register",
+      "Low-power Schottky TTL",
+      "Low-speed CMOS",
+      "Large-scale memory"
+    ],
+    "answer": 1,
+    "hints": [
+      "回顾「系列命名与供电」，参见 Lecture 6 PDF 第 \\(11\\) 页。",
+      "分清逻辑功能型号、技术系列与供电条件，比较器件时逐项检查。",
+      "关键关系为 \\(\\mathrm{part\\ number}=\\mathrm{prefix}+\\mathrm{series}+\\mathrm{type}\\)。先确认输入、当前状态或单位，再逐步代入。",
+      "第 \\(11\\) 页列出 74LS 为低功耗肖特基 TTL。"
+    ],
+    "explanation": "第 \\(11\\) 页列出 74LS 为低功耗肖特基 TTL。",
+    "source": "Lecture06.pdf",
+    "page": 11,
+    "week": 3,
+    "course": "EEE104",
+    "contentType": "derived-practice",
+    "sourcePages": [
+      7,
+      8,
+      9,
+      10,
+      11,
+      15
+    ]
+  },
+  {
+    "id": "L6-M2-Q2",
+    "lecture": 6,
+    "module": "L6-M2",
+    "level": "basic",
+    "prompt": "讲义中 74HCT 的特征是什么？",
+    "options": [
+      "CMOS 且具有 TTL 兼容输入",
+      "纯模拟放大器",
+      "所有脚均为输出",
+      "无需供电"
+    ],
+    "answer": 0,
+    "hints": [
+      "回顾「系列命名与供电」，参见 Lecture 6 PDF 第 \\(11\\) 页。",
+      "分清逻辑功能型号、技术系列与供电条件，比较器件时逐项检查。",
+      "关键关系为 \\(\\mathrm{part\\ number}=\\mathrm{prefix}+\\mathrm{series}+\\mathrm{type}\\)。先确认输入、当前状态或单位，再逐步代入。",
+      "74HCT 为高速 CMOS，具有 TTL compatibility。"
+    ],
+    "explanation": "74HCT 为高速 CMOS，具有 TTL compatibility。",
+    "source": "Lecture06.pdf",
+    "page": 11,
+    "week": 3,
+    "course": "EEE104",
+    "contentType": "derived-practice",
+    "sourcePages": [
+      7,
+      8,
+      9,
+      10,
+      11,
+      15
+    ]
+  },
+  {
+    "id": "L6-M2-Q3",
+    "lecture": 6,
+    "module": "L6-M2",
+    "level": "intermediate",
+    "prompt": "讲义表格中 TTL 的典型供电电压是多少？",
+    "options": [
+      "3.3 V",
+      "0.8 V",
+      "2.0 V",
+      "5.0 V"
+    ],
+    "answer": 3,
+    "hints": [
+      "回顾「系列命名与供电」，参见 Lecture 6 PDF 第 \\(15\\) 页。",
+      "分清逻辑功能型号、技术系列与供电条件，比较器件时逐项检查。",
+      "关键关系为 \\(\\mathrm{part\\ number}=\\mathrm{prefix}+\\mathrm{series}+\\mathrm{type}\\)。先确认输入、当前状态或单位，再逐步代入。",
+      "第 \\(15\\) 页给出 TTL 典型 VCC 为 \\(5.0 V\\)。\\(0.8 V\\) 是另一处讨论的逻辑电平界限。"
+    ],
+    "explanation": "第 \\(15\\) 页给出 TTL 典型 VCC 为 \\(5.0 V\\)。\\(0.8 V\\) 是另一处讨论的逻辑电平界限。",
+    "source": "Lecture06.pdf",
+    "page": 15,
+    "week": 3,
+    "course": "EEE104",
+    "contentType": "derived-practice",
+    "sourcePages": [
+      7,
+      8,
+      9,
+      10,
+      11,
+      15
+    ]
+  },
+  {
+    "id": "L6-M2-Q4",
+    "lecture": 6,
+    "module": "L6-M2",
+    "level": "challenge",
+    "prompt": "两个芯片实现相同 NAND 功能，能否仅凭功能就直接互换？",
+    "options": [
+      "只比较芯片颜色",
+      "只比较输入个数即可",
+      "还需核对供电、阈值、引脚和时序",
+      "一定可以"
+    ],
+    "answer": 2,
+    "hints": [
+      "回顾「系列命名与供电」，参见 Lecture 6 PDF 第 \\(9\\) 页。",
+      "分清逻辑功能型号、技术系列与供电条件，比较器件时逐项检查。",
+      "关键关系为 \\(\\mathrm{part\\ number}=\\mathrm{prefix}+\\mathrm{series}+\\mathrm{type}\\)。先确认输入、当前状态或单位，再逐步代入。",
+      "逻辑功能相同不代表接口和电气参数相同，系列与器件规格必须一起核对。"
+    ],
+    "explanation": "逻辑功能相同不代表接口和电气参数相同，系列与器件规格必须一起核对。",
+    "source": "Lecture06.pdf",
+    "page": 9,
+    "week": 3,
+    "course": "EEE104",
+    "contentType": "derived-practice",
+    "sourcePages": [
+      7,
+      8,
+      9,
+      10,
+      11,
+      15
+    ]
+  },
+  {
+    "id": "L6-M3-Q1",
+    "lecture": 6,
+    "module": "L6-M3",
+    "level": "basic",
+    "prompt": "tPHL 中 HL 描述什么？",
+    "options": [
+      "输出由高到低",
+      "输入一定由高到低",
+      "时钟频率",
+      "供电降低"
+    ],
+    "answer": 0,
+    "hints": [
+      "回顾「传播延迟与驱动能力」，参见 Lecture 6 PDF 第 \\(12\\) 页。",
+      "延迟计算按实际经过的级数与对应转换方向；扇出限制依赖器件及负载。",
+      "关键关系为 \\(t_{\\mathrm{path}}\\approx\\sum_i t_{p,i}\\)。先确认输入、当前状态或单位，再逐步代入。",
+      "下标描述被观察输出的变化方向。"
+    ],
+    "explanation": "下标描述被观察输出的变化方向。",
+    "source": "Lecture06.pdf",
+    "page": 12,
+    "week": 3,
+    "course": "EEE104",
+    "contentType": "derived-practice",
+    "sourcePages": [
+      12,
+      13,
+      14,
+      16
+    ]
+  },
+  {
+    "id": "L6-M3-Q2",
+    "lecture": 6,
+    "module": "L6-M3",
+    "level": "basic",
+    "prompt": "两个门串联，每级传播延迟 5 ns，总路径延迟近似多少？",
+    "options": [
+      "5 ns",
+      "25 ns",
+      "0 ns",
+      "10 ns"
+    ],
+    "answer": 3,
+    "hints": [
+      "回顾「传播延迟与驱动能力」，参见 Lecture 6 PDF 第 \\(12\\) 页。",
+      "延迟计算按实际经过的级数与对应转换方向；扇出限制依赖器件及负载。",
+      "关键关系为 \\(t_{\\mathrm{path}}\\approx\\sum_i t_{p,i}\\)。先确认输入、当前状态或单位，再逐步代入。",
+      "沿同一串行传播路径相加，\\(5+5=10 \\mathrm{ns}\\)。"
+    ],
+    "explanation": "沿同一串行传播路径相加，\\(5+5=10 \\mathrm{ns}\\)。",
+    "source": "Lecture06.pdf",
+    "page": 12,
+    "week": 3,
+    "course": "EEE104",
+    "contentType": "derived-practice",
+    "sourcePages": [
+      12,
+      13,
+      14,
+      16
+    ]
+  },
+  {
+    "id": "L6-M3-Q3",
+    "lecture": 6,
+    "module": "L6-M3",
+    "level": "intermediate",
+    "prompt": "讲义给出的 74LS 11 ns 与 74F 3.3 ns，哪个示例延迟更小？",
+    "options": [
+      "相同",
+      "无法比较数值",
+      "74F",
+      "74LS"
+    ],
+    "answer": 2,
+    "hints": [
+      "回顾「传播延迟与驱动能力」，参见 Lecture 6 PDF 第 \\(12\\) 页。",
+      "延迟计算按实际经过的级数与对应转换方向；扇出限制依赖器件及负载。",
+      "关键关系为 \\(t_{\\mathrm{path}}\\approx\\sum_i t_{p,i}\\)。先确认输入、当前状态或单位，再逐步代入。",
+      "\\(3.3 \\mathrm{ns} < 11 \\mathrm{ns}\\)，因此该示例中 74F 的传播更快；实际数值需按具体条件核对。"
+    ],
+    "explanation": "\\(3.3 \\mathrm{ns} < 11 \\mathrm{ns}\\)，因此该示例中 74F 的传播更快；实际数值需按具体条件核对。",
+    "source": "Lecture06.pdf",
+    "page": 12,
+    "week": 3,
+    "course": "EEE104",
+    "contentType": "derived-practice",
+    "sourcePages": [
+      12,
+      13,
+      14,
+      16
+    ]
+  },
+  {
+    "id": "L6-M3-Q4",
+    "lecture": 6,
+    "module": "L6-M3",
+    "level": "challenge",
+    "prompt": "额定扇出 20 的输出接 25 个等效负载，应如何判断？",
+    "options": [
+      "必然输出恒为 1",
+      "超出规定驱动数量",
+      "仍有 5 个空余",
+      "只影响电路外观"
+    ],
+    "answer": 1,
+    "hints": [
+      "回顾「传播延迟与驱动能力」，参见 Lecture 6 PDF 第 \\(16\\) 页。",
+      "延迟计算按实际经过的级数与对应转换方向；扇出限制依赖器件及负载。",
+      "关键关系为 \\(t_{\\mathrm{path}}\\approx\\sum_i t_{p,i}\\)。先确认输入、当前状态或单位，再逐步代入。",
+      "\\(25>20\\)，已经超出给定负载条件下的扇出，不应保证电平及时序性能。"
+    ],
+    "explanation": "\\(25>20\\)，已经超出给定负载条件下的扇出，不应保证电平及时序性能。",
+    "source": "Lecture06.pdf",
+    "page": 16,
+    "week": 3,
+    "course": "EEE104",
+    "contentType": "derived-practice",
+    "sourcePages": [
+      12,
+      13,
+      14,
+      16
+    ]
+  },
+  {
+    "id": "L7-M1-Q1",
+    "lecture": 7,
+    "module": "L7-M1",
+    "level": "basic",
+    "prompt": "布尔变量可取哪些值？",
+    "options": [
+      "仅正整数",
+      "0 和 1",
+      "任何实数",
+      "仅 1"
+    ],
+    "answer": 1,
+    "hints": [
+      "回顾「布尔运算与基本恒等式」，参见 Lecture 7 PDF 第 \\(3\\) 页。",
+      "区分布尔运算与数值算术，表达式取值只在 \\(0\\)、\\(1\\) 中。",
+      "关键关系为 \\(A+A=A,\\quad A\\overline A=0,\\quad A+\\overline A=1\\)。先确认输入、当前状态或单位，再逐步代入。",
+      "布尔代数以两个逻辑值为基础。"
+    ],
+    "explanation": "布尔代数以两个逻辑值为基础。",
+    "source": "Lecture07.pdf",
+    "page": 3,
+    "week": 4,
+    "course": "EEE104",
+    "contentType": "derived-practice",
+    "sourcePages": [
+      3,
+      4,
+      5,
+      6,
+      7
+    ]
+  },
+  {
+    "id": "L7-M1-Q2",
+    "lecture": 7,
+    "module": "L7-M1",
+    "level": "basic",
+    "prompt": "A+A 化简为何？",
+    "options": [
+      "A",
+      "2A",
+      "1",
+      "0"
+    ],
+    "answer": 0,
+    "hints": [
+      "回顾「布尔运算与基本恒等式」，参见 Lecture 7 PDF 第 \\(7\\) 页。",
+      "区分布尔运算与数值算术，表达式取值只在 \\(0\\)、\\(1\\) 中。",
+      "关键关系为 \\(A+A=A,\\quad A\\overline A=0,\\quad A+\\overline A=1\\)。先确认输入、当前状态或单位，再逐步代入。",
+      "无论 \\(A=0\\) 还是 \\(1\\)，OR 自身都仍为 A。"
+    ],
+    "explanation": "无论 \\(A=0\\) 还是 \\(1\\)，OR 自身都仍为 A。",
+    "source": "Lecture07.pdf",
+    "page": 7,
+    "week": 4,
+    "course": "EEE104",
+    "contentType": "derived-practice",
+    "sourcePages": [
+      3,
+      4,
+      5,
+      6,
+      7
+    ]
+  },
+  {
+    "id": "L7-M1-Q3",
+    "lecture": 7,
+    "module": "L7-M1",
+    "level": "intermediate",
+    "prompt": "A(B+C) 展开后是什么？",
+    "options": [
+      "AB+C",
+      "A+B+C",
+      "ABC",
+      "AB+AC"
+    ],
+    "answer": 3,
+    "hints": [
+      "回顾「布尔运算与基本恒等式」，参见 Lecture 7 PDF 第 \\(6\\) 页。",
+      "区分布尔运算与数值算术，表达式取值只在 \\(0\\)、\\(1\\) 中。",
+      "关键关系为 \\(A+A=A,\\quad A\\overline A=0,\\quad A+\\overline A=1\\)。先确认输入、当前状态或单位，再逐步代入。",
+      "用分配律使 A 分别与 B、C 相与，再对结果做 OR。"
+    ],
+    "explanation": "用分配律使 A 分别与 B、C 相与，再对结果做 OR。",
+    "source": "Lecture07.pdf",
+    "page": 6,
+    "week": 4,
+    "course": "EEE104",
+    "contentType": "derived-practice",
+    "sourcePages": [
+      3,
+      4,
+      5,
+      6,
+      7
+    ]
+  },
+  {
+    "id": "L7-M1-Q4",
+    "lecture": 7,
+    "module": "L7-M1",
+    "level": "challenge",
+    "prompt": "AĀ+B·1 化简为何？",
+    "options": [
+      "0",
+      "AB",
+      "B",
+      "A+B"
+    ],
+    "answer": 2,
+    "hints": [
+      "回顾「布尔运算与基本恒等式」，参见 Lecture 7 PDF 第 \\(7\\) 页。",
+      "区分布尔运算与数值算术，表达式取值只在 \\(0\\)、\\(1\\) 中。",
+      "关键关系为 \\(A+A=A,\\quad A\\overline A=0,\\quad A+\\overline A=1\\)。先确认输入、当前状态或单位，再逐步代入。",
+      "互补乘积 \\(A\\overline A =0\\)，\\(B\\cdot 1=B\\)，因此整体为 \\(0+B=B\\)。"
+    ],
+    "explanation": "互补乘积 \\(A\\overline A =0\\)，\\(B\\cdot 1=B\\)，因此整体为 \\(0+B=B\\)。",
+    "source": "Lecture07.pdf",
+    "page": 7,
+    "week": 4,
+    "course": "EEE104",
+    "contentType": "derived-practice",
+    "sourcePages": [
+      3,
+      4,
+      5,
+      6,
+      7
+    ]
+  },
+  {
+    "id": "L7-M2-Q1",
+    "lecture": 7,
+    "module": "L7-M2",
+    "level": "basic",
+    "prompt": "A+AB 最简结果是什么？",
+    "options": [
+      "A",
+      "AB",
+      "A+B",
+      "B"
+    ],
+    "answer": 0,
+    "hints": [
+      "回顾「吸收律与逐步化简」，参见 Lecture 7 PDF 第 \\(8\\) 页。",
+      "先识别公共项，再展开或因式分解，每步写出所用恒等式。",
+      "关键关系为 \\(A+AB=A,\\quad A+\\overline A B=A+B,\\quad(A+B)(A+C)=A+BC\\)。先确认输入、当前状态或单位，再逐步代入。",
+      "提取 A 得 \\(A(1+B)=A\\)。"
+    ],
+    "explanation": "提取 A 得 \\(A(1+B)=A\\)。",
+    "source": "Lecture07.pdf",
+    "page": 8,
+    "week": 4,
+    "course": "EEE104",
+    "contentType": "derived-practice",
+    "sourcePages": [
+      8,
+      9,
+      14
+    ]
+  },
+  {
+    "id": "L7-M2-Q2",
+    "lecture": 7,
+    "module": "L7-M2",
+    "level": "basic",
+    "prompt": "R+R(S+T) 化简为何？",
+    "options": [
+      "R+S+T",
+      "RST",
+      "S+T",
+      "R"
+    ],
+    "answer": 3,
+    "hints": [
+      "回顾「吸收律与逐步化简」，参见 Lecture 7 PDF 第 \\(9\\) 页。",
+      "先识别公共项，再展开或因式分解，每步写出所用恒等式。",
+      "关键关系为 \\(A+AB=A,\\quad A+\\overline A B=A+B,\\quad(A+B)(A+C)=A+BC\\)。先确认输入、当前状态或单位，再逐步代入。",
+      "把 \\(S+T\\) 看作整体 B，利用 \\(R+RB=R\\)。"
+    ],
+    "explanation": "把 \\(S+T\\) 看作整体 B，利用 \\(R+RB=R\\)。",
+    "source": "Lecture07.pdf",
+    "page": 9,
+    "week": 4,
+    "course": "EEE104",
+    "contentType": "derived-practice",
+    "sourcePages": [
+      8,
+      9,
+      14
+    ]
+  },
+  {
+    "id": "L7-M2-Q3",
+    "lecture": 7,
+    "module": "L7-M2",
+    "level": "intermediate",
+    "prompt": "(P+Q)(P+R)+P 化简为何？",
+    "options": [
+      "Q+R",
+      "P",
+      "P+QR",
+      "PQR"
+    ],
+    "answer": 2,
+    "hints": [
+      "回顾「吸收律与逐步化简」，参见 Lecture 7 PDF 第 \\(9\\) 页。",
+      "先识别公共项，再展开或因式分解，每步写出所用恒等式。",
+      "关键关系为 \\(A+AB=A,\\quad A+\\overline A B=A+B,\\quad(A+B)(A+C)=A+BC\\)。先确认输入、当前状态或单位，再逐步代入。",
+      "先用乘积和式恒等式得到 \\(P+QR\\)，再加 P，由幂等律仍为 \\(P+QR\\)。"
+    ],
+    "explanation": "先用乘积和式恒等式得到 \\(P+QR\\)，再加 P，由幂等律仍为 \\(P+QR\\)。",
+    "source": "Lecture07.pdf",
+    "page": 9,
+    "week": 4,
+    "course": "EEE104",
+    "contentType": "derived-practice",
+    "sourcePages": [
+      8,
+      9,
+      14
+    ]
+  },
+  {
+    "id": "L7-M2-Q4",
+    "lecture": 7,
+    "module": "L7-M2",
+    "level": "challenge",
+    "prompt": "AB+A(B+C)+B(B+C) 化简为何？",
+    "options": [
+      "AC",
+      "B+AC",
+      "A+B+C",
+      "AB+BC"
+    ],
+    "answer": 1,
+    "hints": [
+      "回顾「吸收律与逐步化简」，参见 Lecture 7 PDF 第 \\(14\\) 页。",
+      "先识别公共项，再展开或因式分解，每步写出所用恒等式。",
+      "关键关系为 \\(A+AB=A,\\quad A+\\overline A B=A+B,\\quad(A+B)(A+C)=A+BC\\)。先确认输入、当前状态或单位，再逐步代入。",
+      "展开 \\(AB+AB+AC+B+BC\\)；合并重复项后，B 吸收 AB 与 BC，得到 \\(B+AC\\)。"
+    ],
+    "explanation": "展开 \\(AB+AB+AC+B+BC\\)；合并重复项后，B 吸收 AB 与 BC，得到 \\(B+AC\\)。",
+    "source": "Lecture07.pdf",
+    "page": 14,
+    "week": 4,
+    "course": "EEE104",
+    "contentType": "derived-practice",
+    "sourcePages": [
+      8,
+      9,
+      14
+    ]
+  },
+  {
+    "id": "L7-M3-Q1",
+    "lecture": 7,
+    "module": "L7-M3",
+    "level": "basic",
+    "prompt": "乘积 AB 的整体反相是什么？",
+    "options": [
+      "ĀB̄",
+      "A+B",
+      "AB",
+      "Ā+B̄"
+    ],
+    "answer": 3,
+    "hints": [
+      "回顾「DeMorgan 与整体反相」，参见 Lecture 7 PDF 第 \\(10\\) 页。",
+      "横线覆盖整体时先把整个括号当一个操作数，再逐层向内变换。",
+      "关键关系为 \\(\\overline{AB}=\\overline A+\\overline B,\\quad\\overline{A+B}=\\overline A\\,\\overline B\\)。先确认输入、当前状态或单位，再逐步代入。",
+      "由第一 DeMorgan 定理，AND 整体反相变成反相输入的 OR。"
+    ],
+    "explanation": "由第一 DeMorgan 定理，AND 整体反相变成反相输入的 OR。",
+    "source": "Lecture07.pdf",
+    "page": 10,
+    "week": 4,
+    "course": "EEE104",
+    "contentType": "derived-practice",
+    "sourcePages": [
+      10,
+      11,
+      12,
+      13
+    ]
+  },
+  {
+    "id": "L7-M3-Q2",
+    "lecture": 7,
+    "module": "L7-M3",
+    "level": "basic",
+    "prompt": "A+B 的整体反相是什么？",
+    "options": [
+      "AB",
+      "A+B",
+      "ĀB̄",
+      "Ā+B̄"
+    ],
+    "answer": 2,
+    "hints": [
+      "回顾「DeMorgan 与整体反相」，参见 Lecture 7 PDF 第 \\(11\\) 页。",
+      "横线覆盖整体时先把整个括号当一个操作数，再逐层向内变换。",
+      "关键关系为 \\(\\overline{AB}=\\overline A+\\overline B,\\quad\\overline{A+B}=\\overline A\\,\\overline B\\)。先确认输入、当前状态或单位，再逐步代入。",
+      "OR 的整体反相为反相输入的 AND。"
+    ],
+    "explanation": "OR 的整体反相为反相输入的 AND。",
+    "source": "Lecture07.pdf",
+    "page": 11,
+    "week": 4,
+    "course": "EEE104",
+    "contentType": "derived-practice",
+    "sourcePages": [
+      10,
+      11,
+      12,
+      13
+    ]
+  },
+  {
+    "id": "L7-M3-Q3",
+    "lecture": 7,
+    "module": "L7-M3",
+    "level": "intermediate",
+    "prompt": "表达式 (A+B)C 的整体反相是什么？",
+    "options": [
+      "A+B+C̄",
+      "ĀB̄+C̄",
+      "Ā+B̄+C̄",
+      "ĀB̄C̄"
+    ],
+    "answer": 1,
+    "hints": [
+      "回顾「DeMorgan 与整体反相」，参见 Lecture 7 PDF 第 \\(12\\) 页。",
+      "横线覆盖整体时先把整个括号当一个操作数，再逐层向内变换。",
+      "关键关系为 \\(\\overline{AB}=\\overline A+\\overline B,\\quad\\overline{A+B}=\\overline A\\,\\overline B\\)。先确认输入、当前状态或单位，再逐步代入。",
+      "先对两因子用 DeMorgan 得 \\(\\overline{A+B}+\\overline C\\)，再展开为 \\(\\overline A\\,\\overline B+\\overline C\\)。"
+    ],
+    "explanation": "先对两因子用 DeMorgan 得 \\(\\overline{A+B}+\\overline C\\)，再展开为 \\(\\overline A\\,\\overline B+\\overline C\\)。",
+    "source": "Lecture07.pdf",
+    "page": 12,
+    "week": 4,
+    "course": "EEE104",
+    "contentType": "derived-practice",
+    "sourcePages": [
+      10,
+      11,
+      12,
+      13
+    ]
+  },
+  {
+    "id": "L7-M3-Q4",
+    "lecture": 7,
+    "module": "L7-M3",
+    "level": "challenge",
+    "prompt": "AB+CD 的整体反相为何？",
+    "options": [
+      "(Ā+B̄)(C̄+D̄)",
+      "ĀB̄+C̄D̄",
+      "(A+B)(C+D)",
+      "Ā+B̄+C̄+D̄"
+    ],
+    "answer": 0,
+    "hints": [
+      "回顾「DeMorgan 与整体反相」，参见 Lecture 7 PDF 第 \\(13\\) 页。",
+      "横线覆盖整体时先把整个括号当一个操作数，再逐层向内变换。",
+      "关键关系为 \\(\\overline{AB}=\\overline A+\\overline B,\\quad\\overline{A+B}=\\overline A\\,\\overline B\\)。先确认输入、当前状态或单位，再逐步代入。",
+      "外层 OR 取反变为两个反相乘积相乘；各反相乘积再变为和，结果为 (\\(\\overline A +\\overline{B})(\\overline{C}+\\overline{D})\\)。"
+    ],
+    "explanation": "外层 OR 取反变为两个反相乘积相乘；各反相乘积再变为和，结果为 (\\(\\overline A +\\overline{B})(\\overline{C}+\\overline{D})\\)。",
+    "source": "Lecture07.pdf",
+    "page": 13,
+    "week": 4,
+    "course": "EEE104",
+    "contentType": "derived-practice",
+    "sourcePages": [
+      10,
+      11,
+      12,
+      13
+    ]
+  },
+  {
+    "id": "L8-M1-Q1",
+    "lecture": 8,
+    "module": "L8-M1",
+    "level": "basic",
+    "prompt": "组合逻辑的稳定输出由什么决定？",
+    "options": [
+      "当前输入",
+      "必须由历史输入决定",
+      "只有时钟决定",
+      "存储的前一位决定"
+    ],
+    "answer": 0,
+    "hints": [
+      "回顾「从函数到组合电路」，参见 Lecture 8 PDF 第 \\(3\\) 页。",
+      "逐级命名内部节点，按信号流求值；比较稳定状态时考虑传播延迟已经结束。",
+      "关键关系为 \\(X=AB+CD\\)。先确认输入、当前状态或单位，再逐步代入。",
+      "组合逻辑不含存储状态，其稳定输出是当前输入的函数。"
+    ],
+    "explanation": "组合逻辑不含存储状态，其稳定输出是当前输入的函数。",
+    "source": "Lecture08.pdf",
+    "page": 3,
+    "week": 4,
+    "course": "EEE104",
+    "contentType": "derived-practice",
+    "sourcePages": [
+      3,
+      4,
+      5,
+      6
+    ]
+  },
+  {
+    "id": "L8-M1-Q2",
+    "lecture": 8,
+    "module": "L8-M1",
+    "level": "basic",
+    "prompt": "X=AB+CD 可用哪种基本结构？",
+    "options": [
+      "OR-AND",
+      "只有一个 NOT",
+      "必须使用触发器",
+      "AND-OR"
+    ],
+    "answer": 3,
+    "hints": [
+      "回顾「从函数到组合电路」，参见 Lecture 8 PDF 第 \\(5\\) 页。",
+      "逐级命名内部节点，按信号流求值；比较稳定状态时考虑传播延迟已经结束。",
+      "关键关系为 \\(X=AB+CD\\)。先确认输入、当前状态或单位，再逐步代入。",
+      "先生成乘积 AB 与 CD，再对两个乘积做 OR。"
+    ],
+    "explanation": "先生成乘积 AB 与 CD，再对两个乘积做 OR。",
+    "source": "Lecture08.pdf",
+    "page": 5,
+    "week": 4,
+    "course": "EEE104",
+    "contentType": "derived-practice",
+    "sourcePages": [
+      3,
+      4,
+      5,
+      6
+    ]
+  },
+  {
+    "id": "L8-M1-Q3",
+    "lecture": 8,
+    "module": "L8-M1",
+    "level": "intermediate",
+    "prompt": "A=1、B=0、C=1、D=1 时 AB+CD 的值？",
+    "options": [
+      "2",
+      "不确定",
+      "1",
+      "0"
+    ],
+    "answer": 2,
+    "hints": [
+      "回顾「从函数到组合电路」，参见 Lecture 8 PDF 第 \\(5\\) 页。",
+      "逐级命名内部节点，按信号流求值；比较稳定状态时考虑传播延迟已经结束。",
+      "关键关系为 \\(X=AB+CD\\)。先确认输入、当前状态或单位，再逐步代入。",
+      "\\(AB=0\\)，\\(CD=1\\)，所以 \\(X=0+1=1\\)。"
+    ],
+    "explanation": "\\(AB=0\\)，\\(CD=1\\)，所以 \\(X=0+1=1\\)。",
+    "source": "Lecture08.pdf",
+    "page": 5,
+    "week": 4,
+    "course": "EEE104",
+    "contentType": "derived-practice",
+    "sourcePages": [
+      3,
+      4,
+      5,
+      6
+    ]
+  },
+  {
+    "id": "L8-M1-Q4",
+    "lecture": 8,
+    "module": "L8-M1",
+    "level": "challenge",
+    "prompt": "X=A(B+C)，固定 A=0 后，B、C 怎样变化会让稳定 X 为 1？",
+    "options": [
+      "B=C=1",
+      "没有这种输入",
+      "仅 B=1",
+      "仅 C=1"
+    ],
+    "answer": 1,
+    "hints": [
+      "回顾「从函数到组合电路」，参见 Lecture 8 PDF 第 \\(6\\) 页。",
+      "逐级命名内部节点，按信号流求值；比较稳定状态时考虑传播延迟已经结束。",
+      "关键关系为 \\(X=AB+CD\\)。先确认输入、当前状态或单位，再逐步代入。",
+      "A 是外层 AND 的一项；\\(A=0\\) 时整个乘积恒为 \\(0\\)。"
+    ],
+    "explanation": "A 是外层 AND 的一项；\\(A=0\\) 时整个乘积恒为 \\(0\\)。",
+    "source": "Lecture08.pdf",
+    "page": 6,
+    "week": 4,
+    "course": "EEE104",
+    "contentType": "derived-practice",
+    "sourcePages": [
+      3,
+      4,
+      5,
+      6
+    ]
+  },
+  {
+    "id": "L8-M2-Q1",
+    "lecture": 8,
+    "module": "L8-M2",
+    "level": "basic",
+    "prompt": "NAND 能否实现 NOT？",
+    "options": [
+      "不能",
+      "只能加时钟后实现",
+      "只能在输入为 0 时实现",
+      "能，两个输入接同一信号"
+    ],
+    "answer": 3,
+    "hints": [
+      "回顾「NAND 实现基本运算」，参见 Lecture 8 PDF 第 \\(8\\) 页。",
+      "需要非反相输出时检查末级是否已抵消输出反相；NAND 输入可以并接作反相。",
+      "关键关系为 \\(A+B=\\overline{\\overline A\\,\\overline B}\\)。先确认输入、当前状态或单位，再逐步代入。",
+      "\\(\\overline{AA}=\\overline A\\)，对两个输入值都成立。"
+    ],
+    "explanation": "\\(\\overline{AA}=\\overline A\\)，对两个输入值都成立。",
+    "source": "Lecture08.pdf",
+    "page": 8,
+    "week": 4,
+    "course": "EEE104",
+    "contentType": "derived-practice",
+    "sourcePages": [
+      7,
+      8,
+      9
+    ]
+  },
+  {
+    "id": "L8-M2-Q2",
+    "lecture": 8,
+    "module": "L8-M2",
+    "level": "basic",
+    "prompt": "使用允许输入并接的二输入 NAND，实现 AND 最少需要几级门？",
+    "options": [
+      "3",
+      "4",
+      "2",
+      "1"
+    ],
+    "answer": 2,
+    "hints": [
+      "回顾「NAND 实现基本运算」，参见 Lecture 8 PDF 第 \\(8\\) 页。",
+      "需要非反相输出时检查末级是否已抵消输出反相；NAND 输入可以并接作反相。",
+      "关键关系为 \\(A+B=\\overline{\\overline A\\,\\overline B}\\)。先确认输入、当前状态或单位，再逐步代入。",
+      "一级生成 NAND，第二级把其输出接到两输入再次反相，得到 AND。"
+    ],
+    "explanation": "一级生成 NAND，第二级把其输出接到两输入再次反相，得到 AND。",
+    "source": "Lecture08.pdf",
+    "page": 8,
+    "week": 4,
+    "course": "EEE104",
+    "contentType": "derived-practice",
+    "sourcePages": [
+      7,
+      8,
+      9
+    ]
+  },
+  {
+    "id": "L8-M2-Q3",
+    "lecture": 8,
+    "module": "L8-M2",
+    "level": "intermediate",
+    "prompt": "使用二输入 NAND，从 A、B 原始输入实现 OR，常见结构需几个门？",
+    "options": [
+      "5",
+      "3",
+      "1",
+      "2"
+    ],
+    "answer": 1,
+    "hints": [
+      "回顾「NAND 实现基本运算」，参见 Lecture 8 PDF 第 \\(9\\) 页。",
+      "需要非反相输出时检查末级是否已抵消输出反相；NAND 输入可以并接作反相。",
+      "关键关系为 \\(A+B=\\overline{\\overline A\\,\\overline B}\\)。先确认输入、当前状态或单位，再逐步代入。",
+      "分别用两个 NAND 反相 A、B，再用第三个 NAND 得 \\(\\overline{\\overline A\\overline B}=A+B\\)。"
+    ],
+    "explanation": "分别用两个 NAND 反相 A、B，再用第三个 NAND 得 \\(\\overline{\\overline A\\overline B}=A+B\\)。",
+    "source": "Lecture08.pdf",
+    "page": 9,
+    "week": 4,
+    "course": "EEE104",
+    "contentType": "derived-practice",
+    "sourcePages": [
+      7,
+      8,
+      9
+    ]
+  },
+  {
+    "id": "L8-M2-Q4",
+    "lecture": 8,
+    "module": "L8-M2",
+    "level": "challenge",
+    "prompt": "U=NAND(A,B)，V=NAND(C,D)，X=NAND(U,V)，X 等价于什么？",
+    "options": [
+      "AB+CD",
+      "(A+B)(C+D)",
+      "ABCD",
+      "ĀB̄+C̄D̄"
+    ],
+    "answer": 0,
+    "hints": [
+      "回顾「NAND 实现基本运算」，参见 Lecture 8 PDF 第 \\(13\\) 页。",
+      "需要非反相输出时检查末级是否已抵消输出反相；NAND 输入可以并接作反相。",
+      "关键关系为 \\(A+B=\\overline{\\overline A\\,\\overline B}\\)。先确认输入、当前状态或单位，再逐步代入。",
+      "\\(X=\\overline{\\overline{AB}\\,\\overline{CD}}=AB+CD\\)。两个输入反相与末级反相通过 DeMorgan 对应 SOP。"
+    ],
+    "explanation": "\\(X=\\overline{\\overline{AB}\\,\\overline{CD}}=AB+CD\\)。两个输入反相与末级反相通过 DeMorgan 对应 SOP。",
+    "source": "Lecture08.pdf",
+    "page": 13,
+    "week": 4,
+    "course": "EEE104",
+    "contentType": "derived-practice",
+    "sourcePages": [
+      7,
+      8,
+      9
+    ]
+  },
+  {
+    "id": "L8-M3-Q1",
+    "lecture": 8,
+    "module": "L8-M3",
+    "level": "basic",
+    "prompt": "NOR 的两个输入都接 A，输出是什么？",
+    "options": [
+      "恒 0",
+      "恒 1",
+      "Ā",
+      "A"
+    ],
+    "answer": 2,
+    "hints": [
+      "回顾「NOR 与气泡等效」，参见 Lecture 8 PDF 第 \\(10\\) 页。",
+      "先标出每一级的反相，再使用 DeMorgan；两处反相消除须确实位于同一信号路径。",
+      "关键关系为 \\(AB=\\overline{\\overline A+\\overline B}\\)。先确认输入、当前状态或单位，再逐步代入。",
+      "\\(\\overline{A+A}=\\overline A\\)。"
+    ],
+    "explanation": "\\(\\overline{A+A}=\\overline A\\)。",
+    "source": "Lecture08.pdf",
+    "page": 10,
+    "week": 4,
+    "course": "EEE104",
+    "contentType": "derived-practice",
+    "sourcePages": [
+      10,
+      11,
+      12,
+      13,
+      14
+    ]
+  },
+  {
+    "id": "L8-M3-Q2",
+    "lecture": 8,
+    "module": "L8-M3",
+    "level": "basic",
+    "prompt": "NOR 输出再接一个反相器，等效于什么？",
+    "options": [
+      "XOR",
+      "OR",
+      "AND",
+      "NAND"
+    ],
+    "answer": 1,
+    "hints": [
+      "回顾「NOR 与气泡等效」，参见 Lecture 8 PDF 第 \\(10\\) 页。",
+      "先标出每一级的反相，再使用 DeMorgan；两处反相消除须确实位于同一信号路径。",
+      "关键关系为 \\(AB=\\overline{\\overline A+\\overline B}\\)。先确认输入、当前状态或单位，再逐步代入。",
+      "连续两次对 \\(A+B\\) 取反后恢复为 \\(A+B\\)。"
+    ],
+    "explanation": "连续两次对 \\(A+B\\) 取反后恢复为 \\(A+B\\)。",
+    "source": "Lecture08.pdf",
+    "page": 10,
+    "week": 4,
+    "course": "EEE104",
+    "contentType": "derived-practice",
+    "sourcePages": [
+      10,
+      11,
+      12,
+      13,
+      14
+    ]
+  },
+  {
+    "id": "L8-M3-Q3",
+    "lecture": 8,
+    "module": "L8-M3",
+    "level": "intermediate",
+    "prompt": "分别反相 A、B，再进入 NOR，输出是什么？",
+    "options": [
+      "AB",
+      "A+B",
+      "ĀB̄",
+      "A XOR B"
+    ],
+    "answer": 0,
+    "hints": [
+      "回顾「NOR 与气泡等效」，参见 Lecture 8 PDF 第 \\(11\\) 页。",
+      "先标出每一级的反相，再使用 DeMorgan；两处反相消除须确实位于同一信号路径。",
+      "关键关系为 \\(AB=\\overline{\\overline A+\\overline B}\\)。先确认输入、当前状态或单位，再逐步代入。",
+      "\\(\\overline{\\overline A+\\overline B}=AB\\)。"
+    ],
+    "explanation": "\\(\\overline{\\overline A+\\overline B}=AB\\)。",
+    "source": "Lecture08.pdf",
+    "page": 11,
+    "week": 4,
+    "course": "EEE104",
+    "contentType": "derived-practice",
+    "sourcePages": [
+      10,
+      11,
+      12,
+      13,
+      14
+    ]
+  },
+  {
+    "id": "L8-M3-Q4",
+    "lecture": 8,
+    "module": "L8-M3",
+    "level": "challenge",
+    "prompt": "U=NOR(A,B)，V=NOR(C,D)，X=NOR(U,V)，X 等价于什么？",
+    "options": [
+      "AB+CD",
+      "A+B+C+D",
+      "ABCD",
+      "(A+B)(C+D)"
+    ],
+    "answer": 3,
+    "hints": [
+      "回顾「NOR 与气泡等效」，参见 Lecture 8 PDF 第 \\(14\\) 页。",
+      "先标出每一级的反相，再使用 DeMorgan；两处反相消除须确实位于同一信号路径。",
+      "关键关系为 \\(AB=\\overline{\\overline A+\\overline B}\\)。先确认输入、当前状态或单位，再逐步代入。",
+      "外层反相和变成反相项相乘，再消除双重反相，得到 (\\(A+B)(C+D)\\)。"
+    ],
+    "explanation": "外层反相和变成反相项相乘，再消除双重反相，得到 (\\(A+B)(C+D)\\)。",
+    "source": "Lecture08.pdf",
+    "page": 14,
+    "week": 4,
+    "course": "EEE104",
+    "contentType": "derived-practice",
+    "sourcePages": [
+      10,
+      11,
+      12,
+      13,
+      14
+    ]
+  },
+  {
+    "id": "L9-M1-Q1",
+    "lecture": 9,
+    "module": "L9-M1",
+    "level": "basic",
+    "prompt": "域为 A、B、C 时，AB 是否标准最小项？",
+    "options": [
+      "是",
+      "取决于 A 值",
+      "AB 不是乘积项",
+      "否，缺 C"
+    ],
+    "answer": 3,
+    "hints": [
+      "回顾「普通式与标准式」，参见 Lecture 9 PDF 第 \\(4\\) 页。",
+      "先固定变量域；SOP 通过乘以 \\(1\\) 补项，POS 通过加 \\(0\\) 再因式分解补项。",
+      "关键关系为 \\(AB=AB(C+\\overline C)=ABC+AB\\overline C\\)。先确认输入、当前状态或单位，再逐步代入。",
+      "标准乘积项必须包含域中的每个变量，AB 缺 C。"
+    ],
+    "explanation": "标准乘积项必须包含域中的每个变量，AB 缺 C。",
+    "source": "Lecture09.pdf",
+    "page": 4,
+    "week": 4,
+    "course": "EEE104",
+    "contentType": "derived-practice",
+    "sourcePages": [
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ]
+  },
+  {
+    "id": "L9-M1-Q2",
+    "lecture": 9,
+    "module": "L9-M1",
+    "level": "basic",
+    "prompt": "AB 在域 A、B、C 的标准 SOP 扩展是什么？",
+    "options": [
+      "AB+C",
+      "A+B+C",
+      "ABC+ABC̄",
+      "ABC"
+    ],
+    "answer": 2,
+    "hints": [
+      "回顾「普通式与标准式」，参见 Lecture 9 PDF 第 \\(4\\) 页。",
+      "先固定变量域；SOP 通过乘以 \\(1\\) 补项，POS 通过加 \\(0\\) 再因式分解补项。",
+      "关键关系为 \\(AB=AB(C+\\overline C)=ABC+AB\\overline C\\)。先确认输入、当前状态或单位，再逐步代入。",
+      "乘以 \\(C+\\overline{C}=1\\)，得到 \\(ABC+AB\\overline{C}\\)。"
+    ],
+    "explanation": "乘以 \\(C+\\overline{C}=1\\)，得到 \\(ABC+AB\\overline{C}\\)。",
+    "source": "Lecture09.pdf",
+    "page": 4,
+    "week": 4,
+    "course": "EEE104",
+    "contentType": "derived-practice",
+    "sourcePages": [
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ]
+  },
+  {
+    "id": "L9-M1-Q3",
+    "lecture": 9,
+    "module": "L9-M1",
+    "level": "intermediate",
+    "prompt": "A+B 在域 A、B、C 的标准 POS 扩展是什么？",
+    "options": [
+      "ABC+ABC̄",
+      "(A+B+C)(A+B+C̄)",
+      "(A+B)C",
+      "A+B+C"
+    ],
+    "answer": 1,
+    "hints": [
+      "回顾「普通式与标准式」，参见 Lecture 9 PDF 第 \\(6\\) 页。",
+      "先固定变量域；SOP 通过乘以 \\(1\\) 补项，POS 通过加 \\(0\\) 再因式分解补项。",
+      "关键关系为 \\(AB=AB(C+\\overline C)=ABC+AB\\overline C\\)。先确认输入、当前状态或单位，再逐步代入。",
+      "设 \\(X=A+B\\)，则 (\\(X+C)(X+\\overline{C})=X+C\\overline{C}=X\\)。"
+    ],
+    "explanation": "设 \\(X=A+B\\)，则 (\\(X+C)(X+\\overline{C})=X+C\\overline{C}=X\\)。",
+    "source": "Lecture09.pdf",
+    "page": 6,
+    "week": 4,
+    "course": "EEE104",
+    "contentType": "derived-practice",
+    "sourcePages": [
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ]
+  },
+  {
+    "id": "L9-M1-Q4",
+    "lecture": 9,
+    "module": "L9-M1",
+    "level": "challenge",
+    "prompt": "域 A、B、C、D 中，只有 AB 的乘积项展开后有几个最小项？",
+    "options": [
+      "4",
+      "2",
+      "8",
+      "1"
+    ],
+    "answer": 0,
+    "hints": [
+      "回顾「普通式与标准式」，参见 Lecture 9 PDF 第 \\(4\\) 页。",
+      "先固定变量域；SOP 通过乘以 \\(1\\) 补项，POS 通过加 \\(0\\) 再因式分解补项。",
+      "关键关系为 \\(AB=AB(C+\\overline C)=ABC+AB\\overline C\\)。先确认输入、当前状态或单位，再逐步代入。",
+      "缺 C、D 两个独立变量，各有 \\(0/1\\) 两种取值，故 \\(2^{2}=4\\) 个最小项。"
+    ],
+    "explanation": "缺 C、D 两个独立变量，各有 \\(0/1\\) 两种取值，故 \\(2^{2}=4\\) 个最小项。",
+    "source": "Lecture09.pdf",
+    "page": 4,
+    "week": 4,
+    "course": "EEE104",
+    "contentType": "derived-practice",
+    "sourcePages": [
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ]
+  },
+  {
+    "id": "L9-M2-Q1",
+    "lecture": 9,
+    "module": "L9-M2",
+    "level": "basic",
+    "prompt": "最小项在对应输入行的值是多少？",
+    "options": [
+      "2",
+      "不确定",
+      "1",
+      "0"
+    ],
+    "answer": 2,
+    "hints": [
+      "回顾「最小项与最大项的极性」，参见 Lecture 9 PDF 第 \\(9\\) 页。",
+      "固定 A 为最高位、C 为最低位；最小项取值 \\(1\\)，最大项取值 \\(0\\)。",
+      "关键关系为 \\(m_6=AB\\overline C,\\qquad M_6=\\overline A+\\overline B+C\\)。先确认输入、当前状态或单位，再逐步代入。",
+      "每个 literal 在该行都为 \\(1\\)，AND 为 \\(1\\)。"
+    ],
+    "explanation": "每个 literal 在该行都为 \\(1\\)，AND 为 \\(1\\)。",
+    "source": "Lecture09.pdf",
+    "page": 9,
+    "week": 4,
+    "course": "EEE104",
+    "contentType": "derived-practice",
+    "sourcePages": [
+      9,
+      10,
+      11,
+      12,
+      13
+    ]
+  },
+  {
+    "id": "L9-M2-Q2",
+    "lecture": 9,
+    "module": "L9-M2",
+    "level": "basic",
+    "prompt": "ABC=110 的最小项是什么？",
+    "options": [
+      "Ā+B̄+C",
+      "ABC̄",
+      "ĀB̄C",
+      "A+B+C̄"
+    ],
+    "answer": 1,
+    "hints": [
+      "回顾「最小项与最大项的极性」，参见 Lecture 9 PDF 第 \\(9\\) 页。",
+      "固定 A 为最高位、C 为最低位；最小项取值 \\(1\\)，最大项取值 \\(0\\)。",
+      "关键关系为 \\(m_6=AB\\overline C,\\qquad M_6=\\overline A+\\overline B+C\\)。先确认输入、当前状态或单位，再逐步代入。",
+      "A、B 输入为 \\(1\\) 保持原变量，C 为 \\(0\\) 取反。"
+    ],
+    "explanation": "A、B 输入为 \\(1\\) 保持原变量，C 为 \\(0\\) 取反。",
+    "source": "Lecture09.pdf",
+    "page": 9,
+    "week": 4,
+    "course": "EEE104",
+    "contentType": "derived-practice",
+    "sourcePages": [
+      9,
+      10,
+      11,
+      12,
+      13
+    ]
+  },
+  {
+    "id": "L9-M2-Q3",
+    "lecture": 9,
+    "module": "L9-M2",
+    "level": "intermediate",
+    "prompt": "ABC=001 的最大项是什么？",
+    "options": [
+      "A+B+C̄",
+      "Ā+B̄+C",
+      "ĀB̄C",
+      "ABC̄"
+    ],
+    "answer": 0,
+    "hints": [
+      "回顾「最小项与最大项的极性」，参见 Lecture 9 PDF 第 \\(9\\) 页。",
+      "固定 A 为最高位、C 为最低位；最小项取值 \\(1\\)，最大项取值 \\(0\\)。",
+      "关键关系为 \\(m_6=AB\\overline C,\\qquad M_6=\\overline A+\\overline B+C\\)。先确认输入、当前状态或单位，再逐步代入。",
+      "最大项要在 \\(001\\) 为 \\(0\\)：\\(A=0\\)，\\(B=0\\)，\\(\\overline{C}=0\\)，故三者 OR 为 \\(0\\)。"
+    ],
+    "explanation": "最大项要在 \\(001\\) 为 \\(0\\)：\\(A=0\\)，\\(B=0\\)，\\(\\overline{C}=0\\)，故三者 OR 为 \\(0\\)。",
+    "source": "Lecture09.pdf",
+    "page": 9,
+    "week": 4,
+    "course": "EEE104",
+    "contentType": "derived-practice",
+    "sourcePages": [
+      9,
+      10,
+      11,
+      12,
+      13
+    ]
+  },
+  {
+    "id": "L9-M2-Q4",
+    "lecture": 9,
+    "module": "L9-M2",
+    "level": "challenge",
+    "prompt": "函数仅在 001、100、111 为 1，标准 SOP 的最小项编号集合？",
+    "options": [
+      "{0,2,3,5,6}",
+      "{1,3,7}",
+      "{0,4,7}",
+      "{1,4,7}"
+    ],
+    "answer": 3,
+    "hints": [
+      "回顾「最小项与最大项的极性」，参见 Lecture 9 PDF 第 \\(10\\) 页。",
+      "固定 A 为最高位、C 为最低位；最小项取值 \\(1\\)，最大项取值 \\(0\\)。",
+      "关键关系为 \\(m_6=AB\\overline C,\\qquad M_6=\\overline A+\\overline B+C\\)。先确认输入、当前状态或单位，再逐步代入。",
+      "按 A 为高位的二进制编号，\\(001\\to 1\\)、\\(100\\to 4\\)、\\(111\\to 7\\)。"
+    ],
+    "explanation": "按 A 为高位的二进制编号，\\(001\\to 1\\)、\\(100\\to 4\\)、\\(111\\to 7\\)。",
+    "source": "Lecture09.pdf",
+    "page": 10,
+    "week": 4,
+    "course": "EEE104",
+    "contentType": "derived-practice",
+    "sourcePages": [
+      9,
+      10,
+      11,
+      12,
+      13
+    ]
+  },
+  {
+    "id": "L9-M3-Q1",
+    "lecture": 9,
+    "module": "L9-M3",
+    "level": "basic",
+    "prompt": "标准 POS 使用真值表中的哪些行？",
+    "options": [
+      "仅最后一行",
+      "输出为 0 的行",
+      "输出为 1 的行",
+      "仅第一行"
+    ],
+    "answer": 1,
+    "hints": [
+      "回顾「SOP/POS 互换与检验」，参见 Lecture 9 PDF 第 \\(13\\) 页。",
+      "必须固定变量顺序与变量数，并确保所有输入行有确定的输出。",
+      "关键关系为 \\(F=\\sum m(S)=\\prod M(\\{0,\\ldots,2^n-1\\}\\setminus S)\\)。先确认输入、当前状态或单位，再逐步代入。",
+      "每个最大项使其对应行输出为零，多个最大项相乘覆盖全部零行。"
+    ],
+    "explanation": "每个最大项使其对应行输出为零，多个最大项相乘覆盖全部零行。",
+    "source": "Lecture09.pdf",
+    "page": 13,
+    "week": 4,
+    "course": "EEE104",
+    "contentType": "derived-practice",
+    "sourcePages": [
+      14,
+      15,
+      16
+    ]
+  },
+  {
+    "id": "L9-M3-Q2",
+    "lecture": 9,
+    "module": "L9-M3",
+    "level": "basic",
+    "prompt": "三变量全部输入行的编号范围是什么？",
+    "options": [
+      "0 到 7",
+      "1 到 8",
+      "0 到 8",
+      "0 到 3"
+    ],
+    "answer": 0,
+    "hints": [
+      "回顾「SOP/POS 互换与检验」，参见 Lecture 9 PDF 第 \\(9\\) 页。",
+      "必须固定变量顺序与变量数，并确保所有输入行有确定的输出。",
+      "关键关系为 \\(F=\\sum m(S)=\\prod M(\\{0,\\ldots,2^n-1\\}\\setminus S)\\)。先确认输入、当前状态或单位，再逐步代入。",
+      "\\(2^{3}=8\\) 行，以零开始编号为 \\(0\\ldots 7\\)。"
+    ],
+    "explanation": "\\(2^{3}=8\\) 行，以零开始编号为 \\(0\\ldots 7\\)。",
+    "source": "Lecture09.pdf",
+    "page": 9,
+    "week": 4,
+    "course": "EEE104",
+    "contentType": "derived-practice",
+    "sourcePages": [
+      14,
+      15,
+      16
+    ]
+  },
+  {
+    "id": "L9-M3-Q3",
+    "lecture": 9,
+    "module": "L9-M3",
+    "level": "intermediate",
+    "prompt": "F=Σm(1,2,6,7) 的标准 POS 是什么？",
+    "options": [
+      "ΠM(1,2,6,7)",
+      "ΠM(0,1,2,3)",
+      "ΠM(4,5,6,7)",
+      "ΠM(0,3,4,5)"
+    ],
+    "answer": 3,
+    "hints": [
+      "回顾「SOP/POS 互换与检验」，参见 Lecture 9 PDF 第 \\(16\\) 页。",
+      "必须固定变量顺序与变量数，并确保所有输入行有确定的输出。",
+      "关键关系为 \\(F=\\sum m(S)=\\prod M(\\{0,\\ldots,2^n-1\\}\\setminus S)\\)。先确认输入、当前状态或单位，再逐步代入。",
+      "从全集 \\(0\\ldots 7\\) 删除 \\(1\\)、\\(2\\)、\\(6\\)、\\(7\\)，剩余零行 \\(0\\)、\\(3\\)、\\(4\\)、\\(5\\)。"
+    ],
+    "explanation": "从全集 \\(0\\ldots 7\\) 删除 \\(1\\)、\\(2\\)、\\(6\\)、\\(7\\)，剩余零行 \\(0\\)、\\(3\\)、\\(4\\)、\\(5\\)。",
+    "source": "Lecture09.pdf",
+    "page": 16,
+    "week": 4,
+    "course": "EEE104",
+    "contentType": "derived-practice",
+    "sourcePages": [
+      14,
+      15,
+      16
+    ]
+  },
+  {
+    "id": "L9-M3-Q4",
+    "lecture": 9,
+    "module": "L9-M3",
+    "level": "challenge",
+    "prompt": "F=ΠM(1,4,6)，其反函数的最小项集合是什么？",
+    "options": [
+      "{0,1,4,6}",
+      "{2,3,5,7}",
+      "{1,4,6}",
+      "{0,2,3,5,7}"
+    ],
+    "answer": 2,
+    "hints": [
+      "回顾「SOP/POS 互换与检验」，参见 Lecture 9 PDF 第 \\(14\\) 页。",
+      "必须固定变量顺序与变量数，并确保所有输入行有确定的输出。",
+      "关键关系为 \\(F=\\sum m(S)=\\prod M(\\{0,\\ldots,2^n-1\\}\\setminus S)\\)。先确认输入、当前状态或单位，再逐步代入。",
+      "原函数在 \\(1\\)、\\(4\\)、\\(6\\) 为 \\(0\\)，反函数在这些行变为 \\(1\\)，所以 \\(\\overline{F}=\\)Σ\\(m(1,4,6)\\)。"
+    ],
+    "explanation": "原函数在 \\(1\\)、\\(4\\)、\\(6\\) 为 \\(0\\)，反函数在这些行变为 \\(1\\)，所以 \\(\\overline{F}=\\)Σ\\(m(1,4,6)\\)。",
+    "source": "Lecture09.pdf",
+    "page": 14,
+    "week": 4,
+    "course": "EEE104",
+    "contentType": "derived-practice",
+    "sourcePages": [
+      14,
+      15,
+      16
+    ]
+  },
+  {
+    "id": "L10-M1-Q1",
+    "lecture": 10,
+    "module": "L10-M1",
+    "level": "basic",
+    "prompt": "四变量卡诺图有几个格？",
+    "options": [
+      "8",
+      "32",
+      "16",
+      "4"
+    ],
+    "answer": 2,
+    "hints": [
+      "回顾「格雷码与环绕相邻」，参见 Lecture 10 PDF 第 \\(4\\) 页。",
+      "判断相邻应比较位型只差一个 bit；画图时按格雷码排列。",
+      "关键关系为 \\(\\text{cells}=2^n,\\qquad00\\to01\\to11\\to10\\)。先确认输入、当前状态或单位，再逐步代入。",
+      "每个格对应一行输入组合，\\(2^{4}=16\\)。"
+    ],
+    "explanation": "每个格对应一行输入组合，\\(2^{4}=16\\)。",
+    "source": "EEE104_Lecture_10.pdf",
+    "page": 4,
+    "week": 5,
+    "course": "EEE104",
+    "contentType": "derived-practice",
+    "sourcePages": [
+      3,
+      4,
+      5
+    ]
+  },
+  {
+    "id": "L10-M1-Q2",
+    "lecture": 10,
+    "module": "L10-M1",
+    "level": "basic",
+    "prompt": "正确的两位格雷码顺序是什么？",
+    "options": [
+      "11,00,01,10",
+      "00,01,11,10",
+      "00,01,10,11",
+      "00,10,01,11"
+    ],
+    "answer": 1,
+    "hints": [
+      "回顾「格雷码与环绕相邻」，参见 Lecture 10 PDF 第 \\(4\\) 页。",
+      "判断相邻应比较位型只差一个 bit；画图时按格雷码排列。",
+      "关键关系为 \\(\\text{cells}=2^n,\\qquad00\\to01\\to11\\to10\\)。先确认输入、当前状态或单位，再逐步代入。",
+      "相邻项和首尾只改变一位。"
+    ],
+    "explanation": "相邻项和首尾只改变一位。",
+    "source": "EEE104_Lecture_10.pdf",
+    "page": 4,
+    "week": 5,
+    "course": "EEE104",
+    "contentType": "derived-practice",
+    "sourcePages": [
+      3,
+      4,
+      5
+    ]
+  },
+  {
+    "id": "L10-M1-Q3",
+    "lecture": 10,
+    "module": "L10-M1",
+    "level": "intermediate",
+    "prompt": "0000 与 0010 是否相邻？",
+    "options": [
+      "是，只差一位",
+      "否，编号差 2",
+      "只有对角才算",
+      "无法用位型判断"
+    ],
+    "answer": 0,
+    "hints": [
+      "回顾「格雷码与环绕相邻」，参见 Lecture 10 PDF 第 \\(5\\) 页。",
+      "判断相邻应比较位型只差一个 bit；画图时按格雷码排列。",
+      "关键关系为 \\(\\text{cells}=2^n,\\qquad00\\to01\\to11\\to10\\)。先确认输入、当前状态或单位，再逐步代入。",
+      "两者只在第三位不同，因此逻辑相邻。"
+    ],
+    "explanation": "两者只在第三位不同，因此逻辑相邻。",
+    "source": "EEE104_Lecture_10.pdf",
+    "page": 5,
+    "week": 5,
+    "course": "EEE104",
+    "contentType": "derived-practice",
+    "sourcePages": [
+      3,
+      4,
+      5
+    ]
+  },
+  {
+    "id": "L10-M1-Q4",
+    "lecture": 10,
+    "module": "L10-M1",
+    "level": "challenge",
+    "prompt": "四变量图四角能否组成四格组？",
+    "options": [
+      "不可以，格子不接触",
+      "只能组成三个格",
+      "只能对角成对",
+      "可以，利用两方向环绕"
+    ],
+    "answer": 3,
+    "hints": [
+      "回顾「格雷码与环绕相邻」，参见 Lecture 10 PDF 第 \\(14\\) 页。",
+      "判断相邻应比较位型只差一个 bit；画图时按格雷码排列。",
+      "关键关系为 \\(\\text{cells}=2^n,\\qquad00\\to01\\to11\\to10\\)。先确认输入、当前状态或单位，再逐步代入。",
+      "上下边和左右边分别相邻，四角一起形成合法的环绕四格组。"
+    ],
+    "explanation": "上下边和左右边分别相邻，四角一起形成合法的环绕四格组。",
+    "source": "EEE104_Lecture_10.pdf",
+    "page": 14,
+    "week": 5,
+    "course": "EEE104",
+    "contentType": "derived-practice",
+    "sourcePages": [
+      3,
+      4,
+      5
+    ]
+  },
+  {
+    "id": "L10-M2-Q1",
+    "lecture": 10,
+    "module": "L10-M2",
+    "level": "basic",
+    "prompt": "哪种组大小非法？",
+    "options": [
+      "4",
+      "3",
+      "1",
+      "2"
+    ],
+    "answer": 1,
+    "hints": [
+      "回顾「SOP 圈 \\(1\\) 与消变量」，参见 Lecture 10 PDF 第 \\(8\\) 页。",
+      "先圈尽量大的合法组，再确保覆盖全部 \\(1\\)，去除冗余组。",
+      "关键关系为 \\(\\text{remaining literals}=n-\\log_2(\\text{group size})\\)。先确认输入、当前状态或单位，再逐步代入。",
+      "合法组必须包含 \\(2\\) 的整数次幂个格。"
+    ],
+    "explanation": "合法组必须包含 \\(2\\) 的整数次幂个格。",
+    "source": "EEE104_Lecture_10.pdf",
+    "page": 8,
+    "week": 5,
+    "course": "EEE104",
+    "contentType": "derived-practice",
+    "sourcePages": [
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14
+    ]
+  },
+  {
+    "id": "L10-M2-Q2",
+    "lecture": 10,
+    "module": "L10-M2",
+    "level": "basic",
+    "prompt": "三变量图中四格组最终包含几个 literal？",
+    "options": [
+      "1",
+      "2",
+      "3",
+      "4"
+    ],
+    "answer": 0,
+    "hints": [
+      "回顾「SOP 圈 \\(1\\) 与消变量」，参见 Lecture 10 PDF 第 \\(12\\) 页。",
+      "先圈尽量大的合法组，再确保覆盖全部 \\(1\\)，去除冗余组。",
+      "关键关系为 \\(\\text{remaining literals}=n-\\log_2(\\text{group size})\\)。先确认输入、当前状态或单位，再逐步代入。",
+      "3−log₂4=1。"
+    ],
+    "explanation": "3−log₂4=1。",
+    "source": "EEE104_Lecture_10.pdf",
+    "page": 12,
+    "week": 5,
+    "course": "EEE104",
+    "contentType": "derived-practice",
+    "sourcePages": [
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14
+    ]
+  },
+  {
+    "id": "L10-M2-Q3",
+    "lecture": 10,
+    "module": "L10-M2",
+    "level": "intermediate",
+    "prompt": "把 010、011、110、111 分为一组，得到什么？",
+    "options": [
+      "A",
+      "C",
+      "BC",
+      "B"
+    ],
+    "answer": 3,
+    "hints": [
+      "回顾「SOP 圈 \\(1\\) 与消变量」，参见 Lecture 10 PDF 第 \\(12\\) 页。",
+      "先圈尽量大的合法组，再确保覆盖全部 \\(1\\)，去除冗余组。",
+      "关键关系为 \\(\\text{remaining literals}=n-\\log_2(\\text{group size})\\)。先确认输入、当前状态或单位，再逐步代入。",
+      "A 和 C 在组中都变化，B 始终为 \\(1\\)，因此只留下 B。"
+    ],
+    "explanation": "A 和 C 在组中都变化，B 始终为 \\(1\\)，因此只留下 B。",
+    "source": "EEE104_Lecture_10.pdf",
+    "page": 12,
+    "week": 5,
+    "course": "EEE104",
+    "contentType": "derived-practice",
+    "sourcePages": [
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14
+    ]
+  },
+  {
+    "id": "L10-M2-Q4",
+    "lecture": 10,
+    "module": "L10-M2",
+    "level": "challenge",
+    "prompt": "四角组中 B=D=0，A、C 变化，SOP 项是什么？",
+    "options": [
+      "B+D",
+      "B̄+D̄",
+      "B̄D̄",
+      "BD"
+    ],
+    "answer": 2,
+    "hints": [
+      "回顾「SOP 圈 \\(1\\) 与消变量」，参见 Lecture 10 PDF 第 \\(14\\) 页。",
+      "先圈尽量大的合法组，再确保覆盖全部 \\(1\\)，去除冗余组。",
+      "关键关系为 \\(\\text{remaining literals}=n-\\log_2(\\text{group size})\\)。先确认输入、当前状态或单位，再逐步代入。",
+      "SOP 保留常量变量的乘积；B、D 均为零，所以都取反，得到 \\(\\overline{B}\\overline{D}\\)。"
+    ],
+    "explanation": "SOP 保留常量变量的乘积；B、D 均为零，所以都取反，得到 \\(\\overline{B}\\overline{D}\\)。",
+    "source": "EEE104_Lecture_10.pdf",
+    "page": 14,
+    "week": 5,
+    "course": "EEE104",
+    "contentType": "derived-practice",
+    "sourcePages": [
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14
+    ]
+  },
+  {
+    "id": "L10-M3-Q1",
+    "lecture": 10,
+    "module": "L10-M3",
+    "level": "basic",
+    "prompt": "SOP 中的 X 是否必须全部圈入？",
+    "options": [
+      "不必，只在有利时使用",
+      "必须",
+      "不能使用",
+      "必须单独成组"
+    ],
+    "answer": 0,
+    "hints": [
+      "回顾「无关项与 POS 圈 \\(0\\)」，参见 Lecture 10 PDF 第 \\(17\\) 页。",
+      "X 不是必须覆盖的 \\(1\\)；POS 圈 \\(0\\)，SOP 圈 \\(1\\)，分别使用相应极性规则。",
+      "关键关系为 \\(F_{\\mathrm{POS}}=\\prod_j\\text{(sum term for zero group }j\\text{)}\\)。先确认输入、当前状态或单位，再逐步代入。",
+      "X 可被选择成有利的值，只需要覆盖所有规定的 \\(1\\)。"
+    ],
+    "explanation": "X 可被选择成有利的值，只需要覆盖所有规定的 \\(1\\)。",
+    "source": "EEE104_Lecture_10.pdf",
+    "page": 17,
+    "week": 5,
+    "course": "EEE104",
+    "contentType": "derived-practice",
+    "sourcePages": [
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21
+    ]
+  },
+  {
+    "id": "L10-M3-Q2",
+    "lecture": 10,
+    "module": "L10-M3",
+    "level": "basic",
+    "prompt": "POS 化简圈哪些格？",
+    "options": [
+      "1",
+      "所有 X",
+      "仅边缘",
+      "0"
+    ],
+    "answer": 3,
+    "hints": [
+      "回顾「无关项与 POS 圈 \\(0\\)」，参见 Lecture 10 PDF 第 \\(19\\) 页。",
+      "X 不是必须覆盖的 \\(1\\)；POS 圈 \\(0\\)，SOP 圈 \\(1\\)，分别使用相应极性规则。",
+      "关键关系为 \\(F_{\\mathrm{POS}}=\\prod_j\\text{(sum term for zero group }j\\text{)}\\)。先确认输入、当前状态或单位，再逐步代入。",
+      "每个圈出的零组对应一个和项。"
+    ],
+    "explanation": "每个圈出的零组对应一个和项。",
+    "source": "EEE104_Lecture_10.pdf",
+    "page": 19,
+    "week": 5,
+    "course": "EEE104",
+    "contentType": "derived-practice",
+    "sourcePages": [
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21
+    ]
+  },
+  {
+    "id": "L10-M3-Q3",
+    "lecture": 10,
+    "module": "L10-M3",
+    "level": "intermediate",
+    "prompt": "POS 的零组中 A 恒为 1，B 变化，保留什么？",
+    "options": [
+      "B",
+      "AB",
+      "Ā",
+      "A"
+    ],
+    "answer": 2,
+    "hints": [
+      "回顾「无关项与 POS 圈 \\(0\\)」，参见 Lecture 10 PDF 第 \\(20\\) 页。",
+      "X 不是必须覆盖的 \\(1\\)；POS 圈 \\(0\\)，SOP 圈 \\(1\\)，分别使用相应极性规则。",
+      "关键关系为 \\(F_{\\mathrm{POS}}=\\prod_j\\text{(sum term for zero group }j\\text{)}\\)。先确认输入、当前状态或单位，再逐步代入。",
+      "和项要在该组为 \\(0\\)，因此 \\(A=1\\) 应写成 \\(\\overline A \\)；B 变化被消除。"
+    ],
+    "explanation": "和项要在该组为 \\(0\\)，因此 \\(A=1\\) 应写成 \\(\\overline A \\)；B 变化被消除。",
+    "source": "EEE104_Lecture_10.pdf",
+    "page": 20,
+    "week": 5,
+    "course": "EEE104",
+    "contentType": "derived-practice",
+    "sourcePages": [
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21
+    ]
+  },
+  {
+    "id": "L10-M3-Q4",
+    "lecture": 10,
+    "module": "L10-M3",
+    "level": "challenge",
+    "prompt": "BCD 输入 1110 是 X，0110 是已知 0，SOP 圈组能加入哪个？",
+    "options": [
+      "仅 0110",
+      "可利用 1110，不能加入 0110",
+      "两者都可以",
+      "两者都必须加入"
+    ],
+    "answer": 1,
+    "hints": [
+      "回顾「无关项与 POS 圈 \\(0\\)」，参见 Lecture 10 PDF 第 \\(18\\) 页。",
+      "X 不是必须覆盖的 \\(1\\)；POS 圈 \\(0\\)，SOP 圈 \\(1\\)，分别使用相应极性规则。",
+      "关键关系为 \\(F_{\\mathrm{POS}}=\\prod_j\\text{(sum term for zero group }j\\text{)}\\)。先确认输入、当前状态或单位，再逐步代入。",
+      "\\(1110\\) 被明确标为无关项时可帮助扩大 \\(1\\) 组；\\(0110\\) 的输出已规定为 \\(0\\)，不能违反真值表。"
+    ],
+    "explanation": "\\(1110\\) 被明确标为无关项时可帮助扩大 \\(1\\) 组；\\(0110\\) 的输出已规定为 \\(0\\)，不能违反真值表。",
+    "source": "EEE104_Lecture_10.pdf",
+    "page": 18,
+    "week": 5,
+    "course": "EEE104",
+    "contentType": "derived-practice",
+    "sourcePages": [
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21
+    ]
+  },
+  {
+    "id": "L13-M1-Q1",
+    "lecture": 13,
+    "module": "L13-M1",
+    "level": "basic",
+    "prompt": "一个双稳态锁存器储存几位？",
+    "options": [
+      "2",
+      "4",
+      "8",
+      "1"
+    ],
+    "answer": 3,
+    "hints": [
+      "回顾「反馈与低有效 NAND S-R」，参见 Lecture 13 PDF 第 \\(3\\) 页。",
+      "先确认输入低有效。依次跟踪状态，保持操作必须引用前一时刻的 Q。",
+      "关键关系为 \\((\\overline S,\\overline R)=(0,1)\\Rightarrow Q^+=1;\\quad(1,0)\\Rightarrow Q^+=0\\)。先确认输入、当前状态或单位，再逐步代入。",
+      "两个稳定状态对应一个 bit 的 \\(0\\) 和 \\(1\\)。"
+    ],
+    "explanation": "两个稳定状态对应一个 bit 的 \\(0\\) 和 \\(1\\)。",
+    "source": "EEE104_Lecture_13.pdf",
+    "page": 3,
+    "week": 5,
+    "course": "EEE104",
+    "contentType": "derived-practice",
+    "sourcePages": [
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12
+    ]
+  },
+  {
+    "id": "L13-M1-Q2",
+    "lecture": 13,
+    "module": "L13-M1",
+    "level": "basic",
+    "prompt": "低有效 NAND S-R 的两输入均为 1，执行什么？",
+    "options": [
+      "复位",
+      "非法",
+      "保持",
+      "置位"
+    ],
+    "answer": 2,
+    "hints": [
+      "回顾「反馈与低有效 NAND S-R」，参见 Lecture 13 PDF 第 \\(9\\) 页。",
+      "先确认输入低有效。依次跟踪状态，保持操作必须引用前一时刻的 Q。",
+      "关键关系为 \\((\\overline S,\\overline R)=(0,1)\\Rightarrow Q^+=1;\\quad(1,0)\\Rightarrow Q^+=0\\)。先确认输入、当前状态或单位，再逐步代入。",
+      "这两个输入都不激活，反馈维持之前的状态。"
+    ],
+    "explanation": "这两个输入都不激活，反馈维持之前的状态。",
+    "source": "EEE104_Lecture_13.pdf",
+    "page": 9,
+    "week": 5,
+    "course": "EEE104",
+    "contentType": "derived-practice",
+    "sourcePages": [
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12
+    ]
+  },
+  {
+    "id": "L13-M1-Q3",
+    "lecture": 13,
+    "module": "L13-M1",
+    "level": "intermediate",
+    "prompt": "初始 Q=0，依次输入 (S̄,R̄)=(0,1)、(1,1)，最终 Q？",
+    "options": [
+      "2",
+      "1",
+      "0",
+      "不确定"
+    ],
+    "answer": 1,
+    "hints": [
+      "回顾「反馈与低有效 NAND S-R」，参见 Lecture 13 PDF 第 \\(5\\) 页。",
+      "先确认输入低有效。依次跟踪状态，保持操作必须引用前一时刻的 Q。",
+      "关键关系为 \\((\\overline S,\\overline R)=(0,1)\\Rightarrow Q^+=1;\\quad(1,0)\\Rightarrow Q^+=0\\)。先确认输入、当前状态或单位，再逐步代入。",
+      "第一步置位 \\(Q=1\\)，第二步保持，因此仍为 \\(1\\)。"
+    ],
+    "explanation": "第一步置位 \\(Q=1\\)，第二步保持，因此仍为 \\(1\\)。",
+    "source": "EEE104_Lecture_13.pdf",
+    "page": 5,
+    "week": 5,
+    "course": "EEE104",
+    "contentType": "derived-practice",
+    "sourcePages": [
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12
+    ]
+  },
+  {
+    "id": "L13-M1-Q4",
+    "lecture": 13,
+    "module": "L13-M1",
+    "level": "challenge",
+    "prompt": "低有效 NAND S-R 两输入同时为 0 后同时释放，能保证最终 Q 吗？",
+    "options": [
+      "不能，释放后状态不可靠",
+      "一定 0",
+      "一定 1",
+      "一定等于初始 Q"
+    ],
+    "answer": 0,
+    "hints": [
+      "回顾「反馈与低有效 NAND S-R」，参见 Lecture 13 PDF 第 \\(10\\) 页。",
+      "先确认输入低有效。依次跟踪状态，保持操作必须引用前一时刻的 Q。",
+      "关键关系为 \\((\\overline S,\\overline R)=(0,1)\\Rightarrow Q^+=1;\\quad(1,0)\\Rightarrow Q^+=0\\)。先确认输入、当前状态或单位，再逐步代入。",
+      "同时为低时两个输出都被强迫为 \\(1\\)；同时释放后的竞争受传播延迟影响，最终状态不可可靠预测。"
+    ],
+    "explanation": "同时为低时两个输出都被强迫为 \\(1\\)；同时释放后的竞争受传播延迟影响，最终状态不可可靠预测。",
+    "source": "EEE104_Lecture_13.pdf",
+    "page": 10,
+    "week": 5,
+    "course": "EEE104",
+    "contentType": "derived-practice",
+    "sourcePages": [
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12
+    ]
+  },
+  {
+    "id": "L13-M2-Q1",
+    "lecture": 13,
+    "module": "L13-M2",
+    "level": "basic",
+    "prompt": "高有效 NOR S-R 的保持输入是什么？",
+    "options": [
+      "01",
+      "10",
+      "00",
+      "11"
+    ],
+    "answer": 2,
+    "hints": [
+      "回顾「高有效 S-R 与门控使能」，参见 Lecture 13 PDF 第 \\(13\\) 页。",
+      "先检查 EN，再在有效区间应用高有效 S-R 规则。",
+      "关键关系为 \\(EN=0\\Rightarrow Q^+=Q\\)。先确认输入、当前状态或单位，再逐步代入。",
+      "\\(S=R=0\\) 时两输入均不激活。"
+    ],
+    "explanation": "\\(S=R=0\\) 时两输入均不激活。",
+    "source": "EEE104_Lecture_13.pdf",
+    "page": 13,
+    "week": 5,
+    "course": "EEE104",
+    "contentType": "derived-practice",
+    "sourcePages": [
+      13,
+      14,
+      15,
+      16,
+      17,
+      18
+    ]
+  },
+  {
+    "id": "L13-M2-Q2",
+    "lecture": 13,
+    "module": "L13-M2",
+    "level": "basic",
+    "prompt": "高有效 S-R 中 S=0、R=1，Q 变为何？",
+    "options": [
+      "总是非法",
+      "0",
+      "1",
+      "保持原值"
+    ],
+    "answer": 1,
+    "hints": [
+      "回顾「高有效 S-R 与门控使能」，参见 Lecture 13 PDF 第 \\(13\\) 页。",
+      "先检查 EN，再在有效区间应用高有效 S-R 规则。",
+      "关键关系为 \\(EN=0\\Rightarrow Q^+=Q\\)。先确认输入、当前状态或单位，再逐步代入。",
+      "\\(R=1\\) 激活复位，\\(Q=0\\)。"
+    ],
+    "explanation": "\\(R=1\\) 激活复位，\\(Q=0\\)。",
+    "source": "EEE104_Lecture_13.pdf",
+    "page": 13,
+    "week": 5,
+    "course": "EEE104",
+    "contentType": "derived-practice",
+    "sourcePages": [
+      13,
+      14,
+      15,
+      16,
+      17,
+      18
+    ]
+  },
+  {
+    "id": "L13-M2-Q3",
+    "lecture": 13,
+    "module": "L13-M2",
+    "level": "intermediate",
+    "prompt": "门控 S-R 初始 Q=1，EN=0、S=0、R=1，结果是什么？",
+    "options": [
+      "保持 1",
+      "变成 0",
+      "变成非法态",
+      "必须等到 S=1"
+    ],
+    "answer": 0,
+    "hints": [
+      "回顾「高有效 S-R 与门控使能」，参见 Lecture 13 PDF 第 \\(16\\) 页。",
+      "先检查 EN，再在有效区间应用高有效 S-R 规则。",
+      "关键关系为 \\(EN=0\\Rightarrow Q^+=Q\\)。先确认输入、当前状态或单位，再逐步代入。",
+      "\\(\\mathrm{EN}=0\\) 隔离 S、R，因此外部复位请求未传入锁存核心，Q 保持 \\(1\\)。"
+    ],
+    "explanation": "\\(\\mathrm{EN}=0\\) 隔离 S、R，因此外部复位请求未传入锁存核心，Q 保持 \\(1\\)。",
+    "source": "EEE104_Lecture_13.pdf",
+    "page": 16,
+    "week": 5,
+    "course": "EEE104",
+    "contentType": "derived-practice",
+    "sourcePages": [
+      13,
+      14,
+      15,
+      16,
+      17,
+      18
+    ]
+  },
+  {
+    "id": "L13-M2-Q4",
+    "lecture": 13,
+    "module": "L13-M2",
+    "level": "challenge",
+    "prompt": "EN=1 时高有效 S=R=1，如何判断？",
+    "options": [
+      "正常保持",
+      "正常置位",
+      "正常复位",
+      "非法输入组合"
+    ],
+    "answer": 3,
+    "hints": [
+      "回顾「高有效 S-R 与门控使能」，参见 Lecture 13 PDF 第 \\(17\\) 页。",
+      "先检查 EN，再在有效区间应用高有效 S-R 规则。",
+      "关键关系为 \\(EN=0\\Rightarrow Q^+=Q\\)。先确认输入、当前状态或单位，再逐步代入。",
+      "使能已经有效，而高有效 S-R 同时置位和复位属于非法组合，应避免。"
+    ],
+    "explanation": "使能已经有效，而高有效 S-R 同时置位和复位属于非法组合，应避免。",
+    "source": "EEE104_Lecture_13.pdf",
+    "page": 17,
+    "week": 5,
+    "course": "EEE104",
+    "contentType": "derived-practice",
+    "sourcePages": [
+      13,
+      14,
+      15,
+      16,
+      17,
+      18
+    ]
+  },
+  {
+    "id": "L13-M3-Q1",
+    "lecture": 13,
+    "module": "L13-M3",
+    "level": "basic",
+    "prompt": "D 锁存器的 EN=1 时，输出按什么变化？",
+    "options": [
+      "每周期自行翻转",
+      "跟随 D",
+      "始终取反 D",
+      "始终保持"
+    ],
+    "answer": 1,
+    "hints": [
+      "回顾「D 锁存器与透明区间」，参见 Lecture 13 PDF 第 \\(19\\) 页。",
+      "按 EN 的高电平区间逐段跟踪 D，EN 变低后保持最后值。",
+      "关键关系为 \\(Q^+=EN\\cdot D+\\overline{EN}\\cdot Q\\)。先确认输入、当前状态或单位，再逐步代入。",
+      "有效使能期间 Q 跟随 D。"
+    ],
+    "explanation": "有效使能期间 Q 跟随 D。",
+    "source": "EEE104_Lecture_13.pdf",
+    "page": 19,
+    "week": 5,
+    "course": "EEE104",
+    "contentType": "derived-practice",
+    "sourcePages": [
+      19,
+      20,
+      21
+    ]
+  },
+  {
+    "id": "L13-M3-Q2",
+    "lecture": 13,
+    "module": "L13-M3",
+    "level": "basic",
+    "prompt": "EN=0、初始 Q=0，D 变为 1，Q 为何？",
+    "options": [
+      "0",
+      "1",
+      "不确定",
+      "翻转两次"
+    ],
+    "answer": 0,
+    "hints": [
+      "回顾「D 锁存器与透明区间」，参见 Lecture 13 PDF 第 \\(19\\) 页。",
+      "按 EN 的高电平区间逐段跟踪 D，EN 变低后保持最后值。",
+      "关键关系为 \\(Q^+=EN\\cdot D+\\overline{EN}\\cdot Q\\)。先确认输入、当前状态或单位，再逐步代入。",
+      "使能无效，锁存器保持 \\(Q=0\\)。"
+    ],
+    "explanation": "使能无效，锁存器保持 \\(Q=0\\)。",
+    "source": "EEE104_Lecture_13.pdf",
+    "page": 19,
+    "week": 5,
+    "course": "EEE104",
+    "contentType": "derived-practice",
+    "sourcePages": [
+      19,
+      20,
+      21
+    ]
+  },
+  {
+    "id": "L13-M3-Q3",
+    "lecture": 13,
+    "module": "L13-M3",
+    "level": "intermediate",
+    "prompt": "初始 Q=0，输入依次 (EN,D)=(1,1)、(1,0)、(0,1)，最终 Q？",
+    "options": [
+      "1",
+      "非法",
+      "必须清零后判断",
+      "0"
+    ],
+    "answer": 3,
+    "hints": [
+      "回顾「D 锁存器与透明区间」，参见 Lecture 13 PDF 第 \\(21\\) 页。",
+      "按 EN 的高电平区间逐段跟踪 D，EN 变低后保持最后值。",
+      "关键关系为 \\(Q^+=EN\\cdot D+\\overline{EN}\\cdot Q\\)。先确认输入、当前状态或单位，再逐步代入。",
+      "第一步 \\(Q=1\\)；第二步仍处于透明区，\\(Q=0\\)；第三步 \\(\\mathrm{EN}=0\\)，因此保持 \\(0\\)。"
+    ],
+    "explanation": "第一步 \\(Q=1\\)；第二步仍处于透明区，\\(Q=0\\)；第三步 \\(\\mathrm{EN}=0\\)，因此保持 \\(0\\)。",
+    "source": "EEE104_Lecture_13.pdf",
+    "page": 21,
+    "week": 5,
+    "course": "EEE104",
+    "contentType": "derived-practice",
+    "sourcePages": [
+      19,
+      20,
+      21
+    ]
+  },
+  {
+    "id": "L13-M3-Q4",
+    "lecture": 13,
+    "module": "L13-M3",
+    "level": "challenge",
+    "prompt": "EN 从 1 变 0 前 D 已稳定为 1，之后 D 反复变化，理想锁存值为何？",
+    "options": [
+      "跟随每次变化",
+      "取决于最后一次 D",
+      "1",
+      "0"
+    ],
+    "answer": 2,
+    "hints": [
+      "回顾「D 锁存器与透明区间」，参见 Lecture 13 PDF 第 \\(20\\) 页。",
+      "按 EN 的高电平区间逐段跟踪 D，EN 变低后保持最后值。",
+      "关键关系为 \\(Q^+=EN\\cdot D+\\overline{EN}\\cdot Q\\)。先确认输入、当前状态或单位，再逐步代入。",
+      "在满足时序要求的前提下，关闭透明窗口时保存 \\(1\\)，后续 \\(\\mathrm{EN}=0\\) 期间的数据变化不更新状态。"
+    ],
+    "explanation": "在满足时序要求的前提下，关闭透明窗口时保存 \\(1\\)，后续 \\(\\mathrm{EN}=0\\) 期间的数据变化不更新状态。",
+    "source": "EEE104_Lecture_13.pdf",
+    "page": 20,
+    "week": 5,
+    "course": "EEE104",
+    "contentType": "derived-practice",
+    "sourcePages": [
+      19,
+      20,
+      21
+    ]
+  },
+  {
+    "id": "L14-M1-Q1",
+    "lecture": 14,
+    "module": "L14-M1",
+    "level": "basic",
+    "prompt": "触发器与门控锁存器的主要时序区别是什么？",
+    "options": [
+      "二者都没有记忆",
+      "触发器不需要输入",
+      "触发器边沿敏感，锁存器电平敏感",
+      "二者都只在下降沿更新"
+    ],
+    "answer": 2,
+    "hints": [
+      "回顾「边沿采样与 D/S-R 触发器」，参见 Lecture 14 PDF 第 \\(3\\) 页。",
+      "先标出有效边沿，再读取该瞬间稳定输入；本模块默认异步控制未激活。",
+      "关键关系为 \\(Q(t^+)=D(t_{\\mathrm{edge}})\\)。先确认输入、当前状态或单位，再逐步代入。",
+      "源文件第 \\(3\\) 页明确区分有效边沿与使能高电平区间。"
+    ],
+    "explanation": "源文件第 \\(3\\) 页明确区分有效边沿与使能高电平区间。",
+    "source": "Lecture 14.pdf",
+    "page": 3,
+    "week": 6,
+    "course": "EEE104",
+    "contentType": "derived-practice",
+    "sourcePages": [
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ]
+  },
+  {
+    "id": "L14-M1-Q2",
+    "lecture": 14,
+    "module": "L14-M1",
+    "level": "basic",
+    "prompt": "正沿 D 触发器在有效边沿 D=1，随后 Q 为何？",
+    "options": [
+      "必须保持初值",
+      "1",
+      "0",
+      "D 的反相"
+    ],
+    "answer": 1,
+    "hints": [
+      "回顾「边沿采样与 D/S-R 触发器」，参见 Lecture 14 PDF 第 \\(8\\) 页。",
+      "先标出有效边沿，再读取该瞬间稳定输入；本模块默认异步控制未激活。",
+      "关键关系为 \\(Q(t^+)=D(t_{\\mathrm{edge}})\\)。先确认输入、当前状态或单位，再逐步代入。",
+      "有效边沿采样 D，故 Q 更新为 \\(1\\)。"
+    ],
+    "explanation": "有效边沿采样 D，故 Q 更新为 \\(1\\)。",
+    "source": "Lecture 14.pdf",
+    "page": 8,
+    "week": 6,
+    "course": "EEE104",
+    "contentType": "derived-practice",
+    "sourcePages": [
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ]
+  },
+  {
+    "id": "L14-M1-Q3",
+    "lecture": 14,
+    "module": "L14-M1",
+    "level": "intermediate",
+    "prompt": "正沿 D 触发器 Q=0，D=1 但还没出现上升沿，Q 为何？",
+    "options": [
+      "0",
+      "1",
+      "随机",
+      "立即翻转两次"
+    ],
+    "answer": 0,
+    "hints": [
+      "回顾「边沿采样与 D/S-R 触发器」，参见 Lecture 14 PDF 第 \\(8\\) 页。",
+      "先标出有效边沿，再读取该瞬间稳定输入；本模块默认异步控制未激活。",
+      "关键关系为 \\(Q(t^+)=D(t_{\\mathrm{edge}})\\)。先确认输入、当前状态或单位，再逐步代入。",
+      "正常同步操作下，未发生有效边沿便不更新状态。"
+    ],
+    "explanation": "正常同步操作下，未发生有效边沿便不更新状态。",
+    "source": "Lecture 14.pdf",
+    "page": 8,
+    "week": 6,
+    "course": "EEE104",
+    "contentType": "derived-practice",
+    "sourcePages": [
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ]
+  },
+  {
+    "id": "L14-M1-Q4",
+    "lecture": 14,
+    "module": "L14-M1",
+    "level": "challenge",
+    "prompt": "连续三个有效边沿采样 D=1、0、1，初始 Q=0，Q 序列为何？",
+    "options": [
+      "0、1、0",
+      "0、0、0",
+      "1、1、1",
+      "1、0、1"
+    ],
+    "answer": 3,
+    "hints": [
+      "回顾「边沿采样与 D/S-R 触发器」，参见 Lecture 14 PDF 第 \\(8\\) 页。",
+      "先标出有效边沿，再读取该瞬间稳定输入；本模块默认异步控制未激活。",
+      "关键关系为 \\(Q(t^+)=D(t_{\\mathrm{edge}})\\)。先确认输入、当前状态或单位，再逐步代入。",
+      "每次边沿独立保存当前 D，边沿之间保持，因此依次为 \\(1\\)、\\(0\\)、\\(1\\)。"
+    ],
+    "explanation": "每次边沿独立保存当前 D，边沿之间保持，因此依次为 \\(1\\)、\\(0\\)、\\(1\\)。",
+    "source": "Lecture 14.pdf",
+    "page": 8,
+    "week": 6,
+    "course": "EEE104",
+    "contentType": "derived-practice",
+    "sourcePages": [
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ]
+  },
+  {
+    "id": "L14-M2-Q1",
+    "lecture": 14,
+    "module": "L14-M2",
+    "level": "basic",
+    "prompt": "J=K=1 时触发器在有效边沿执行什么？",
+    "options": [
+      "非法",
+      "翻转",
+      "置位",
+      "复位"
+    ],
+    "answer": 1,
+    "hints": [
+      "回顾「J-K 四种动作与异步输入」，参见 Lecture 14 PDF 第 \\(9\\) 页。",
+      "优先检查异步 PRE/CLR，再在有效边沿使用 J-K 真值表。",
+      "关键关系为 \\(Q^+=J\\overline Q+\\overline KQ\\)。先确认输入、当前状态或单位，再逐步代入。",
+      "\\(Q=0\\) 变 \\(1\\)，\\(Q=1\\) 变 \\(0\\)。"
+    ],
+    "explanation": "\\(Q=0\\) 变 \\(1\\)，\\(Q=1\\) 变 \\(0\\)。",
+    "source": "Lecture 14.pdf",
+    "page": 9,
+    "week": 6,
+    "course": "EEE104",
+    "contentType": "derived-practice",
+    "sourcePages": [
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17
+    ]
+  },
+  {
+    "id": "L14-M2-Q2",
+    "lecture": 14,
+    "module": "L14-M2",
+    "level": "basic",
+    "prompt": "J=0、K=1 时有效边沿后的 Q 为何？",
+    "options": [
+      "0",
+      "1",
+      "与初值相同",
+      "Q 的反相"
+    ],
+    "answer": 0,
+    "hints": [
+      "回顾「J-K 四种动作与异步输入」，参见 Lecture 14 PDF 第 \\(9\\) 页。",
+      "优先检查异步 PRE/CLR，再在有效边沿使用 J-K 真值表。",
+      "关键关系为 \\(Q^+=J\\overline Q+\\overline KQ\\)。先确认输入、当前状态或单位，再逐步代入。",
+      "\\(01\\) 对应复位，\\(Q=0\\)。"
+    ],
+    "explanation": "\\(01\\) 对应复位，\\(Q=0\\)。",
+    "source": "Lecture 14.pdf",
+    "page": 9,
+    "week": 6,
+    "course": "EEE104",
+    "contentType": "derived-practice",
+    "sourcePages": [
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17
+    ]
+  },
+  {
+    "id": "L14-M2-Q3",
+    "lecture": 14,
+    "module": "L14-M2",
+    "level": "intermediate",
+    "prompt": "初始 Q=0，连续三个有效边沿 J=K=1，最终 Q？",
+    "options": [
+      "0",
+      "非法",
+      "与时钟幅度相同",
+      "1"
+    ],
+    "answer": 3,
+    "hints": [
+      "回顾「J-K 四种动作与异步输入」，参见 Lecture 14 PDF 第 \\(14\\) 页。",
+      "优先检查异步 PRE/CLR，再在有效边沿使用 J-K 真值表。",
+      "关键关系为 \\(Q^+=J\\overline Q+\\overline KQ\\)。先确认输入、当前状态或单位，再逐步代入。",
+      "状态逐次为 \\(1\\)、\\(0\\)、\\(1\\)，奇数次翻转改变初值。"
+    ],
+    "explanation": "状态逐次为 \\(1\\)、\\(0\\)、\\(1\\)，奇数次翻转改变初值。",
+    "source": "Lecture 14.pdf",
+    "page": 14,
+    "week": 6,
+    "course": "EEE104",
+    "contentType": "derived-practice",
+    "sourcePages": [
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17
+    ]
+  },
+  {
+    "id": "L14-M2-Q4",
+    "lecture": 14,
+    "module": "L14-M2",
+    "level": "challenge",
+    "prompt": "低有效 CLR=0、PRE=1，即使没有时钟边沿，Q 为何？",
+    "options": [
+      "1",
+      "由 J 决定",
+      "0",
+      "保持"
+    ],
+    "answer": 2,
+    "hints": [
+      "回顾「J-K 四种动作与异步输入」，参见 Lecture 14 PDF 第 \\(17\\) 页。",
+      "优先检查异步 PRE/CLR，再在有效边沿使用 J-K 真值表。",
+      "关键关系为 \\(Q^+=J\\overline Q+\\overline KQ\\)。先确认输入、当前状态或单位，再逐步代入。",
+      "异步清零优先作用，无需等待时钟，Q 被强制为 \\(0\\)。"
+    ],
+    "explanation": "异步清零优先作用，无需等待时钟，Q 被强制为 \\(0\\)。",
+    "source": "Lecture 14.pdf",
+    "page": 17,
+    "week": 6,
+    "course": "EEE104",
+    "contentType": "derived-practice",
+    "sourcePages": [
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17
+    ]
+  },
+  {
+    "id": "L14-M3-Q1",
+    "lecture": 14,
+    "module": "L14-M3",
+    "level": "basic",
+    "prompt": "并行保存 4 位至少要几个 D 触发器？",
+    "options": [
+      "4",
+      "1",
+      "2",
+      "8"
+    ],
+    "answer": 0,
+    "hints": [
+      "回顾「并行存储、分频与计数」，参见 Lecture 14 PDF 第 \\(19\\) 页。",
+      "分频链中每级均处于翻转模式，并由前级适当的输出边沿驱动。",
+      "关键关系为 \\(f_{Q_n}=\\frac{f_{\\mathrm{in}}}{2^n}\\)。先确认输入、当前状态或单位，再逐步代入。",
+      "每个 D 触发器保存一个 bit，因此需四个。"
+    ],
+    "explanation": "每个 D 触发器保存一个 bit，因此需四个。",
+    "source": "Lecture 14.pdf",
+    "page": 19,
+    "week": 6,
+    "course": "EEE104",
+    "contentType": "derived-practice",
+    "sourcePages": [
+      18,
+      19,
+      20,
+      21,
+      22
+    ]
+  },
+  {
+    "id": "L14-M3-Q2",
+    "lecture": 14,
+    "module": "L14-M3",
+    "level": "basic",
+    "prompt": "12 kHz 输入驱动一级翻转触发器，输出频率？",
+    "options": [
+      "12 kHz",
+      "24 kHz",
+      "3 kHz",
+      "6 kHz"
+    ],
+    "answer": 3,
+    "hints": [
+      "回顾「并行存储、分频与计数」，参见 Lecture 14 PDF 第 \\(21\\) 页。",
+      "分频链中每级均处于翻转模式，并由前级适当的输出边沿驱动。",
+      "关键关系为 \\(f_{Q_n}=\\frac{f_{\\mathrm{in}}}{2^n}\\)。先确认输入、当前状态或单位，再逐步代入。",
+      "每两个输入周期完成一个输出周期，\\(12/2=6 \\mathrm{kHz}\\)。"
+    ],
+    "explanation": "每两个输入周期完成一个输出周期，\\(12/2=6 \\mathrm{kHz}\\)。",
+    "source": "Lecture 14.pdf",
+    "page": 21,
+    "week": 6,
+    "course": "EEE104",
+    "contentType": "derived-practice",
+    "sourcePages": [
+      18,
+      19,
+      20,
+      21,
+      22
+    ]
+  },
+  {
+    "id": "L14-M3-Q3",
+    "lecture": 14,
+    "module": "L14-M3",
+    "level": "intermediate",
+    "prompt": "12 kHz 输入经两级翻转级联，末级频率？",
+    "options": [
+      "1.5 kHz",
+      "24 kHz",
+      "3 kHz",
+      "6 kHz"
+    ],
+    "answer": 2,
+    "hints": [
+      "回顾「并行存储、分频与计数」，参见 Lecture 14 PDF 第 \\(21\\) 页。",
+      "分频链中每级均处于翻转模式，并由前级适当的输出边沿驱动。",
+      "关键关系为 \\(f_{Q_n}=\\frac{f_{\\mathrm{in}}}{2^n}\\)。先确认输入、当前状态或单位，再逐步代入。",
+      "分频比为 \\(2^{2}=4\\)，因此 \\(12/4=3 \\mathrm{kHz}\\)。"
+    ],
+    "explanation": "分频比为 \\(2^{2}=4\\)，因此 \\(12/4=3 \\mathrm{kHz}\\)。",
+    "source": "Lecture 14.pdf",
+    "page": 21,
+    "week": 6,
+    "course": "EEE104",
+    "contentType": "derived-practice",
+    "sourcePages": [
+      18,
+      19,
+      20,
+      21,
+      22
+    ]
+  },
+  {
+    "id": "L14-M3-Q4",
+    "lecture": 14,
+    "module": "L14-M3",
+    "level": "challenge",
+    "prompt": "将 16 kHz 经四级翻转分频，末级周期是多少？",
+    "options": [
+      "62.5 μs",
+      "1 ms",
+      "16 ms",
+      "0.25 ms"
+    ],
+    "answer": 1,
+    "hints": [
+      "回顾「并行存储、分频与计数」，参见 Lecture 14 PDF 第 \\(20\\) 页。",
+      "分频链中每级均处于翻转模式，并由前级适当的输出边沿驱动。",
+      "关键关系为 \\(f_{Q_n}=\\frac{f_{\\mathrm{in}}}{2^n}\\)。先确认输入、当前状态或单位，再逐步代入。",
+      "末级频率 \\(16 \\mathrm{kHz}/16=1 \\mathrm{kHz}\\)，周期 \\(1/1000 s=1 \\mathrm{ms}\\)。"
+    ],
+    "explanation": "末级频率 \\(16 \\mathrm{kHz}/16=1 \\mathrm{kHz}\\)，周期 \\(1/1000 s=1 \\mathrm{ms}\\)。",
+    "source": "Lecture 14.pdf",
+    "page": 20,
+    "week": 6,
+    "course": "EEE104",
+    "contentType": "derived-practice",
+    "sourcePages": [
+      18,
+      19,
+      20,
+      21,
+      22
+    ]
+  },
+  {
+    "id": "L15-M1-Q1",
+    "lecture": 15,
+    "module": "L15-M1",
+    "level": "basic",
+    "prompt": "异步计数器后级的时钟通常来自哪里？",
+    "options": [
+      "随机噪声",
+      "前级输出",
+      "所有级都独立接同一个外部时钟",
+      "恒高电平"
+    ],
+    "answer": 1,
+    "hints": [
+      "回顾「异步计数和二进制状态」，参见 Lecture 15 PDF 第 \\(4\\) 页。",
+      "确定触发边沿、Q 或反相 Q 接法及初始状态后，再推导向上或向下序列。",
+      "关键关系为 \\(M_{\\max}=2^n\\)。先确认输入、当前状态或单位，再逐步代入。",
+      "后级由前级的变化触发，传播依次发生。"
+    ],
+    "explanation": "后级由前级的变化触发，传播依次发生。",
+    "source": "Lecture15.pdf",
+    "page": 4,
+    "week": 8,
+    "course": "EEE104",
+    "contentType": "derived-practice",
+    "sourcePages": [
+      3,
+      4,
+      5,
+      6,
+      7
+    ]
+  },
+  {
+    "id": "L15-M1-Q2",
+    "lecture": 15,
+    "module": "L15-M1",
+    "level": "basic",
+    "prompt": "3 位完整二进制计数器有多少状态？",
+    "options": [
+      "8",
+      "3",
+      "6",
+      "7"
+    ],
+    "answer": 0,
+    "hints": [
+      "回顾「异步计数和二进制状态」，参见 Lecture 15 PDF 第 \\(6\\) 页。",
+      "确定触发边沿、Q 或反相 Q 接法及初始状态后，再推导向上或向下序列。",
+      "关键关系为 \\(M_{\\max}=2^n\\)。先确认输入、当前状态或单位，再逐步代入。",
+      "\\(2^{3}=8\\)，通常对应 \\(000\\ldots 111\\)。"
+    ],
+    "explanation": "\\(2^{3}=8\\)，通常对应 \\(000\\ldots 111\\)。",
+    "source": "Lecture15.pdf",
+    "page": 6,
+    "week": 8,
+    "course": "EEE104",
+    "contentType": "derived-practice",
+    "sourcePages": [
+      3,
+      4,
+      5,
+      6,
+      7
+    ]
+  },
+  {
+    "id": "L15-M1-Q3",
+    "lecture": 15,
+    "module": "L15-M1",
+    "level": "intermediate",
+    "prompt": "4 位向上计数器从 1111 再加一次后稳定为何？",
+    "options": [
+      "10000",
+      "1110",
+      "0001",
+      "0000"
+    ],
+    "answer": 3,
+    "hints": [
+      "回顾「异步计数和二进制状态」，参见 Lecture 15 PDF 第 \\(7\\) 页。",
+      "确定触发边沿、Q 或反相 Q 接法及初始状态后，再推导向上或向下序列。",
+      "关键关系为 \\(M_{\\max}=2^n\\)。先确认输入、当前状态或单位，再逐步代入。",
+      "\\(4\\) 位模 \\(16\\) 计数器在 \\(15\\) 之后返回 \\(0\\)，输出位宽固定为四位。"
+    ],
+    "explanation": "\\(4\\) 位模 \\(16\\) 计数器在 \\(15\\) 之后返回 \\(0\\)，输出位宽固定为四位。",
+    "source": "Lecture15.pdf",
+    "page": 7,
+    "week": 8,
+    "course": "EEE104",
+    "contentType": "derived-practice",
+    "sourcePages": [
+      3,
+      4,
+      5,
+      6,
+      7
+    ]
+  },
+  {
+    "id": "L15-M1-Q4",
+    "lecture": 15,
+    "module": "L15-M1",
+    "level": "challenge",
+    "prompt": "从零开始的 3 位向上计数器经过 11 个有效计数脉冲，稳定状态？",
+    "options": [
+      "001",
+      "101",
+      "011",
+      "111"
+    ],
+    "answer": 2,
+    "hints": [
+      "回顾「异步计数和二进制状态」，参见 Lecture 15 PDF 第 \\(6\\) 页。",
+      "确定触发边沿、Q 或反相 Q 接法及初始状态后，再推导向上或向下序列。",
+      "关键关系为 \\(M_{\\max}=2^n\\)。先确认输入、当前状态或单位，再逐步代入。",
+      "\\(11 \\operatorname{mod} 8=3\\)，三位表示为 \\(011\\)。"
+    ],
+    "explanation": "\\(11 \\operatorname{mod} 8=3\\)，三位表示为 \\(011\\)。",
+    "source": "Lecture15.pdf",
+    "page": 6,
+    "week": 8,
+    "course": "EEE104",
+    "contentType": "derived-practice",
+    "sourcePages": [
+      3,
+      4,
+      5,
+      6,
+      7
+    ]
+  },
+  {
+    "id": "L15-M2-Q1",
+    "lecture": 15,
+    "module": "L15-M2",
+    "level": "basic",
+    "prompt": "模 10 计数器有几个有效状态？",
+    "options": [
+      "10",
+      "9",
+      "16",
+      "4"
+    ],
+    "answer": 0,
+    "hints": [
+      "回顾「截断计数与清零译码」，参见 Lecture 15 PDF 第 \\(8\\) 页。",
+      "异步复位设计通常检测第 M 个位型；确保从有效初态进入指定循环。",
+      "关键关系为 \\(n=\\lceil\\log_2 M\\rceil\\)。先确认输入、当前状态或单位，再逐步代入。",
+      "模数定义为循环中有效不同状态的数量。"
+    ],
+    "explanation": "模数定义为循环中有效不同状态的数量。",
+    "source": "Lecture15.pdf",
+    "page": 8,
+    "week": 8,
+    "course": "EEE104",
+    "contentType": "derived-practice",
+    "sourcePages": [
+      8,
+      9,
+      10,
+      13,
+      14,
+      15,
+      16
+    ]
+  },
+  {
+    "id": "L15-M2-Q2",
+    "lecture": 15,
+    "module": "L15-M2",
+    "level": "basic",
+    "prompt": "模 12 至少需要几个触发器？",
+    "options": [
+      "3",
+      "12",
+      "6",
+      "4"
+    ],
+    "answer": 3,
+    "hints": [
+      "回顾「截断计数与清零译码」，参见 Lecture 15 PDF 第 \\(8\\) 页。",
+      "异步复位设计通常检测第 M 个位型；确保从有效初态进入指定循环。",
+      "关键关系为 \\(n=\\lceil\\log_2 M\\rceil\\)。先确认输入、当前状态或单位，再逐步代入。",
+      "\\(2^{3}=8<12\\le 16=2^{4}\\)，因此需四个。"
+    ],
+    "explanation": "\\(2^{3}=8<12\\le 16=2^{4}\\)，因此需四个。",
+    "source": "Lecture15.pdf",
+    "page": 8,
+    "week": 8,
+    "course": "EEE104",
+    "contentType": "derived-practice",
+    "sourcePages": [
+      8,
+      9,
+      10,
+      13,
+      14,
+      15,
+      16
+    ]
+  },
+  {
+    "id": "L15-M2-Q3",
+    "lecture": 15,
+    "module": "L15-M2",
+    "level": "intermediate",
+    "prompt": "从零起计的异步模 10 计数器清零译码通常检测哪个位型？",
+    "options": [
+      "1111",
+      "0000",
+      "1010",
+      "1001"
+    ],
+    "answer": 2,
+    "hints": [
+      "回顾「截断计数与清零译码」，参见 Lecture 15 PDF 第 \\(9\\) 页。",
+      "异步复位设计通常检测第 M 个位型；确保从有效初态进入指定循环。",
+      "关键关系为 \\(n=\\lceil\\log_2 M\\rceil\\)。先确认输入、当前状态或单位，再逐步代入。",
+      "十进制 \\(10\\) 为 \\(1010\\)，出现后立即触发清零，让稳定序列停留在 \\(0\\ldots 9\\)。"
+    ],
+    "explanation": "十进制 \\(10\\) 为 \\(1010\\)，出现后立即触发清零，让稳定序列停留在 \\(0\\ldots 9\\)。",
+    "source": "Lecture15.pdf",
+    "page": 9,
+    "week": 8,
+    "course": "EEE104",
+    "contentType": "derived-practice",
+    "sourcePages": [
+      8,
+      9,
+      10,
+      13,
+      14,
+      15,
+      16
+    ]
+  },
+  {
+    "id": "L15-M2-Q4",
+    "lecture": 15,
+    "module": "L15-M2",
+    "level": "challenge",
+    "prompt": "从零起计的异步模 12 计数器最后稳定值及复位检测值分别是多少？",
+    "options": [
+      "15 与 16",
+      "11 与 12",
+      "12 与 13",
+      "10 与 11"
+    ],
+    "answer": 1,
+    "hints": [
+      "回顾「截断计数与清零译码」，参见 Lecture 15 PDF 第 \\(10\\) 页。",
+      "异步复位设计通常检测第 M 个位型；确保从有效初态进入指定循环。",
+      "关键关系为 \\(n=\\lceil\\log_2 M\\rceil\\)。先确认输入、当前状态或单位，再逐步代入。",
+      "有效状态为 \\(0\\ldots 11\\)，共十二个；进入 \\(12\\)，即 \\(1100\\) 时触发异步复位。"
+    ],
+    "explanation": "有效状态为 \\(0\\ldots 11\\)，共十二个；进入 \\(12\\)，即 \\(1100\\) 时触发异步复位。",
+    "source": "Lecture15.pdf",
+    "page": 10,
+    "week": 8,
+    "course": "EEE104",
+    "contentType": "derived-practice",
+    "sourcePages": [
+      8,
+      9,
+      10,
+      13,
+      14,
+      15,
+      16
+    ]
+  },
+  {
+    "id": "L15-M3-Q1",
+    "lecture": 15,
+    "module": "L15-M3",
+    "level": "basic",
+    "prompt": "异步计数器为什么会短暂出现中间状态？",
+    "options": [
+      "所有位严格同时变化",
+      "数字电路没有状态",
+      "必须因为输入错误",
+      "各级传播延迟逐级累积"
+    ],
+    "answer": 3,
+    "hints": [
+      "回顾「累计延迟与瞬态误译码」，参见 Lecture 15 PDF 第 \\(12\\) 页。",
+      "按最坏传播路径估算；实际设计还需考虑译码、建立时间及数据手册限制。",
+      "关键关系为 \\(t_{\\mathrm{settle}}\\approx\\sum_{i=1}^{n}t_{p,i}\\)。先确认输入、当前状态或单位，再逐步代入。",
+      "后级等前级变化后才响应，所以位变化存在时间先后。"
+    ],
+    "explanation": "后级等前级变化后才响应，所以位变化存在时间先后。",
+    "source": "Lecture15.pdf",
+    "page": 12,
+    "week": 8,
+    "course": "EEE104",
+    "contentType": "derived-practice",
+    "sourcePages": [
+      11,
+      12
+    ]
+  },
+  {
+    "id": "L15-M3-Q2",
+    "lecture": 15,
+    "module": "L15-M3",
+    "level": "basic",
+    "prompt": "3 级每级 10 ns，完整脉动稳定延迟近似多少？",
+    "options": [
+      "3 ns",
+      "100 ns",
+      "30 ns",
+      "10 ns"
+    ],
+    "answer": 2,
+    "hints": [
+      "回顾「累计延迟与瞬态误译码」，参见 Lecture 15 PDF 第 \\(11\\) 页。",
+      "按最坏传播路径估算；实际设计还需考虑译码、建立时间及数据手册限制。",
+      "关键关系为 \\(t_{\\mathrm{settle}}\\approx\\sum_{i=1}^{n}t_{p,i}\\)。先确认输入、当前状态或单位，再逐步代入。",
+      "同一传播路径上三段相加为 \\(30 \\mathrm{ns}\\)。"
+    ],
+    "explanation": "同一传播路径上三段相加为 \\(30 \\mathrm{ns}\\)。",
+    "source": "Lecture15.pdf",
+    "page": 11,
+    "week": 8,
+    "course": "EEE104",
+    "contentType": "derived-practice",
+    "sourcePages": [
+      11,
+      12
+    ]
+  },
+  {
+    "id": "L15-M3-Q3",
+    "lecture": 15,
+    "module": "L15-M3",
+    "level": "intermediate",
+    "prompt": "4 级每级 17 ns，估计稳定时间是多少？",
+    "options": [
+      "4 ns",
+      "68 ns",
+      "17 ns",
+      "34 ns"
+    ],
+    "answer": 1,
+    "hints": [
+      "回顾「累计延迟与瞬态误译码」，参见 Lecture 15 PDF 第 \\(11\\) 页。",
+      "按最坏传播路径估算；实际设计还需考虑译码、建立时间及数据手册限制。",
+      "关键关系为 \\(t_{\\mathrm{settle}}\\approx\\sum_{i=1}^{n}t_{p,i}\\)。先确认输入、当前状态或单位，再逐步代入。",
+      "\\(4\\times 17 \\mathrm{ns}=68 \\mathrm{ns}\\)。这里是假设每级都经过相应最坏转换。"
+    ],
+    "explanation": "\\(4\\times 17 \\mathrm{ns}=68 \\mathrm{ns}\\)。这里是假设每级都经过相应最坏转换。",
+    "source": "Lecture15.pdf",
+    "page": 11,
+    "week": 8,
+    "course": "EEE104",
+    "contentType": "derived-practice",
+    "sourcePages": [
+      11,
+      12
+    ]
+  },
+  {
+    "id": "L15-M3-Q4",
+    "lecture": 15,
+    "module": "L15-M3",
+    "level": "challenge",
+    "prompt": "译码器看到瞬态位型并输出短脉冲，称为什么？",
+    "options": [
+      "毛刺",
+      "稳定计数",
+      "并行加载",
+      "符号扩展"
+    ],
+    "answer": 0,
+    "hints": [
+      "回顾「累计延迟与瞬态误译码」，参见 Lecture 15 PDF 第 \\(12\\) 页。",
+      "按最坏传播路径估算；实际设计还需考虑译码、建立时间及数据手册限制。",
+      "关键关系为 \\(t_{\\mathrm{settle}}\\approx\\sum_{i=1}^{n}t_{p,i}\\)。先确认输入、当前状态或单位，再逐步代入。",
+      "门对短暂中间状态响应形成毛刺；可在计数稳定后再允许译码输出。"
+    ],
+    "explanation": "门对短暂中间状态响应形成毛刺；可在计数稳定后再允许译码输出。",
+    "source": "Lecture15.pdf",
+    "page": 12,
+    "week": 8,
+    "course": "EEE104",
+    "contentType": "derived-practice",
+    "sourcePages": [
+      11,
+      12
+    ]
+  },
+  {
+    "id": "L16-M1-Q1",
+    "lecture": 16,
+    "module": "L16-M1",
+    "level": "basic",
+    "prompt": "同步计数器各触发器的时钟如何连接？",
+    "options": [
+      "共用同一时钟",
+      "逐级接前级 Q",
+      "逐级接前级 J",
+      "不需要时钟"
+    ],
+    "answer": 0,
+    "hints": [
+      "回顾「共同边沿与翻转条件」，参见 Lecture 16 PDF 第 \\(3\\) 页。",
+      "所有翻转条件从同一个时钟边沿前的状态计算。",
+      "关键关系为 \\(J_i=K_i=\\prod_{j=0}^{i-1}Q_j\\quad(i\\ge1),\\qquad J_0=K_0=1\\)。先确认输入、当前状态或单位，再逐步代入。",
+      "全部触发器在共同有效边沿更新。"
+    ],
+    "explanation": "全部触发器在共同有效边沿更新。",
+    "source": "Lecture16.pdf",
+    "page": 3,
+    "week": 8,
+    "course": "EEE104",
+    "contentType": "derived-practice",
+    "sourcePages": [
+      3,
+      4,
+      5,
+      6
+    ]
+  },
+  {
+    "id": "L16-M1-Q2",
+    "lecture": 16,
+    "module": "L16-M1",
+    "level": "basic",
+    "prompt": "3 位向上同步计数器 Q2 的翻转条件是什么？",
+    "options": [
+      "Q1Q0=00",
+      "Q2=1",
+      "Q0=0",
+      "Q1Q0=11"
+    ],
+    "answer": 3,
+    "hints": [
+      "回顾「共同边沿与翻转条件」，参见 Lecture 16 PDF 第 \\(5\\) 页。",
+      "所有翻转条件从同一个时钟边沿前的状态计算。",
+      "关键关系为 \\(J_i=K_i=\\prod_{j=0}^{i-1}Q_j\\quad(i\\ge1),\\qquad J_0=K_0=1\\)。先确认输入、当前状态或单位，再逐步代入。",
+      "低于 \\(Q_{2}\\) 的两位全为 \\(1\\) 时，下一个计数使 \\(Q_{2}\\) 翻转。"
+    ],
+    "explanation": "低于 \\(Q_{2}\\) 的两位全为 \\(1\\) 时，下一个计数使 \\(Q_{2}\\) 翻转。",
+    "source": "Lecture16.pdf",
+    "page": 5,
+    "week": 8,
+    "course": "EEE104",
+    "contentType": "derived-practice",
+    "sourcePages": [
+      3,
+      4,
+      5,
+      6
+    ]
+  },
+  {
+    "id": "L16-M1-Q3",
+    "lecture": 16,
+    "module": "L16-M1",
+    "level": "intermediate",
+    "prompt": "3 位向上计数器当前 011，下一个状态？",
+    "options": [
+      "111",
+      "000",
+      "100",
+      "010"
+    ],
+    "answer": 2,
+    "hints": [
+      "回顾「共同边沿与翻转条件」，参见 Lecture 16 PDF 第 \\(5\\) 页。",
+      "所有翻转条件从同一个时钟边沿前的状态计算。",
+      "关键关系为 \\(J_i=K_i=\\prod_{j=0}^{i-1}Q_j\\quad(i\\ge1),\\qquad J_0=K_0=1\\)。先确认输入、当前状态或单位，再逐步代入。",
+      "\\(Q_{0}\\)、\\(Q_{1}\\) 和 \\(Q_{2}\\) 的翻转条件均满足，于同一有效边沿得到 \\(100\\)。"
+    ],
+    "explanation": "\\(Q_{0}\\)、\\(Q_{1}\\) 和 \\(Q_{2}\\) 的翻转条件均满足，于同一有效边沿得到 \\(100\\)。",
+    "source": "Lecture16.pdf",
+    "page": 5,
+    "week": 8,
+    "course": "EEE104",
+    "contentType": "derived-practice",
+    "sourcePages": [
+      3,
+      4,
+      5,
+      6
+    ]
+  },
+  {
+    "id": "L16-M1-Q4",
+    "lecture": 16,
+    "module": "L16-M1",
+    "level": "challenge",
+    "prompt": "4 位向上计数器 Q3 在哪些旧状态翻转？",
+    "options": [
+      "每个状态",
+      "0111 与 1111",
+      "0000 与 1000",
+      "0101 与 1101"
+    ],
+    "answer": 1,
+    "hints": [
+      "回顾「共同边沿与翻转条件」，参见 Lecture 16 PDF 第 \\(6\\) 页。",
+      "所有翻转条件从同一个时钟边沿前的状态计算。",
+      "关键关系为 \\(J_i=K_i=\\prod_{j=0}^{i-1}Q_j\\quad(i\\ge1),\\qquad J_0=K_0=1\\)。先确认输入、当前状态或单位，再逐步代入。",
+      "条件 \\(Q_{2}Q1Q0=111\\)，与 \\(Q_{3}\\) 原值无关，所以旧状态为 \\(0111\\) 或 \\(1111\\)。"
+    ],
+    "explanation": "条件 \\(Q_{2}Q1Q0=111\\)，与 \\(Q_{3}\\) 原值无关，所以旧状态为 \\(0111\\) 或 \\(1111\\)。",
+    "source": "Lecture16.pdf",
+    "page": 6,
+    "week": 8,
+    "course": "EEE104",
+    "contentType": "derived-practice",
+    "sourcePages": [
+      3,
+      4,
+      5,
+      6
+    ]
+  },
+  {
+    "id": "L16-M2-Q1",
+    "lecture": 16,
+    "module": "L16-M2",
+    "level": "basic",
+    "prompt": "同步十进制计数器正常从 9 再计一次到哪里？",
+    "options": [
+      "10",
+      "15",
+      "8",
+      "0"
+    ],
+    "answer": 3,
+    "hints": [
+      "回顾「同步十进制与器件控制」，参见 Lecture 16 PDF 第 \\(7\\) 页。",
+      "根据具体器件的有效电平与同步/异步规定分析控制；本模块对应课件 74HC163 与 74HC160。",
+      "关键关系为 \\(\\mathrm{BCD}:\\quad1001\\to0000\\)。先确认输入、当前状态或单位，再逐步代入。",
+      "有效十进制序列 \\(0\\ldots 9\\) 之后返回 \\(0\\)。"
+    ],
+    "explanation": "有效十进制序列 \\(0\\ldots 9\\) 之后返回 \\(0\\)。",
+    "source": "Lecture16.pdf",
+    "page": 7,
+    "week": 8,
+    "course": "EEE104",
+    "contentType": "derived-practice",
+    "sourcePages": [
+      7,
+      8,
+      9,
+      10,
+      11,
+      12
+    ]
+  },
+  {
+    "id": "L16-M2-Q2",
+    "lecture": 16,
+    "module": "L16-M2",
+    "level": "basic",
+    "prompt": "本讲 74HC163 的 CLR 属于什么？",
+    "options": [
+      "串行输入",
+      "模拟输出",
+      "同步清零",
+      "异步清零"
+    ],
+    "answer": 2,
+    "hints": [
+      "回顾「同步十进制与器件控制」，参见 Lecture 16 PDF 第 \\(9\\) 页。",
+      "根据具体器件的有效电平与同步/异步规定分析控制；本模块对应课件 74HC163 与 74HC160。",
+      "关键关系为 \\(\\mathrm{BCD}:\\quad1001\\to0000\\)。先确认输入、当前状态或单位，再逐步代入。",
+      "源文件第 \\(9\\) 页将 CLR 标为 synchronous clear。"
+    ],
+    "explanation": "源文件第 \\(9\\) 页将 CLR 标为 synchronous clear。",
+    "source": "Lecture16.pdf",
+    "page": 9,
+    "week": 8,
+    "course": "EEE104",
+    "contentType": "derived-practice",
+    "sourcePages": [
+      7,
+      8,
+      9,
+      10,
+      11,
+      12
+    ]
+  },
+  {
+    "id": "L16-M2-Q3",
+    "lecture": 16,
+    "module": "L16-M2",
+    "level": "intermediate",
+    "prompt": "本讲 74HC160 的 CLR 属于什么？",
+    "options": [
+      "并行数据输入",
+      "异步清零",
+      "同步清零",
+      "时钟输出"
+    ],
+    "answer": 1,
+    "hints": [
+      "回顾「同步十进制与器件控制」，参见 Lecture 16 PDF 第 \\(11\\) 页。",
+      "根据具体器件的有效电平与同步/异步规定分析控制；本模块对应课件 74HC163 与 74HC160。",
+      "关键关系为 \\(\\mathrm{BCD}:\\quad1001\\to0000\\)。先确认输入、当前状态或单位，再逐步代入。",
+      "源文件第 \\(11\\) 页标为 asynchronous clear，动作无需等待时钟边沿。"
+    ],
+    "explanation": "源文件第 \\(11\\) 页标为 asynchronous clear，动作无需等待时钟边沿。",
+    "source": "Lecture16.pdf",
+    "page": 11,
+    "week": 8,
+    "course": "EEE104",
+    "contentType": "derived-practice",
+    "sourcePages": [
+      7,
+      8,
+      9,
+      10,
+      11,
+      12
+    ]
+  },
+  {
+    "id": "L16-M2-Q4",
+    "lecture": 16,
+    "module": "L16-M2",
+    "level": "challenge",
+    "prompt": "同步清零输入已激活，但尚无有效时钟沿且无其他异步控制，何时清零？",
+    "options": [
+      "在下一有效时钟沿",
+      "输入一变就立即清零",
+      "永不清零",
+      "只在计到 9 时"
+    ],
+    "answer": 0,
+    "hints": [
+      "回顾「同步十进制与器件控制」，参见 Lecture 16 PDF 第 \\(9\\) 页。",
+      "根据具体器件的有效电平与同步/异步规定分析控制；本模块对应课件 74HC163 与 74HC160。",
+      "关键关系为 \\(\\mathrm{BCD}:\\quad1001\\to0000\\)。先确认输入、当前状态或单位，再逐步代入。",
+      "同步控制需要有效时钟边沿才改变存储状态，与异步清零区别在此。"
+    ],
+    "explanation": "同步控制需要有效时钟边沿才改变存储状态，与异步清零区别在此。",
+    "source": "Lecture16.pdf",
+    "page": 9,
+    "week": 8,
+    "course": "EEE104",
+    "contentType": "derived-practice",
+    "sourcePages": [
+      7,
+      8,
+      9,
+      10,
+      11,
+      12
+    ]
+  },
+  {
+    "id": "L16-M3-Q1",
+    "lecture": 16,
+    "module": "L16-M3",
+    "level": "basic",
+    "prompt": "向下二进制计数中最低位怎样变化？",
+    "options": [
+      "只在全 1 时翻转",
+      "仅清零时变化",
+      "每个有效计数沿翻转",
+      "永远不变"
+    ],
+    "answer": 2,
+    "hints": [
+      "回顾「向上与向下翻转规则」，参见 Lecture 16 PDF 第 \\(13\\) 页。",
+      "先确定当前方向，按边沿前状态判断进位或借位条件。",
+      "关键关系为 \\(J_i=K_i=\\prod_{j=0}^{i-1}\\overline{Q_j}\\quad\\text{(down)}\\)。先确认输入、当前状态或单位，再逐步代入。",
+      "加一与减一都使最低有效位翻转。"
+    ],
+    "explanation": "加一与减一都使最低有效位翻转。",
+    "source": "Lecture16.pdf",
+    "page": 13,
+    "week": 8,
+    "course": "EEE104",
+    "contentType": "derived-practice",
+    "sourcePages": [
+      13,
+      14,
+      15
+    ]
+  },
+  {
+    "id": "L16-M3-Q2",
+    "lecture": 16,
+    "module": "L16-M3",
+    "level": "basic",
+    "prompt": "3 位向下计数器 Q2 的翻转条件是什么？",
+    "options": [
+      "Q1Q0=10",
+      "Q1Q0=00",
+      "Q1Q0=11",
+      "Q2=0"
+    ],
+    "answer": 1,
+    "hints": [
+      "回顾「向上与向下翻转规则」，参见 Lecture 16 PDF 第 \\(13\\) 页。",
+      "先确定当前方向，按边沿前状态判断进位或借位条件。",
+      "关键关系为 \\(J_i=K_i=\\prod_{j=0}^{i-1}\\overline{Q_j}\\quad\\text{(down)}\\)。先确认输入、当前状态或单位，再逐步代入。",
+      "低两位全为零时发生向 \\(Q_{2}\\) 的借位。"
+    ],
+    "explanation": "低两位全为零时发生向 \\(Q_{2}\\) 的借位。",
+    "source": "Lecture16.pdf",
+    "page": 13,
+    "week": 8,
+    "course": "EEE104",
+    "contentType": "derived-practice",
+    "sourcePages": [
+      13,
+      14,
+      15
+    ]
+  },
+  {
+    "id": "L16-M3-Q3",
+    "lecture": 16,
+    "module": "L16-M3",
+    "level": "intermediate",
+    "prompt": "4 位向下模 16 计数器从 0000 下一步到哪里？",
+    "options": [
+      "1111",
+      "0001",
+      "1000",
+      "保持 0000"
+    ],
+    "answer": 0,
+    "hints": [
+      "回顾「向上与向下翻转规则」，参见 Lecture 16 PDF 第 \\(13\\) 页。",
+      "先确定当前方向，按边沿前状态判断进位或借位条件。",
+      "关键关系为 \\(J_i=K_i=\\prod_{j=0}^{i-1}\\overline{Q_j}\\quad\\text{(down)}\\)。先确认输入、当前状态或单位，再逐步代入。",
+      "\\(0-1 \\operatorname{mod} 16=15\\)，编码为 \\(1111\\)。"
+    ],
+    "explanation": "\\(0-1 \\operatorname{mod} 16=15\\)，编码为 \\(1111\\)。",
+    "source": "Lecture16.pdf",
+    "page": 13,
+    "week": 8,
+    "course": "EEE104",
+    "contentType": "derived-practice",
+    "sourcePages": [
+      13,
+      14,
+      15
+    ]
+  },
+  {
+    "id": "L16-M3-Q4",
+    "lecture": 16,
+    "module": "L16-M3",
+    "level": "challenge",
+    "prompt": "当前十进制 4，先向下两次再向上一次，最后计数是多少？",
+    "options": [
+      "5",
+      "1",
+      "4",
+      "3"
+    ],
+    "answer": 3,
+    "hints": [
+      "回顾「向上与向下翻转规则」，参见 Lecture 16 PDF 第 \\(15\\) 页。",
+      "先确定当前方向，按边沿前状态判断进位或借位条件。",
+      "关键关系为 \\(J_i=K_i=\\prod_{j=0}^{i-1}\\overline{Q_j}\\quad\\text{(down)}\\)。先确认输入、当前状态或单位，再逐步代入。",
+      "\\(4\\to 3\\to 2\\)，再向上到 \\(3\\)。方向切换保留当前状态。"
+    ],
+    "explanation": "\\(4\\to 3\\to 2\\)，再向上到 \\(3\\)。方向切换保留当前状态。",
+    "source": "Lecture16.pdf",
+    "page": 15,
+    "week": 8,
+    "course": "EEE104",
+    "contentType": "derived-practice",
+    "sourcePages": [
+      13,
+      14,
+      15
+    ]
+  },
+  {
+    "id": "L17-M1-Q1",
+    "lecture": 17,
+    "module": "L17-M1",
+    "level": "basic",
+    "prompt": "模 10 与模 6 正确级联，整体模数多少？",
+    "options": [
+      "16",
+      "4",
+      "100",
+      "60"
+    ],
+    "answer": 3,
+    "hints": [
+      "回顾「模数乘积与使能级联」，参见 Lecture 17 PDF 第 \\(4\\) 页。",
+      "确认每个低位完整循环恰好允许高位增加一次。",
+      "关键关系为 \\(M_{\\mathrm{total}}=\\prod_i M_i,\\qquad f_{\\mathrm{cycle}}=\\frac{f_{\\mathrm{in}}}{M_{\\mathrm{total}}}\\)。先确认输入、当前状态或单位，再逐步代入。",
+      "总模数是 \\(10\\times 6=60\\)。"
+    ],
+    "explanation": "总模数是 \\(10\\times 6=60\\)。",
+    "source": "Lecture17g.pdf",
+    "page": 4,
+    "week": 9,
+    "course": "EEE104",
+    "contentType": "derived-practice",
+    "sourcePages": [
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ]
+  },
+  {
+    "id": "L17-M1-Q2",
+    "lecture": 17,
+    "module": "L17-M1",
+    "level": "basic",
+    "prompt": "两个十进制计数器级联可有多少个状态？",
+    "options": [
+      "10",
+      "200",
+      "100",
+      "20"
+    ],
+    "answer": 2,
+    "hints": [
+      "回顾「模数乘积与使能级联」，参见 Lecture 17 PDF 第 \\(4\\) 页。",
+      "确认每个低位完整循环恰好允许高位增加一次。",
+      "关键关系为 \\(M_{\\mathrm{total}}=\\prod_i M_i,\\qquad f_{\\mathrm{cycle}}=\\frac{f_{\\mathrm{in}}}{M_{\\mathrm{total}}}\\)。先确认输入、当前状态或单位，再逐步代入。",
+      "低位十种状态，每种高位值都经历一次，共 \\(10\\times 10=100\\)。"
+    ],
+    "explanation": "低位十种状态，每种高位值都经历一次，共 \\(10\\times 10=100\\)。",
+    "source": "Lecture17g.pdf",
+    "page": 4,
+    "week": 9,
+    "course": "EEE104",
+    "contentType": "derived-practice",
+    "sourcePages": [
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ]
+  },
+  {
+    "id": "L17-M1-Q3",
+    "lecture": 17,
+    "module": "L17-M1",
+    "level": "intermediate",
+    "prompt": "同步两位十进制计数从 09 再加一次是什么？",
+    "options": [
+      "99",
+      "10",
+      "00",
+      "19"
+    ],
+    "answer": 1,
+    "hints": [
+      "回顾「模数乘积与使能级联」，参见 Lecture 17 PDF 第 \\(7\\) 页。",
+      "确认每个低位完整循环恰好允许高位增加一次。",
+      "关键关系为 \\(M_{\\mathrm{total}}=\\prod_i M_i,\\qquad f_{\\mathrm{cycle}}=\\frac{f_{\\mathrm{in}}}{M_{\\mathrm{total}}}\\)。先确认输入、当前状态或单位，再逐步代入。",
+      "低位终端信号使高位在下一个共同边沿进一，低位同时回零。"
+    ],
+    "explanation": "低位终端信号使高位在下一个共同边沿进一，低位同时回零。",
+    "source": "Lecture17g.pdf",
+    "page": 7,
+    "week": 9,
+    "course": "EEE104",
+    "contentType": "derived-practice",
+    "sourcePages": [
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ]
+  },
+  {
+    "id": "L17-M1-Q4",
+    "lecture": 17,
+    "module": "L17-M1",
+    "level": "challenge",
+    "prompt": "60 kHz 输入经过模 10、模 6、模 10 级联，整体循环频率多少？",
+    "options": [
+      "100 Hz",
+      "1 kHz",
+      "600 Hz",
+      "60 Hz"
+    ],
+    "answer": 0,
+    "hints": [
+      "回顾「模数乘积与使能级联」，参见 Lecture 17 PDF 第 \\(8\\) 页。",
+      "确认每个低位完整循环恰好允许高位增加一次。",
+      "关键关系为 \\(M_{\\mathrm{total}}=\\prod_i M_i,\\qquad f_{\\mathrm{cycle}}=\\frac{f_{\\mathrm{in}}}{M_{\\mathrm{total}}}\\)。先确认输入、当前状态或单位，再逐步代入。",
+      "总模数 \\(10\\times 6\\times 10=600\\)；\\(60,000/600=100 \\mathrm{Hz}\\)。"
+    ],
+    "explanation": "总模数 \\(10\\times 6\\times 10=600\\)；\\(60,000/600=100 \\mathrm{Hz}\\)。",
+    "source": "Lecture17g.pdf",
+    "page": 8,
+    "week": 9,
+    "course": "EEE104",
+    "contentType": "derived-practice",
+    "sourcePages": [
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ]
+  },
+  {
+    "id": "L17-M2-Q1",
+    "lecture": 17,
+    "module": "L17-M2",
+    "level": "basic",
+    "prompt": "16 位完整二进制计数器有多少状态？",
+    "options": [
+      "32768",
+      "16",
+      "65536",
+      "65535"
+    ],
+    "answer": 2,
+    "hints": [
+      "回顾「截断与预置装载」，参见 Lecture 17 PDF 第 \\(11\\) 页。",
+      "预置 P 后计到全 \\(1\\)，下一有效边沿重装 P；计数包含起点与终点。",
+      "关键关系为 \\(M=2^n-P\\)。先确认输入、当前状态或单位，再逐步代入。",
+      "\\(2^{16}=65536\\)，编码数值从 \\(0\\) 到 \\(65535\\)。"
+    ],
+    "explanation": "\\(2^{16}=65536\\)，编码数值从 \\(0\\) 到 \\(65535\\)。",
+    "source": "Lecture17g.pdf",
+    "page": 11,
+    "week": 9,
+    "course": "EEE104",
+    "contentType": "derived-practice",
+    "sourcePages": [
+      9,
+      10,
+      11
+    ]
+  },
+  {
+    "id": "L17-M2-Q2",
+    "lecture": 17,
+    "module": "L17-M2",
+    "level": "basic",
+    "prompt": "16 位计数器预置 25536 后数到 65535，共多少状态？",
+    "options": [
+      "65536",
+      "40000",
+      "39999",
+      "25536"
+    ],
+    "answer": 1,
+    "hints": [
+      "回顾「截断与预置装载」，参见 Lecture 17 PDF 第 \\(11\\) 页。",
+      "预置 P 后计到全 \\(1\\)，下一有效边沿重装 P；计数包含起点与终点。",
+      "关键关系为 \\(M=2^n-P\\)。先确认输入、当前状态或单位，再逐步代入。",
+      "\\(65535-25536+1=40000\\)。"
+    ],
+    "explanation": "\\(65535-25536+1=40000\\)。",
+    "source": "Lecture17g.pdf",
+    "page": 11,
+    "week": 9,
+    "course": "EEE104",
+    "contentType": "derived-practice",
+    "sourcePages": [
+      9,
+      10,
+      11
+    ]
+  },
+  {
+    "id": "L17-M2-Q3",
+    "lecture": 17,
+    "module": "L17-M2",
+    "level": "intermediate",
+    "prompt": "8 位计数器欲以预置方式构成模 100，预置多少？",
+    "options": [
+      "156",
+      "155",
+      "100",
+      "256"
+    ],
+    "answer": 0,
+    "hints": [
+      "回顾「截断与预置装载」，参见 Lecture 17 PDF 第 \\(11\\) 页。",
+      "预置 P 后计到全 \\(1\\)，下一有效边沿重装 P；计数包含起点与终点。",
+      "关键关系为 \\(M=2^n-P\\)。先确认输入、当前状态或单位，再逐步代入。",
+      "\\(P=2^{8}-100=256-100=156\\)。"
+    ],
+    "explanation": "\\(P=2^{8}-100=256-100=156\\)。",
+    "source": "Lecture17g.pdf",
+    "page": 11,
+    "week": 9,
+    "course": "EEE104",
+    "contentType": "derived-practice",
+    "sourcePages": [
+      9,
+      10,
+      11
+    ]
+  },
+  {
+    "id": "L17-M2-Q4",
+    "lecture": 17,
+    "module": "L17-M2",
+    "level": "challenge",
+    "prompt": "从 0 开始的同步模 6 计数器，若同步清零在下一沿生效，应在哪个稳定状态提出清零？",
+    "options": [
+      "6",
+      "7",
+      "0",
+      "5"
+    ],
+    "answer": 3,
+    "hints": [
+      "回顾「截断与预置装载」，参见 Lecture 17 PDF 第 \\(10\\) 页。",
+      "预置 P 后计到全 \\(1\\)，下一有效边沿重装 P；计数包含起点与终点。",
+      "关键关系为 \\(M=2^n-P\\)。先确认输入、当前状态或单位，再逐步代入。",
+      "有效序列应为 \\(0\\ldots 5\\)，在 \\(5\\) 时请求清零，让下一沿产生 \\(0\\)，避免稳定保留 \\(6\\)。"
+    ],
+    "explanation": "有效序列应为 \\(0\\ldots 5\\)，在 \\(5\\) 时请求清零，让下一沿产生 \\(0\\)，避免稳定保留 \\(6\\)。",
+    "source": "Lecture17g.pdf",
+    "page": 10,
+    "week": 9,
+    "course": "EEE104",
+    "contentType": "derived-practice",
+    "sourcePages": [
+      9,
+      10,
+      11
+    ]
+  },
+  {
+    "id": "L17-M3-Q1",
+    "lecture": 17,
+    "module": "L17-M3",
+    "level": "basic",
+    "prompt": "3 位计数值 6 的二进制表示是什么？",
+    "options": [
+      "111",
+      "110",
+      "101",
+      "011"
+    ],
+    "answer": 1,
+    "hints": [
+      "回顾「状态译码与应用」，参见 Lecture 17 PDF 第 \\(12\\) 页。",
+      "先约定位序与译码输出极性，按目标值建立等式；译码在状态稳定后使用。",
+      "关键关系为 \\(D_6=Q_2Q_1\\overline{Q_0}\\)。先确认输入、当前状态或单位，再逐步代入。",
+      "\\(6=4+2\\)，所以 \\(Q_{2}Q1Q0=110\\)。"
+    ],
+    "explanation": "\\(6=4+2\\)，所以 \\(Q_{2}Q1Q0=110\\)。",
+    "source": "Lecture17g.pdf",
+    "page": 12,
+    "week": 9,
+    "course": "EEE104",
+    "contentType": "derived-practice",
+    "sourcePages": [
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18
+    ]
+  },
+  {
+    "id": "L17-M3-Q2",
+    "lecture": 17,
+    "module": "L17-M3",
+    "level": "basic",
+    "prompt": "高有效精确译码 3 位状态 6 的式子是什么？",
+    "options": [
+      "Q2Q1Q̄0",
+      "Q2Q1Q0",
+      "Q̄2Q1Q0",
+      "Q2+Q1+Q̄0"
+    ],
+    "answer": 0,
+    "hints": [
+      "回顾「状态译码与应用」，参见 Lecture 17 PDF 第 \\(12\\) 页。",
+      "先约定位序与译码输出极性，按目标值建立等式；译码在状态稳定后使用。",
+      "关键关系为 \\(D_6=Q_2Q_1\\overline{Q_0}\\)。先确认输入、当前状态或单位，再逐步代入。",
+      "高两位须为 \\(1\\)、最低位须为 \\(0\\)，三个条件相与。"
+    ],
+    "explanation": "高两位须为 \\(1\\)、最低位须为 \\(0\\)，三个条件相与。",
+    "source": "Lecture17g.pdf",
+    "page": 12,
+    "week": 9,
+    "course": "EEE104",
+    "contentType": "derived-practice",
+    "sourcePages": [
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18
+    ]
+  },
+  {
+    "id": "L17-M3-Q3",
+    "lecture": 17,
+    "module": "L17-M3",
+    "level": "intermediate",
+    "prompt": "仅检测 Q2Q1=11 会命中 3 位计数的哪些状态？",
+    "options": [
+      "只有 6",
+      "只有 7",
+      "4 和 5",
+      "6 和 7"
+    ],
+    "answer": 3,
+    "hints": [
+      "回顾「状态译码与应用」，参见 Lecture 17 PDF 第 \\(12\\) 页。",
+      "先约定位序与译码输出极性，按目标值建立等式；译码在状态稳定后使用。",
+      "关键关系为 \\(D_6=Q_2Q_1\\overline{Q_0}\\)。先确认输入、当前状态或单位，再逐步代入。",
+      "未检测 \\(Q_{0}\\)，所以 \\(110\\) 与 \\(111\\) 都满足条件。"
+    ],
+    "explanation": "未检测 \\(Q_{0}\\)，所以 \\(110\\) 与 \\(111\\) 都满足条件。",
+    "source": "Lecture17g.pdf",
+    "page": 12,
+    "week": 9,
+    "course": "EEE104",
+    "contentType": "derived-practice",
+    "sourcePages": [
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18
+    ]
+  },
+  {
+    "id": "L17-M3-Q4",
+    "lecture": 17,
+    "module": "L17-M3",
+    "level": "challenge",
+    "prompt": "数字时钟秒计数从 00 开始，经过 125 个 1 Hz 脉冲，分和秒增加多少？",
+    "options": [
+      "0 分 125 秒",
+      "2 分 25 秒",
+      "2 分 5 秒",
+      "1 分 25 秒"
+    ],
+    "answer": 2,
+    "hints": [
+      "回顾「状态译码与应用」，参见 Lecture 17 PDF 第 \\(17\\) 页。",
+      "先约定位序与译码输出极性，按目标值建立等式；译码在状态稳定后使用。",
+      "关键关系为 \\(D_6=Q_2Q_1\\overline{Q_0}\\)。先确认输入、当前状态或单位，再逐步代入。",
+      "\\(125=2\\times 60+5\\)，模 \\(60\\) 秒计数向分钟级进位两次，余 \\(5\\) 秒。"
+    ],
+    "explanation": "\\(125=2\\times 60+5\\)，模 \\(60\\) 秒计数向分钟级进位两次，余 \\(5\\) 秒。",
+    "source": "Lecture17g.pdf",
+    "page": 17,
+    "week": 9,
+    "course": "EEE104",
+    "contentType": "derived-practice",
+    "sourcePages": [
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18
+    ]
+  },
+  {
+    "id": "L18-M1-Q1",
+    "lecture": 18,
+    "module": "L18-M1",
+    "level": "basic",
+    "prompt": "n 级移位寄存器可以存储几位？",
+    "options": [
+      "2ⁿ",
+      "n−1",
+      "n",
+      "2n"
+    ],
+    "answer": 2,
+    "hints": [
+      "回顾「逐级数据移动与时延」，参见 Lecture 18 PDF 第 \\(3\\) 页。",
+      "所有级同时读取边沿前的值；指定移位方向、初始值和串入顺序。",
+      "关键关系为 \\(Q_0^+=S_{in},\\quad Q_i^+=Q_{i-1}\\)。先确认输入、当前状态或单位，再逐步代入。",
+      "每个触发器保存一位，n 级共 n 位。"
+    ],
+    "explanation": "每个触发器保存一位，n 级共 n 位。",
+    "source": "Lecture18_new.pdf",
+    "page": 3,
+    "week": 9,
+    "course": "EEE104",
+    "contentType": "derived-practice",
+    "sourcePages": [
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ]
+  },
+  {
+    "id": "L18-M1-Q2",
+    "lecture": 18,
+    "module": "L18-M1",
+    "level": "basic",
+    "prompt": "4 级寄存器从全零开始，串入首位 1，一个有效沿后有几个 1？",
+    "options": [
+      "2",
+      "1",
+      "4",
+      "0"
+    ],
+    "answer": 1,
+    "hints": [
+      "回顾「逐级数据移动与时延」，参见 Lecture 18 PDF 第 \\(8\\) 页。",
+      "所有级同时读取边沿前的值；指定移位方向、初始值和串入顺序。",
+      "关键关系为 \\(Q_0^+=S_{in},\\quad Q_i^+=Q_{i-1}\\)。先确认输入、当前状态或单位，再逐步代入。",
+      "首位仅进入第一级，其他级采样的都是旧零。"
+    ],
+    "explanation": "首位仅进入第一级，其他级采样的都是旧零。",
+    "source": "Lecture18_new.pdf",
+    "page": 8,
+    "week": 9,
+    "course": "EEE104",
+    "contentType": "derived-practice",
+    "sourcePages": [
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ]
+  },
+  {
+    "id": "L18-M1-Q3",
+    "lecture": 18,
+    "module": "L18-M1",
+    "level": "intermediate",
+    "prompt": "新位在第 1 沿进入第一级，4 级 SISO 在第几沿输出该位？",
+    "options": [
+      "第 4 沿",
+      "第 1 沿",
+      "第 5 沿",
+      "第 8 沿"
+    ],
+    "answer": 0,
+    "hints": [
+      "回顾「逐级数据移动与时延」，参见 Lecture 18 PDF 第 \\(8\\) 页。",
+      "所有级同时读取边沿前的值；指定移位方向、初始值和串入顺序。",
+      "关键关系为 \\(Q_0^+=S_{in},\\quad Q_i^+=Q_{i-1}\\)。先确认输入、当前状态或单位，再逐步代入。",
+      "每个沿前进一步：第 \\(1\\)、\\(2\\)、\\(3\\)、\\(4\\) 沿分别到达第 \\(1\\)、\\(2\\)、\\(3\\)、\\(4\\) 级。"
+    ],
+    "explanation": "每个沿前进一步：第 \\(1\\)、\\(2\\)、\\(3\\)、\\(4\\) 沿分别到达第 \\(1\\)、\\(2\\)、\\(3\\)、\\(4\\) 级。",
+    "source": "Lecture18_new.pdf",
+    "page": 8,
+    "week": 9,
+    "course": "EEE104",
+    "contentType": "derived-practice",
+    "sourcePages": [
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ]
+  },
+  {
+    "id": "L18-M1-Q4",
+    "lecture": 18,
+    "module": "L18-M1",
+    "level": "challenge",
+    "prompt": "1 kHz 时钟，首位从第 1 沿进入到第 4 沿出现在第 4 级，相隔多久？",
+    "options": [
+      "4 ms",
+      "1 ms",
+      "0.25 ms",
+      "3 ms"
+    ],
+    "answer": 3,
+    "hints": [
+      "回顾「逐级数据移动与时延」，参见 Lecture 18 PDF 第 \\(6\\) 页。",
+      "所有级同时读取边沿前的值；指定移位方向、初始值和串入顺序。",
+      "关键关系为 \\(Q_0^+=S_{in},\\quad Q_i^+=Q_{i-1}\\)。先确认输入、当前状态或单位，再逐步代入。",
+      "周期 \\(T=1 \\mathrm{ms}\\)；第 \\(1\\) 沿到第 \\(4\\) 沿包含三个周期，因此间隔为 \\(3 \\mathrm{ms}\\)。若从第 \\(1\\) 沿之前一个周期算起，定义会不同。"
+    ],
+    "explanation": "周期 \\(T=1 \\mathrm{ms}\\)；第 \\(1\\) 沿到第 \\(4\\) 沿包含三个周期，因此间隔为 \\(3 \\mathrm{ms}\\)。若从第 \\(1\\) 沿之前一个周期算起，定义会不同。",
+    "source": "Lecture18_new.pdf",
+    "page": 6,
+    "week": 9,
+    "course": "EEE104",
+    "contentType": "derived-practice",
+    "sourcePages": [
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ]
+  },
+  {
+    "id": "L18-M2-Q1",
+    "lecture": 18,
+    "module": "L18-M2",
+    "level": "basic",
+    "prompt": "SIPO 的主要用途是什么？",
+    "options": [
+      "仅逻辑反相",
+      "串行转并行",
+      "并行转串行",
+      "把模拟变数字"
+    ],
+    "answer": 1,
+    "hints": [
+      "回顾「串入并出与移位算术」，参见 Lecture 18 PDF 第 \\(5\\) 页。",
+      "先声明无符号、位宽、补入位和溢出情况；移位不能无条件解释为精确乘除。",
+      "关键关系为 \\(x\\ll1=2x\\pmod{2^n},\\quad x\\gg1=\\lfloor x/2\\rfloor\\)。先确认输入、当前状态或单位，再逐步代入。",
+      "逐位接收后同时读取各级输出，实现串行到并行转换。"
+    ],
+    "explanation": "逐位接收后同时读取各级输出，实现串行到并行转换。",
+    "source": "Lecture18_new.pdf",
+    "page": 5,
+    "week": 9,
+    "course": "EEE104",
+    "contentType": "derived-practice",
+    "sourcePages": [
+      5,
+      6,
+      11,
+      12,
+      13
+    ]
+  },
+  {
+    "id": "L18-M2-Q2",
+    "lecture": 18,
+    "module": "L18-M2",
+    "level": "basic",
+    "prompt": "8 位无符号 00001100 左移一位补零为何？",
+    "options": [
+      "00011000，即 24",
+      "00000110，即 6",
+      "00001101，即 13",
+      "10000110，即 134"
+    ],
+    "answer": 0,
+    "hints": [
+      "回顾「串入并出与移位算术」，参见 Lecture 18 PDF 第 \\(6\\) 页。",
+      "先声明无符号、位宽、补入位和溢出情况；移位不能无条件解释为精确乘除。",
+      "关键关系为 \\(x\\ll1=2x\\pmod{2^n},\\quad x\\gg1=\\lfloor x/2\\rfloor\\)。先确认输入、当前状态或单位，再逐步代入。",
+      "\\(12\\times 2=24\\)，没有高位丢失，得到 \\(00011000\\)。"
+    ],
+    "explanation": "\\(12\\times 2=24\\)，没有高位丢失，得到 \\(00011000\\)。",
+    "source": "Lecture18_new.pdf",
+    "page": 6,
+    "week": 9,
+    "course": "EEE104",
+    "contentType": "derived-practice",
+    "sourcePages": [
+      5,
+      6,
+      11,
+      12,
+      13
+    ]
+  },
+  {
+    "id": "L18-M2-Q3",
+    "lecture": 18,
+    "module": "L18-M2",
+    "level": "intermediate",
+    "prompt": "8 位无符号 00001101 逻辑右移一位为何？",
+    "options": [
+      "00000111，即 7",
+      "00011010，即 26",
+      "10000110，即 134",
+      "00000110，即 6"
+    ],
+    "answer": 3,
+    "hints": [
+      "回顾「串入并出与移位算术」，参见 Lecture 18 PDF 第 \\(6\\) 页。",
+      "先声明无符号、位宽、补入位和溢出情况；移位不能无条件解释为精确乘除。",
+      "关键关系为 \\(x\\ll1=2x\\pmod{2^n},\\quad x\\gg1=\\lfloor x/2\\rfloor\\)。先确认输入、当前状态或单位，再逐步代入。",
+      "逻辑右移在高位补零，最低位丢弃，相当于 \\(\\operatorname{floor}(13/2)=6\\)。"
+    ],
+    "explanation": "逻辑右移在高位补零，最低位丢弃，相当于 \\(\\operatorname{floor}(13/2)=6\\)。",
+    "source": "Lecture18_new.pdf",
+    "page": 6,
+    "week": 9,
+    "course": "EEE104",
+    "contentType": "derived-practice",
+    "sourcePages": [
+      5,
+      6,
+      11,
+      12,
+      13
+    ]
+  },
+  {
+    "id": "L18-M2-Q4",
+    "lecture": 18,
+    "module": "L18-M2",
+    "level": "challenge",
+    "prompt": "8 位无符号 10000001 左移一位补零，结果及溢出说明？",
+    "options": [
+      "100000010，仍是 8 位",
+      "11000000，符号扩展",
+      "00000010，高位丢失",
+      "00000010，无任何信息损失"
+    ],
+    "answer": 2,
+    "hints": [
+      "回顾「串入并出与移位算术」，参见 Lecture 18 PDF 第 \\(6\\) 页。",
+      "先声明无符号、位宽、补入位和溢出情况；移位不能无条件解释为精确乘除。",
+      "关键关系为 \\(x\\ll1=2x\\pmod{2^n},\\quad x\\gg1=\\lfloor x/2\\rfloor\\)。先确认输入、当前状态或单位，再逐步代入。",
+      "数学值 \\(129\\times 2=258\\) 超过 \\(255\\)；固定八位仅保留 \\(258 \\operatorname{mod} 256=2\\)，最高位丢失。"
+    ],
+    "explanation": "数学值 \\(129\\times 2=258\\) 超过 \\(255\\)；固定八位仅保留 \\(258 \\operatorname{mod} 256=2\\)，最高位丢失。",
+    "source": "Lecture18_new.pdf",
+    "page": 6,
+    "week": 9,
+    "course": "EEE104",
+    "contentType": "derived-practice",
+    "sourcePages": [
+      5,
+      6,
+      11,
+      12,
+      13
+    ]
+  },
+  {
+    "id": "L18-M3-Q1",
+    "lecture": 18,
+    "module": "L18-M3",
+    "level": "basic",
+    "prompt": "PISO 的主要用途是什么？",
+    "options": [
+      "并行转串行",
+      "串行转并行",
+      "十进制转模拟",
+      "检测进位"
+    ],
+    "answer": 0,
+    "hints": [
+      "回顾「并入串出、加载与保持」，参见 Lecture 18 PDF 第 \\(14\\) 页。",
+      "按器件规定区分加载与移位模式，先标注输出位序，再列每一步寄存器状态。",
+      "关键关系为 \\(\\mathrm{parallel\\ word}\\xrightarrow{\\mathrm{load}}\\mathrm{register}\\xrightarrow{\\mathrm{shift}}\\mathrm{serial\\ bits}\\)。先确认输入、当前状态或单位，再逐步代入。",
+      "先并行加载多个 bit，再依次移出。"
+    ],
+    "explanation": "先并行加载多个 bit，再依次移出。",
+    "source": "Lecture18_new.pdf",
+    "page": 14,
+    "week": 9,
+    "course": "EEE104",
+    "contentType": "derived-practice",
+    "sourcePages": [
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22
+    ]
+  },
+  {
+    "id": "L18-M3-Q2",
+    "lecture": 18,
+    "module": "L18-M3",
+    "level": "basic",
+    "prompt": "讲义 74HC165 的 SH/LD 为 LOW，处于什么模式？",
+    "options": [
+      "移位",
+      "计数向上",
+      "二进制加法",
+      "加载"
+    ],
+    "answer": 3,
+    "hints": [
+      "回顾「并入串出、加载与保持」，参见 Lecture 18 PDF 第 \\(17\\) 页。",
+      "按器件规定区分加载与移位模式，先标注输出位序，再列每一步寄存器状态。",
+      "关键关系为 \\(\\mathrm{parallel\\ word}\\xrightarrow{\\mathrm{load}}\\mathrm{register}\\xrightarrow{\\mathrm{shift}}\\mathrm{serial\\ bits}\\)。先确认输入、当前状态或单位，再逐步代入。",
+      "第 \\(17\\) 页起说明 LOW 用来 load data。"
+    ],
+    "explanation": "第 \\(17\\) 页起说明 LOW 用来 load data。",
+    "source": "Lecture18_new.pdf",
+    "page": 17,
+    "week": 9,
+    "course": "EEE104",
+    "contentType": "derived-practice",
+    "sourcePages": [
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22
+    ]
+  },
+  {
+    "id": "L18-M3-Q3",
+    "lecture": 18,
+    "module": "L18-M3",
+    "level": "intermediate",
+    "prompt": "若并行字 1011 按 MSB 先出发送，顺序是什么？",
+    "options": [
+      "0、1、1、1",
+      "1、1、1、0",
+      "1、0、1、1",
+      "1、1、0、1"
+    ],
+    "answer": 2,
+    "hints": [
+      "回顾「并入串出、加载与保持」，参见 Lecture 18 PDF 第 \\(16\\) 页。",
+      "按器件规定区分加载与移位模式，先标注输出位序，再列每一步寄存器状态。",
+      "关键关系为 \\(\\mathrm{parallel\\ word}\\xrightarrow{\\mathrm{load}}\\mathrm{register}\\xrightarrow{\\mathrm{shift}}\\mathrm{serial\\ bits}\\)。先确认输入、当前状态或单位，再逐步代入。",
+      "明确 MSB 先出后，按从左到右读取 \\(1011\\)。"
+    ],
+    "explanation": "明确 MSB 先出后，按从左到右读取 \\(1011\\)。",
+    "source": "Lecture18_new.pdf",
+    "page": 16,
+    "week": 9,
+    "course": "EEE104",
+    "contentType": "derived-practice",
+    "sourcePages": [
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22
+    ]
+  },
+  {
+    "id": "L18-M3-Q4",
+    "lecture": 18,
+    "module": "L18-M3",
+    "level": "challenge",
+    "prompt": "4 位字加载后最高位已出现在串行输出，先读取此位，再移位读其余三位，需几次移位？",
+    "options": [
+      "0",
+      "3",
+      "4",
+      "1"
+    ],
+    "answer": 1,
+    "hints": [
+      "回顾「并入串出、加载与保持」，参见 Lecture 18 PDF 第 \\(16\\) 页。",
+      "按器件规定区分加载与移位模式，先标注输出位序，再列每一步寄存器状态。",
+      "关键关系为 \\(\\mathrm{parallel\\ word}\\xrightarrow{\\mathrm{load}}\\mathrm{register}\\xrightarrow{\\mathrm{shift}}\\mathrm{serial\\ bits}\\)。先确认输入、当前状态或单位，再逐步代入。",
+      "第一次读取利用已存在的输出；每次移位带出一个后续位，所以其余三位需要三次移位。"
+    ],
+    "explanation": "第一次读取利用已存在的输出；每次移位带出一个后续位，所以其余三位需要三次移位。",
+    "source": "Lecture18_new.pdf",
+    "page": 16,
+    "week": 9,
+    "course": "EEE104",
+    "contentType": "derived-practice",
+    "sourcePages": [
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22
+    ]
+  },
+  {
+    "id": "L19-M1-Q1",
+    "lecture": 19,
+    "module": "L19-M1",
+    "level": "basic",
+    "prompt": "本讲 74HC194 的模式 00 表示什么？",
+    "options": [
+      "加载",
+      "保持",
+      "右移",
+      "左移"
+    ],
+    "answer": 1,
+    "hints": [
+      "回顾「双向移位与通用寄存器」，参见 Lecture 19 PDF 第 \\(6\\) 页。",
+      "位序固定为 \\(Q_{3}Q2Q1Q0\\)，说明从哪一端移入以及新输入值。",
+      "关键关系为 \\(S_1S_0:\\quad00=\\mathrm{hold},\\ 01=\\mathrm{right},\\ 10=\\mathrm{left},\\ 11=\\mathrm{load}\\)。先确认输入、当前状态或单位，再逐步代入。",
+      "第 \\(6\\) 页模式表 \\(00\\) 为 Inhibit。"
+    ],
+    "explanation": "第 \\(6\\) 页模式表 \\(00\\) 为 Inhibit。",
+    "source": "Lecture19.pdf",
+    "page": 6,
+    "week": 10,
+    "course": "EEE104",
+    "contentType": "derived-practice",
+    "sourcePages": [
+      3,
+      4,
+      5,
+      6,
+      7
+    ]
+  },
+  {
+    "id": "L19-M1-Q2",
+    "lecture": 19,
+    "module": "L19-M1",
+    "level": "basic",
+    "prompt": "本讲 74HC194 的模式 11 表示什么？",
+    "options": [
+      "并行加载",
+      "保持",
+      "右移",
+      "左移"
+    ],
+    "answer": 0,
+    "hints": [
+      "回顾「双向移位与通用寄存器」，参见 Lecture 19 PDF 第 \\(6\\) 页。",
+      "位序固定为 \\(Q_{3}Q2Q1Q0\\)，说明从哪一端移入以及新输入值。",
+      "关键关系为 \\(S_1S_0:\\quad00=\\mathrm{hold},\\ 01=\\mathrm{right},\\ 10=\\mathrm{left},\\ 11=\\mathrm{load}\\)。先确认输入、当前状态或单位，再逐步代入。",
+      "模式表 \\(11\\) 对应 Load。"
+    ],
+    "explanation": "模式表 \\(11\\) 对应 Load。",
+    "source": "Lecture19.pdf",
+    "page": 6,
+    "week": 10,
+    "course": "EEE104",
+    "contentType": "derived-practice",
+    "sourcePages": [
+      3,
+      4,
+      5,
+      6,
+      7
+    ]
+  },
+  {
+    "id": "L19-M1-Q3",
+    "lecture": 19,
+    "module": "L19-M1",
+    "level": "intermediate",
+    "prompt": "Q3Q2Q1Q0=1010，逻辑右移且左端串入 0，下一状态？",
+    "options": [
+      "0100",
+      "1101",
+      "1011",
+      "0101"
+    ],
+    "answer": 3,
+    "hints": [
+      "回顾「双向移位与通用寄存器」，参见 Lecture 19 PDF 第 \\(3\\) 页。",
+      "位序固定为 \\(Q_{3}Q2Q1Q0\\)，说明从哪一端移入以及新输入值。",
+      "关键关系为 \\(S_1S_0:\\quad00=\\mathrm{hold},\\ 01=\\mathrm{right},\\ 10=\\mathrm{left},\\ 11=\\mathrm{load}\\)。先确认输入、当前状态或单位，再逐步代入。",
+      "右移后 \\(Q_{3}=0\\)，\\(Q_{2}=\\)旧\\(Q_{3}=1\\)，\\(Q_{1}=\\)旧\\(Q_{2}=0\\)，\\(Q_{0}=\\)旧\\(Q_{1}=1\\)，得到 \\(0101\\)。"
+    ],
+    "explanation": "右移后 \\(Q_{3}=0\\)，\\(Q_{2}=\\)旧\\(Q_{3}=1\\)，\\(Q_{1}=\\)旧\\(Q_{2}=0\\)，\\(Q_{0}=\\)旧\\(Q_{1}=1\\)，得到 \\(0101\\)。",
+    "source": "Lecture19.pdf",
+    "page": 3,
+    "week": 10,
+    "course": "EEE104",
+    "contentType": "derived-practice",
+    "sourcePages": [
+      3,
+      4,
+      5,
+      6,
+      7
+    ]
+  },
+  {
+    "id": "L19-M1-Q4",
+    "lecture": 19,
+    "module": "L19-M1",
+    "level": "challenge",
+    "prompt": "初始 1010，先左移补 0，再右移补 1，最终状态？",
+    "options": [
+      "1100",
+      "0010",
+      "1010",
+      "0101"
+    ],
+    "answer": 2,
+    "hints": [
+      "回顾「双向移位与通用寄存器」，参见 Lecture 19 PDF 第 \\(4\\) 页。",
+      "位序固定为 \\(Q_{3}Q2Q1Q0\\)，说明从哪一端移入以及新输入值。",
+      "关键关系为 \\(S_1S_0:\\quad00=\\mathrm{hold},\\ 01=\\mathrm{right},\\ 10=\\mathrm{left},\\ 11=\\mathrm{load}\\)。先确认输入、当前状态或单位，再逐步代入。",
+      "左移得到 \\(0100\\)；再右移并在高位补 \\(1\\)，得到 \\(1010\\)。这里高位/低位补入值是题目明确指定的。"
+    ],
+    "explanation": "左移得到 \\(0100\\)；再右移并在高位补 \\(1\\)，得到 \\(1010\\)。这里高位/低位补入值是题目明确指定的。",
+    "source": "Lecture19.pdf",
+    "page": 4,
+    "week": 10,
+    "course": "EEE104",
+    "contentType": "derived-practice",
+    "sourcePages": [
+      3,
+      4,
+      5,
+      6,
+      7
+    ]
+  },
+  {
+    "id": "L19-M2-Q1",
+    "lecture": 19,
+    "module": "L19-M2",
+    "level": "basic",
+    "prompt": "Johnson 的反馈信号是什么？",
+    "options": [
+      "末级输出的反相",
+      "末级原输出",
+      "恒为 1",
+      "外部模拟电压"
+    ],
+    "answer": 0,
+    "hints": [
+      "回顾「Johnson 反馈与有效循环」，参见 Lecture 19 PDF 第 \\(9\\) 页。",
+      "从指定有效初态开始，按同一移位方向使用末级旧输出的反相作为新输入。",
+      "关键关系为 \\(M_{\\mathrm{Johnson}}=2n\\)。先确认输入、当前状态或单位，再逐步代入。",
+      "反相反馈产生先填 \\(1\\) 再填 \\(0\\) 的循环。"
+    ],
+    "explanation": "反相反馈产生先填 \\(1\\) 再填 \\(0\\) 的循环。",
+    "source": "Lecture19.pdf",
+    "page": 9,
+    "week": 10,
+    "course": "EEE104",
+    "contentType": "derived-practice",
+    "sourcePages": [
+      8,
+      9,
+      10,
+      11,
+      12,
+      13
+    ]
+  },
+  {
+    "id": "L19-M2-Q2",
+    "lecture": 19,
+    "module": "L19-M2",
+    "level": "basic",
+    "prompt": "4 级 Johnson 正常循环多少状态？",
+    "options": [
+      "16",
+      "4",
+      "10",
+      "8"
+    ],
+    "answer": 3,
+    "hints": [
+      "回顾「Johnson 反馈与有效循环」，参见 Lecture 19 PDF 第 \\(11\\) 页。",
+      "从指定有效初态开始，按同一移位方向使用末级旧输出的反相作为新输入。",
+      "关键关系为 \\(M_{\\mathrm{Johnson}}=2n\\)。先确认输入、当前状态或单位，再逐步代入。",
+      "\\(M=2n=2\\times 4=8\\)。"
+    ],
+    "explanation": "\\(M=2n=2\\times 4=8\\)。",
+    "source": "Lecture19.pdf",
+    "page": 11,
+    "week": 10,
+    "course": "EEE104",
+    "contentType": "derived-practice",
+    "sourcePages": [
+      8,
+      9,
+      10,
+      11,
+      12,
+      13
+    ]
+  },
+  {
+    "id": "L19-M2-Q3",
+    "lecture": 19,
+    "module": "L19-M2",
+    "level": "intermediate",
+    "prompt": "实现正常模 10 Johnson 循环需几级？",
+    "options": [
+      "10",
+      "3",
+      "5",
+      "4"
+    ],
+    "answer": 2,
+    "hints": [
+      "回顾「Johnson 反馈与有效循环」，参见 Lecture 19 PDF 第 \\(12\\) 页。",
+      "从指定有效初态开始，按同一移位方向使用末级旧输出的反相作为新输入。",
+      "关键关系为 \\(M_{\\mathrm{Johnson}}=2n\\)。先确认输入、当前状态或单位，再逐步代入。",
+      "\\(2n=10\\)，因此 \\(n=5\\)。"
+    ],
+    "explanation": "\\(2n=10\\)，因此 \\(n=5\\)。",
+    "source": "Lecture19.pdf",
+    "page": 12,
+    "week": 10,
+    "course": "EEE104",
+    "contentType": "derived-practice",
+    "sourcePages": [
+      8,
+      9,
+      10,
+      11,
+      12,
+      13
+    ]
+  },
+  {
+    "id": "L19-M2-Q4",
+    "lecture": 19,
+    "module": "L19-M2",
+    "level": "challenge",
+    "prompt": "4 位 Johnson 初始 0000，定义右移且最高位输入为旧 Q0 的反相，前三个新状态为何？",
+    "options": [
+      "1000、0100、0010",
+      "1000、1100、1110",
+      "0001、0010、0100",
+      "1111、0000、1111"
+    ],
+    "answer": 1,
+    "hints": [
+      "回顾「Johnson 反馈与有效循环」，参见 Lecture 19 PDF 第 \\(9\\) 页。",
+      "从指定有效初态开始，按同一移位方向使用末级旧输出的反相作为新输入。",
+      "关键关系为 \\(M_{\\mathrm{Johnson}}=2n\\)。先确认输入、当前状态或单位，再逐步代入。",
+      "\\(Q_{0}\\) 起初为 \\(0\\)，所以新高位连续注入 \\(1\\)；按右移规则依次为 \\(1000\\)、\\(1100\\)、\\(1110\\)。"
+    ],
+    "explanation": "\\(Q_{0}\\) 起初为 \\(0\\)，所以新高位连续注入 \\(1\\)；按右移规则依次为 \\(1000\\)、\\(1100\\)、\\(1110\\)。",
+    "source": "Lecture19.pdf",
+    "page": 9,
+    "week": 10,
+    "course": "EEE104",
+    "contentType": "derived-practice",
+    "sourcePages": [
+      8,
+      9,
+      10,
+      11,
+      12,
+      13
+    ]
+  },
+  {
+    "id": "L19-M3-Q1",
+    "lecture": 19,
+    "module": "L19-M3",
+    "level": "basic",
+    "prompt": "标准 one-hot 环形计数器中有几个 1？",
+    "options": [
+      "0",
+      "n",
+      "2n",
+      "1"
+    ],
+    "answer": 3,
+    "hints": [
+      "回顾「环形计数与初始化」，参见 Lecture 19 PDF 第 \\(14\\) 页。",
+      "先置入合法 one-hot 状态，再按固定方向循环；报告状态数时注明 one-hot 假设。",
+      "关键关系为 \\(M_{\\mathrm{one\\text{-}hot\\ ring}}=n\\)。先确认输入、当前状态或单位，再逐步代入。",
+      "one-hot 的定义是恰好一位为 \\(1\\)。"
+    ],
+    "explanation": "one-hot 的定义是恰好一位为 \\(1\\)。",
+    "source": "Lecture19.pdf",
+    "page": 14,
+    "week": 10,
+    "course": "EEE104",
+    "contentType": "derived-practice",
+    "sourcePages": [
+      14,
+      15,
+      16
+    ]
+  },
+  {
+    "id": "L19-M3-Q2",
+    "lecture": 19,
+    "module": "L19-M3",
+    "level": "basic",
+    "prompt": "4 位 one-hot 环形计数器正常模数多少？",
+    "options": [
+      "16",
+      "2",
+      "4",
+      "8"
+    ],
+    "answer": 2,
+    "hints": [
+      "回顾「环形计数与初始化」，参见 Lecture 19 PDF 第 \\(14\\) 页。",
+      "先置入合法 one-hot 状态，再按固定方向循环；报告状态数时注明 one-hot 假设。",
+      "关键关系为 \\(M_{\\mathrm{one\\text{-}hot\\ ring}}=n\\)。先确认输入、当前状态或单位，再逐步代入。",
+      "一个 \\(1\\) 在四个位置循环，形成四个状态。"
+    ],
+    "explanation": "一个 \\(1\\) 在四个位置循环，形成四个状态。",
+    "source": "Lecture19.pdf",
+    "page": 14,
+    "week": 10,
+    "course": "EEE104",
+    "contentType": "derived-practice",
+    "sourcePages": [
+      14,
+      15,
+      16
+    ]
+  },
+  {
+    "id": "L19-M3-Q3",
+    "lecture": 19,
+    "module": "L19-M3",
+    "level": "intermediate",
+    "prompt": "环形计数器从 0000 开始会怎样？",
+    "options": [
+      "必然出现毛刺变为 1",
+      "始终 0000",
+      "自动变为 0001",
+      "自动进入 Johnson 循环"
+    ],
+    "answer": 1,
+    "hints": [
+      "回顾「环形计数与初始化」，参见 Lecture 19 PDF 第 \\(14\\) 页。",
+      "先置入合法 one-hot 状态，再按固定方向循环；报告状态数时注明 one-hot 假设。",
+      "关键关系为 \\(M_{\\mathrm{one\\text{-}hot\\ ring}}=n\\)。先确认输入、当前状态或单位，再逐步代入。",
+      "原输出零反馈到输入，所有位继续保持零，所以需要正确预置。"
+    ],
+    "explanation": "原输出零反馈到输入，所有位继续保持零，所以需要正确预置。",
+    "source": "Lecture19.pdf",
+    "page": 14,
+    "week": 10,
+    "course": "EEE104",
+    "contentType": "derived-practice",
+    "sourcePages": [
+      14,
+      15,
+      16
+    ]
+  },
+  {
+    "id": "L19-M3-Q4",
+    "lecture": 19,
+    "module": "L19-M3",
+    "level": "challenge",
+    "prompt": "4 位 one-hot 环形右移，初始 1000，经过 5 次移位后是什么？",
+    "options": [
+      "0100",
+      "1000",
+      "0010",
+      "0001"
+    ],
+    "answer": 0,
+    "hints": [
+      "回顾「环形计数与初始化」，参见 Lecture 19 PDF 第 \\(15\\) 页。",
+      "先置入合法 one-hot 状态，再按固定方向循环；报告状态数时注明 one-hot 假设。",
+      "关键关系为 \\(M_{\\mathrm{one\\text{-}hot\\ ring}}=n\\)。先确认输入、当前状态或单位，再逐步代入。",
+      "循环为 \\(1000\\to 0100\\to 0010\\to 0001\\to 1000\\)；五次相当于一次，得到 \\(0100\\)。"
+    ],
+    "explanation": "循环为 \\(1000\\to 0100\\to 0010\\to 0001\\to 1000\\)；五次相当于一次，得到 \\(0100\\)。",
+    "source": "Lecture19.pdf",
+    "page": 15,
+    "week": 10,
+    "course": "EEE104",
+    "contentType": "derived-practice",
+    "sourcePages": [
+      14,
+      15,
+      16
+    ]
+  }
+]

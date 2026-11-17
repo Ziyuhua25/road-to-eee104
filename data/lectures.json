@@ -1,0 +1,4086 @@
+[
+  {
+    "id": 1,
+    "title": "数字系统、逻辑电平与波形",
+    "source": "Lecture01.pdf",
+    "objectives": [
+      "理解并能应用连续量、离散量与转换链",
+      "理解并能应用二进制与逻辑电平",
+      "理解并能应用周期、频率与占空比"
+    ],
+    "modules": [
+      {
+        "id": "L1-M1",
+        "title": "连续量、离散量与转换链",
+        "pages": [
+          5,
+          7,
+          10,
+          16
+        ],
+        "explanation": "<p>模拟量能连续变化，数字表示使用离散的符号或数值。温度传感器先把温度转换为电压，ADC 把电压转换成数字码；数字系统处理后，若需要驱动物理世界，再经 DAC 与执行器输出。</p><p>采样把时间离散化，量化把幅度离散化。这两个操作应分别理解。数字系统依然要面对转换精度和处理时间的限制。</p>",
+        "formula": "\\mathrm{physical}\\to\\mathrm{sensor}\\to\\mathrm{ADC}\\to\\mathrm{digital}",
+        "conditions": "先判断信号属于物理量、模拟电压还是数字编码，再选择转换模块。",
+        "misconceptions": [
+          "不要将采样与幅度量化混为同一个操作。"
+        ],
+        "examples": [
+          {
+            "level": "Basic",
+            "question": "给麦克风录音链路排序：数字存储、声压、ADC、传感器电压。",
+            "solution": "<p>声压由麦克风转换为连续电压，ADC 再把模拟电压编码，最后数字存储。先识别物理域和电气域，随后识别模拟域和数字域。</p>",
+            "source": "Lecture01.pdf",
+            "page": 5,
+            "sourcePages": [
+              5,
+              7,
+              10,
+              16
+            ],
+            "authorship": "课程原理衍生例题，非官方试题"
+          },
+          {
+            "level": "Intermediate",
+            "question": "数字温控器要读取室温并控制电热器，解释输入与输出通路。",
+            "solution": "<p>输入侧为温度传感器→模拟电压→\\(\\mathrm{ADC}\\to \\)数字控制。输出侧根据执行器接口选择合适驱动；若输出要求模拟控制量，则由 DAC 转换后驱动。不能假定所有电热器接口都必须 DAC。</p>",
+            "source": "Lecture01.pdf",
+            "page": 5,
+            "sourcePages": [
+              5,
+              7,
+              10,
+              16
+            ],
+            "authorship": "课程原理衍生例题，非官方试题"
+          },
+          {
+            "level": "Advanced",
+            "question": "一个系统每隔 2 ms 记录一次电压，并四舍五入到 0.1 V。指出两个离散化环节。",
+            "solution": "<p>每隔 \\(2 \\mathrm{ms}\\) 是时间采样，\\(0.1 V\\) 的分档是幅度量化。电压原值 \\(1.24 V\\) 在该明确舍入规则下记成 \\(1.2 V\\)；\\(1.26 V\\) 记成 \\(1.3 V\\)。两种离散化独立发生。</p>",
+            "source": "Lecture01.pdf",
+            "page": 5,
+            "sourcePages": [
+              5,
+              7,
+              10,
+              16
+            ],
+            "authorship": "课程原理衍生例题，非官方试题"
+          }
+        ],
+        "dependency": null,
+        "learningOrder": "连续量、离散量与转换链 → 二进制与逻辑电平 → 周期、频率与占空比"
+      },
+      {
+        "id": "L1-M2",
+        "title": "二进制与逻辑电平",
+        "pages": [
+          13,
+          17,
+          18
+        ],
+        "explanation": "<p>一个 bit 只有 \\(0\\) 和 \\(1\\) 两个逻辑值，但电路中的电压是连续物理量。接收器用允许区间解释 LOW/HIGH，因此小幅噪声不一定改变逻辑判断。</p><p>本讲给出的 TTL 输入范围是 \\(\\mathrm{LOW} 0-0.8 V\\)、\\(\\mathrm{HIGH} 2-5 V\\)，中间区域不能保证识别结果。反相器把 HIGH 变 LOW，把 LOW 变 HIGH。</p>",
+        "formula": "Y=\\overline A",
+        "conditions": "本模块电压区间仅针对讲义给出的 TTL 条件，不能推广到所有 CMOS 器件。",
+        "misconceptions": [
+          "1.2 V 处于未定义区，不能按离 0 更近就判 LOW。"
+        ],
+        "examples": [
+          {
+            "level": "Basic",
+            "question": "本讲 TTL 输入为 2.5 V，判定逻辑值。",
+            "solution": "<p>\\(2.5 V\\) 位于 \\(2-5 V\\) 的允许 HIGH 区间，因此解释为逻辑 \\(1\\)。</p>",
+            "source": "Lecture01.pdf",
+            "page": 13,
+            "sourcePages": [
+              13,
+              17,
+              18
+            ],
+            "authorship": "课程原理衍生例题，非官方试题"
+          },
+          {
+            "level": "Intermediate",
+            "question": "TTL 输入从 0.4 V 受扰动升至 0.7 V，是否仍在给定 LOW 区间？",
+            "solution": "<p>\\(0.4 V\\) 和 \\(0.7 V\\) 都低于 \\(0.8 V\\) 上界，仍在给定 LOW 输入区。此判断不等于对任意大小噪声都免疫。</p>",
+            "source": "Lecture01.pdf",
+            "page": 13,
+            "sourcePages": [
+              13,
+              17,
+              18
+            ],
+            "authorship": "课程原理衍生例题，非官方试题"
+          },
+          {
+            "level": "Advanced",
+            "question": "同一 1.5 V 输入接到未知器件，仅凭本讲 TTL 表能否保证其输出？",
+            "solution": "<p>不能。若按该 TTL 输入表，\\(1.5 V\\) 已在未定义区；未知器件还可能有其他阈值。需要具体系列、供电和输入规范，不能按“接近零”作逻辑判断。</p>",
+            "source": "Lecture01.pdf",
+            "page": 13,
+            "sourcePages": [
+              13,
+              17,
+              18
+            ],
+            "authorship": "课程原理衍生例题，非官方试题"
+          }
+        ],
+        "dependency": "L1-M1",
+        "learningOrder": "连续量、离散量与转换链 → 二进制与逻辑电平 → 周期、频率与占空比"
+      },
+      {
+        "id": "L1-M3",
+        "title": "周期、频率与占空比",
+        "pages": [
+          19,
+          20,
+          21,
+          22,
+          23
+        ],
+        "explanation": "<p>周期 T 是波形完整重复一次的时间，频率 f 表示每秒重复次数，所以二者互为倒数。高电平持续时间除以整个周期得到占空比。</p><p>真实脉冲有过渡时间：上升时间按幅度 \\(10\\%\\) 到 \\(90\\%\\) 测量，下降时间按 \\(90\\%\\) 到 \\(10\\%\\)，脉宽在 \\(50\\%\\) 两个交点之间测量。画时序图时，应对齐共同时间轴。</p>",
+        "formula": "f=\\frac1T,\\qquad D=\\frac{t_w}{T}\\times100\\%",
+        "conditions": "先把时间统一为秒；占空比计算使用同一单位的脉宽与周期。",
+        "misconceptions": [
+          "脉宽不等于周期，上升时间也不是从 0% 量到 100%。"
+        ],
+        "examples": [
+          {
+            "level": "Basic",
+            "question": "周期 4 ms，求频率。",
+            "solution": "<p>选用 \\(f=1/T\\)。先换单位 \\(T=4\\times10^{-3}\\,s\\)，代入得到 \\(f=250\\,Hz\\)。</p>",
+            "source": "Lecture01.pdf",
+            "page": 19,
+            "sourcePages": [
+              19,
+              20,
+              21,
+              22,
+              23
+            ],
+            "authorship": "课程原理衍生例题，非官方试题"
+          },
+          {
+            "level": "Intermediate",
+            "question": "周期 8 μs，高电平持续 2 μs，求占空比。",
+            "solution": "<p>\\(D=t_w/T\\times100\\%=2/8\\times100\\%=25\\%\\)。这里两个时间都用 μs，单位相消。</p>",
+            "source": "Lecture01.pdf",
+            "page": 19,
+            "sourcePages": [
+              19,
+              20,
+              21,
+              22,
+              23
+            ],
+            "authorship": "课程原理衍生例题，非官方试题"
+          },
+          {
+            "level": "Advanced",
+            "question": "方波频率 25 kHz，占空比 35%，求高、低持续时间。",
+            "solution": "<p>\\(T=1/(25\\times10^3)=40\\,\\mu s\\)。\\(t_H=0.35T=14\\,\\mu s\\)，\\(t_L=T-t_H=26\\,\\mu s\\)。检查二者和等于周期。</p>",
+            "source": "Lecture01.pdf",
+            "page": 19,
+            "sourcePages": [
+              19,
+              20,
+              21,
+              22,
+              23
+            ],
+            "authorship": "课程原理衍生例题，非官方试题"
+          }
+        ],
+        "dependency": "L1-M2",
+        "learningOrder": "连续量、离散量与转换链 → 二进制与逻辑电平 → 周期、频率与占空比"
+      }
+    ],
+    "glossary": [
+      [
+        "Analog",
+        "模拟"
+      ],
+      [
+        "Digital",
+        "数字"
+      ],
+      [
+        "Duty cycle",
+        "占空比"
+      ]
+    ],
+    "summary": "连续量、离散量与转换链 → 二进制与逻辑电平 → 周期、频率与占空比",
+    "templates": [
+      "连续量、离散量与转换链：先判断信号属于物理量、模拟电压还是数字编码，再选择转换模块。",
+      "二进制与逻辑电平：本模块电压区间仅针对讲义给出的 TTL 条件，不能推广到所有 CMOS 器件。",
+      "周期、频率与占空比：先把时间统一为秒；占空比计算使用同一单位的脉宽与周期。"
+    ],
+    "contentNote": "解释、例题与练习由课程材料推导编写；例题数值为教学自拟，非官方试题。引用统一使用 PDF 实际页码。原图和波形应结合源文件核对。",
+    "week": 1,
+    "weekSource": "https://core.xjtlu.edu.cn/course/view.php?id=936",
+    "nextSteps": "先用自己的话解释本讲每个模块，再完成基础、应用和挑战题；对错题回到引用页检查概念与条件。掌握后沿课程知识地图进入后续内容。",
+    "dependencies": [],
+    "sourceType": "current-course-pdf"
+  },
+  {
+    "id": 2,
+    "title": "二进制数、进制转换与算术",
+    "source": "Lecture02.pdf",
+    "objectives": [
+      "理解并能应用位权与数值范围",
+      "理解并能应用十进制转二进制",
+      "理解并能应用二进制四则运算"
+    ],
+    "modules": [
+      {
+        "id": "L2-M1",
+        "title": "位权与数值范围",
+        "pages": [
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "explanation": "<p>位置决定权重。无符号二进制整数从右到左的位权是 \\(1\\)、\\(2\\)、\\(4\\)、\\(8\\ldots \\ldots \\)，小数点右边是 \\(1/2\\)、\\(1/4\\ldots \\ldots \\)。把所有为 \\(1\\) 的位权相加得到十进制数。</p><p>n 位有 \\(2^{n}\\) 种组合，包含零，因此最大无符号值是 \\(2^{n}-1\\)。就像里程表的每一位，左移一位改变的是位权。</p>",
+        "formula": "N=\\sum_{i=-m}^{n-1}b_i2^i,\\quad 0\\le N_{\\mathrm{integer}}\\le2^n-1",
+        "conditions": "先说明无符号解释和二进制小数点位置。",
+        "misconceptions": [
+          "2ⁿ 是组合数，最大值应再减一。"
+        ],
+        "examples": [
+          {
+            "level": "Basic",
+            "question": "求 110₂ 的十进制值。",
+            "solution": "<p>从右起位权为 \\(1\\)、\\(2\\)、\\(4\\)。\\(110_2=4+2=6_{10}\\)。</p>",
+            "source": "Lecture02.pdf",
+            "page": 3,
+            "sourcePages": [
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "authorship": "课程原理衍生例题，非官方试题"
+          },
+          {
+            "level": "Intermediate",
+            "question": "求 11.011₂ 的十进制值。",
+            "solution": "<p>整数部分 \\(2+1=3\\)，小数部分 \\(0/2+1/4+1/8=0.375\\)，总计 \\(3.375\\)。</p>",
+            "source": "Lecture02.pdf",
+            "page": 3,
+            "sourcePages": [
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "authorship": "课程原理衍生例题，非官方试题"
+          },
+          {
+            "level": "Advanced",
+            "question": "一个编码器要表示 0…1000，至少多少无符号位？",
+            "solution": "<p>要求 \\(2^n-1\\ge1000\\)。\\(2^9-1=511\\) 不够，\\(2^{10}-1=1023\\) 足够，故最小 \\(n=10\\)。</p>",
+            "source": "Lecture02.pdf",
+            "page": 3,
+            "sourcePages": [
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "authorship": "课程原理衍生例题，非官方试题"
+          }
+        ],
+        "dependency": null,
+        "learningOrder": "位权与数值范围 → 十进制转二进制 → 二进制四则运算"
+      },
+      {
+        "id": "L2-M2",
+        "title": "十进制转二进制",
+        "pages": [
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "explanation": "<p>整数反复除以 \\(2\\)，余数依次提供最低位到最高位，所以读出时要倒序。小数反复乘以 \\(2\\)，每次取整数部分，得到从小数点后第一位开始的顺序。</p><p>例如 \\(0.625\\times 2=1.25\\)，取 \\(1\\)；\\(0.25\\times 2=0.5\\)，取 \\(0\\)；\\(0.5\\times 2=1\\)，取 \\(1\\)，得到 \\(0.101_{2}\\)。有限十进制小数不一定有有限二进制表示。</p>",
+        "formula": "N=2q+r,\\quad r\\in\\{0,1\\}",
+        "conditions": "整数余数倒序，小数乘积整数部分顺序；最后按位权回代验证。",
+        "misconceptions": [
+          "不要把整数除二法的读数顺序套到小数乘二法。"
+        ],
+        "examples": [
+          {
+            "level": "Basic",
+            "question": "将十进制 18 转二进制。",
+            "solution": "<p>\\(18=16+2\\)，按位权 \\(16\\)、\\(8\\)、\\(4\\)、\\(2\\)、\\(1\\) 写出 \\(10010_2\\)。</p>",
+            "source": "Lecture02.pdf",
+            "page": 8,
+            "sourcePages": [
+              8,
+              9,
+              10,
+              11,
+              12
+            ],
+            "authorship": "课程原理衍生例题，非官方试题"
+          },
+          {
+            "level": "Intermediate",
+            "question": "将 0.8125 转为二进制。",
+            "solution": "<p>连续乘 \\(2\\)：\\(1.625\\to \\)取\\(1\\)；\\(1.25\\to \\)取\\(1\\)；\\(0.5\\to \\)取\\(0\\)；\\(1.0\\to \\)取\\(1\\)。得到 \\(0.1101_2\\)，验算 \\(1/2+1/4+1/16=0.8125\\)。</p>",
+            "source": "Lecture02.pdf",
+            "page": 8,
+            "sourcePages": [
+              8,
+              9,
+              10,
+              11,
+              12
+            ],
+            "authorship": "课程原理衍生例题，非官方试题"
+          },
+          {
+            "level": "Advanced",
+            "question": "将 19.6875 转二进制并验算。",
+            "solution": "<p>整数 \\(19=16+2+1\\to10011\\)。小数 \\(0.6875=1/2+1/8+1/16\\to.1011\\)。组合为 \\(10011.1011_2\\)。</p>",
+            "source": "Lecture02.pdf",
+            "page": 8,
+            "sourcePages": [
+              8,
+              9,
+              10,
+              11,
+              12
+            ],
+            "authorship": "课程原理衍生例题，非官方试题"
+          }
+        ],
+        "dependency": "L2-M1",
+        "learningOrder": "位权与数值范围 → 十进制转二进制 → 二进制四则运算"
+      },
+      {
+        "id": "L2-M3",
+        "title": "二进制四则运算",
+        "pages": [
+          13,
+          14,
+          15,
+          16
+        ],
+        "explanation": "<p>二进制加法每满 \\(2\\) 进一位，减法从高一位借到的是本位的两个单位。乘法按乘数每一位生成左移的部分积，再求和。除法沿用长除法的比较、相减和移位。</p><p>用十进制验算能发现进位或位移错误，但书写过程应保持原来的进制和位宽。</p>",
+        "formula": "1_2+1_2=10_2,\\quad A\\times2^k=A\\ll k",
+        "conditions": "先按无符号算术计算；如果限制存储位宽，要单独报告超出位宽的进位。",
+        "misconceptions": [
+          "1+1=10 是二进制数值相加；布尔 OR 中 1+1=1。"
+        ],
+        "examples": [
+          {
+            "level": "Basic",
+            "question": "计算 11₂+10₂。",
+            "solution": "<p>个位 \\(1+0=1\\)，二位 \\(1+1=10\\) 进一，得到 \\(101_2=5\\)。</p>",
+            "source": "Lecture02.pdf",
+            "page": 13,
+            "sourcePages": [
+              13,
+              14,
+              15,
+              16
+            ],
+            "authorship": "课程原理衍生例题，非官方试题"
+          },
+          {
+            "level": "Intermediate",
+            "question": "计算 1010₂−0011₂。",
+            "solution": "<p>\\(10-3=7\\)。按二进制借位求得 \\(0111_2\\)；反向验证 \\(0111+0011=1010\\)。</p>",
+            "source": "Lecture02.pdf",
+            "page": 13,
+            "sourcePages": [
+              13,
+              14,
+              15,
+              16
+            ],
+            "authorship": "课程原理衍生例题，非官方试题"
+          },
+          {
+            "level": "Advanced",
+            "question": "计算 110₂×111₂。",
+            "solution": "<p>按乘数三位各为 \\(1\\)，部分积为 \\(110,1100,11000\\)。相加 \\(101010_2\\)；十进制验证 \\(6\\times7=42\\)。</p>",
+            "source": "Lecture02.pdf",
+            "page": 13,
+            "sourcePages": [
+              13,
+              14,
+              15,
+              16
+            ],
+            "authorship": "课程原理衍生例题，非官方试题"
+          }
+        ],
+        "dependency": "L2-M2",
+        "learningOrder": "位权与数值范围 → 十进制转二进制 → 二进制四则运算"
+      }
+    ],
+    "glossary": [
+      [
+        "MSB",
+        "最高有效位"
+      ],
+      [
+        "LSB",
+        "最低有效位"
+      ],
+      [
+        "Carry",
+        "进位"
+      ]
+    ],
+    "summary": "位权与数值范围 → 十进制转二进制 → 二进制四则运算",
+    "templates": [
+      "位权与数值范围：先说明无符号解释和二进制小数点位置。",
+      "十进制转二进制：整数余数倒序，小数乘积整数部分顺序；最后按位权回代验证。",
+      "二进制四则运算：先按无符号算术计算；如果限制存储位宽，要单独报告超出位宽的进位。"
+    ],
+    "contentNote": "解释、例题与练习由课程材料推导编写；例题数值为教学自拟，非官方试题。引用统一使用 PDF 实际页码。原图和波形应结合源文件核对。",
+    "week": 1,
+    "weekSource": "https://core.xjtlu.edu.cn/course/view.php?id=936",
+    "nextSteps": "先用自己的话解释本讲每个模块，再完成基础、应用和挑战题；对错题回到引用页检查概念与条件。掌握后沿课程知识地图进入后续内容。",
+    "dependencies": [
+      1
+    ],
+    "sourceType": "current-course-pdf"
+  },
+  {
+    "id": 3,
+    "title": "补码、十六进制与 BCD",
+    "source": "Lecture03.pdf",
+    "objectives": [
+      "理解并能应用反码和补码",
+      "理解并能应用十六进制的紧凑编码",
+      "理解并能应用8421 BCD 与修正加法"
+    ],
+    "modules": [
+      {
+        "id": "L3-M1",
+        "title": "反码和补码",
+        "pages": [
+          3,
+          4
+        ],
+        "explanation": "<p>反码是固定字长内逐位取反。补码在反码上再加 \\(1\\)，超出字长的进位不保留。它把减法转换成模 \\(2^{n}\\) 的加法，为下一讲的有符号运算打基础。</p><p>对非零 n 位整数 x，补码位型表示 \\(2^{n}-x\\)。必须先固定字长，否则最高位和取反结果没有唯一含义。</p>",
+        "formula": "(-x)\\bmod2^n=(\\overline{x}+1)\\bmod2^n",
+        "conditions": "固定 n 位后取反再加一，保留 n 位。",
+        "misconceptions": [
+          "按位取反只得到反码，不能漏掉加 1。"
+        ],
+        "examples": [
+          {
+            "level": "Basic",
+            "question": "求 8 位 00001001 的反码。",
+            "solution": "<p>逐位交换 \\(0\\) 与 \\(1\\)，得到 \\(11110110\\)。这里仅求反码，因此不加一。</p>",
+            "source": "Lecture03.pdf",
+            "page": 3,
+            "sourcePages": [
+              3,
+              4
+            ],
+            "authorship": "课程原理衍生例题，非官方试题"
+          },
+          {
+            "level": "Intermediate",
+            "question": "求同一位型 00001001 的 8 位补码。",
+            "solution": "<p>反码 \\(11110110\\)，加 \\(1\\) 得 \\(11110111\\)。与原位型相加得 \\(1\\,00000000\\)，低八位为零。</p>",
+            "source": "Lecture03.pdf",
+            "page": 3,
+            "sourcePages": [
+              3,
+              4
+            ],
+            "authorship": "课程原理衍生例题，非官方试题"
+          },
+          {
+            "level": "Advanced",
+            "question": "说明固定 5 位中对 00110 连续两次取补码的结果。",
+            "solution": "<p>第一次取反 \\(11001\\) 加一→\\(11010\\)；第二次取反 \\(00101\\) 加一→\\(00110\\)，恢复原位型。每次都保留五位。</p>",
+            "source": "Lecture03.pdf",
+            "page": 3,
+            "sourcePages": [
+              3,
+              4
+            ],
+            "authorship": "课程原理衍生例题，非官方试题"
+          }
+        ],
+        "dependency": null,
+        "learningOrder": "反码和补码 → 十六进制的紧凑编码 → 8421 BCD 与修正加法"
+      },
+      {
+        "id": "L3-M2",
+        "title": "十六进制的紧凑编码",
+        "pages": [
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "explanation": "<p>十六进制使用 \\(0-9\\) 和 A–F，每一位恰好对应 \\(4\\) 个二进制位。以小数点为边界，每四位分组即可互换。整数分组不足四位时在左端补零。</p><p>十六进制仍是位置计数制，各位权重为 \\(16\\) 的幂。整数转十六进制用除 \\(16\\) 取余，余数倒序排列。</p>",
+        "formula": "N=\\sum_i h_i16^i,\\quad16=2^4",
+        "conditions": "四位二进制对应一位十六进制；A–F 对应十进制 10–15。",
+        "misconceptions": [
+          "十六进制 A 是数值 10，不能当成十进制中的一位字符 1 和 0。"
+        ],
+        "examples": [
+          {
+            "level": "Basic",
+            "question": "把十六进制 3C 写为二进制。",
+            "solution": "<p>\\(3\\to 0011\\)，\\(C\\to 1100\\)，拼接得到 \\(00111100₂\\)。</p>",
+            "source": "Lecture03.pdf",
+            "page": 5,
+            "sourcePages": [
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12
+            ],
+            "authorship": "课程原理衍生例题，非官方试题"
+          },
+          {
+            "level": "Intermediate",
+            "question": "将 1B4₁₆ 转十进制。",
+            "solution": "<p>\\(1\\times16^2+11\\times16+4=256+176+4=436\\)。注意 B 表示 \\(11\\)。</p>",
+            "source": "Lecture03.pdf",
+            "page": 5,
+            "sourcePages": [
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12
+            ],
+            "authorship": "课程原理衍生例题，非官方试题"
+          },
+          {
+            "level": "Advanced",
+            "question": "计算 7D₁₆+2A₁₆。",
+            "solution": "<p>低位 \\(D+A=13+10=23\\)，写\\(7\\)进\\(1\\)；高位 \\(7+2+1=10\\)，写A，得到 \\(A7\\)。验算 \\(125+42=167=\\mathrm{A7}_{16}\\)。</p>",
+            "source": "Lecture03.pdf",
+            "page": 5,
+            "sourcePages": [
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12
+            ],
+            "authorship": "课程原理衍生例题，非官方试题"
+          }
+        ],
+        "dependency": "L3-M1",
+        "learningOrder": "反码和补码 → 十六进制的紧凑编码 → 8421 BCD 与修正加法"
+      },
+      {
+        "id": "L3-M3",
+        "title": "8421 BCD 与修正加法",
+        "pages": [
+          13,
+          14,
+          15,
+          16
+        ],
+        "explanation": "<p>BCD 将每一位十进制数字独立转换成 \\(4\\) 位二进制。\\(45\\) 的 BCD 是 \\(0100 0101\\)，而普通二进制是 \\(101101\\)，二者编码规则不同。</p><p>每个 BCD 半字节只允许 \\(0000-1001\\)。相加后若出现 \\(1010-1111\\)，或产生四位组之外的进位，应加 \\(0110\\) 跳过六个无效码。</p>",
+        "formula": "\\text{BCD correction}:\\quad s>9\\ \\text{or carry}\\Rightarrow s+0110_2",
+        "conditions": "每四位是一位十进制；检查原始四位和以及进位再决定是否加六。",
+        "misconceptions": [
+          "即使低四位小于 10，只要产生原始进位仍需要修正。"
+        ],
+        "examples": [
+          {
+            "level": "Basic",
+            "question": "写出十进制 26 的 BCD。",
+            "solution": "<p>\\(2\\to 0010\\)、\\(6\\to 0110\\)，所以得到 \\(0010 0110\\)。两个四位组分别代表十位和个位。</p>",
+            "source": "Lecture03.pdf",
+            "page": 13,
+            "sourcePages": [
+              13,
+              14,
+              15,
+              16
+            ],
+            "authorship": "课程原理衍生例题，非官方试题"
+          },
+          {
+            "level": "Intermediate",
+            "question": "用 BCD 计算 8+4。",
+            "solution": "<p>\\(1000+0100=1100\\)，超过 \\(1001\\)，需加 \\(0110\\)，得到 \\(1 0010\\)；整理成 \\(0001 0010\\)，表示 \\(12\\)。</p>",
+            "source": "Lecture03.pdf",
+            "page": 13,
+            "sourcePages": [
+              13,
+              14,
+              15,
+              16
+            ],
+            "authorship": "课程原理衍生例题，非官方试题"
+          },
+          {
+            "level": "Advanced",
+            "question": "用 BCD 计算 38+47。",
+            "solution": "<p>个位 \\(8+7=15\\)，\\(1111\\) 加 \\(0110\\) 得 \\(1 0101\\)，个位为\\(5\\)并向十位进\\(1\\)。十位\\(3+4+1=8\\)，不用修正。结果 \\(1000 0101\\)，即\\(85\\)。</p>",
+            "source": "Lecture03.pdf",
+            "page": 13,
+            "sourcePages": [
+              13,
+              14,
+              15,
+              16
+            ],
+            "authorship": "课程原理衍生例题，非官方试题"
+          }
+        ],
+        "dependency": "L3-M2",
+        "learningOrder": "反码和补码 → 十六进制的紧凑编码 → 8421 BCD 与修正加法"
+      }
+    ],
+    "glossary": [
+      [
+        "1’s complement",
+        "反码"
+      ],
+      [
+        "2’s complement",
+        "二进制补码"
+      ],
+      [
+        "BCD",
+        "二进制编码十进制"
+      ]
+    ],
+    "summary": "反码和补码 → 十六进制的紧凑编码 → 8421 BCD 与修正加法",
+    "templates": [
+      "反码和补码：固定 n 位后取反再加一，保留 n 位。",
+      "十六进制的紧凑编码：四位二进制对应一位十六进制；A–F 对应十进制 10–15。",
+      "8421 BCD 与修正加法：每四位是一位十进制；检查原始四位和以及进位再决定是否加六。"
+    ],
+    "contentNote": "解释、例题与练习由课程材料推导编写；例题数值为教学自拟，非官方试题。引用统一使用 PDF 实际页码。原图和波形应结合源文件核对。",
+    "week": 2,
+    "weekSource": "https://core.xjtlu.edu.cn/course/view.php?id=936",
+    "nextSteps": "先用自己的话解释本讲每个模块，再完成基础、应用和挑战题；对错题回到引用页检查概念与条件。掌握后沿课程知识地图进入后续内容。",
+    "dependencies": [
+      2
+    ],
+    "sourceType": "current-course-pdf"
+  },
+  {
+    "id": 4,
+    "title": "有符号数与补码算术",
+    "source": "Lecture04.pdf",
+    "objectives": [
+      "理解并能应用符号权重、范围与扩展",
+      "理解并能应用加减与溢出判断",
+      "理解并能应用有符号乘除"
+    ],
+    "modules": [
+      {
+        "id": "L4-M1",
+        "title": "符号权重、范围与扩展",
+        "pages": [
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "explanation": "<p>补码最高位具有负权重。\\(8\\) 位 \\(11100111\\) 表示 \\(-128+64+32+4+2+1=-25\\)。正数最高位为零，负数最高位为一。</p><p>扩位时复制符号位：正数补 \\(0\\)，负数补 \\(1\\)。这样新增加的负权和正权相抵，数值保持不变。</p>",
+        "formula": "x=-b_{n-1}2^{n-1}+\\sum_{i=0}^{n-2}b_i2^i,\\quad-2^{n-1}\\le x\\le2^{n-1}-1",
+        "conditions": "先确认补码和字长；扩展复制原符号位。",
+        "misconceptions": [
+          "补码最高位不是可独立拆除的负号。"
+        ],
+        "examples": [
+          {
+            "level": "Basic",
+            "question": "求 4 位补码 1110 的值。",
+            "solution": "<p>\\(-8+4+2=-2\\)。也可取补码得 \\(0010\\)，确认大小为\\(2\\)、原数为负。</p>",
+            "source": "Lecture04.pdf",
+            "page": 3,
+            "sourcePages": [
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9
+            ],
+            "authorship": "课程原理衍生例题，非官方试题"
+          },
+          {
+            "level": "Intermediate",
+            "question": "把 5 位补码 11001 扩展到 8 位并求值。",
+            "solution": "<p>原最高位为\\(1\\)，补三个\\(1\\to 11111001\\)。五位值 \\(-16+8+1=-7\\)，八位扩展后仍为\\(-7\\)。</p>",
+            "source": "Lecture04.pdf",
+            "page": 3,
+            "sourcePages": [
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9
+            ],
+            "authorship": "课程原理衍生例题，非官方试题"
+          },
+          {
+            "level": "Advanced",
+            "question": "要用补码覆盖 −200…+200，最少多少位？",
+            "solution": "<p>\\(8\\)位范围 \\(-128\\ldots 127\\) 不够。\\(9\\)位范围 \\(-2^8\\) 到 \\(2^8-1\\)，即\\(-256\\ldots 255\\)，故需\\(9\\)位。</p>",
+            "source": "Lecture04.pdf",
+            "page": 3,
+            "sourcePages": [
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9
+            ],
+            "authorship": "课程原理衍生例题，非官方试题"
+          }
+        ],
+        "dependency": null,
+        "learningOrder": "符号权重、范围与扩展 → 加减与溢出判断 → 有符号乘除"
+      },
+      {
+        "id": "L4-M2",
+        "title": "加减与溢出判断",
+        "pages": [
+          10,
+          11,
+          12,
+          13,
+          14
+        ],
+        "explanation": "<p>补码加法直接逐位相加，丢弃字长外的进位。减法 \\(A-B\\) 先把 B 取补码再相加。</p><p>同号相加得到异号结果才说明有符号溢出。最高位进位是无符号视角的概念，不能单独作为补码溢出的依据。</p>",
+        "formula": "A-B=A+(\\overline B+1)\\pmod{2^n}",
+        "conditions": "统一位宽；先计算位型，再用操作数与结果符号判断溢出。",
+        "misconceptions": [
+          "丢弃最高进位并不保证有符号结果正确。"
+        ],
+        "examples": [
+          {
+            "level": "Basic",
+            "question": "4 位补码计算 2+(−1)。",
+            "solution": "<p>\\(0010+1111=1 0001\\)，丢弃字长外进位，结果\\(0001\\)，即\\(1\\)。异号相加不会发生同号溢出。</p>",
+            "source": "Lecture04.pdf",
+            "page": 10,
+            "sourcePages": [
+              10,
+              11,
+              12,
+              13,
+              14
+            ],
+            "authorship": "课程原理衍生例题，非官方试题"
+          },
+          {
+            "level": "Intermediate",
+            "question": "4 位补码计算 5−3。",
+            "solution": "<p>\\(5\\)为\\(0101\\)；\\(3\\)为\\(0011\\)，负\\(3\\)为\\(1101\\)。\\(0101+1101=1 0010\\)，低四位\\(0010\\)，即\\(2\\)。</p>",
+            "source": "Lecture04.pdf",
+            "page": 10,
+            "sourcePages": [
+              10,
+              11,
+              12,
+              13,
+              14
+            ],
+            "authorship": "课程原理衍生例题，非官方试题"
+          },
+          {
+            "level": "Advanced",
+            "question": "4 位补码计算 −6+(−5)，同时解释位型与数学结果。",
+            "solution": "<p>\\(-6\\)为\\(1010\\)，\\(-5\\)为\\(1011\\)，相加为\\(1 0101\\)，低四位\\(0101\\)会解释为+\\(5\\)。真实结果\\(-11\\)超出\\(-8\\ldots 7\\)；同为负数却得正号，发生溢出。</p>",
+            "source": "Lecture04.pdf",
+            "page": 10,
+            "sourcePages": [
+              10,
+              11,
+              12,
+              13,
+              14
+            ],
+            "authorship": "课程原理衍生例题，非官方试题"
+          }
+        ],
+        "dependency": "L4-M1",
+        "learningOrder": "符号权重、范围与扩展 → 加减与溢出判断 → 有符号乘除"
+      },
+      {
+        "id": "L4-M3",
+        "title": "有符号乘除",
+        "pages": [
+          15,
+          16,
+          17
+        ],
+        "explanation": "<p>课件的部分积方法先计算两数绝对值的乘积，再根据符号确定结果。异号取负，同号取正。乘法结果可能需要比输入更多的位数。</p><p>除法可以理解为对绝对值反复减去除数，统计可成功减去的次数，再恢复商的符号。余数和截断约定要明确。</p>",
+        "formula": "\\operatorname{sign}(ab)=\\operatorname{sign}(a)\\operatorname{sign}(b)",
+        "conditions": "先取绝对值、计算大小、判定符号，最后选择足够的结果位宽。",
+        "misconceptions": [
+          "不要把一个需要 16 位的乘积强行保留 8 位后仍当作完整结果。"
+        ],
+        "examples": [
+          {
+            "level": "Basic",
+            "question": "计算 (−4)×(−3)。",
+            "solution": "<p>先求绝对值\\(4\\times 3=12\\)，同号乘积为正，因此为+\\(12\\)。</p>",
+            "source": "Lecture04.pdf",
+            "page": 15,
+            "sourcePages": [
+              15,
+              16,
+              17
+            ],
+            "authorship": "课程原理衍生例题，非官方试题"
+          },
+          {
+            "level": "Intermediate",
+            "question": "把 −21 写成8位补码。",
+            "solution": "<p>\\(21\\)为\\(00010101\\)，取反\\(11101010\\)加\\(1\\to 11101011\\)。验证负权和为\\(-128+64+32+8+2+1=-21\\)。</p>",
+            "source": "Lecture04.pdf",
+            "page": 15,
+            "sourcePages": [
+              15,
+              16,
+              17
+            ],
+            "authorship": "课程原理衍生例题，非官方试题"
+          },
+          {
+            "level": "Advanced",
+            "question": "用绝对值反复减法解释 (−17)÷5 的向零截断商与余数。",
+            "solution": "<p>\\(17-5=12\\)，\\(12-5=7\\)，\\(7-5=2\\)，成功减三次。异号得到商\\(-3\\)；用原等式求余数 \\(r=-17-5\\times (-3)=-2\\)。题目明确向零截断，不能与向下取整混用。</p>",
+            "source": "Lecture04.pdf",
+            "page": 15,
+            "sourcePages": [
+              15,
+              16,
+              17
+            ],
+            "authorship": "课程原理衍生例题，非官方试题"
+          }
+        ],
+        "dependency": "L4-M2",
+        "learningOrder": "符号权重、范围与扩展 → 加减与溢出判断 → 有符号乘除"
+      }
+    ],
+    "glossary": [
+      [
+        "Sign extension",
+        "符号扩展"
+      ],
+      [
+        "Overflow",
+        "溢出"
+      ],
+      [
+        "Signed integer",
+        "有符号整数"
+      ]
+    ],
+    "summary": "符号权重、范围与扩展 → 加减与溢出判断 → 有符号乘除",
+    "templates": [
+      "符号权重、范围与扩展：先确认补码和字长；扩展复制原符号位。",
+      "加减与溢出判断：统一位宽；先计算位型，再用操作数与结果符号判断溢出。",
+      "有符号乘除：先取绝对值、计算大小、判定符号，最后选择足够的结果位宽。"
+    ],
+    "contentNote": "解释、例题与练习由课程材料推导编写；例题数值为教学自拟，非官方试题。引用统一使用 PDF 实际页码。原图和波形应结合源文件核对。",
+    "week": 2,
+    "weekSource": "https://core.xjtlu.edu.cn/course/view.php?id=936",
+    "nextSteps": "先用自己的话解释本讲每个模块，再完成基础、应用和挑战题；对错题回到引用页检查概念与条件。掌握后沿课程知识地图进入后续内容。",
+    "dependencies": [
+      3
+    ],
+    "sourceType": "current-course-pdf"
+  },
+  {
+    "id": 5,
+    "title": "基本逻辑门与真值表",
+    "source": "Lecture05.pdf",
+    "objectives": [
+      "理解并能应用NOT、AND 与 OR",
+      "理解并能应用NAND 与 NOR 的反相",
+      "理解并能应用XOR 与 XNOR"
+    ],
+    "modules": [
+      {
+        "id": "L5-M1",
+        "title": "NOT、AND 与 OR",
+        "pages": [
+          4,
+          5,
+          7,
+          8,
+          9,
+          11,
+          12,
+          13,
+          15
+        ],
+        "explanation": "<p>NOT 把一个输入反相。AND 要求所有条件同时成立才输出 \\(1\\)；OR 只要求至少一个条件成立。真值表穷举所有可能输入，可视为逻辑规则的完整说明。</p><p>n 个独立二值输入有 \\(2^{n}\\) 行。布尔加号表示 OR，因此 \\(1+1=1\\)；它与数值加法的进位不同。</p>",
+        "formula": "Y_{\\mathrm{NOT}}=\\overline A,\\quad Y_{\\mathrm{AND}}=AB,\\quad Y_{\\mathrm{OR}}=A+B",
+        "conditions": "逐行代入逻辑值；时序图需在所有输入保持稳定的区间逐段判断。",
+        "misconceptions": [
+          "OR 包含两输入同时为 1 的情况。"
+        ],
+        "examples": [
+          {
+            "level": "Basic",
+            "question": "A=0，求 NOT A。",
+            "solution": "<p>反相交换\\(0\\)与\\(1\\)，所以输出\\(1\\)。</p>",
+            "source": "Lecture05.pdf",
+            "page": 4,
+            "sourcePages": [
+              4,
+              5,
+              7,
+              8,
+              9,
+              11,
+              12,
+              13,
+              15
+            ],
+            "authorship": "课程原理衍生例题，非官方试题"
+          },
+          {
+            "level": "Intermediate",
+            "question": "计算 (A+B)C，在 A=0、B=1、C=1 时的值。",
+            "solution": "<p>先算\\(A+B=0+1=1\\)，再算\\(1\\cdot C=1\\cdot 1=1\\)。先处理括号再处理外层与运算。</p>",
+            "source": "Lecture05.pdf",
+            "page": 4,
+            "sourcePages": [
+              4,
+              5,
+              7,
+              8,
+              9,
+              11,
+              12,
+              13,
+              15
+            ],
+            "authorship": "课程原理衍生例题，非官方试题"
+          },
+          {
+            "level": "Advanced",
+            "question": "写出“两个许可条件同时满足，或紧急旁路激活”的逻辑式。",
+            "solution": "<p>设许可为P、Q，旁路为E，得到\\(X=PQ+E\\)。\\(P=Q=1\\)时\\(PQ=1\\)；\\(E=1\\)也会令\\(X=1\\)。要检查旁路确实允许绕过两许可，这是题目给定规则。</p>",
+            "source": "Lecture05.pdf",
+            "page": 4,
+            "sourcePages": [
+              4,
+              5,
+              7,
+              8,
+              9,
+              11,
+              12,
+              13,
+              15
+            ],
+            "authorship": "课程原理衍生例题，非官方试题"
+          }
+        ],
+        "dependency": null,
+        "learningOrder": "NOT、AND 与 OR → NAND 与 NOR 的反相 → XOR 与 XNOR"
+      },
+      {
+        "id": "L5-M2",
+        "title": "NAND 与 NOR 的反相",
+        "pages": [
+          16,
+          17,
+          18,
+          19,
+          20,
+          21
+        ],
+        "explanation": "<p>NAND 是 AND 后接 NOT，只有所有输入为 \\(1\\) 时输出 \\(0\\)。NOR 是 OR 后接 NOT，只有所有输入为 \\(0\\) 时输出 \\(1\\)。</p><p>反相横线的覆盖范围决定操作对象。对整个乘积取反时，可用 DeMorgan 把它写成各输入反相后的 OR；对整个和取反则变成 AND。</p>",
+        "formula": "\\overline{AB}=\\overline A+\\overline B,\\quad\\overline{A+B}=\\overline A\\,\\overline B",
+        "conditions": "先完成括号内 AND/OR，再对整个结果取反。",
+        "misconceptions": [
+          "不能把乘积外的反相直接写成两个反相量的乘积。"
+        ],
+        "examples": [
+          {
+            "level": "Basic",
+            "question": "NAND 输入为0、1，求输出。",
+            "solution": "<p>先AND得到\\(0\\)，再反相得到\\(1\\)。</p>",
+            "source": "Lecture05.pdf",
+            "page": 16,
+            "sourcePages": [
+              16,
+              17,
+              18,
+              19,
+              20,
+              21
+            ],
+            "authorship": "课程原理衍生例题，非官方试题"
+          },
+          {
+            "level": "Intermediate",
+            "question": "对NOR分别输入01、10、11，输出依次是多少？",
+            "solution": "<p>每一对输入至少有一位为\\(1\\)，所以OR均为\\(1\\)，NOR均为\\(0\\)，输出\\(0\\)、\\(0\\)、\\(0\\)。</p>",
+            "source": "Lecture05.pdf",
+            "page": 16,
+            "sourcePages": [
+              16,
+              17,
+              18,
+              19,
+              20,
+              21
+            ],
+            "authorship": "课程原理衍生例题，非官方试题"
+          },
+          {
+            "level": "Advanced",
+            "question": "比较 NAND(0,0) 与 NOR(0,0)，并说明原因。",
+            "solution": "<p>NAND先算\\(0\\cdot 0=0\\)，再取反得\\(1\\)；NOR先算\\(0+0=0\\)，再取反也得\\(1\\)。相同输入\\(00\\)使两者同为\\(1\\)，但它们的全部真值表并不相同。</p>",
+            "source": "Lecture05.pdf",
+            "page": 16,
+            "sourcePages": [
+              16,
+              17,
+              18,
+              19,
+              20,
+              21
+            ],
+            "authorship": "课程原理衍生例题，非官方试题"
+          }
+        ],
+        "dependency": "L5-M1",
+        "learningOrder": "NOT、AND 与 OR → NAND 与 NOR 的反相 → XOR 与 XNOR"
+      },
+      {
+        "id": "L5-M3",
+        "title": "XOR 与 XNOR",
+        "pages": [
+          22,
+          23,
+          24,
+          25,
+          26,
+          27
+        ],
+        "explanation": "<p>两输入 XOR 在不同输入时输出 \\(1\\)，XNOR 在相同输入时输出 \\(1\\)。可以把 XOR 理解为两个二值标志是否不同的检测器，XNOR 则检测相同。</p><p>XOR 的两项分别对应 \\(01\\) 和 \\(10\\)，写为 \\(\\overline{A}B+A \\overline{B}\\)。XNOR 对应 \\(00\\) 和 \\(11\\)。这里只讨论本讲的两输入电路。</p>",
+        "formula": "A\\oplus B=\\overline A B+A\\overline B,\\quad\\overline{A\\oplus B}=AB+\\overline A\\,\\overline B",
+        "conditions": "先判断两输入是否相同，也可从为 1 的真值表行构造表达式。",
+        "misconceptions": [
+          "XOR 不是 OR；当两个输入都为 1 时它们结果不同。"
+        ],
+        "examples": [
+          {
+            "level": "Basic",
+            "question": "计算 0 XOR 1。",
+            "solution": "<p>输入不同，输出\\(1\\)。</p>",
+            "source": "Lecture05.pdf",
+            "page": 22,
+            "sourcePages": [
+              22,
+              23,
+              24,
+              25,
+              26,
+              27
+            ],
+            "authorship": "课程原理衍生例题，非官方试题"
+          },
+          {
+            "level": "Intermediate",
+            "question": "计算 (1 XOR 0) XOR 1。",
+            "solution": "<p>先算\\(1\\oplus 0=1\\)，再算\\(1\\oplus 1=0\\)。括号确定运算次序。</p>",
+            "source": "Lecture05.pdf",
+            "page": 22,
+            "sourcePages": [
+              22,
+              23,
+              24,
+              25,
+              26,
+              27
+            ],
+            "authorship": "课程原理衍生例题，非官方试题"
+          },
+          {
+            "level": "Advanced",
+            "question": "使用两个两输入 XNOR 和一个 AND，判断两个2位字是否相同。",
+            "solution": "<p>分别比较高位\\(A1\\)与\\(B1\\)、低位\\(A0\\)与\\(B0\\)，再将两个“相同”标志相与。\\(E=\\neg (A1\\oplus B1)\\cdot \\neg (A0\\oplus B0)\\)。只有两对位都相同，E才为\\(1\\)。</p>",
+            "source": "Lecture05.pdf",
+            "page": 22,
+            "sourcePages": [
+              22,
+              23,
+              24,
+              25,
+              26,
+              27
+            ],
+            "authorship": "课程原理衍生例题，非官方试题"
+          }
+        ],
+        "dependency": "L5-M2",
+        "learningOrder": "NOT、AND 与 OR → NAND 与 NOR 的反相 → XOR 与 XNOR"
+      }
+    ],
+    "glossary": [
+      [
+        "Inverter",
+        "反相器"
+      ],
+      [
+        "NAND",
+        "与非"
+      ],
+      [
+        "XOR",
+        "异或"
+      ]
+    ],
+    "summary": "NOT、AND 与 OR → NAND 与 NOR 的反相 → XOR 与 XNOR",
+    "templates": [
+      "NOT、AND 与 OR：逐行代入逻辑值；时序图需在所有输入保持稳定的区间逐段判断。",
+      "NAND 与 NOR 的反相：先完成括号内 AND/OR，再对整个结果取反。",
+      "XOR 与 XNOR：先判断两输入是否相同，也可从为 1 的真值表行构造表达式。"
+    ],
+    "contentNote": "解释、例题与练习由课程材料推导编写；例题数值为教学自拟，非官方试题。引用统一使用 PDF 实际页码。原图和波形应结合源文件核对。",
+    "week": 3,
+    "weekSource": "https://core.xjtlu.edu.cn/course/view.php?id=936",
+    "nextSteps": "先用自己的话解释本讲每个模块，再完成基础、应用和挑战题；对错题回到引用页检查概念与条件。掌握后沿课程知识地图进入后续内容。",
+    "dependencies": [
+      4
+    ],
+    "sourceType": "current-course-pdf"
+  },
+  {
+    "id": 6,
+    "title": "逻辑门的器件实现与 IC 参数",
+    "source": "Lecture06.pdf",
+    "objectives": [
+      "理解并能应用晶体管开关与封装",
+      "理解并能应用系列命名与供电",
+      "理解并能应用传播延迟与驱动能力"
+    ],
+    "modules": [
+      {
+        "id": "L6-M1",
+        "title": "晶体管开关与封装",
+        "pages": [
+          3,
+          4,
+          5,
+          6
+        ],
+        "explanation": "<p>讲义中的 BJT 反相电路在截止与饱和两个状态之间工作。输入 LOW 时截止，集电极输出被拉高；输入 HIGH 时饱和，输出接近低电平。</p><p>芯片把多只晶体管和内部连接集成在硅片上。DIP 的缺口或圆点帮助定位 \\(1\\) 脚，从顶视图按规定方向编号，接线前须查清器件方向。</p>",
+        "formula": "V_{\\mathrm{out}}\\approx V_{CC}\\ (\\mathrm{cutoff}),\\quad V_{\\mathrm{out}}\\approx0.2\\,V\\ (\\mathrm{saturation})",
+        "conditions": "这些近似对应讲义的 BJT 反相示例，不能当作所有门的精确输出电压。",
+        "misconceptions": [
+          "饱和的晶体管使该电路输出变低，并非输出变高。"
+        ],
+        "examples": [
+          {
+            "level": "Basic",
+            "question": "解释讲义中饱和 BJT 为什么能形成 LOW 输出。",
+            "solution": "<p>集电极输出经导通晶体管接近发射极电位，讲义用VCEsat≈\\(0.2 V\\)表示饱和压降，因此输出处于低电平。</p>",
+            "source": "Lecture06.pdf",
+            "page": 3,
+            "sourcePages": [
+              3,
+              4,
+              5,
+              6
+            ],
+            "authorship": "课程原理衍生例题，非官方试题"
+          },
+          {
+            "level": "Intermediate",
+            "question": "16脚DIP顶视图缺口朝上，左下脚和右下脚编号？",
+            "solution": "<p>左侧从上往下是\\(1\\ldots 8\\)，左下为\\(8\\)；右侧从下往上是\\(9\\ldots 16\\)，右下为\\(9\\)。</p>",
+            "source": "Lecture06.pdf",
+            "page": 3,
+            "sourcePages": [
+              3,
+              4,
+              5,
+              6
+            ],
+            "authorship": "课程原理衍生例题，非官方试题"
+          },
+          {
+            "level": "Advanced",
+            "question": "看到反相器输出 HIGH，能否仅凭这一状态推断所有实际 BJT 都处于理想截止？",
+            "solution": "<p>在本讲单管反相示例中可按截止分析；实际集成门含多只器件，单一输出电平不足以推出全部内部状态。必须结合具体电路拓扑。</p>",
+            "source": "Lecture06.pdf",
+            "page": 3,
+            "sourcePages": [
+              3,
+              4,
+              5,
+              6
+            ],
+            "authorship": "课程原理衍生例题，非官方试题"
+          }
+        ],
+        "dependency": null,
+        "learningOrder": "晶体管开关与封装 → 系列命名与供电 → 传播延迟与驱动能力"
+      },
+      {
+        "id": "L6-M2",
+        "title": "系列命名与供电",
+        "pages": [
+          7,
+          8,
+          9,
+          10,
+          11,
+          15
+        ],
+        "explanation": "<p>器件编号包含系列与逻辑功能等信息。讲义举例 74LS04，LS 指低功耗肖特基 TTL，\\(04\\) 对应反相器型号。74HC 属 CMOS，74HCT 强调 TTL 输入兼容。</p><p>系列不同，供电范围、输入阈值与时序特性可能不同。课程表格描述的是给定系列的典型分类，实际接线仍须使用具体器件规格。</p>",
+        "formula": "\\mathrm{part\\ number}=\\mathrm{prefix}+\\mathrm{series}+\\mathrm{type}",
+        "conditions": "分清逻辑功能型号、技术系列与供电条件，比较器件时逐项检查。",
+        "misconceptions": [
+          "供电电压不等于 HIGH 输入阈值。"
+        ],
+        "examples": [
+          {
+            "level": "Basic",
+            "question": "将 74LS04 按讲义命名分解。",
+            "solution": "<p>\\(74\\)为前缀，LS为系列，\\(04\\)为逻辑类型标识。这个命名并不直接给出每个脚的连接方式。</p>",
+            "source": "Lecture06.pdf",
+            "page": 7,
+            "sourcePages": [
+              7,
+              8,
+              9,
+              10,
+              11,
+              15
+            ],
+            "authorship": "课程原理衍生例题，非官方试题"
+          },
+          {
+            "level": "Intermediate",
+            "question": "解释 TTL 输入兼容为什么与 CMOS 低功耗不是同一指标。",
+            "solution": "<p>TTL兼容描述输入端能可靠识别的电平范围；功耗描述能量消耗。HCT的命名反映技术系列及输入兼容性，仍需检查实际供电与负载。</p>",
+            "source": "Lecture06.pdf",
+            "page": 7,
+            "sourcePages": [
+              7,
+              8,
+              9,
+              10,
+              11,
+              15
+            ],
+            "authorship": "课程原理衍生例题，非官方试题"
+          },
+          {
+            "level": "Advanced",
+            "question": "为两个功能相同但系列不同的芯片制定替换核对顺序。",
+            "solution": "<p>先确认引脚定义和逻辑功能，再确认VCC允许范围、VOH/VOL与接收端VIH/VIL是否匹配，最后检查传播延迟、负载和扇出。功能一致只是核对的一部分。</p>",
+            "source": "Lecture06.pdf",
+            "page": 7,
+            "sourcePages": [
+              7,
+              8,
+              9,
+              10,
+              11,
+              15
+            ],
+            "authorship": "课程原理衍生例题，非官方试题"
+          }
+        ],
+        "dependency": "L6-M1",
+        "learningOrder": "晶体管开关与封装 → 系列命名与供电 → 传播延迟与驱动能力"
+      },
+      {
+        "id": "L6-M3",
+        "title": "传播延迟与驱动能力",
+        "pages": [
+          12,
+          13,
+          14,
+          16
+        ],
+        "explanation": "<p>传播延迟是输入变化与相应输出变化之间的时间。tPLH 对应输出由 LOW 到 HIGH，tPHL 对应输出由 HIGH 到 LOW。多级门串联时，实际路径上的延迟累计。</p><p>扇出表示一个输出在规定条件下能够驱动的输入数量。它影响负载与可靠逻辑电平，不能只按导线数量判断。</p>",
+        "formula": "t_{\\mathrm{path}}\\approx\\sum_i t_{p,i}",
+        "conditions": "延迟计算按实际经过的级数与对应转换方向；扇出限制依赖器件及负载。",
+        "misconceptions": [
+          "较小传播延迟通常更快，单位 ns 的数值不能直接当成频率。"
+        ],
+        "examples": [
+          {
+            "level": "Basic",
+            "question": "某门输入在10 ns变化，输出在18 ns相应变化，求传播延迟。",
+            "solution": "<p>\\(t_p=18-10=8\\,ns\\)。起点与终点必须对应同一次转换。</p>",
+            "source": "Lecture06.pdf",
+            "page": 12,
+            "sourcePages": [
+              12,
+              13,
+              14,
+              16
+            ],
+            "authorship": "课程原理衍生例题，非官方试题"
+          },
+          {
+            "level": "Intermediate",
+            "question": "三级串行路径延迟分别3 ns、7 ns、4 ns，求总延迟。",
+            "solution": "<p>\\(t_{path}=3+7+4=14\\,ns\\)。三者处在同一条依次传播的路径上，因此相加。</p>",
+            "source": "Lecture06.pdf",
+            "page": 12,
+            "sourcePages": [
+              12,
+              13,
+              14,
+              16
+            ],
+            "authorship": "课程原理衍生例题，非官方试题"
+          },
+          {
+            "level": "Advanced",
+            "question": "两条并行路径分别经过(3,7) ns和(4,9) ns门级，末端再过5 ns门，估计最晚稳定时间。",
+            "solution": "<p>路径一\\(10 \\mathrm{ns}\\)，路径二\\(13 \\mathrm{ns}\\)。公共末级须等待较慢路径，因此 \\(\\max(10,13)+5=18\\,ns\\)。这是给定固定门延迟下的简化估算。</p>",
+            "source": "Lecture06.pdf",
+            "page": 12,
+            "sourcePages": [
+              12,
+              13,
+              14,
+              16
+            ],
+            "authorship": "课程原理衍生例题，非官方试题"
+          }
+        ],
+        "dependency": "L6-M2",
+        "learningOrder": "晶体管开关与封装 → 系列命名与供电 → 传播延迟与驱动能力"
+      }
+    ],
+    "glossary": [
+      [
+        "Propagation delay",
+        "传播延迟"
+      ],
+      [
+        "Fan-out",
+        "扇出"
+      ],
+      [
+        "DIP",
+        "双列直插封装"
+      ]
+    ],
+    "summary": "晶体管开关与封装 → 系列命名与供电 → 传播延迟与驱动能力",
+    "templates": [
+      "晶体管开关与封装：这些近似对应讲义的 BJT 反相示例，不能当作所有门的精确输出电压。",
+      "系列命名与供电：分清逻辑功能型号、技术系列与供电条件，比较器件时逐项检查。",
+      "传播延迟与驱动能力：延迟计算按实际经过的级数与对应转换方向；扇出限制依赖器件及负载。"
+    ],
+    "contentNote": "解释、例题与练习由课程材料推导编写；例题数值为教学自拟，非官方试题。引用统一使用 PDF 实际页码。原图和波形应结合源文件核对。",
+    "week": 3,
+    "weekSource": "https://core.xjtlu.edu.cn/course/view.php?id=936",
+    "nextSteps": "先用自己的话解释本讲每个模块，再完成基础、应用和挑战题；对错题回到引用页检查概念与条件。掌握后沿课程知识地图进入后续内容。",
+    "dependencies": [
+      5
+    ],
+    "sourceType": "current-course-pdf"
+  },
+  {
+    "id": 7,
+    "title": "布尔代数与 DeMorgan 定理",
+    "source": "Lecture07.pdf",
+    "objectives": [
+      "理解并能应用布尔运算与基本恒等式",
+      "理解并能应用吸收律与逐步化简",
+      "理解并能应用DeMorgan 与整体反相"
+    ],
+    "modules": [
+      {
+        "id": "L7-M1",
+        "title": "布尔运算与基本恒等式",
+        "pages": [
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "explanation": "<p>布尔变量只取 \\(0\\) 或 \\(1\\)；变量和它的反相各称一个 literal。AND 写成乘积，OR 写成加和。交换律、结合律与分配律让我们可以重排和因式分解。</p><p>恒等式对所有输入成立，证明时可以逐行穷举，也可以从更基本的规则推导。</p>",
+        "formula": "A+A=A,\\quad A\\overline A=0,\\quad A+\\overline A=1",
+        "conditions": "区分布尔运算与数值算术，表达式取值只在 0、1 中。",
+        "misconceptions": [
+          "A+A=A，不能写成 2A 再套一般代数除法。"
+        ],
+        "examples": [
+          {
+            "level": "Basic",
+            "question": "化简 X·0+Y。",
+            "solution": "<p>\\(X\\cdot 0=0\\)，\\(0+Y=Y\\)。</p>",
+            "source": "Lecture07.pdf",
+            "page": 3,
+            "sourcePages": [
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "authorship": "课程原理衍生例题，非官方试题"
+          },
+          {
+            "level": "Intermediate",
+            "question": "证明 X(Y+Z)=XY+XZ 对X=0、1均成立。",
+            "solution": "<p>\\(X=0\\)时两边都为\\(0\\)；\\(X=1\\)时左边\\(Y+Z\\)，右边\\(Y+Z\\)。两个可能的X值均成立。</p>",
+            "source": "Lecture07.pdf",
+            "page": 3,
+            "sourcePages": [
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "authorship": "课程原理衍生例题，非官方试题"
+          },
+          {
+            "level": "Advanced",
+            "question": "化简 (P+P̄)(Q+0)R·1。",
+            "solution": "<p>互补和\\(P+\\overline{P}=1\\)，\\(Q+0=Q\\)，乘以\\(1\\)保持原值，最终为QR。</p>",
+            "source": "Lecture07.pdf",
+            "page": 3,
+            "sourcePages": [
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "authorship": "课程原理衍生例题，非官方试题"
+          }
+        ],
+        "dependency": null,
+        "learningOrder": "布尔运算与基本恒等式 → 吸收律与逐步化简 → DeMorgan 与整体反相"
+      },
+      {
+        "id": "L7-M2",
+        "title": "吸收律与逐步化简",
+        "pages": [
+          8,
+          9,
+          14
+        ],
+        "explanation": "<p>\\(A+AB=A\\)，因为 A 已经涵盖 AB 为真的所有输入。代数推导为 \\(A(1+B)=A\\)。补吸收式 \\(A+\\overline A B=A+B\\) 可按 A 为 \\(0\\)、\\(1\\) 两种情况验证。</p><p>对 (\\(A+B)(A+C)\\) 展开得 \\(AA+AB+AC+BC\\)，再用幂等与吸收，得到 \\(A+BC\\)。化简目标是减少项或门级，但要保持全部真值表行不变。</p>",
+        "formula": "A+AB=A,\\quad A+\\overline A B=A+B,\\quad(A+B)(A+C)=A+BC",
+        "conditions": "先识别公共项，再展开或因式分解，每步写出所用恒等式。",
+        "misconceptions": [
+          "只有相同公共项才可直接使用 (A+B)(A+C)=A+BC。"
+        ],
+        "examples": [
+          {
+            "level": "Basic",
+            "question": "化简 X+XȲ。",
+            "solution": "<p>将\\(\\overline{Y}\\)视作整体，吸收律\\(X+XB=X\\)，得到X。</p>",
+            "source": "Lecture07.pdf",
+            "page": 8,
+            "sourcePages": [
+              8,
+              9,
+              14
+            ],
+            "authorship": "课程原理衍生例题，非官方试题"
+          },
+          {
+            "level": "Intermediate",
+            "question": "化简 (X+Y)(X+Z)。",
+            "solution": "<p>展开\\(X+XY+XZ+YZ\\)，X吸收XY和XZ，得到\\(X+YZ\\)。</p>",
+            "source": "Lecture07.pdf",
+            "page": 8,
+            "sourcePages": [
+              8,
+              9,
+              14
+            ],
+            "authorship": "课程原理衍生例题，非官方试题"
+          },
+          {
+            "level": "Advanced",
+            "question": "化简 AB+AB̄+AC。",
+            "solution": "<p>前两项合并\\(A(B+\\overline{B})=A\\)，随后\\(A+AC=A\\)，因此整体仅为A。</p>",
+            "source": "Lecture07.pdf",
+            "page": 8,
+            "sourcePages": [
+              8,
+              9,
+              14
+            ],
+            "authorship": "课程原理衍生例题，非官方试题"
+          }
+        ],
+        "dependency": "L7-M1",
+        "learningOrder": "布尔运算与基本恒等式 → 吸收律与逐步化简 → DeMorgan 与整体反相"
+      },
+      {
+        "id": "L7-M3",
+        "title": "DeMorgan 与整体反相",
+        "pages": [
+          10,
+          11,
+          12,
+          13
+        ],
+        "explanation": "<p>一个乘积的反相等于各因子的反相之和；一个和的反相等于各项反相之积。直观上，“不同时成立”意味着“至少一个不成立”。</p><p>处理嵌套表达式应从最外层横线开始，反相每个整体并交换 AND/OR，然后继续处理内部横线；双重反相可消去。</p>",
+        "formula": "\\overline{AB}=\\overline A+\\overline B,\\quad\\overline{A+B}=\\overline A\\,\\overline B",
+        "conditions": "横线覆盖整体时先把整个括号当一个操作数，再逐层向内变换。",
+        "misconceptions": [
+          "只移动横线却不交换 AND/OR 会改变逻辑。"
+        ],
+        "examples": [
+          {
+            "level": "Basic",
+            "question": "写出 XYZ 的整体反相。",
+            "solution": "<p>逐项反相并将AND改为OR，得到\\(\\overline X+\\overline Y+\\overline Z\\)。</p>",
+            "source": "Lecture07.pdf",
+            "page": 10,
+            "sourcePages": [
+              10,
+              11,
+              12,
+              13
+            ],
+            "authorship": "课程原理衍生例题，非官方试题"
+          },
+          {
+            "level": "Intermediate",
+            "question": "化简 X+Ȳ 的整体反相。",
+            "solution": "<p>\\(\\overline{X+\\overline Y}=\\overline X\\cdot\\overline{\\overline Y}=\\overline X Y\\)。</p>",
+            "source": "Lecture07.pdf",
+            "page": 10,
+            "sourcePages": [
+              10,
+              11,
+              12,
+              13
+            ],
+            "authorship": "课程原理衍生例题，非官方试题"
+          },
+          {
+            "level": "Advanced",
+            "question": "化简 A(B+C̄)+D 的整体反相。",
+            "solution": "<p>外层OR取反：\\(\\overline{A(B+\\overline C)}\\,\\overline D\\)。内部乘积取反：\\((\\overline A+\\overline{B+\\overline C})\\overline D=(\\overline A+\\overline BC)\\overline D\\)。</p>",
+            "source": "Lecture07.pdf",
+            "page": 10,
+            "sourcePages": [
+              10,
+              11,
+              12,
+              13
+            ],
+            "authorship": "课程原理衍生例题，非官方试题"
+          }
+        ],
+        "dependency": "L7-M2",
+        "learningOrder": "布尔运算与基本恒等式 → 吸收律与逐步化简 → DeMorgan 与整体反相"
+      }
+    ],
+    "glossary": [
+      [
+        "Literal",
+        "文字项"
+      ],
+      [
+        "Absorption",
+        "吸收律"
+      ],
+      [
+        "DeMorgan’s theorem",
+        "德摩根定理"
+      ]
+    ],
+    "summary": "布尔运算与基本恒等式 → 吸收律与逐步化简 → DeMorgan 与整体反相",
+    "templates": [
+      "布尔运算与基本恒等式：区分布尔运算与数值算术，表达式取值只在 0、1 中。",
+      "吸收律与逐步化简：先识别公共项，再展开或因式分解，每步写出所用恒等式。",
+      "DeMorgan 与整体反相：横线覆盖整体时先把整个括号当一个操作数，再逐层向内变换。"
+    ],
+    "contentNote": "解释、例题与练习由课程材料推导编写；例题数值为教学自拟，非官方试题。引用统一使用 PDF 实际页码。原图和波形应结合源文件核对。",
+    "week": 4,
+    "weekSource": "https://core.xjtlu.edu.cn/course/view.php?id=936",
+    "nextSteps": "先用自己的话解释本讲每个模块，再完成基础、应用和挑战题；对错题回到引用页检查概念与条件。掌握后沿课程知识地图进入后续内容。",
+    "dependencies": [
+      6
+    ],
+    "sourceType": "current-course-pdf"
+  },
+  {
+    "id": 8,
+    "title": "组合逻辑与通用 NAND/NOR 实现",
+    "source": "Lecture08.pdf",
+    "objectives": [
+      "理解并能应用从函数到组合电路",
+      "理解并能应用NAND 实现基本运算",
+      "理解并能应用NOR 与气泡等效"
+    ],
+    "modules": [
+      {
+        "id": "L8-M1",
+        "title": "从函数到组合电路",
+        "pages": [
+          3,
+          4,
+          5,
+          6
+        ],
+        "explanation": "<p>组合逻辑不储存状态，稳定输出由当前输入决定。表达式的括号和运算顺序对应门电路的层级，先为内部子表达式命名能避免漏接信号。</p><p>如 \\(X=AB+CD\\)，可先生成 \\(P=AB\\)、\\(Q=CD\\)，再令 \\(X=P+Q\\)。这对应两个 AND 门输出进入一个 OR 门。</p>",
+        "formula": "X=AB+CD",
+        "conditions": "逐级命名内部节点，按信号流求值；比较稳定状态时考虑传播延迟已经结束。",
+        "misconceptions": [
+          "组合电路仍有传播延迟，“只依赖当前输入”不等于瞬间变化。"
+        ],
+        "examples": [
+          {
+            "level": "Basic",
+            "question": "把 X=A+B 的函数连接成基本门电路。",
+            "solution": "<p>A与B接入一个OR门，OR的输出命名X。</p>",
+            "source": "Lecture08.pdf",
+            "page": 3,
+            "sourcePages": [
+              3,
+              4,
+              5,
+              6
+            ],
+            "authorship": "课程原理衍生例题，非官方试题"
+          },
+          {
+            "level": "Intermediate",
+            "question": "把 X=(A+B)(C+D) 拆成三个内部节点。",
+            "solution": "<p>先定义\\(U=A+B\\)、\\(V=C+D\\)，各用一个OR；最后\\(X=UV\\)，用AND连接U与V。</p>",
+            "source": "Lecture08.pdf",
+            "page": 3,
+            "sourcePages": [
+              3,
+              4,
+              5,
+              6
+            ],
+            "authorship": "课程原理衍生例题，非官方试题"
+          },
+          {
+            "level": "Advanced",
+            "question": "对 X=A(B+C)+D，A=1、B=C=0、D=1，逐级计算并指出起决定作用的支路。",
+            "solution": "<p>\\(B+C=0\\)，\\(A(B+C)=0\\)，最后\\(0+D=1\\)。因此D支路令输出为\\(1\\)。</p>",
+            "source": "Lecture08.pdf",
+            "page": 3,
+            "sourcePages": [
+              3,
+              4,
+              5,
+              6
+            ],
+            "authorship": "课程原理衍生例题，非官方试题"
+          }
+        ],
+        "dependency": null,
+        "learningOrder": "从函数到组合电路 → NAND 实现基本运算 → NOR 与气泡等效"
+      },
+      {
+        "id": "L8-M2",
+        "title": "NAND 实现基本运算",
+        "pages": [
+          7,
+          8,
+          9
+        ],
+        "explanation": "<p>NAND 是通用门，因为可以用它构造 NOT、AND 和 OR。两个输入接在一起产生 NOT；NAND 后再反相恢复 AND；先反相各输入再 NAND 得到 OR。</p><p>这使只用一种器件实现整个逻辑系统成为可能，但门数、负载和延迟仍需检查。</p>",
+        "formula": "A+B=\\overline{\\overline A\\,\\overline B}",
+        "conditions": "需要非反相输出时检查末级是否已抵消输出反相；NAND 输入可以并接作反相。",
+        "misconceptions": [
+          "把 NAND 直接当 AND 会漏掉输出反相。"
+        ],
+        "examples": [
+          {
+            "level": "Basic",
+            "question": "用NAND生成Ā并说明两输入如何连。",
+            "solution": "<p>两个输入同时接A，输出\\(\\overline{AA}=\\overline A\\)。</p>",
+            "source": "Lecture08.pdf",
+            "page": 7,
+            "sourcePages": [
+              7,
+              8,
+              9
+            ],
+            "authorship": "课程原理衍生例题，非官方试题"
+          },
+          {
+            "level": "Intermediate",
+            "question": "用NAND实现 Y=AB+E，其中E只有一个变量。",
+            "solution": "<p>先生成\\(U=\\)\\(\\overline{AB}\\)，用并接NAND生成\\(V=\\)\\(\\overline E\\)，末级NAND给出\\(\\overline{UV}=AB+E\\)，共三个二输入NAND。</p>",
+            "source": "Lecture08.pdf",
+            "page": 7,
+            "sourcePages": [
+              7,
+              8,
+              9
+            ],
+            "authorship": "课程原理衍生例题，非官方试题"
+          },
+          {
+            "level": "Advanced",
+            "question": "分析 NAND(A,A) 再与 B 进入 NAND 的函数，并用A=0和1检验。",
+            "solution": "<p>第一级\\(U=\\overline A\\)，第二级\\(Y=\\overline{\\overline A B}=A+\\overline B\\)。\\(A=0\\)时\\(Y=\\overline{B}\\)；\\(A=1\\)时\\(Y=1\\)，两种情况与门级分析一致。</p>",
+            "source": "Lecture08.pdf",
+            "page": 7,
+            "sourcePages": [
+              7,
+              8,
+              9
+            ],
+            "authorship": "课程原理衍生例题，非官方试题"
+          }
+        ],
+        "dependency": "L8-M1",
+        "learningOrder": "从函数到组合电路 → NAND 实现基本运算 → NOR 与气泡等效"
+      },
+      {
+        "id": "L8-M3",
+        "title": "NOR 与气泡等效",
+        "pages": [
+          10,
+          11,
+          12,
+          13,
+          14
+        ],
+        "explanation": "<p>NOR 同样可以构造基本运算。NOR 输出再反相得到 OR；把两个输入分别反相再送入 NOR 得到 AND。</p><p>用气泡表示反相时，串接的两个反相可以消去。等效符号改变的是画法，真值表必须保持一致。</p>",
+        "formula": "AB=\\overline{\\overline A+\\overline B}",
+        "conditions": "先标出每一级的反相，再使用 DeMorgan；两处反相消除须确实位于同一信号路径。",
+        "misconceptions": [
+          "不能在任意两条不同支路上随便删除气泡。"
+        ],
+        "examples": [
+          {
+            "level": "Basic",
+            "question": "用NOR生成B̄。",
+            "solution": "<p>并接两个输入B，得到\\(\\overline{B+B}=\\overline B\\)。</p>",
+            "source": "Lecture08.pdf",
+            "page": 10,
+            "sourcePages": [
+              10,
+              11,
+              12,
+              13,
+              14
+            ],
+            "authorship": "课程原理衍生例题，非官方试题"
+          },
+          {
+            "level": "Intermediate",
+            "question": "用NOR实现 (A+B)C。",
+            "solution": "<p>先生成\\(U=\\overline{A+B}\\)，并接NOR生成\\(V=\\overline C\\)，末级NOR得到\\(\\overline{U+V}=(A+B)C\\)。</p>",
+            "source": "Lecture08.pdf",
+            "page": 10,
+            "sourcePages": [
+              10,
+              11,
+              12,
+              13,
+              14
+            ],
+            "authorship": "课程原理衍生例题，非官方试题"
+          },
+          {
+            "level": "Advanced",
+            "question": "用NOR实现 ABC，允许三输入NOR。",
+            "solution": "<p>分别用并接NOR得到\\(\\overline A \\)、\\(\\overline{B}\\)、\\(\\overline{C}\\)，再用一个三输入NOR输出\\(\\overline{\\overline A+\\overline B+\\overline C}=ABC\\)。共四个门，其中末级必须支持三个输入。</p>",
+            "source": "Lecture08.pdf",
+            "page": 10,
+            "sourcePages": [
+              10,
+              11,
+              12,
+              13,
+              14
+            ],
+            "authorship": "课程原理衍生例题，非官方试题"
+          }
+        ],
+        "dependency": "L8-M2",
+        "learningOrder": "从函数到组合电路 → NAND 实现基本运算 → NOR 与气泡等效"
+      }
+    ],
+    "glossary": [
+      [
+        "Combinational logic",
+        "组合逻辑"
+      ],
+      [
+        "Universal gate",
+        "通用门"
+      ],
+      [
+        "AND-OR",
+        "与或逻辑"
+      ]
+    ],
+    "summary": "从函数到组合电路 → NAND 实现基本运算 → NOR 与气泡等效",
+    "templates": [
+      "从函数到组合电路：逐级命名内部节点，按信号流求值；比较稳定状态时考虑传播延迟已经结束。",
+      "NAND 实现基本运算：需要非反相输出时检查末级是否已抵消输出反相；NAND 输入可以并接作反相。",
+      "NOR 与气泡等效：先标出每一级的反相，再使用 DeMorgan；两处反相消除须确实位于同一信号路径。"
+    ],
+    "contentNote": "解释、例题与练习由课程材料推导编写；例题数值为教学自拟，非官方试题。引用统一使用 PDF 实际页码。原图和波形应结合源文件核对。",
+    "week": 4,
+    "weekSource": "https://core.xjtlu.edu.cn/course/view.php?id=936",
+    "nextSteps": "先用自己的话解释本讲每个模块，再完成基础、应用和挑战题；对错题回到引用页检查概念与条件。掌握后沿课程知识地图进入后续内容。",
+    "dependencies": [
+      7
+    ],
+    "sourceType": "current-course-pdf"
+  },
+  {
+    "id": 9,
+    "title": "标准 SOP、POS 与真值表",
+    "source": "Lecture09.pdf",
+    "objectives": [
+      "理解并能应用普通式与标准式",
+      "理解并能应用最小项与最大项的极性",
+      "理解并能应用SOP/POS 互换与检验"
+    ],
+    "modules": [
+      {
+        "id": "L9-M1",
+        "title": "普通式与标准式",
+        "pages": [
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ],
+        "explanation": "<p>SOP 是乘积项的和，POS 是和项的积。“标准”额外要求每个项包含域内全部变量一次。域必须先指定，否则无法判断某项是否缺变量。</p><p>标准 SOP 的扩展可乘以 \\(C+\\overline{C}=1\\)；标准 POS 的扩展可先加 \\(C\\overline{C}=0\\)，再用分配关系生成两项。函数保持不变，表达形式更规则。</p>",
+        "formula": "AB=AB(C+\\overline C)=ABC+AB\\overline C",
+        "conditions": "先固定变量域；SOP 通过乘以 1 补项，POS 通过加 0 再因式分解补项。",
+        "misconceptions": [
+          "SOP 不自动意味着标准 SOP。"
+        ],
+        "examples": [
+          {
+            "level": "Basic",
+            "question": "域X,Y中，X是否标准SOP项？",
+            "solution": "<p>不是，缺少Y；展开\\(X(Y+\\overline{Y})=XY+X\\overline{Y}\\)。</p>",
+            "source": "Lecture09.pdf",
+            "page": 3,
+            "sourcePages": [
+              3,
+              4,
+              5,
+              6,
+              7,
+              8
+            ],
+            "authorship": "课程原理衍生例题，非官方试题"
+          },
+          {
+            "level": "Intermediate",
+            "question": "域A,B,C中，把A扩展成标准SOP。",
+            "solution": "<p>\\(A(B+\\overline B)(C+\\overline C)=ABC+AB\\overline C+A\\overline BC+A\\overline B\\overline C\\)。</p>",
+            "source": "Lecture09.pdf",
+            "page": 3,
+            "sourcePages": [
+              3,
+              4,
+              5,
+              6,
+              7,
+              8
+            ],
+            "authorship": "课程原理衍生例题，非官方试题"
+          },
+          {
+            "level": "Advanced",
+            "question": "域A,B,C中，把A扩展成标准POS。",
+            "solution": "<p>先\\(A=(A+B)(A+\\overline B)\\)，再对两项分别补C，得到\\((A+B+C)(A+B+\\overline C)(A+\\overline B+C)(A+\\overline B+\\overline C)\\)。</p>",
+            "source": "Lecture09.pdf",
+            "page": 3,
+            "sourcePages": [
+              3,
+              4,
+              5,
+              6,
+              7,
+              8
+            ],
+            "authorship": "课程原理衍生例题，非官方试题"
+          }
+        ],
+        "dependency": null,
+        "learningOrder": "普通式与标准式 → 最小项与最大项的极性 → SOP/POS 互换与检验"
+      },
+      {
+        "id": "L9-M2",
+        "title": "最小项与最大项的极性",
+        "pages": [
+          9,
+          10,
+          11,
+          12,
+          13
+        ],
+        "explanation": "<p>某行的最小项在该行恰为 \\(1\\)，因此输入为 \\(0\\) 的变量要取反，输入为 \\(1\\) 的变量不取反。最大项在该行恰为 \\(0\\)，因此规则相反。</p><p>\\(ABC=110\\) 的最小项为 \\(AB \\overline{C}\\)，最大项为 \\(\\overline{A}+\\overline{B}+C\\)。两者关联同一输入行，却在该行取不同逻辑值。</p>",
+        "formula": "m_6=AB\\overline C,\\qquad M_6=\\overline A+\\overline B+C",
+        "conditions": "固定 A 为最高位、C 为最低位；最小项取值 1，最大项取值 0。",
+        "misconceptions": [
+          "最大项的反相规则与最小项相反，不能机械照抄。"
+        ],
+        "examples": [
+          {
+            "level": "Basic",
+            "question": "写出ABC=010的最小项。",
+            "solution": "<p>\\(0\\)对应反相、\\(1\\)对应原变量，得到\\(\\overline AB\\overline C\\)。该行三个literal都为\\(1\\)。</p>",
+            "source": "Lecture09.pdf",
+            "page": 9,
+            "sourcePages": [
+              9,
+              10,
+              11,
+              12,
+              13
+            ],
+            "authorship": "课程原理衍生例题，非官方试题"
+          },
+          {
+            "level": "Intermediate",
+            "question": "写出ABC=101的最大项。",
+            "solution": "<p>要使和项为\\(0\\)，输入为\\(1\\)的A、C需反相，B保持原变量，得到\\(\\overline A+B+\\overline C\\)。</p>",
+            "source": "Lecture09.pdf",
+            "page": 9,
+            "sourcePages": [
+              9,
+              10,
+              11,
+              12,
+              13
+            ],
+            "authorship": "课程原理衍生例题，非官方试题"
+          },
+          {
+            "level": "Advanced",
+            "question": "真值表只有ABC=011和101为1，写标准SOP。",
+            "solution": "<p>\\(011\\)对应\\(\\overline ABC\\)，\\(101\\)对应\\(A\\overline BC\\)，所以\\(F=\\overline ABC+A\\overline BC=\\Sigma m(3,5)\\)。</p>",
+            "source": "Lecture09.pdf",
+            "page": 9,
+            "sourcePages": [
+              9,
+              10,
+              11,
+              12,
+              13
+            ],
+            "authorship": "课程原理衍生例题，非官方试题"
+          }
+        ],
+        "dependency": "L9-M1",
+        "learningOrder": "普通式与标准式 → 最小项与最大项的极性 → SOP/POS 互换与检验"
+      },
+      {
+        "id": "L9-M3",
+        "title": "SOP/POS 互换与检验",
+        "pages": [
+          14,
+          15,
+          16
+        ],
+        "explanation": "<p>标准 SOP 列出输出为 \\(1\\) 的输入行，标准 POS 列出输出为 \\(0\\) 的输入行。同一个完全定义的函数在同一变量域内，这两个行集合互补。</p><p>转换时先确定总共有 \\(2^{n}\\) 行，再用全集减去已知行集合。最后逐行代入以确认相同输出，避免把函数本身与函数反相混淆。</p>",
+        "formula": "F=\\sum m(S)=\\prod M(\\{0,\\ldots,2^n-1\\}\\setminus S)",
+        "conditions": "必须固定变量顺序与变量数，并确保所有输入行有确定的输出。",
+        "misconceptions": [
+          "互换 SOP/POS 后仍是原函数，不是取反函数。"
+        ],
+        "examples": [
+          {
+            "level": "Basic",
+            "question": "二变量 F=Σm(0,3)，写对应标准POS编号。",
+            "solution": "<p>全集\\(\\{0,1,2,3\\}\\)去掉\\(0\\)、\\(3\\)，得到\\(F=\\Pi M(1,2)\\)。</p>",
+            "source": "Lecture09.pdf",
+            "page": 14,
+            "sourcePages": [
+              14,
+              15,
+              16
+            ],
+            "authorship": "课程原理衍生例题，非官方试题"
+          },
+          {
+            "level": "Intermediate",
+            "question": "三变量 F=ΠM(0,2,5,7)，写标准SOP编号。",
+            "solution": "<p>余下的\\(1\\)行是\\(1\\)、\\(3\\)、\\(4\\)、\\(6\\)，因此\\(F=\\Sigma m(1,3,4,6)\\)。</p>",
+            "source": "Lecture09.pdf",
+            "page": 14,
+            "sourcePages": [
+              14,
+              15,
+              16
+            ],
+            "authorship": "课程原理衍生例题，非官方试题"
+          },
+          {
+            "level": "Advanced",
+            "question": "三变量F=Σm(0,2,4,6)，从行集合观察化简结果。",
+            "solution": "<p>这些编号的二进制最低位C全为\\(0\\)，其余A、B覆盖所有组合，故\\(F=\\overline{C}\\)。零行则为\\(1\\)、\\(3\\)、\\(5\\)、\\(7\\)，与同一函数的POS一致。</p>",
+            "source": "Lecture09.pdf",
+            "page": 14,
+            "sourcePages": [
+              14,
+              15,
+              16
+            ],
+            "authorship": "课程原理衍生例题，非官方试题"
+          }
+        ],
+        "dependency": "L9-M2",
+        "learningOrder": "普通式与标准式 → 最小项与最大项的极性 → SOP/POS 互换与检验"
+      }
+    ],
+    "glossary": [
+      [
+        "Minterm",
+        "最小项"
+      ],
+      [
+        "Maxterm",
+        "最大项"
+      ],
+      [
+        "Domain",
+        "变量域"
+      ]
+    ],
+    "summary": "普通式与标准式 → 最小项与最大项的极性 → SOP/POS 互换与检验",
+    "templates": [
+      "普通式与标准式：先固定变量域；SOP 通过乘以 1 补项，POS 通过加 0 再因式分解补项。",
+      "最小项与最大项的极性：固定 A 为最高位、C 为最低位；最小项取值 1，最大项取值 0。",
+      "SOP/POS 互换与检验：必须固定变量顺序与变量数，并确保所有输入行有确定的输出。"
+    ],
+    "contentNote": "解释、例题与练习由课程材料推导编写；例题数值为教学自拟，非官方试题。引用统一使用 PDF 实际页码。原图和波形应结合源文件核对。",
+    "week": 4,
+    "weekSource": "https://core.xjtlu.edu.cn/course/view.php?id=936",
+    "nextSteps": "先用自己的话解释本讲每个模块，再完成基础、应用和挑战题；对错题回到引用页检查概念与条件。掌握后沿课程知识地图进入后续内容。",
+    "dependencies": [
+      8
+    ],
+    "sourceType": "current-course-pdf"
+  },
+  {
+    "id": 10,
+    "title": "卡诺图与逻辑最小化",
+    "source": "EEE104_Lecture_10.pdf",
+    "objectives": [
+      "理解并能应用格雷码与环绕相邻",
+      "理解并能应用SOP 圈 1 与消变量",
+      "理解并能应用无关项与 POS 圈 0"
+    ],
+    "modules": [
+      {
+        "id": "L10-M1",
+        "title": "格雷码与环绕相邻",
+        "pages": [
+          3,
+          4,
+          5
+        ],
+        "explanation": "<p>卡诺图把真值表重新排列，使上下左右相邻格只有一个输入变量改变。坐标采用 \\(00\\)、\\(01\\)、\\(11\\)、\\(10\\)，首尾也相邻。</p><p>二维图展开在纸上有边缘，但逻辑相邻关系环绕连接。对角格通常有两个变量变化，因此不能按视觉距离直接当作相邻。</p>",
+        "formula": "\\text{cells}=2^n,\\qquad00\\to01\\to11\\to10",
+        "conditions": "判断相邻应比较位型只差一个 bit；画图时按格雷码排列。",
+        "misconceptions": [
+          "自然二进制顺序 00、01、10、11 会破坏中间两格相邻。"
+        ],
+        "examples": [
+          {
+            "level": "Basic",
+            "question": "三变量卡诺图有几格？",
+            "solution": "<p>\\(2^3=8\\)格，每个输入组合一格。</p>",
+            "source": "EEE104_Lecture_10.pdf",
+            "page": 3,
+            "sourcePages": [
+              3,
+              4,
+              5
+            ],
+            "authorship": "课程原理衍生例题，非官方试题"
+          },
+          {
+            "level": "Intermediate",
+            "question": "判断0101和1101是否相邻。",
+            "solution": "<p>只在最高位A不同，其余三位相同，故逻辑相邻。具体纸面位置可能通过环绕相邻。</p>",
+            "source": "EEE104_Lecture_10.pdf",
+            "page": 3,
+            "sourcePages": [
+              3,
+              4,
+              5
+            ],
+            "authorship": "课程原理衍生例题，非官方试题"
+          },
+          {
+            "level": "Advanced",
+            "question": "判断0011和1100能否组成两格相邻组。",
+            "solution": "<p>四个位都不同，不能组成相邻两格组。相邻要求恰有一个变量变化。</p>",
+            "source": "EEE104_Lecture_10.pdf",
+            "page": 3,
+            "sourcePages": [
+              3,
+              4,
+              5
+            ],
+            "authorship": "课程原理衍生例题，非官方试题"
+          }
+        ],
+        "dependency": null,
+        "learningOrder": "格雷码与环绕相邻 → SOP 圈 1 与消变量 → 无关项与 POS 圈 0"
+      },
+      {
+        "id": "L10-M2",
+        "title": "SOP 圈 1 与消变量",
+        "pages": [
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14
+        ],
+        "explanation": "<p>SOP 化简对输出为 \\(1\\) 的格子分组，组大小必须是 \\(1\\)、\\(2\\)、\\(4\\)、\\(8\\ldots \\ldots \\)，形状为矩形且允许环绕。每个 \\(1\\) 至少覆盖一次，组可以重叠。</p><p>一个组中变化的变量被消掉，保持为 \\(1\\) 的变量用原变量，保持为 \\(0\\) 的变量用反相。组越大，留下的变量越少。</p>",
+        "formula": "\\text{remaining literals}=n-\\log_2(\\text{group size})",
+        "conditions": "先圈尽量大的合法组，再确保覆盖全部 1，去除冗余组。",
+        "misconceptions": [
+          "不能圈 3 个格，也不能把已知的 0 包入 SOP 的 1 组。"
+        ],
+        "examples": [
+          {
+            "level": "Basic",
+            "question": "四变量图中合法八格组保留几个变量？",
+            "solution": "<p>\\(4-\\log_2 8=1\\)，仅一个变量固定。</p>",
+            "source": "EEE104_Lecture_10.pdf",
+            "page": 6,
+            "sourcePages": [
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14
+            ],
+            "authorship": "课程原理衍生例题，非官方试题"
+          },
+          {
+            "level": "Intermediate",
+            "question": "三变量1组包括100、101，求乘积项。",
+            "solution": "<p>A始终\\(1\\)、B始终\\(0\\)、C变化，因此得到\\(A\\overline{B}\\)。</p>",
+            "source": "EEE104_Lecture_10.pdf",
+            "page": 6,
+            "sourcePages": [
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14
+            ],
+            "authorship": "课程原理衍生例题，非官方试题"
+          },
+          {
+            "level": "Advanced",
+            "question": "三变量函数1行是0、1、4、5，圈四格并化简。",
+            "solution": "<p>\\(000\\)、\\(001\\)、\\(100\\)、\\(101\\)中B始终\\(0\\)，A与C覆盖全部取值，因此\\(F=\\overline{B}\\)。四格覆盖所有\\(1\\)，无需额外项。</p>",
+            "source": "EEE104_Lecture_10.pdf",
+            "page": 6,
+            "sourcePages": [
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14
+            ],
+            "authorship": "课程原理衍生例题，非官方试题"
+          }
+        ],
+        "dependency": "L10-M1",
+        "learningOrder": "格雷码与环绕相邻 → SOP 圈 1 与消变量 → 无关项与 POS 圈 0"
+      },
+      {
+        "id": "L10-M3",
+        "title": "无关项与 POS 圈 0",
+        "pages": [
+          15,
+          16,
+          17,
+          18,
+          19,
+          20,
+          21
+        ],
+        "explanation": "<p>X 表示对该输入的输出没有规定，只有确认输入不出现或输出无要求时才可使用。SOP 中可把有助于扩大组的 X 当 \\(1\\)，不利的 X 可以忽略。</p><p>POS 则圈 \\(0\\)。组内恒为 \\(0\\) 的变量用原变量，恒为 \\(1\\) 的变量用反相，再把各组得到的和项相乘。这与 SOP 的极性规则相反。</p>",
+        "formula": "F_{\\mathrm{POS}}=\\prod_j\\text{(sum term for zero group }j\\text{)}",
+        "conditions": "X 不是必须覆盖的 1；POS 圈 0，SOP 圈 1，分别使用相应极性规则。",
+        "misconceptions": [
+          "不能把已知 0 自行改成 X，也不能默认所有无效 BCD 输入一定不会发生。"
+        ],
+        "examples": [
+          {
+            "level": "Basic",
+            "question": "POS零组包括000、001，写和项。",
+            "solution": "<p>A与B始终\\(0\\)，C变化，因此和项为\\(A+B\\)；它在两个目标行都为\\(0\\)。</p>",
+            "source": "EEE104_Lecture_10.pdf",
+            "page": 15,
+            "sourcePages": [
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21
+            ],
+            "authorship": "课程原理衍生例题，非官方试题"
+          },
+          {
+            "level": "Intermediate",
+            "question": "函数规定m0=1、m1=X，其他三变量行均0，可将两格合并为何？",
+            "solution": "<p>将\\(m1\\)选为\\(1\\)，与\\(m0\\)合并。\\(000\\)、\\(001\\)中\\(A=B=0\\)，因此\\(F=\\overline A \\overline{B}\\)。X不要求必须输出\\(0\\)，所以这个选择合法。</p>",
+            "source": "EEE104_Lecture_10.pdf",
+            "page": 15,
+            "sourcePages": [
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21
+            ],
+            "authorship": "课程原理衍生例题，非官方试题"
+          },
+          {
+            "level": "Advanced",
+            "question": "函数零行是0、1、2、3，其余行为1，给出最小POS。",
+            "solution": "<p>四个零行对应\\(A=0\\)，B、C变化。POS保留未反相A，得到\\(F=A\\)；在全部零行\\(A=0\\)，在其余行\\(A=1\\)。</p>",
+            "source": "EEE104_Lecture_10.pdf",
+            "page": 15,
+            "sourcePages": [
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21
+            ],
+            "authorship": "课程原理衍生例题，非官方试题"
+          }
+        ],
+        "dependency": "L10-M2",
+        "learningOrder": "格雷码与环绕相邻 → SOP 圈 1 与消变量 → 无关项与 POS 圈 0"
+      }
+    ],
+    "glossary": [
+      [
+        "Gray code",
+        "格雷码"
+      ],
+      [
+        "Adjacency",
+        "相邻"
+      ],
+      [
+        "Don’t care",
+        "无关项"
+      ]
+    ],
+    "summary": "格雷码与环绕相邻 → SOP 圈 1 与消变量 → 无关项与 POS 圈 0",
+    "templates": [
+      "格雷码与环绕相邻：判断相邻应比较位型只差一个 bit；画图时按格雷码排列。",
+      "SOP 圈 1 与消变量：先圈尽量大的合法组，再确保覆盖全部 1，去除冗余组。",
+      "无关项与 POS 圈 0：X 不是必须覆盖的 1；POS 圈 0，SOP 圈 1，分别使用相应极性规则。"
+    ],
+    "contentNote": "解释、例题与练习由课程材料推导编写；例题数值为教学自拟，非官方试题。引用统一使用 PDF 实际页码。原图和波形应结合源文件核对。",
+    "week": 5,
+    "weekSource": "https://core.xjtlu.edu.cn/course/view.php?id=936",
+    "nextSteps": "先用自己的话解释本讲每个模块，再完成基础、应用和挑战题；对错题回到引用页检查概念与条件。掌握后沿课程知识地图进入后续内容。",
+    "dependencies": [
+      9
+    ],
+    "sourceType": "current-course-pdf"
+  },
+  {
+    "id": 13,
+    "title": "S-R 与门控 D 锁存器",
+    "source": "EEE104_Lecture_13.pdf",
+    "objectives": [
+      "理解并能应用反馈与低有效 NAND S-R",
+      "理解并能应用高有效 S-R 与门控使能",
+      "理解并能应用D 锁存器与透明区间"
+    ],
+    "modules": [
+      {
+        "id": "L13-M1",
+        "title": "反馈与低有效 NAND S-R",
+        "pages": [
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "explanation": "<p>锁存器利用交叉反馈保留一位信息。低有效 NAND S-R 锁存器在 \\(\\overline{S}=0\\)、\\(\\overline{R}=1\\) 时置位 \\(Q=1\\)；\\(\\overline{S}=1\\)、\\(\\overline{R}=0\\) 时复位 \\(Q=0\\)；两输入都为 \\(1\\) 时保持。</p><p>两输入都为 \\(0\\) 会强迫 Q 与其互补输出同时为 \\(1\\)，违反互补关系；同时释放时，最终状态受到门延迟影响，不能可靠预测。</p>",
+        "formula": "(\\overline S,\\overline R)=(0,1)\\Rightarrow Q^+=1;\\quad(1,0)\\Rightarrow Q^+=0",
+        "conditions": "先确认输入低有效。依次跟踪状态，保持操作必须引用前一时刻的 Q。",
+        "misconceptions": [
+          "SET 的意思是令 Q=1，与初始 Q 无关。"
+        ],
+        "examples": [
+          {
+            "level": "Basic",
+            "question": "低有效 NAND S-R 初始Q=1，施加S̄=1、R̄=0，求Q。",
+            "solution": "<p>\\(\\overline{R}=0\\)激活复位，Q变为\\(0\\)，与初始Q无关。</p>",
+            "source": "EEE104_Lecture_13.pdf",
+            "page": 3,
+            "sourcePages": [
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12
+            ],
+            "authorship": "课程原理衍生例题，非官方试题"
+          },
+          {
+            "level": "Intermediate",
+            "question": "初始Q=1，低有效输入依次11、10、11、01，写状态。",
+            "solution": "<p>\\(11\\)保持\\(1\\)；\\(10\\)复位\\(0\\)；\\(11\\)保持\\(0\\)；\\(01\\)置位\\(1\\)。状态依次\\(1\\)、\\(0\\)、\\(0\\)、\\(1\\)。</p>",
+            "source": "EEE104_Lecture_13.pdf",
+            "page": 3,
+            "sourcePages": [
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12
+            ],
+            "authorship": "课程原理衍生例题，非官方试题"
+          },
+          {
+            "level": "Advanced",
+            "question": "为何不能在低有效 NAND S-R 的非法输入00时仍假定两输出互补？",
+            "solution": "<p>NAND的任意输入为\\(0\\)就输出\\(1\\)，因此两个交叉门都被强迫为\\(1\\)。此时标为\\(\\overline{Q}\\)的端口不再等于Q的逻辑反相，不能用正常互补假设分析。</p>",
+            "source": "EEE104_Lecture_13.pdf",
+            "page": 3,
+            "sourcePages": [
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12
+            ],
+            "authorship": "课程原理衍生例题，非官方试题"
+          }
+        ],
+        "dependency": null,
+        "learningOrder": "反馈与低有效 NAND S-R → 高有效 S-R 与门控使能 → D 锁存器与透明区间"
+      },
+      {
+        "id": "L13-M2",
+        "title": "高有效 S-R 与门控使能",
+        "pages": [
+          13,
+          14,
+          15,
+          16,
+          17,
+          18
+        ],
+        "explanation": "<p>NOR 构成的高有效 S-R 锁存器把 \\(1\\) 当作激活电平：\\(S=1\\) 置位、\\(R=1\\) 复位、\\(00\\) 保持、\\(11\\) 非法。不能把 NAND 型的表直接套用。</p><p>门控锁存器增加 EN。\\(\\mathrm{EN}=0\\) 时锁存器隔离外部控制并保持；\\(\\mathrm{EN}=1\\) 时允许外部 S、R 改变状态。EN 高电平是一段时间，因此属于电平敏感器件。</p>",
+        "formula": "EN=0\\Rightarrow Q^+=Q",
+        "conditions": "先检查 EN，再在有效区间应用高有效 S-R 规则。",
+        "misconceptions": [
+          "EN=0 时即使外部 S、R 改变也不会按正常数据通路更新 Q。"
+        ],
+        "examples": [
+          {
+            "level": "Basic",
+            "question": "高有效 NOR S-R 输入S=1、R=0，求Q。",
+            "solution": "<p>置位有效，复位无效，\\(Q=1\\)。</p>",
+            "source": "EEE104_Lecture_13.pdf",
+            "page": 13,
+            "sourcePages": [
+              13,
+              14,
+              15,
+              16,
+              17,
+              18
+            ],
+            "authorship": "课程原理衍生例题，非官方试题"
+          },
+          {
+            "level": "Intermediate",
+            "question": "门控高有效S-R初始Q=0，依次(EN,S,R)=(0,1,0)、(1,1,0)、(0,0,1)，求序列。",
+            "solution": "<p>第一步\\(\\mathrm{EN}=0\\)保持\\(0\\)；第二步有效使能且置位，变\\(1\\)；第三步使能关闭，保持\\(1\\)。</p>",
+            "source": "EEE104_Lecture_13.pdf",
+            "page": 13,
+            "sourcePages": [
+              13,
+              14,
+              15,
+              16,
+              17,
+              18
+            ],
+            "authorship": "课程原理衍生例题，非官方试题"
+          },
+          {
+            "level": "Advanced",
+            "question": "比较高有效S-R和低有效S-R的外部11输入，并解释不能共用一张表。",
+            "solution": "<p>高有效\\(11\\)同时激活置位与复位，为非法。低有效\\(11\\)均未激活，正常保持。输入极性改变了同一位型的含义，必须先辨认气泡或反相标记。</p>",
+            "source": "EEE104_Lecture_13.pdf",
+            "page": 13,
+            "sourcePages": [
+              13,
+              14,
+              15,
+              16,
+              17,
+              18
+            ],
+            "authorship": "课程原理衍生例题，非官方试题"
+          }
+        ],
+        "dependency": "L13-M1",
+        "learningOrder": "反馈与低有效 NAND S-R → 高有效 S-R 与门控使能 → D 锁存器与透明区间"
+      },
+      {
+        "id": "L13-M3",
+        "title": "D 锁存器与透明区间",
+        "pages": [
+          19,
+          20,
+          21
+        ],
+        "explanation": "<p>门控 D 锁存器把 \\(S=D\\)、\\(R=\\overline{D}\\)，避免外部同时提出置位与复位的请求。\\(\\mathrm{EN}=1\\) 时 Q 跟随 D，\\(\\mathrm{EN}=0\\) 时 Q 保留最后的状态。</p><p>“透明”表示整个有效电平区间内输入变化都能传到输出，考虑实际传播延迟后成立。它与只在时钟边沿采样的 D 触发器不同。</p>",
+        "formula": "Q^+=EN\\cdot D+\\overline{EN}\\cdot Q",
+        "conditions": "按 EN 的高电平区间逐段跟踪 D，EN 变低后保持最后值。",
+        "misconceptions": [
+          "不能只在 EN 上升瞬间采样然后忽略高电平期间的 D 变化。"
+        ],
+        "examples": [
+          {
+            "level": "Basic",
+            "question": "D锁存器EN=1、D=0，稳定Q为何？",
+            "solution": "<p>透明区间内Q跟随D，因此\\(Q=0\\)。</p>",
+            "source": "EEE104_Lecture_13.pdf",
+            "page": 19,
+            "sourcePages": [
+              19,
+              20,
+              21
+            ],
+            "authorship": "课程原理衍生例题，非官方试题"
+          },
+          {
+            "level": "Intermediate",
+            "question": "初始Q=1，依次(EN,D)=(0,0)、(1,0)、(0,1)，写Q。",
+            "solution": "<p>使能关闭时先保持\\(1\\)；使能打开采到\\(0\\)；最后关闭后即使\\(D=1\\)也保持\\(0\\)。序列为\\(1\\)、\\(0\\)、\\(0\\)。</p>",
+            "source": "EEE104_Lecture_13.pdf",
+            "page": 19,
+            "sourcePages": [
+              19,
+              20,
+              21
+            ],
+            "authorship": "课程原理衍生例题，非官方试题"
+          },
+          {
+            "level": "Advanced",
+            "question": "EN保持1期间D依次为0、1、0，最后EN变0，解释完整Q行为。",
+            "solution": "<p>满足实际传播延迟后Q依次跟随\\(0\\)、\\(1\\)、\\(0\\)。EN关闭时保存末值\\(0\\)。这说明锁存器在整个高电平区间透明，不是仅上升瞬间采一次。</p>",
+            "source": "EEE104_Lecture_13.pdf",
+            "page": 19,
+            "sourcePages": [
+              19,
+              20,
+              21
+            ],
+            "authorship": "课程原理衍生例题，非官方试题"
+          }
+        ],
+        "dependency": "L13-M2",
+        "learningOrder": "反馈与低有效 NAND S-R → 高有效 S-R 与门控使能 → D 锁存器与透明区间"
+      }
+    ],
+    "glossary": [
+      [
+        "Latch",
+        "锁存器"
+      ],
+      [
+        "Bistable",
+        "双稳态"
+      ],
+      [
+        "Enable",
+        "使能"
+      ]
+    ],
+    "summary": "反馈与低有效 NAND S-R → 高有效 S-R 与门控使能 → D 锁存器与透明区间",
+    "templates": [
+      "反馈与低有效 NAND S-R：先确认输入低有效。依次跟踪状态，保持操作必须引用前一时刻的 Q。",
+      "高有效 S-R 与门控使能：先检查 EN，再在有效区间应用高有效 S-R 规则。",
+      "D 锁存器与透明区间：按 EN 的高电平区间逐段跟踪 D，EN 变低后保持最后值。"
+    ],
+    "contentNote": "解释、例题与练习由课程材料推导编写；例题数值为教学自拟，非官方试题。引用统一使用 PDF 实际页码。原图和波形应结合源文件核对。",
+    "week": 5,
+    "weekSource": "https://core.xjtlu.edu.cn/course/view.php?id=936",
+    "nextSteps": "先用自己的话解释本讲每个模块，再完成基础、应用和挑战题；对错题回到引用页检查概念与条件。掌握后沿课程知识地图进入后续内容。",
+    "dependencies": [
+      10
+    ],
+    "sourceType": "current-course-pdf"
+  },
+  {
+    "id": 14,
+    "title": "边沿触发器、异步控制与分频",
+    "source": "Lecture 14.pdf",
+    "objectives": [
+      "理解并能应用边沿采样与 D/S-R 触发器",
+      "理解并能应用J-K 四种动作与异步输入",
+      "理解并能应用并行存储、分频与计数"
+    ],
+    "modules": [
+      {
+        "id": "L14-M1",
+        "title": "边沿采样与 D/S-R 触发器",
+        "pages": [
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ],
+        "explanation": "<p>触发器只在指定时钟边沿更新状态，时钟保持 HIGH 并不会持续打开数据通路。时钟端小三角表示边沿敏感，是否还有反相气泡决定极性。</p><p>D 触发器在有效边沿保存 D；S-R 触发器在有效边沿使用置位、复位与保持规则。异步控制未激活时，边沿之间保持状态。</p>",
+        "formula": "Q(t^+)=D(t_{\\mathrm{edge}})",
+        "conditions": "先标出有效边沿，再读取该瞬间稳定输入；本模块默认异步控制未激活。",
+        "misconceptions": [
+          "边沿触发 D 触发器不会在时钟整个高电平期间跟随 D。"
+        ],
+        "examples": [
+          {
+            "level": "Basic",
+            "question": "负沿D触发器在上升沿D=1，是否因该上升沿更新？",
+            "solution": "<p>不因上升沿更新。此器件指定下降沿为有效边沿，正常同步工作时等待下降沿。</p>",
+            "source": "Lecture 14.pdf",
+            "page": 3,
+            "sourcePages": [
+              3,
+              4,
+              5,
+              6,
+              7,
+              8
+            ],
+            "authorship": "课程原理衍生例题，非官方试题"
+          },
+          {
+            "level": "Intermediate",
+            "question": "正沿D触发器初始Q=1，在两个有效沿采到D=0、0，写Q。",
+            "solution": "<p>第一个沿变\\(0\\)，第二个沿继续采到\\(0\\)，因此保持\\(0\\)。两个结果为\\(0\\)、\\(0\\)。</p>",
+            "source": "Lecture 14.pdf",
+            "page": 3,
+            "sourcePages": [
+              3,
+              4,
+              5,
+              6,
+              7,
+              8
+            ],
+            "authorship": "课程原理衍生例题，非官方试题"
+          },
+          {
+            "level": "Advanced",
+            "question": "正沿D触发器时钟高电平期间D从0变1，下一个上升沿前又变0，最终采样为何？",
+            "solution": "<p>假设满足建立/保持时间且无异步控制，只有有效上升沿的D决定新Q。下一沿D稳定为\\(0\\)，因此采样\\(0\\)；中间脉冲不会被这两个采样沿记录。</p>",
+            "source": "Lecture 14.pdf",
+            "page": 3,
+            "sourcePages": [
+              3,
+              4,
+              5,
+              6,
+              7,
+              8
+            ],
+            "authorship": "课程原理衍生例题，非官方试题"
+          }
+        ],
+        "dependency": null,
+        "learningOrder": "边沿采样与 D/S-R 触发器 → J-K 四种动作与异步输入 → 并行存储、分频与计数"
+      },
+      {
+        "id": "L14-M2",
+        "title": "J-K 四种动作与异步输入",
+        "pages": [
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17
+        ],
+        "explanation": "<p>J-K 在 \\(00\\) 时保持，\\(01\\) 时复位，\\(10\\) 时置位，\\(11\\) 时翻转。反馈使同时 \\(J=K=1\\) 成为合法翻转动作，消除了 S-R 的该类非法数据输入。</p><p>异步 PRE、CLR 可以不等待时钟直接改变状态。讲义示例为低有效，正常同步运行时都为 \\(1\\)；同时有效应避免。</p>",
+        "formula": "Q^+=J\\overline Q+\\overline KQ",
+        "conditions": "优先检查异步 PRE/CLR，再在有效边沿使用 J-K 真值表。",
+        "misconceptions": [
+          "J=K=1 是翻转，而不是恒为 1。"
+        ],
+        "examples": [
+          {
+            "level": "Basic",
+            "question": "J=1、K=0，初始Q=0，有效沿后Q为何？",
+            "solution": "<p>\\(10\\)执行置位，\\(Q=1\\)。</p>",
+            "source": "Lecture 14.pdf",
+            "page": 9,
+            "sourcePages": [
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16,
+              17
+            ],
+            "authorship": "课程原理衍生例题，非官方试题"
+          },
+          {
+            "level": "Intermediate",
+            "question": "初始Q=1，三个有效沿的JK依次00、11、10，写Q。",
+            "solution": "<p>\\(00\\)保持\\(1\\)；\\(11\\)翻转为\\(0\\)；\\(10\\)置位为\\(1\\)，因此为\\(1\\)、\\(0\\)、\\(1\\)。</p>",
+            "source": "Lecture 14.pdf",
+            "page": 9,
+            "sourcePages": [
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16,
+              17
+            ],
+            "authorship": "课程原理衍生例题，非官方试题"
+          },
+          {
+            "level": "Advanced",
+            "question": "低有效PRE=0、CLR=1时J=K=1，解释Q是否还按每个时钟翻转。",
+            "solution": "<p>异步预置激活会强制\\(Q=1\\)，正常同步翻转规则不适用。须先释放异步控制并满足相关时序要求，才恢复J-K时钟操作。</p>",
+            "source": "Lecture 14.pdf",
+            "page": 9,
+            "sourcePages": [
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16,
+              17
+            ],
+            "authorship": "课程原理衍生例题，非官方试题"
+          }
+        ],
+        "dependency": "L14-M1",
+        "learningOrder": "边沿采样与 D/S-R 触发器 → J-K 四种动作与异步输入 → 并行存储、分频与计数"
+      },
+      {
+        "id": "L14-M3",
+        "title": "并行存储、分频与计数",
+        "pages": [
+          18,
+          19,
+          20,
+          21,
+          22
+        ],
+        "explanation": "<p>n 个 D 触发器共用时钟可在同一边沿保存 n 位。每个触发器只有一位，因此存储位数与触发器数直接对应。</p><p>翻转触发器每次时钟翻转一次，需要两次翻转才完成一个输出周期，所以一处分频为 \\(2\\)。适当级联 n 级产生 \\(2^{n}\\) 分频，也可用输出位型表示计数。</p>",
+        "formula": "f_{Q_n}=\\frac{f_{\\mathrm{in}}}{2^n}",
+        "conditions": "分频链中每级均处于翻转模式，并由前级适当的输出边沿驱动。",
+        "misconceptions": [
+          "一次输出翻转是半个周期，不能误认为频率与输入相同。"
+        ],
+        "examples": [
+          {
+            "level": "Basic",
+            "question": "并行保存一个8位字需要几个D触发器？",
+            "solution": "<p>每个触发器一位，共需\\(8\\)个。共用有效时钟沿可同时保存全部\\(8\\)位。</p>",
+            "source": "Lecture 14.pdf",
+            "page": 18,
+            "sourcePages": [
+              18,
+              19,
+              20,
+              21,
+              22
+            ],
+            "authorship": "课程原理衍生例题，非官方试题"
+          },
+          {
+            "level": "Intermediate",
+            "question": "输入8 kHz，经两级翻转分频，求末级频率。",
+            "solution": "<p>\\(f=8000/2^2=2000\\,Hz=2\\,kHz\\)。</p>",
+            "source": "Lecture 14.pdf",
+            "page": 18,
+            "sourcePages": [
+              18,
+              19,
+              20,
+              21,
+              22
+            ],
+            "authorship": "课程原理衍生例题，非官方试题"
+          },
+          {
+            "level": "Advanced",
+            "question": "想把32 kHz经过翻转级联变为500 Hz，需几级？",
+            "solution": "<p>要求\\(2^n=32000/500=64\\)，因此\\(n=6\\)。检查\\(32000/64=500\\,Hz\\)。</p>",
+            "source": "Lecture 14.pdf",
+            "page": 18,
+            "sourcePages": [
+              18,
+              19,
+              20,
+              21,
+              22
+            ],
+            "authorship": "课程原理衍生例题，非官方试题"
+          }
+        ],
+        "dependency": "L14-M2",
+        "learningOrder": "边沿采样与 D/S-R 触发器 → J-K 四种动作与异步输入 → 并行存储、分频与计数"
+      }
+    ],
+    "glossary": [
+      [
+        "Flip-flop",
+        "触发器"
+      ],
+      [
+        "Preset",
+        "预置"
+      ],
+      [
+        "Clear",
+        "清零"
+      ]
+    ],
+    "summary": "边沿采样与 D/S-R 触发器 → J-K 四种动作与异步输入 → 并行存储、分频与计数",
+    "templates": [
+      "边沿采样与 D/S-R 触发器：先标出有效边沿，再读取该瞬间稳定输入；本模块默认异步控制未激活。",
+      "J-K 四种动作与异步输入：优先检查异步 PRE/CLR，再在有效边沿使用 J-K 真值表。",
+      "并行存储、分频与计数：分频链中每级均处于翻转模式，并由前级适当的输出边沿驱动。"
+    ],
+    "contentNote": "解释、例题与练习由课程材料推导编写；例题数值为教学自拟，非官方试题。引用统一使用 PDF 实际页码。原图和波形应结合源文件核对。",
+    "week": 6,
+    "weekSource": "https://core.xjtlu.edu.cn/course/view.php?id=936",
+    "nextSteps": "先用自己的话解释本讲每个模块，再完成基础、应用和挑战题；对错题回到引用页检查概念与条件。掌握后沿课程知识地图进入后续内容。",
+    "dependencies": [
+      13
+    ],
+    "sourceType": "current-course-pdf"
+  },
+  {
+    "id": 15,
+    "title": "异步计数器、模数与延迟",
+    "source": "Lecture15.pdf",
+    "objectives": [
+      "理解并能应用异步计数和二进制状态",
+      "理解并能应用截断计数与清零译码",
+      "理解并能应用累计延迟与瞬态误译码"
+    ],
+    "modules": [
+      {
+        "id": "L15-M1",
+        "title": "异步计数和二进制状态",
+        "pages": [
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "explanation": "<p>异步计数器中只有首级直接接外部时钟，后级时钟由前级输出驱动。翻转波逐级传播，所以也称脉动计数器。</p><p>对适当接线的二进制向上计数器，最低位每个输入有效沿翻转，其余位依次降低频率。读取数值时必须先确定哪一位是 MSB、哪一位是 LSB。</p>",
+        "formula": "M_{\\max}=2^n",
+        "conditions": "确定触发边沿、Q 或反相 Q 接法及初始状态后，再推导向上或向下序列。",
+        "misconceptions": [
+          "不能仅凭“每级翻转”就忽略接线极性而断言计数方向。"
+        ],
+        "examples": [
+          {
+            "level": "Basic",
+            "question": "2位完整向上计数器从00开始，写一个周期。",
+            "solution": "<p>\\(00\\to 01\\to 10\\to 11\\to 00\\)，共\\(4\\)个不同状态，模数\\(4\\)。</p>",
+            "source": "Lecture15.pdf",
+            "page": 3,
+            "sourcePages": [
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "authorship": "课程原理衍生例题，非官方试题"
+          },
+          {
+            "level": "Intermediate",
+            "question": "4位向上模16计数器初值3，计18次后状态为何？",
+            "solution": "<p>\\((3+18)\\bmod16=5\\)，四位编码\\(0101\\)。</p>",
+            "source": "Lecture15.pdf",
+            "page": 3,
+            "sourcePages": [
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "authorship": "课程原理衍生例题，非官方试题"
+          },
+          {
+            "level": "Advanced",
+            "question": "3位异步计数器从011到100，为什么译码不能只看理想起止两行？",
+            "solution": "<p>实际多个位逐级变化，在稳定\\(100\\)之前可能出现中间位型。具体顺序依赖触发边沿与接线；译码器可能响应瞬态，因此必须考虑延迟。</p>",
+            "source": "Lecture15.pdf",
+            "page": 3,
+            "sourcePages": [
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "authorship": "课程原理衍生例题，非官方试题"
+          }
+        ],
+        "dependency": null,
+        "learningOrder": "异步计数和二进制状态 → 截断计数与清零译码 → 累计延迟与瞬态误译码"
+      },
+      {
+        "id": "L15-M2",
+        "title": "截断计数与清零译码",
+        "pages": [
+          8,
+          9,
+          10,
+          13,
+          14,
+          15,
+          16
+        ],
+        "explanation": "<p>模 M 表示重复序列中不同有效状态的数量。四个触发器可有 \\(16\\) 个位型，但通过清零反馈可以只经过十个或十二个状态。</p><p>异步模 \\(10\\) 计数器在 \\(1010\\) 出现时清零，稳定计数序列是 \\(0000\\) 到 \\(1001\\)。检测到的 \\(1010\\) 是触发复位的过渡状态，不算稳定有效计数。</p>",
+        "formula": "n=\\lceil\\log_2 M\\rceil",
+        "conditions": "异步复位设计通常检测第 M 个位型；确保从有效初态进入指定循环。",
+        "misconceptions": [
+          "模 10 的最后稳定状态是 9，不是 10。"
+        ],
+        "examples": [
+          {
+            "level": "Basic",
+            "question": "模6计数器至少需要多少触发器？",
+            "solution": "<p>\\(2^2=4<6\\le8=2^3\\)，所以需\\(3\\)个。</p>",
+            "source": "Lecture15.pdf",
+            "page": 8,
+            "sourcePages": [
+              8,
+              9,
+              10,
+              13,
+              14,
+              15,
+              16
+            ],
+            "authorship": "课程原理衍生例题，非官方试题"
+          },
+          {
+            "level": "Intermediate",
+            "question": "从0起计的异步模7计数器，稳定末状态和复位检测位型是什么？",
+            "solution": "<p>稳定状态\\(0\\ldots 6\\)，末状态\\(110\\)；检测\\(7\\)即\\(111\\)后异步清零。共\\(7\\)个稳定状态。</p>",
+            "source": "Lecture15.pdf",
+            "page": 8,
+            "sourcePages": [
+              8,
+              9,
+              10,
+              13,
+              14,
+              15,
+              16
+            ],
+            "authorship": "课程原理衍生例题，非官方试题"
+          },
+          {
+            "level": "Advanced",
+            "question": "4位异步计数器要从0到8循环，解释模数与复位译码值。",
+            "solution": "<p>包含\\(0\\ldots 8\\)，共\\(9\\)状态，因此模\\(9\\)；到\\(9\\)即\\(1001\\)时异步清零。检测值与最后稳定值相差\\(1\\)，不能把\\(8\\)当作复位检测而少算一个状态。</p>",
+            "source": "Lecture15.pdf",
+            "page": 8,
+            "sourcePages": [
+              8,
+              9,
+              10,
+              13,
+              14,
+              15,
+              16
+            ],
+            "authorship": "课程原理衍生例题，非官方试题"
+          }
+        ],
+        "dependency": "L15-M1",
+        "learningOrder": "异步计数和二进制状态 → 截断计数与清零译码 → 累计延迟与瞬态误译码"
+      },
+      {
+        "id": "L15-M3",
+        "title": "累计延迟与瞬态误译码",
+        "pages": [
+          11,
+          12
+        ],
+        "explanation": "<p>脉动计数的不同位不会同时改变。例如多位翻转时，前级先变，后级稍后才跟着变，途中可能短暂出现不属于理想同步序列的位型。</p><p>这些瞬态可能被译码门误认为目标计数而产生毛刺。时钟必须留足稳定时间，译码也要考虑传播过程而不只是最终状态。</p>",
+        "formula": "t_{\\mathrm{settle}}\\approx\\sum_{i=1}^{n}t_{p,i}",
+        "conditions": "按最坏传播路径估算；实际设计还需考虑译码、建立时间及数据手册限制。",
+        "misconceptions": [
+          "简单 1/(n·tp) 只是延迟估算，不能直接当作器件保证的最高时钟。"
+        ],
+        "examples": [
+          {
+            "level": "Basic",
+            "question": "两级脉动路径每级12 ns，估计稳定时间。",
+            "solution": "<p>\\(t=12+12=24\\,ns\\)。</p>",
+            "source": "Lecture15.pdf",
+            "page": 11,
+            "sourcePages": [
+              11,
+              12
+            ],
+            "authorship": "课程原理衍生例题，非官方试题"
+          },
+          {
+            "level": "Intermediate",
+            "question": "三级传播延迟分别8、11、15 ns，总延迟多少？",
+            "solution": "<p>\\(t=8+11+15=34\\,ns\\)。需依照经过的实际路径求和。</p>",
+            "source": "Lecture15.pdf",
+            "page": 11,
+            "sourcePages": [
+              11,
+              12
+            ],
+            "authorship": "课程原理衍生例题，非官方试题"
+          },
+          {
+            "level": "Advanced",
+            "question": "已估计计数器最坏稳定时间50 ns，能否据此保证20 MHz输入安全？",
+            "solution": "<p>\\(20 \\mathrm{MHz}\\)周期正好\\(50 \\mathrm{ns}\\)，尚未计入译码、建立时间、温压变化及裕量，不能据此作保证。\\(50 \\mathrm{ns}\\)只是已知部分延迟预算，设计须核对全部时序约束。</p>",
+            "source": "Lecture15.pdf",
+            "page": 11,
+            "sourcePages": [
+              11,
+              12
+            ],
+            "authorship": "课程原理衍生例题，非官方试题"
+          }
+        ],
+        "dependency": "L15-M2",
+        "learningOrder": "异步计数和二进制状态 → 截断计数与清零译码 → 累计延迟与瞬态误译码"
+      }
+    ],
+    "glossary": [
+      [
+        "Ripple counter",
+        "脉动计数器"
+      ],
+      [
+        "Modulus",
+        "模数"
+      ],
+      [
+        "Partial decoding",
+        "部分译码"
+      ]
+    ],
+    "summary": "异步计数和二进制状态 → 截断计数与清零译码 → 累计延迟与瞬态误译码",
+    "templates": [
+      "异步计数和二进制状态：确定触发边沿、Q 或反相 Q 接法及初始状态后，再推导向上或向下序列。",
+      "截断计数与清零译码：异步复位设计通常检测第 M 个位型；确保从有效初态进入指定循环。",
+      "累计延迟与瞬态误译码：按最坏传播路径估算；实际设计还需考虑译码、建立时间及数据手册限制。"
+    ],
+    "contentNote": "解释、例题与练习由课程材料推导编写；例题数值为教学自拟，非官方试题。引用统一使用 PDF 实际页码。原图和波形应结合源文件核对。",
+    "week": 8,
+    "weekSource": "https://core.xjtlu.edu.cn/course/view.php?id=936",
+    "nextSteps": "先用自己的话解释本讲每个模块，再完成基础、应用和挑战题；对错题回到引用页检查概念与条件。掌握后沿课程知识地图进入后续内容。",
+    "dependencies": [
+      14
+    ],
+    "sourceType": "current-course-pdf"
+  },
+  {
+    "id": 16,
+    "title": "同步计数器与向上/向下计数",
+    "source": "Lecture16.pdf",
+    "objectives": [
+      "理解并能应用共同边沿与翻转条件",
+      "理解并能应用同步十进制与器件控制",
+      "理解并能应用向上与向下翻转规则"
+    ],
+    "modules": [
+      {
+        "id": "L16-M1",
+        "title": "共同边沿与翻转条件",
+        "pages": [
+          3,
+          4,
+          5,
+          6
+        ],
+        "explanation": "<p>同步计数器所有触发器共用一个时钟。不同位通过 J、K 或等效控制逻辑决定是否在当前边沿翻转，避免用前一级输出逐级当时钟。</p><p>向上二进制计数时，\\(Q_{0}\\) 总翻转；\\(Q_{1}\\) 在 \\(Q_{0}=1\\) 时翻转；\\(Q_{2}\\) 在 \\(Q_{1}Q0=11\\) 时翻转。判断条件使用边沿之前的旧状态。</p>",
+        "formula": "J_i=K_i=\\prod_{j=0}^{i-1}Q_j\\quad(i\\ge1),\\qquad J_0=K_0=1",
+        "conditions": "所有翻转条件从同一个时钟边沿前的状态计算。",
+        "misconceptions": [
+          "同步不代表物理传播延迟为零。"
+        ],
+        "examples": [
+          {
+            "level": "Basic",
+            "question": "2位同步向上计数器当前01，下一状态为何？",
+            "solution": "<p>\\(Q_{0}\\)每沿翻转\\(1\\to 0\\)；\\(Q_{1}\\)因为旧\\(Q_{0}=1\\)而翻转\\(0\\to 1\\)，得到\\(10\\)。</p>",
+            "source": "Lecture16.pdf",
+            "page": 3,
+            "sourcePages": [
+              3,
+              4,
+              5,
+              6
+            ],
+            "authorship": "课程原理衍生例题，非官方试题"
+          },
+          {
+            "level": "Intermediate",
+            "question": "4位同步计数器当前0101，哪些位在下一沿翻转？",
+            "solution": "<p>\\(Q_{0}\\)翻转；\\(Q_{1}\\)因旧\\(Q_{0}=1\\)翻转；\\(Q_{2}\\)因旧\\(Q_{1}Q0=01\\)不翻转；\\(Q_{3}\\)因低三位非\\(111\\)不翻转。结果\\(0110\\)。</p>",
+            "source": "Lecture16.pdf",
+            "page": 3,
+            "sourcePages": [
+              3,
+              4,
+              5,
+              6
+            ],
+            "authorship": "课程原理衍生例题，非官方试题"
+          },
+          {
+            "level": "Advanced",
+            "question": "从0111到1000时，能否按Q0更新后的0再决定Q1不翻转？",
+            "solution": "<p>不能。所有触发器的控制在同一边沿基于旧状态计算。旧低位满足各级翻转条件，所以四位共同更新为\\(1000\\)。逐个使用新值会错误模拟同步电路。</p>",
+            "source": "Lecture16.pdf",
+            "page": 3,
+            "sourcePages": [
+              3,
+              4,
+              5,
+              6
+            ],
+            "authorship": "课程原理衍生例题，非官方试题"
+          }
+        ],
+        "dependency": null,
+        "learningOrder": "共同边沿与翻转条件 → 同步十进制与器件控制 → 向上与向下翻转规则"
+      },
+      {
+        "id": "L16-M2",
+        "title": "同步十进制与器件控制",
+        "pages": [
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "explanation": "<p>同步十进制计数器通过状态相关输入逻辑使 \\(1001\\) 的下一状态成为 \\(0000\\)。不同集成计数器的清零、加载、使能即使名称相似，也可能有不同的同步性。</p><p>本讲 74HC163 的清零为同步控制，74HC160 的清零为异步控制；两者的加载为同步加载。遇到控制输入应先确定优先级和有效电平，再读波形。</p>",
+        "formula": "\\mathrm{BCD}:\\quad1001\\to0000",
+        "conditions": "根据具体器件的有效电平与同步/异步规定分析控制；本模块对应课件 74HC163 与 74HC160。",
+        "misconceptions": [
+          "不能因为器件是同步计数器，就推断其所有控制脚也同步。"
+        ],
+        "examples": [
+          {
+            "level": "Basic",
+            "question": "同步BCD计数器当前8，再计一次是什么？",
+            "solution": "<p>\\(8\\to 9\\)，四位\\(1000\\to 1001\\)。</p>",
+            "source": "Lecture16.pdf",
+            "page": 7,
+            "sourcePages": [
+              7,
+              8,
+              9,
+              10,
+              11,
+              12
+            ],
+            "authorship": "课程原理衍生例题，非官方试题"
+          },
+          {
+            "level": "Intermediate",
+            "question": "同步并行加载在有效边沿装入0110，下一次正常计数后的值为何？",
+            "solution": "<p>加载沿状态为\\(6\\)，随后解除加载并允许计数，在下一有效沿加一得到\\(7\\)，即\\(0111\\)。</p>",
+            "source": "Lecture16.pdf",
+            "page": 7,
+            "sourcePages": [
+              7,
+              8,
+              9,
+              10,
+              11,
+              12
+            ],
+            "authorship": "课程原理衍生例题，非官方试题"
+          },
+          {
+            "level": "Advanced",
+            "question": "为何“同步计数器”也可能具有异步清零？",
+            "solution": "<p>“同步计数”描述正常计数时各触发器共用时钟；清零是另一控制通路，可以独立设计为异步。课件74HC160即给出这种组合。</p>",
+            "source": "Lecture16.pdf",
+            "page": 7,
+            "sourcePages": [
+              7,
+              8,
+              9,
+              10,
+              11,
+              12
+            ],
+            "authorship": "课程原理衍生例题，非官方试题"
+          }
+        ],
+        "dependency": "L16-M1",
+        "learningOrder": "共同边沿与翻转条件 → 同步十进制与器件控制 → 向上与向下翻转规则"
+      },
+      {
+        "id": "L16-M3",
+        "title": "向上与向下翻转规则",
+        "pages": [
+          13,
+          14,
+          15
+        ],
+        "explanation": "<p>向下计数要处理借位。\\(Q_{0}\\) 仍每次翻转；更高位在所有较低位都是 \\(0\\) 时翻转。它与向上计数的低位全 \\(1\\) 条件互为对应。</p><p>切换方向后应从当前状态继续计数，不能自动假设清零。若模数为 \\(16\\)，从 \\(0\\) 向下计一次会回绕到 \\(15\\)。</p>",
+        "formula": "J_i=K_i=\\prod_{j=0}^{i-1}\\overline{Q_j}\\quad\\text{(down)}",
+        "conditions": "先确定当前方向，按边沿前状态判断进位或借位条件。",
+        "misconceptions": [
+          "方向切换本身不等于复位。"
+        ],
+        "examples": [
+          {
+            "level": "Basic",
+            "question": "3位向下计数器当前101，下一状态是什么？",
+            "solution": "<p>\\(5-1=4\\)，编码\\(100\\)。</p>",
+            "source": "Lecture16.pdf",
+            "page": 13,
+            "sourcePages": [
+              13,
+              14,
+              15
+            ],
+            "authorship": "课程原理衍生例题，非官方试题"
+          },
+          {
+            "level": "Intermediate",
+            "question": "3位向下计数器当前100，下一沿哪些位翻转？",
+            "solution": "<p>\\(Q_{0}\\)总翻转；\\(Q_{1}\\)因旧\\(Q_{0}=0\\)翻转；\\(Q_{2}\\)因旧\\(Q_{1}Q0=00\\)翻转，因此\\(100\\to 011\\)。</p>",
+            "source": "Lecture16.pdf",
+            "page": 13,
+            "sourcePages": [
+              13,
+              14,
+              15
+            ],
+            "authorship": "课程原理衍生例题，非官方试题"
+          },
+          {
+            "level": "Advanced",
+            "question": "模16计数器初值1，向下三次再向上两次，最终值？",
+            "solution": "<p>向下序列\\(1\\to 0\\to 15\\to 14\\)；再向上\\(14\\to 15\\to 0\\)，最终为\\(0\\)。回绕始终按模\\(16\\)处理。</p>",
+            "source": "Lecture16.pdf",
+            "page": 13,
+            "sourcePages": [
+              13,
+              14,
+              15
+            ],
+            "authorship": "课程原理衍生例题，非官方试题"
+          }
+        ],
+        "dependency": "L16-M2",
+        "learningOrder": "共同边沿与翻转条件 → 同步十进制与器件控制 → 向上与向下翻转规则"
+      }
+    ],
+    "glossary": [
+      [
+        "Synchronous counter",
+        "同步计数器"
+      ],
+      [
+        "Count enable",
+        "计数使能"
+      ],
+      [
+        "Terminal count",
+        "终端计数"
+      ]
+    ],
+    "summary": "共同边沿与翻转条件 → 同步十进制与器件控制 → 向上与向下翻转规则",
+    "templates": [
+      "共同边沿与翻转条件：所有翻转条件从同一个时钟边沿前的状态计算。",
+      "同步十进制与器件控制：根据具体器件的有效电平与同步/异步规定分析控制；本模块对应课件 74HC163 与 74HC160。",
+      "向上与向下翻转规则：先确定当前方向，按边沿前状态判断进位或借位条件。"
+    ],
+    "contentNote": "解释、例题与练习由课程材料推导编写；例题数值为教学自拟，非官方试题。引用统一使用 PDF 实际页码。原图和波形应结合源文件核对。",
+    "week": 8,
+    "weekSource": "https://core.xjtlu.edu.cn/course/view.php?id=936",
+    "nextSteps": "先用自己的话解释本讲每个模块，再完成基础、应用和挑战题；对错题回到引用页检查概念与条件。掌握后沿课程知识地图进入后续内容。",
+    "dependencies": [
+      15
+    ],
+    "sourceType": "current-course-pdf"
+  },
+  {
+    "id": 17,
+    "title": "计数器级联、译码与时钟应用",
+    "source": "Lecture17g.pdf",
+    "objectives": [
+      "理解并能应用模数乘积与使能级联",
+      "理解并能应用截断与预置装载",
+      "理解并能应用状态译码与应用"
+    ],
+    "modules": [
+      {
+        "id": "L17-M1",
+        "title": "模数乘积与使能级联",
+        "pages": [
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ],
+        "explanation": "<p>级联让低位计数器完成一次循环时，高位前进一次。若两级模数分别是 \\(M1\\) 和 \\(M2\\)，整体有 \\(M1M2\\) 个不同组合。</p><p>同步芯片级联常把低位终端计数信号接高位计数使能，同时共享时钟。以十进制两级为例，低位从 \\(9\\) 回到 \\(0\\) 的同一边沿，高位加 \\(1\\)。</p>",
+        "formula": "M_{\\mathrm{total}}=\\prod_i M_i,\\qquad f_{\\mathrm{cycle}}=\\frac{f_{\\mathrm{in}}}{M_{\\mathrm{total}}}",
+        "conditions": "确认每个低位完整循环恰好允许高位增加一次。",
+        "misconceptions": [
+          "不要把各级模数相加；同步级联也不一定用前级输出当后级时钟。"
+        ],
+        "examples": [
+          {
+            "level": "Basic",
+            "question": "两个模4计数器级联，总模数是多少？",
+            "solution": "<p>\\(4\\times4=16\\)。</p>",
+            "source": "Lecture17g.pdf",
+            "page": 3,
+            "sourcePages": [
+              3,
+              4,
+              5,
+              6,
+              7,
+              8
+            ],
+            "authorship": "课程原理衍生例题，非官方试题"
+          },
+          {
+            "level": "Intermediate",
+            "question": "模8与模5级联，输入2 kHz，整体循环频率多少？",
+            "solution": "<p>\\(M=8\\times5=40\\)，\\(f=2000/40=50\\,Hz\\)。</p>",
+            "source": "Lecture17g.pdf",
+            "page": 3,
+            "sourcePages": [
+              3,
+              4,
+              5,
+              6,
+              7,
+              8
+            ],
+            "authorship": "课程原理衍生例题，非官方试题"
+          },
+          {
+            "level": "Advanced",
+            "question": "三级模10、10、6级联，从零开始输入1234脉冲后整体计数是多少？",
+            "solution": "<p>总模数\\(600\\)。\\(1234\\bmod600=34\\)，整体状态对应第\\(34\\)计数；显示方式需按各级位序读取。</p>",
+            "source": "Lecture17g.pdf",
+            "page": 3,
+            "sourcePages": [
+              3,
+              4,
+              5,
+              6,
+              7,
+              8
+            ],
+            "authorship": "课程原理衍生例题，非官方试题"
+          }
+        ],
+        "dependency": null,
+        "learningOrder": "模数乘积与使能级联 → 截断与预置装载 → 状态译码与应用"
+      },
+      {
+        "id": "L17-M2",
+        "title": "截断与预置装载",
+        "pages": [
+          9,
+          10,
+          11
+        ],
+        "explanation": "<p>异步清零的截断计数通常在到达 M 时立即复位；同步清零必须提前在 \\(M-1\\) 状态提出请求，使下一时钟沿回零。分析时应将控制动作的时机写清楚。</p><p>也可每次到终端计数后装入一个非零初值。\\(16\\) 位满量程计数器从 \\(25536\\) 数到 \\(65535\\)，包含的状态数为 \\(65535-25536+1=40000\\)。</p>",
+        "formula": "M=2^n-P",
+        "conditions": "预置 P 后计到全 1，下一有效边沿重装 P；计数包含起点与终点。",
+        "misconceptions": [
+          "计数长度要包含两端，因此不能漏掉 +1。"
+        ],
+        "examples": [
+          {
+            "level": "Basic",
+            "question": "4位满模计数器预置6，数到15再重装6，模数？",
+            "solution": "<p>\\(15-6+1=10\\)，也可用\\(2^4-6=10\\)。</p>",
+            "source": "Lecture17g.pdf",
+            "page": 9,
+            "sourcePages": [
+              9,
+              10,
+              11
+            ],
+            "authorship": "课程原理衍生例题，非官方试题"
+          },
+          {
+            "level": "Intermediate",
+            "question": "12位计数器欲预置成模1000，求装载值。",
+            "solution": "<p>\\(P=2^{12}-1000=4096-1000=3096\\)。循环\\(3096\\ldots 4095\\)恰有\\(1000\\)状态。</p>",
+            "source": "Lecture17g.pdf",
+            "page": 9,
+            "sourcePages": [
+              9,
+              10,
+              11
+            ],
+            "authorship": "课程原理衍生例题，非官方试题"
+          },
+          {
+            "level": "Advanced",
+            "question": "比较异步与同步方式实现从0起计的模8截断，检测请求应怎样安排？",
+            "solution": "<p>若异步清零在检测后立即生效，检测\\(8\\)；若同步清零在下一沿才生效，在\\(7\\)时发出请求，使下一沿回\\(0\\)。须结合具体控制极性与优先级，避免多留一个稳定状态。</p>",
+            "source": "Lecture17g.pdf",
+            "page": 9,
+            "sourcePages": [
+              9,
+              10,
+              11
+            ],
+            "authorship": "课程原理衍生例题，非官方试题"
+          }
+        ],
+        "dependency": "L17-M1",
+        "learningOrder": "模数乘积与使能级联 → 截断与预置装载 → 状态译码与应用"
+      },
+      {
+        "id": "L17-M3",
+        "title": "状态译码与应用",
+        "pages": [
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18
+        ],
+        "explanation": "<p>译码判断当前计数是否等于目标值。目标位为 \\(1\\) 就使用原变量，为 \\(0\\) 就使用反相变量，再把条件相与。</p><p>异步计数器瞬态会触发误译码，课件提出在过渡结束后再使能译码输出。时钟的秒、分计数各使用模 \\(60\\)，小时部分采用专门序列，不能直接套二进制满模规则。</p>",
+        "formula": "D_6=Q_2Q_1\\overline{Q_0}",
+        "conditions": "先约定位序与译码输出极性，按目标值建立等式；译码在状态稳定后使用。",
+        "misconceptions": [
+          "只检测部分位可能同时命中多个位型，应说明合法状态限制。"
+        ],
+        "examples": [
+          {
+            "level": "Basic",
+            "question": "写出三位状态5的高有效精确译码。",
+            "solution": "<p>\\(5=101_2\\)，因此\\(D_5=Q_2\\overline Q_1Q_0\\)。</p>",
+            "source": "Lecture17g.pdf",
+            "page": 12,
+            "sourcePages": [
+              12,
+              13,
+              14,
+              15,
+              16,
+              17,
+              18
+            ],
+            "authorship": "课程原理衍生例题，非官方试题"
+          },
+          {
+            "level": "Intermediate",
+            "question": "只译码Q2=1、Q0=1，而忽略Q1，会识别哪些三位值？",
+            "solution": "<p>\\(Q_{1}\\)可为\\(0\\)或\\(1\\)，所以识别\\(101\\)与\\(111\\)，即\\(5\\)和\\(7\\)；并非精确识别\\(5\\)。</p>",
+            "source": "Lecture17g.pdf",
+            "page": 12,
+            "sourcePages": [
+              12,
+              13,
+              14,
+              15,
+              16,
+              17,
+              18
+            ],
+            "authorship": "课程原理衍生例题，非官方试题"
+          },
+          {
+            "level": "Advanced",
+            "question": "1 Hz脉冲驱动秒和分模60级联，经过3661次脉冲，从00:00:00起计到何时？",
+            "solution": "<p>\\(3661=3600+60+1\\)，得到\\(1\\)小时\\(1\\)分\\(1\\)秒。在两级秒分中均余\\(1\\)，小时进位一次；这里未涉及\\(12/24\\)小时回绕。</p>",
+            "source": "Lecture17g.pdf",
+            "page": 12,
+            "sourcePages": [
+              12,
+              13,
+              14,
+              15,
+              16,
+              17,
+              18
+            ],
+            "authorship": "课程原理衍生例题，非官方试题"
+          }
+        ],
+        "dependency": "L17-M2",
+        "learningOrder": "模数乘积与使能级联 → 截断与预置装载 → 状态译码与应用"
+      }
+    ],
+    "glossary": [
+      [
+        "Cascade",
+        "级联"
+      ],
+      [
+        "Decoding",
+        "译码"
+      ],
+      [
+        "Glitch",
+        "毛刺"
+      ]
+    ],
+    "summary": "模数乘积与使能级联 → 截断与预置装载 → 状态译码与应用",
+    "templates": [
+      "模数乘积与使能级联：确认每个低位完整循环恰好允许高位增加一次。",
+      "截断与预置装载：预置 P 后计到全 1，下一有效边沿重装 P；计数包含起点与终点。",
+      "状态译码与应用：先约定位序与译码输出极性，按目标值建立等式；译码在状态稳定后使用。"
+    ],
+    "contentNote": "解释、例题与练习由课程材料推导编写；例题数值为教学自拟，非官方试题。引用统一使用 PDF 实际页码。原图和波形应结合源文件核对。",
+    "week": 9,
+    "weekSource": "https://core.xjtlu.edu.cn/course/view.php?id=936",
+    "nextSteps": "先用自己的话解释本讲每个模块，再完成基础、应用和挑战题；对错题回到引用页检查概念与条件。掌握后沿课程知识地图进入后续内容。",
+    "dependencies": [
+      16
+    ],
+    "sourceType": "current-course-pdf"
+  },
+  {
+    "id": 18,
+    "title": "移位寄存器与串并转换",
+    "source": "Lecture18_new.pdf",
+    "objectives": [
+      "理解并能应用逐级数据移动与时延",
+      "理解并能应用串入并出与移位算术",
+      "理解并能应用并入串出、加载与保持"
+    ],
+    "modules": [
+      {
+        "id": "L18-M1",
+        "title": "逐级数据移动与时延",
+        "pages": [
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        "explanation": "<p>移位寄存器由级联触发器组成，每级保存一位。共同有效边沿到来时，每级采样前一级的旧值，数据因此只前进一步。</p><p>SISO 可产生时延。说明时延时必须交代从哪个时刻开始计：新位在第一有效沿进入第一级，第 n 个有效沿到达第 n 级；从第一沿到最后一沿相隔 \\(n-1\\) 个周期。</p>",
+        "formula": "Q_0^+=S_{in},\\quad Q_i^+=Q_{i-1}",
+        "conditions": "所有级同时读取边沿前的值；指定移位方向、初始值和串入顺序。",
+        "misconceptions": [
+          "不能在同一个边沿内把刚更新的一级值再传播到所有后级。"
+        ],
+        "examples": [
+          {
+            "level": "Basic",
+            "question": "3级寄存器Q2Q1Q0=000，定义新位进入Q0，串入1一次后的状态？",
+            "solution": "<p>\\(Q_{0}\\)新值\\(1\\)，\\(Q_{1}\\)、\\(Q_{2}\\)读取旧零，得到\\(001\\)。</p>",
+            "source": "Lecture18_new.pdf",
+            "page": 3,
+            "sourcePages": [
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10
+            ],
+            "authorship": "课程原理衍生例题，非官方试题"
+          },
+          {
+            "level": "Intermediate",
+            "question": "同一3级寄存器从000开始依次串入1、0、1，写每沿状态。",
+            "solution": "<p>新位进入\\(Q_{0}\\)：\\(001\\to 010\\to 101\\)。每级在同一沿读取前级旧值。</p>",
+            "source": "Lecture18_new.pdf",
+            "page": 3,
+            "sourcePages": [
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10
+            ],
+            "authorship": "课程原理衍生例题，非官方试题"
+          },
+          {
+            "level": "Advanced",
+            "question": "6级SISO首位在第1沿进入，时钟2 kHz，该位何时到末级，首尾沿间隔？",
+            "solution": "<p>第\\(6\\)沿到达第\\(6\\)级；周期\\(0.5 \\mathrm{ms}\\)，从第\\(1\\)沿到第\\(6\\)沿为\\(5\\)个周期，因此\\(2.5 \\mathrm{ms}\\)。时间零点需与第\\(1\\)沿明确对应。</p>",
+            "source": "Lecture18_new.pdf",
+            "page": 3,
+            "sourcePages": [
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10
+            ],
+            "authorship": "课程原理衍生例题，非官方试题"
+          }
+        ],
+        "dependency": null,
+        "learningOrder": "逐级数据移动与时延 → 串入并出与移位算术 → 并入串出、加载与保持"
+      },
+      {
+        "id": "L18-M2",
+        "title": "串入并出与移位算术",
+        "pages": [
+          5,
+          6,
+          11,
+          12,
+          13
+        ],
+        "explanation": "<p>SIPO 仍逐位串入，但每一级的输出都可同时读取，因此装满之后可以作为一个并行字使用。74HC164 示例使用八个输出位，两个输入共同控制首级。</p><p>对于无符号整数，左移一位并在最低位补零等于乘 \\(2\\)，但必须没有高位丢失；逻辑右移补零相当于向下取整除 \\(2\\)。有符号数还需区分算术移位。</p>",
+        "formula": "x\\ll1=2x\\pmod{2^n},\\quad x\\gg1=\\lfloor x/2\\rfloor",
+        "conditions": "先声明无符号、位宽、补入位和溢出情况；移位不能无条件解释为精确乘除。",
+        "misconceptions": [
+          "固定字长左移丢弃最高位时，结果可能不再等于数学上的 2x。"
+        ],
+        "examples": [
+          {
+            "level": "Basic",
+            "question": "无符号8位00000101左移补零，结果？",
+            "solution": "<p>得到\\(00001010\\)，即\\(5\\times 2=10\\)，无高位丢失。</p>",
+            "source": "Lecture18_new.pdf",
+            "page": 5,
+            "sourcePages": [
+              5,
+              6,
+              11,
+              12,
+              13
+            ],
+            "authorship": "课程原理衍生例题，非官方试题"
+          },
+          {
+            "level": "Intermediate",
+            "question": "8位无符号00101011逻辑右移两位，结果？",
+            "solution": "<p>\\(43\\)先右移为\\(21\\)，再右移为\\(10\\)，结果\\(00001010\\)。等效\\(\\lfloor43/4\\rfloor=10\\)。</p>",
+            "source": "Lecture18_new.pdf",
+            "page": 5,
+            "sourcePages": [
+              5,
+              6,
+              11,
+              12,
+              13
+            ],
+            "authorship": "课程原理衍生例题，非官方试题"
+          },
+          {
+            "level": "Advanced",
+            "question": "8位无符号01100000左移两位，分别报告数学结果和保留8位结果。",
+            "solution": "<p>原值\\(96\\)，数学乘\\(4\\)为\\(384\\)；固定\\(8\\)位保留\\(384 \\operatorname{mod}256=128\\)，编码\\(10000000\\)。第一移位为\\(11000000\\)，第二移位丢失最高位\\(1\\)。</p>",
+            "source": "Lecture18_new.pdf",
+            "page": 5,
+            "sourcePages": [
+              5,
+              6,
+              11,
+              12,
+              13
+            ],
+            "authorship": "课程原理衍生例题，非官方试题"
+          }
+        ],
+        "dependency": "L18-M1",
+        "learningOrder": "逐级数据移动与时延 → 串入并出与移位算术 → 并入串出、加载与保持"
+      },
+      {
+        "id": "L18-M3",
+        "title": "并入串出、加载与保持",
+        "pages": [
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20,
+          21,
+          22
+        ],
+        "explanation": "<p>PISO 先把各位并行装入，再按指定顺序逐位移出。讲义示例的 S/L 为 LOW 时加载、HIGH 时移位；具体芯片 SH/LD 也需要根据有效电平解释。</p><p>PIPO 则同时输入、同时输出。分析波形时应明确加载是同步还是异步、时钟是否被禁止，以及输出是边沿之前已有位还是边沿之后的新位。</p>",
+        "formula": "\\mathrm{parallel\\ word}\\xrightarrow{\\mathrm{load}}\\mathrm{register}\\xrightarrow{\\mathrm{shift}}\\mathrm{serial\\ bits}",
+        "conditions": "按器件规定区分加载与移位模式，先标注输出位序，再列每一步寄存器状态。",
+        "misconceptions": [
+          "第一位可能在加载后已经位于串行输出端，不能无条件把“读四位”写成必须四次移位。"
+        ],
+        "examples": [
+          {
+            "level": "Basic",
+            "question": "PIPO为什么适合并行字暂存？",
+            "solution": "<p>各位同时接入不同触发器，输出也分别可读，在共同加载条件下同时保存整个字。</p>",
+            "source": "Lecture18_new.pdf",
+            "page": 14,
+            "sourcePages": [
+              14,
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22
+            ],
+            "authorship": "课程原理衍生例题，非官方试题"
+          },
+          {
+            "level": "Intermediate",
+            "question": "加载1100后按LSB先出读四位，输出顺序？",
+            "solution": "<p>LSB是最右位，依次读\\(0\\)、\\(0\\)、\\(1\\)、\\(1\\)。必须先明确位序，不能默认MSB先出。</p>",
+            "source": "Lecture18_new.pdf",
+            "page": 14,
+            "sourcePages": [
+              14,
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22
+            ],
+            "authorship": "课程原理衍生例题，非官方试题"
+          },
+          {
+            "level": "Advanced",
+            "question": "8位PISO加载后首位已可读，以1 kHz每次移位送出下位，从读首位到读第8位相隔多久？",
+            "solution": "<p>其余七位需要七次移位，周期\\(1 \\mathrm{ms}\\)，所以首尾读取相隔\\(7 \\mathrm{ms}\\)。这与完整通信协议另加加载或帧间隔的总时间不同。</p>",
+            "source": "Lecture18_new.pdf",
+            "page": 14,
+            "sourcePages": [
+              14,
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22
+            ],
+            "authorship": "课程原理衍生例题，非官方试题"
+          }
+        ],
+        "dependency": "L18-M2",
+        "learningOrder": "逐级数据移动与时延 → 串入并出与移位算术 → 并入串出、加载与保持"
+      }
+    ],
+    "glossary": [
+      [
+        "SISO",
+        "串入串出"
+      ],
+      [
+        "SIPO",
+        "串入并出"
+      ],
+      [
+        "PISO",
+        "并入串出"
+      ]
+    ],
+    "summary": "逐级数据移动与时延 → 串入并出与移位算术 → 并入串出、加载与保持",
+    "templates": [
+      "逐级数据移动与时延：所有级同时读取边沿前的值；指定移位方向、初始值和串入顺序。",
+      "串入并出与移位算术：先声明无符号、位宽、补入位和溢出情况；移位不能无条件解释为精确乘除。",
+      "并入串出、加载与保持：按器件规定区分加载与移位模式，先标注输出位序，再列每一步寄存器状态。"
+    ],
+    "contentNote": "解释、例题与练习由课程材料推导编写；例题数值为教学自拟，非官方试题。引用统一使用 PDF 实际页码。原图和波形应结合源文件核对。",
+    "week": 9,
+    "weekSource": "https://core.xjtlu.edu.cn/course/view.php?id=936",
+    "nextSteps": "先用自己的话解释本讲每个模块，再完成基础、应用和挑战题；对错题回到引用页检查概念与条件。掌握后沿课程知识地图进入后续内容。",
+    "dependencies": [
+      17
+    ],
+    "sourceType": "current-course-pdf"
+  },
+  {
+    "id": 19,
+    "title": "双向寄存器、Johnson 与环形计数器",
+    "source": "Lecture19.pdf",
+    "objectives": [
+      "理解并能应用双向移位与通用寄存器",
+      "理解并能应用Johnson 反馈与有效循环",
+      "理解并能应用环形计数与初始化"
+    ],
+    "modules": [
+      {
+        "id": "L19-M1",
+        "title": "双向移位与通用寄存器",
+        "pages": [
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "explanation": "<p>双向寄存器用模式控制选择某一级的数据来自左邻还是右邻。方向决定哪个端口作为串行输入、哪个端口输出移出的位。</p><p>讲义 74HC194 的 \\(S_{1}S0=00\\) 保持、\\(01\\) 右移、\\(10\\) 左移、\\(11\\) 加载，CLR 为异步清零。分析时先读取模式，再决定数据通路。</p>",
+        "formula": "S_1S_0:\\quad00=\\mathrm{hold},\\ 01=\\mathrm{right},\\ 10=\\mathrm{left},\\ 11=\\mathrm{load}",
+        "conditions": "位序固定为 Q3Q2Q1Q0，说明从哪一端移入以及新输入值。",
+        "misconceptions": [
+          "移位方向需依据位序或箭头，不能只凭图在屏幕上的摆放判断。"
+        ],
+        "examples": [
+          {
+            "level": "Basic",
+            "question": "4位寄存器0011保持模式经过两个时钟，输出？",
+            "solution": "<p>保持模式不会执行正常移位，状态仍为\\(0011\\)。</p>",
+            "source": "Lecture19.pdf",
+            "page": 3,
+            "sourcePages": [
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "authorship": "课程原理衍生例题，非官方试题"
+          },
+          {
+            "level": "Intermediate",
+            "question": "Q3Q2Q1Q0=0110，左移并从低位注入1，结果？",
+            "solution": "<p>新\\(Q_{3}Q2Q1\\)取旧\\(Q_{2}Q1Q0\\)，即\\(110\\)，低位为\\(1\\)，得到\\(1101\\)。</p>",
+            "source": "Lecture19.pdf",
+            "page": 3,
+            "sourcePages": [
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "authorship": "课程原理衍生例题，非官方试题"
+          },
+          {
+            "level": "Advanced",
+            "question": "初始1101，先右移补0，再并行加载0010，再左移补1，最终？",
+            "solution": "<p>右移得到\\(0110\\)；加载直接替换为\\(0010\\)；左移并补\\(1\\)得到\\(0101\\)。加载与移位是不同模式，不应把旧位残留。</p>",
+            "source": "Lecture19.pdf",
+            "page": 3,
+            "sourcePages": [
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "authorship": "课程原理衍生例题，非官方试题"
+          }
+        ],
+        "dependency": null,
+        "learningOrder": "双向移位与通用寄存器 → Johnson 反馈与有效循环 → 环形计数与初始化"
+      },
+      {
+        "id": "L19-M2",
+        "title": "Johnson 反馈与有效循环",
+        "pages": [
+          8,
+          9,
+          10,
+          11,
+          12,
+          13
+        ],
+        "explanation": "<p>Johnson 计数器把末级反相输出反馈到首级。以全零起始，新的 \\(1\\) 逐步填满寄存器，再由 \\(0\\) 逐步清空，n 级正常循环有 \\(2n\\) 个状态。</p><p>它只使用全部 \\(2^{n}\\) 位型中的一部分。讲义四位示例指出，不在正常八状态循环中的初始值可能落入另一循环，因此初始化是设计的一部分。</p>",
+        "formula": "M_{\\mathrm{Johnson}}=2n",
+        "conditions": "从指定有效初态开始，按同一移位方向使用末级旧输出的反相作为新输入。",
+        "misconceptions": [
+          "2n 与 2ⁿ 不同；Johnson 不会自然遍历所有二进制位型。"
+        ],
+        "examples": [
+          {
+            "level": "Basic",
+            "question": "3级正常Johnson循环有几态？",
+            "solution": "<p>\\(2n=2\\times3=6\\)。</p>",
+            "source": "Lecture19.pdf",
+            "page": 8,
+            "sourcePages": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13
+            ],
+            "authorship": "课程原理衍生例题，非官方试题"
+          },
+          {
+            "level": "Intermediate",
+            "question": "三位Johnson定义右移且新高位为旧最低位的反相，从000列完整循环。",
+            "solution": "<p>\\(000\\to 100\\to 110\\to 111\\to 011\\to 001\\to 000\\)，共六种状态。每步都用旧最低位形成反馈。</p>",
+            "source": "Lecture19.pdf",
+            "page": 8,
+            "sourcePages": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13
+            ],
+            "authorship": "课程原理衍生例题，非官方试题"
+          },
+          {
+            "level": "Advanced",
+            "question": "四级Johnson正常循环占全部位型的比例是多少？",
+            "solution": "<p>正常循环\\(2n=8\\)态，全部\\(2^n=16\\)种位型，比例\\(8/16=50\\%\\)。其余位型不会自动因此成为合法循环的一部分，需要初始化。</p>",
+            "source": "Lecture19.pdf",
+            "page": 8,
+            "sourcePages": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13
+            ],
+            "authorship": "课程原理衍生例题，非官方试题"
+          }
+        ],
+        "dependency": "L19-M1",
+        "learningOrder": "双向移位与通用寄存器 → Johnson 反馈与有效循环 → 环形计数与初始化"
+      },
+      {
+        "id": "L19-M3",
+        "title": "环形计数与初始化",
+        "pages": [
+          14,
+          15,
+          16
+        ],
+        "explanation": "<p>环形计数器把末级原输出反馈到首级。标准 one-hot 运行方式预置恰好一个 \\(1\\)，其余位为 \\(0\\)；这个 \\(1\\) 随时钟在各级之间循环，n 级有 n 个状态。</p><p>如果全零开始，零只会继续循环，无法自行生成 one-hot 序列。环形输出可直接作为逐相选择信号；代价是使用较多触发器而未充分利用全部位型。</p>",
+        "formula": "M_{\\mathrm{one\\text{-}hot\\ ring}}=n",
+        "conditions": "先置入合法 one-hot 状态，再按固定方向循环；报告状态数时注明 one-hot 假设。",
+        "misconceptions": [
+          "任意环形初态不一定产生 n 个不同状态，全零会停留在全零。"
+        ],
+        "examples": [
+          {
+            "level": "Basic",
+            "question": "5级one-hot环形计数器正常模数是多少？",
+            "solution": "<p>一个\\(1\\)在五个位置循环，模数\\(5\\)。</p>",
+            "source": "Lecture19.pdf",
+            "page": 14,
+            "sourcePages": [
+              14,
+              15,
+              16
+            ],
+            "authorship": "课程原理衍生例题，非官方试题"
+          },
+          {
+            "level": "Intermediate",
+            "question": "四位环形右移并反馈原最低位，从0010再移两次，结果？",
+            "solution": "<p>\\(0010\\to 0001\\to 1000\\)，最终\\(1000\\)。</p>",
+            "source": "Lecture19.pdf",
+            "page": 14,
+            "sourcePages": [
+              14,
+              15,
+              16
+            ],
+            "authorship": "课程原理衍生例题，非官方试题"
+          },
+          {
+            "level": "Advanced",
+            "question": "四位环形从1010开始右移，实际循环有几态？是否是one-hot？",
+            "solution": "<p>\\(1010\\to 0101\\to 1010\\)，只含两态，而且每态有两个\\(1\\)，非one-hot。说明“n级环形有n态”需要指定合法初始化。</p>",
+            "source": "Lecture19.pdf",
+            "page": 14,
+            "sourcePages": [
+              14,
+              15,
+              16
+            ],
+            "authorship": "课程原理衍生例题，非官方试题"
+          }
+        ],
+        "dependency": "L19-M2",
+        "learningOrder": "双向移位与通用寄存器 → Johnson 反馈与有效循环 → 环形计数与初始化"
+      }
+    ],
+    "glossary": [
+      [
+        "Bidirectional",
+        "双向"
+      ],
+      [
+        "Johnson counter",
+        "扭环计数器"
+      ],
+      [
+        "Ring counter",
+        "环形计数器"
+      ]
+    ],
+    "summary": "双向移位与通用寄存器 → Johnson 反馈与有效循环 → 环形计数与初始化",
+    "templates": [
+      "双向移位与通用寄存器：位序固定为 Q3Q2Q1Q0，说明从哪一端移入以及新输入值。",
+      "Johnson 反馈与有效循环：从指定有效初态开始，按同一移位方向使用末级旧输出的反相作为新输入。",
+      "环形计数与初始化：先置入合法 one-hot 状态，再按固定方向循环；报告状态数时注明 one-hot 假设。"
+    ],
+    "contentNote": "解释、例题与练习由课程材料推导编写；例题数值为教学自拟，非官方试题。引用统一使用 PDF 实际页码。原图和波形应结合源文件核对。",
+    "week": 10,
+    "weekSource": "https://core.xjtlu.edu.cn/course/view.php?id=936",
+    "nextSteps": "先用自己的话解释本讲每个模块，再完成基础、应用和挑战题；对错题回到引用页检查概念与条件。掌握后沿课程知识地图进入后续内容。",
+    "dependencies": [
+      18
+    ],
+    "sourceType": "current-course-pdf"
+  }
+]
